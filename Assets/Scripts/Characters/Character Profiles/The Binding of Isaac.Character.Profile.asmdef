@@ -1,0 +1,16 @@
+{
+    "name": "The Binding of Isaac.Character.Profile",
+    "rootNamespace": "",
+    "references": [
+        "Tree-Data-Model"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
