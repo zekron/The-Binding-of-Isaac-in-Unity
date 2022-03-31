@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
-using UnityEngine.Assertions;
 
 public abstract class CharacterProfileTreeView<T> : TreeViewWithTreeModel<T> where T : CharacterProfileTreeElement
 {
@@ -15,7 +13,7 @@ public abstract class CharacterProfileTreeView<T> : TreeViewWithTreeModel<T> whe
 
     internal bool InEditMode = true;
     // All columns
-    protected enum MyColumns
+    internal protected enum MyColumns
     {
         ID,
         Name,
@@ -89,6 +87,90 @@ public abstract class CharacterProfileTreeView<T> : TreeViewWithTreeModel<T> whe
         SortByMultipleColumns();
         TreeToList(root, rows);
         Repaint();
+    }
+
+    internal static MultiColumnHeaderState CreateDefaultMultiColumnHeaderState(params MyColumns[] contents)
+    {
+        var columns = new MultiColumnHeaderState.Column[contents.Length];
+        GUIContent tempHeaderContent = new GUIContent();
+        for (int i = 0; i < columns.Length; i++)
+        {
+            switch (contents[i])
+            {
+                case MyColumns.ID:
+                    tempHeaderContent = new GUIContent("Character ID", "ID of character");
+                    break;
+                case MyColumns.Name:
+                    tempHeaderContent = new GUIContent("Character Name", "Name of character");
+                    break;
+                case MyColumns.BaseHealth:
+                    tempHeaderContent = new GUIContent("Base Health");
+                    break;
+                case MyColumns.BaseMoveSpeed:
+                    tempHeaderContent = new GUIContent("Base Speed");
+                    break;
+                case MyColumns.BaseDamage:
+                    tempHeaderContent = new GUIContent("Base Damage");
+                    break;
+                case MyColumns.DamageMultiplier:
+                    tempHeaderContent = new GUIContent("Damage Multiplier", "Will be used after Damage Formula");
+                    break;
+                case MyColumns.BaseRange:
+                    tempHeaderContent = new GUIContent("Base Range", "How far the tears go");
+                    break;
+                case MyColumns.Tears:
+                    tempHeaderContent = new GUIContent("Tears", "How many tears spawn per second");
+                    break;
+                case MyColumns.TearDelay:
+                    tempHeaderContent = new GUIContent("Tears Delay", "Real mechanic about Tears, with formula");
+                    break;
+                case MyColumns.ShotSpeed:
+                    tempHeaderContent = new GUIContent("Shot Speed", "Tear's speed");
+                    break;
+                case MyColumns.Luck:
+                    tempHeaderContent = new GUIContent("Luck", "Affect a lot");
+                    break;
+                default:
+                    tempHeaderContent = new GUIContent();
+                    break;
+            }
+
+            if (contents[i] == MyColumns.ID || contents[i] == MyColumns.Name)
+            {
+                columns[i] = new MultiColumnHeaderState.Column
+                {
+                    headerContent = tempHeaderContent,
+                    contextMenuText = "Type",
+                    headerTextAlignment = TextAlignment.Left,
+                    sortedAscending = true,
+                    sortingArrowAlignment = TextAlignment.Right,
+                    width = 100,
+                    minWidth = 100,
+                    maxWidth = 200,
+                    autoResize = false,
+                    allowToggleVisibility = true
+                };
+            }
+            else
+            {
+                columns[i] = new MultiColumnHeaderState.Column
+                {
+                    headerContent = tempHeaderContent,
+                    contextMenuText = "Type",
+                    headerTextAlignment = TextAlignment.Right,
+                    sortedAscending = true,
+                    sortingArrowAlignment = TextAlignment.Left,
+                    width = 100,
+                    minWidth = 60,
+                    maxWidth = 200,
+                    autoResize = false,
+                    allowToggleVisibility = true
+                };
+            }
+        }
+
+        var state = new MultiColumnHeaderState(columns);
+        return state;
     }
 
     protected abstract void SortByMultipleColumns();

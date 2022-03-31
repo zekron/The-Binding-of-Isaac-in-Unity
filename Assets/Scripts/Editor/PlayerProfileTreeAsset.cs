@@ -8,14 +8,14 @@ internal class PlayerProfileTreeAsset : CharacterProfileTreeAsset<PlayerProfileT
     {
         m_TreeElements = new List<PlayerProfileTreeElement>()
         {
-            new PlayerProfileTreeElement("Root", HealthData.Zero, depth: -1, id: m_MaxID),
+            new PlayerProfileTreeElement("Root", HealthData.RedOne, depth: -1, id: m_MaxID),
         };
         CreateProfile();
     }
 
     public override PlayerProfileTreeElement CreateProfile()
     {
-        PlayerProfileTreeElement result = new PlayerProfileTreeElement("Name here", HealthData.Zero, depth: 0, id: GenerateUniqueID());
+        PlayerProfileTreeElement result = new PlayerProfileTreeElement("Name here", HealthData.RedOne, depth: 0, id: GenerateUniqueID());
         m_TreeElements.Add(result);
         return result;
     }

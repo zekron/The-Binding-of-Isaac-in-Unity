@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
@@ -5,18 +6,18 @@ using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using static CharacterProfileTreeView<PlayerProfileTreeElement>;
 
-public class PlayerProfileWindow : ProfileWindow<PlayerProfileTreeElement>
+public class EnemyProfileWindow : ProfileWindow<EnemyProfileTreeElement>
 {
-    //private PlayerProfileTreeView m_TreeView;
-    //private PlayerProfileTreeAsset m_MyTreeAsset;
+    //private EnemyProfileTreeView m_TreeView;
+    //private EnemyProfileTreeAsset m_MyTreeAsset;
 
-    private const string PATH_PLAYERPROFILE_SO = "Assets/ScriptableObjects/";
-    private const string FILE_PLAYERPROFILE_SO = "PlayerProfile TreeAsset.asset";
+    private const string PATH_ENEMYPROFILE_SO = "Assets/ScriptableObjects/";
+    private const string FILE_ENEMYPROFILE_SO = "EnemyProfile TreeAsset.asset";
 
-    [MenuItem("Custom Menu/Window/Player Profile Editor")]
+    [MenuItem("Custom Menu/Window/Enemy Profile Editor")]
     private static void CreateWindow()
     {
-        EditorWindow window = GetWindow<PlayerProfileWindow>("Player Profile Editor", true);
+        EditorWindow window = GetWindow<EnemyProfileWindow>("Enemy Profile Editor", true);
         //window.minSize = window.maxSize = new Vector2(600, 600);
     }
 
@@ -29,7 +30,7 @@ public class PlayerProfileWindow : ProfileWindow<PlayerProfileTreeElement>
     //            m_TreeViewState = new TreeViewState();
 
     //        bool firstInit = m_MultiColumnHeaderState == null;
-    //        var headerState = PlayerProfileTreeView.CreateDefaultMultiColumnHeaderState(multiColumnTreeViewRect.width);
+    //        var headerState = EnemyProfileTreeView.CreateDefaultMultiColumnHeaderState(multiColumnTreeViewRect.width);
     //        if (MultiColumnHeaderState.CanOverwriteSerializedFields(m_MultiColumnHeaderState, headerState))
     //            MultiColumnHeaderState.OverwriteSerializedFields(m_MultiColumnHeaderState, headerState);
     //        m_MultiColumnHeaderState = headerState;
@@ -38,9 +39,9 @@ public class PlayerProfileWindow : ProfileWindow<PlayerProfileTreeElement>
     //        if (firstInit)
     //            multiColumnHeader.ResizeToFit();
     //        multiColumnHeader.height = 20;
-    //        var treeModel = new TreeModel<PlayerProfileTreeElement>(GetData());
+    //        var treeModel = new TreeModel<EnemyProfileTreeElement>(GetData());
 
-    //        m_TreeView = new PlayerProfileTreeView(m_TreeViewState, multiColumnHeader, treeModel);
+    //        m_TreeView = new EnemyProfileTreeView(m_TreeViewState, multiColumnHeader, treeModel);
 
     //        m_SearchField = new SearchField();
     //        m_SearchField.downOrUpArrowKeyPressed += m_TreeView.SetFocusAndEnsureSelectedItem;
@@ -106,15 +107,15 @@ public class PlayerProfileWindow : ProfileWindow<PlayerProfileTreeElement>
     //    m_TreeView.InEditMode = !GUILayout.Toggle(value, "Edit Mode");
     //}
 
-    protected override IList<PlayerProfileTreeElement> GetData()
+    protected override IList<EnemyProfileTreeElement> GetData()
     {
         if (CheckTreeAsset())
             return m_MyTreeAsset.TreeElements;
         else
         {
-            CheckFileExists(PATH_PLAYERPROFILE_SO, FILE_PLAYERPROFILE_SO, typeof(PlayerProfileTreeAsset));
+            CheckFileExists(PATH_ENEMYPROFILE_SO, FILE_ENEMYPROFILE_SO, typeof(EnemyProfileTreeAsset));
 
-            m_MyTreeAsset = AssetDatabase.LoadAssetAtPath<PlayerProfileTreeAsset>(Path.Combine(PATH_PLAYERPROFILE_SO, FILE_PLAYERPROFILE_SO));
+            m_MyTreeAsset = AssetDatabase.LoadAssetAtPath<EnemyProfileTreeAsset>(Path.Combine(PATH_ENEMYPROFILE_SO, FILE_ENEMYPROFILE_SO));
 
             EditorUtility.SetDirty(m_MyTreeAsset);
             return m_MyTreeAsset.TreeElements;
@@ -147,9 +148,9 @@ public class PlayerProfileWindow : ProfileWindow<PlayerProfileTreeElement>
         EditorUtility.SetDirty(m_MyTreeAsset);
     }
 
-    protected override CharacterProfileTreeView<PlayerProfileTreeElement> CreateTreeView(MultiColumnHeader multiColumnHeader, TreeModel<PlayerProfileTreeElement> treeModel)
+    protected override CharacterProfileTreeView<EnemyProfileTreeElement> CreateTreeView(MultiColumnHeader multiColumnHeader, TreeModel<EnemyProfileTreeElement> treeModel)
     {
-        return new PlayerProfileTreeView(m_TreeViewState, multiColumnHeader, treeModel);
+        return new EnemyProfileTreeView(m_TreeViewState, multiColumnHeader, treeModel);
     }
 
     protected override MultiColumnHeaderState GetHeaderState()
@@ -160,13 +161,8 @@ public class PlayerProfileWindow : ProfileWindow<PlayerProfileTreeElement>
             MyColumns.BaseHealth,
             MyColumns.BaseMoveSpeed,
             MyColumns.BaseDamage,
-            MyColumns.DamageMultiplier,
             MyColumns.BaseRange,
-            MyColumns.Tears,
-            MyColumns.TearDelay,
-            MyColumns.ShotSpeed,
-            MyColumns.Luck);
-        //return PlayerProfileTreeView.CreateDefaultMultiColumnHeaderState(multiColumnTreeViewRect.width); ;
+            MyColumns.TearDelay);
     }
 
     //protected override bool CheckTreeAsset()

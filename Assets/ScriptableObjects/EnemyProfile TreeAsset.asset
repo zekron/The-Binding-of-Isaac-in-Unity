@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23c4e6162a856b2478424315f15a0740, type: 3}
+  m_Name: EnemyProfile TreeAsset
+  m_EditorClassIdentifier: 
+  m_TreeElements:
+  - m_ID: -1
+    m_Name: Root
+    m_Depth: -1
+    BaseMoveSpeed: 1
+    BaseHealth: 0
+    BaseDamage: 1
+    BaseRange: 0
+    TearDelay: 0
+  - m_ID: 1
+    m_Name: Name here
+    m_Depth: 0
+    BaseMoveSpeed: 1
+    BaseHealth: 0
+    BaseDamage: 1
+    BaseRange: 0
+    TearDelay: 0

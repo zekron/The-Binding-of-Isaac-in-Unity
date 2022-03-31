@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.IMGUI.Controls;
-using UnityEditor.TreeViewExamples;
 using UnityEngine;
 using UnityEngine.Assertions;
 public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeElement>
@@ -62,11 +61,11 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                     var soulHeartCellRect = new Rect(cellRect.x + baseWidth/* + labelPadding / 2*/, cellRect.y, baseWidth - labelPadding, cellRect.height);
                     var soulHeartLabelCellRect = new Rect(cellRect.x + 2 * baseWidth - labelPadding / 2, cellRect.y, labelPadding, cellRect.height);
 
-                    item.data.BaseHealth.RedHeart = (int)GUI.HorizontalSlider(redHeartCellRect, item.data.BaseHealth.RedHeart, 0, 5);
-                    DefaultGUI.Label(redHeartLabelCellRect, item.data.BaseHealth.RedHeart.ToString("D"), args.selected, args.focused);
+                    item.data.PlayerHealthData.RedHeart = (int)GUI.HorizontalSlider(redHeartCellRect, item.data.PlayerHealthData.RedHeart, 0, 5);
+                    DefaultGUI.Label(redHeartLabelCellRect, item.data.PlayerHealthData.RedHeart.ToString("D"), args.selected, args.focused);
 
-                    item.data.BaseHealth.SoulHeart = (int)GUI.HorizontalSlider(soulHeartCellRect, item.data.BaseHealth.SoulHeart, 0, 5);
-                    DefaultGUI.Label(soulHeartLabelCellRect, item.data.BaseHealth.SoulHeart.ToString("D"), args.selected, args.focused);
+                    item.data.PlayerHealthData.SoulHeart = (int)GUI.HorizontalSlider(soulHeartCellRect, item.data.PlayerHealthData.SoulHeart, 0, 5);
+                    DefaultGUI.Label(soulHeartLabelCellRect, item.data.PlayerHealthData.SoulHeart.ToString("D"), args.selected, args.focused);
                     break;
                 case MyColumns.BaseMoveSpeed:
                     value = GUI.TextField(cellRect, item.data.BaseMoveSpeed.ToString());
@@ -133,8 +132,8 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
             switch (column)
             {
                 case MyColumns.BaseHealth:
-                    value = item.data.BaseHealth.RedHeart.ToString("D");
-                    GUI.DrawTexture(cellRect, GetHeartTexture(item.data.BaseHealth.RedHeart, item.data.BaseHealth.SoulHeart), ScaleMode.ScaleToFit);
+                    value = item.data.PlayerHealthData.RedHeart.ToString("D");
+                    GUI.DrawTexture(cellRect, GetHeartTexture(item.data.PlayerHealthData.RedHeart, item.data.PlayerHealthData.SoulHeart), ScaleMode.ScaleToFit);
                     break;
                 case MyColumns.ID:
                     value = item.data.ElementID.ToString("D4");
@@ -195,18 +194,18 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                 allowToggleVisibility = true
             },
             new MultiColumnHeaderState.Column
-                {
-                    headerContent = new GUIContent("Character Name", "Name of character"),
-                    contextMenuText = "Type",
-                    headerTextAlignment = TextAlignment.Left,
-                    sortedAscending = true,
-                    sortingArrowAlignment = TextAlignment.Right,
-                    width = 130,
-                    minWidth = 100,
-                    maxWidth = 200,
-                    autoResize = false,
-                    allowToggleVisibility = true
-                },
+            {
+                headerContent = new GUIContent("Character Name", "Name of character"),
+                contextMenuText = "Type",
+                headerTextAlignment = TextAlignment.Left,
+                sortedAscending = true,
+                sortingArrowAlignment = TextAlignment.Right,
+                width = 130,
+                minWidth = 100,
+                maxWidth = 200,
+                autoResize = false,
+                allowToggleVisibility = true
+            },
             new MultiColumnHeaderState.Column
             {
                 headerContent = new GUIContent("Base Health"),
@@ -355,7 +354,7 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                     orderedQuery = orderedQuery.ThenBy(l => l.data.name, ascending);
                     break;
                 case SortOption.BaseHealth:
-                    orderedQuery = orderedQuery.ThenBy(l => l.data.BaseHealth, ascending);
+                    orderedQuery = orderedQuery.ThenBy(l => l.data.PlayerHealthData, ascending);
                     break;
                 case SortOption.BaseMoveSpeed:
                     orderedQuery = orderedQuery.ThenBy(l => l.data.BaseMoveSpeed, ascending);
@@ -400,7 +399,7 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
             case SortOption.Name:
                 return myTypes.Order(l => l.data.name, ascending);
             case SortOption.BaseHealth:
-                return myTypes.Order(l => l.data.BaseHealth, ascending);
+                return myTypes.Order(l => l.data.PlayerHealthData, ascending);
             case SortOption.BaseMoveSpeed:
                 return myTypes.Order(l => l.data.BaseMoveSpeed, ascending);
             case SortOption.BaseDamage:

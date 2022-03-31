@@ -5,13 +5,13 @@ using UnityEditor;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 
-public abstract class ProfileWindow<T> : EditorWindow where T :CharacterProfileTreeElement
+public abstract class ProfileWindow<T> : EditorWindow where T : CharacterProfileTreeElement, new()
 {
     protected TreeViewState m_TreeViewState;
     protected MultiColumnHeaderState m_MultiColumnHeaderState;
     protected SearchField m_SearchField;
-    //protected EnemyProfileTreeView m_TreeView;
-    //protected CharacterProfileTreeAsset m_MyTreeAsset;
+    protected CharacterProfileTreeView<T> m_TreeView;
+    protected CharacterProfileTreeAsset<T> m_MyTreeAsset;
 
     protected bool m_Initialized;
 
@@ -41,93 +41,120 @@ public abstract class ProfileWindow<T> : EditorWindow where T :CharacterProfileT
         BottomToolBar(bottomToolbarRect);
     }
 
-    protected abstract void InitIfNeeded();
-    //{
-    //    if (!m_Initialized)
-    //    {
-    //        // Check if it already exists (deserialized from window layout file or scriptable object)
-    //        if (m_TreeViewState == null)
-    //            m_TreeViewState = new TreeViewState();
+    protected virtual void InitIfNeeded()
+    {
+        if (!m_Initialized)
+        {
+            // Check if it already exists (deserialized from window layout file or scriptable object)
+            if (m_TreeViewState == null)
+                m_TreeViewState = new TreeViewState();
 
-    //        bool firstInit = m_MultiColumnHeaderState == null;
-    //        var headerState = EnemyProfileTreeView.CreateDefaultMultiColumnHeaderState(multiColumnTreeViewRect.width);
-    //        if (MultiColumnHeaderState.CanOverwriteSerializedFields(m_MultiColumnHeaderState, headerState))
-    //            MultiColumnHeaderState.OverwriteSerializedFields(m_MultiColumnHeaderState, headerState);
-    //        m_MultiColumnHeaderState = headerState;
+            bool firstInit = m_MultiColumnHeaderState == null;
+            var headerState = GetHeaderState();
+            if (MultiColumnHeaderState.CanOverwriteSerializedFields(m_MultiColumnHeaderState, headerState))
+                MultiColumnHeaderState.OverwriteSerializedFields(m_MultiColumnHeaderState, headerState);
+            m_MultiColumnHeaderState = headerState;
 
-    //        var multiColumnHeader = new MultiColumnHeader(headerState);
-    //        if (firstInit)
-    //            multiColumnHeader.ResizeToFit();
-    //        multiColumnHeader.height = 20;
-    //        var treeModel = new TreeModel<CharacterProfileTreeElement>(GetData());
+            var multiColumnHeader = new MultiColumnHeader(headerState);
+            if (firstInit)
+                multiColumnHeader.ResizeToFit();
+            multiColumnHeader.height = 20;
+            var treeModel = new TreeModel<T>(GetData());
 
-    //        m_TreeView = new EnemyProfileTreeView(m_TreeViewState, multiColumnHeader, treeModel);
+            m_TreeView = CreateTreeView(multiColumnHeader, treeModel);
 
-    //        m_SearchField = new SearchField();
-    //        m_SearchField.downOrUpArrowKeyPressed += m_TreeView.SetFocusAndEnsureSelectedItem;
+            m_SearchField = new SearchField();
+            m_SearchField.downOrUpArrowKeyPressed += m_TreeView.SetFocusAndEnsureSelectedItem;
 
-    //        m_Initialized = true;
-    //    }
+            m_Initialized = true;
+        }
 
-    //    SetSorting();
-    //}
+        SetSorting();
+    }
 
-    protected abstract void SearchBar(Rect rect);
-    //{
-    //    m_TreeView.searchString = m_SearchField.OnGUI(rect, m_TreeView.searchString);
-    //}
+    protected void SearchBar(Rect rect)
+    {
+        m_TreeView.searchString = m_SearchField.OnGUI(rect, m_TreeView.searchString);
+    }
 
-    protected abstract void DoTreeView(Rect rect);
-    //{
-    //    m_TreeView.OnGUI(rect);
-    //}
+    protected void DoTreeView(Rect rect)
+    {
+        m_TreeView.OnGUI(rect);
+    }
 
-    protected abstract void BottomToolBar(Rect rect);
-    //{
-    //    GUILayout.BeginArea(rect);
+    protected virtual void BottomToolBar(Rect rect)
+    {
+        GUILayout.BeginArea(rect);
 
-    //    using (new EditorGUILayout.HorizontalScope())
-    //    {
+        using (new EditorGUILayout.HorizontalScope())
+        {
 
-    //        var style = "miniButton";
+            var style = "miniButton";
 
-    //        GUILayout.Label(m_MyTreeAsset != null ? AssetDatabase.GetAssetPath(m_MyTreeAsset) : string.Empty);
+            GUILayout.Label(m_MyTreeAsset != null ? AssetDatabase.GetAssetPath(m_MyTreeAsset) : string.Empty);
 
-    //        GUILayout.FlexibleSpace();
+            GUILayout.FlexibleSpace();
 
-    //        if (GUILayout.Button("Set sorting", style))
-    //        {
-    //            SetSorting();
-    //        }
+            if (GUILayout.Button("Set sorting", style))
+            {
+                SetSorting();
+            }
 
-    //        GUILayout.FlexibleSpace();
+            GUILayout.FlexibleSpace();
 
-    //        SetEditModeToggle(m_TreeView.InEditMode);
+            SetEditModeToggle(m_TreeView.InEditMode);
 
-    //        GUILayout.Space(20);
+            GUILayout.Space(20);
 
-    //        if (GUILayout.Button("Add Player Profile", style))
-    //        {
-    //            AddPlayerProfile();
-    //        }
+            if (GUILayout.Button("Add Profile", style))
+            {
+                AddPlayerProfile();
+            }
 
-    //        GUILayout.Space(20);
+            GUILayout.Space(20);
 
-    //        if (GUILayout.Button("Delete Player Profile", style))
-    //        {
-    //            DeletePlayerProfile();
-    //        }
-    //    }
+            if (GUILayout.Button("Delete Profile", style))
+            {
+                DeletePlayerProfile();
+            }
+        }
 
-    //    GUILayout.EndArea();
-    //}
+        GUILayout.EndArea();
+    }
 
-    protected abstract void SetEditModeToggle(bool value);
-    //{
-    //    m_TreeView.InEditMode = !GUILayout.Toggle(value, "Edit Mode");
-    //}
+    protected void SetEditModeToggle(bool value)
+    {
+        m_TreeView.InEditMode = !GUILayout.Toggle(value, "Edit Mode");
+    }
 
-    protected abstract IList<T> GetData() ;
+    protected bool CheckTreeAsset()
+    {
+        return m_MyTreeAsset != null && m_MyTreeAsset.TreeElements != null && m_MyTreeAsset.TreeElements.Count > 0;
+    }
+
+    protected void SetSorting()
+    {
+        var myColumnHeader = m_TreeView.multiColumnHeader;
+        myColumnHeader.SetSortingColumns(new int[] { 0, 1 }, new[] { true, true });
+    }
+
+    protected static void CheckFileExists(string path, string fileName, Type type)
+    {
+        string assetPath = Path.Combine(path, fileName);
+        if (!File.Exists(assetPath))
+        {
+            var data = ScriptableObject.CreateInstance(type);
+
+            AssetDatabase.CreateAsset(data, assetPath);
+            Debug.LogWarning(string.Format("File not found. Create {0} success.", fileName));
+        }
+    }
+
+    protected abstract CharacterProfileTreeView<T> CreateTreeView(MultiColumnHeader multiColumnHeader, TreeModel<T> treeModel);
+
+    protected abstract MultiColumnHeaderState GetHeaderState();
+
+    protected abstract IList<T> GetData();
     //{
     //    if (CheckTreeAsset())
     //        return m_MyTreeAsset.TreeElements;
@@ -160,27 +187,4 @@ public abstract class ProfileWindow<T> : EditorWindow where T :CharacterProfileT
 
     //    EditorUtility.SetDirty(m_MyTreeAsset);
     //}
-
-    protected abstract bool CheckTreeAsset();
-    //{
-    //    return m_MyTreeAsset != null && m_MyTreeAsset.TreeElements != null && m_MyTreeAsset.TreeElements.Count > 0;
-    //}
-
-    protected abstract void SetSorting();
-    //{
-    //    var myColumnHeader = (MultiColumnHeader)m_TreeView.multiColumnHeader;
-    //    myColumnHeader.SetSortingColumns(new int[] { 0, 1 }, new[] { true, true });
-    //}
-
-    protected static void CheckFileExists(string path, string fileName, Type type)
-    {
-        string assetPath = Path.Combine(path, fileName);
-        if (!File.Exists(assetPath))
-        {
-            var data = ScriptableObject.CreateInstance(type);
-
-            AssetDatabase.CreateAsset(data, assetPath);
-            Debug.LogWarning(string.Format("File not found. Create {0} success.", fileName));
-        }
-    }
 }
