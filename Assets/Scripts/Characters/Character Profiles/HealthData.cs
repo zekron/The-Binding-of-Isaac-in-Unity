@@ -3,9 +3,9 @@
 [Serializable]
 public struct HealthData : IComparable<HealthData>
 {
-    public int RedHeartContainers { get; }
-    public int RedHeart { get; set; }
-    public int SoulHeart { get; set; }
+    public int RedHeartContainers;
+    public int RedHeart;
+    public int SoulHeart;
 
     public static HealthData Zero { get; }
 
@@ -16,6 +16,21 @@ public struct HealthData : IComparable<HealthData>
     {
         RedHeart = RedHeartContainers = redHeart;
         SoulHeart = soulHeart;
+    }
+
+    public bool Initialze(int redHeart, int soulHeart)
+    {
+        try
+        {
+            RedHeartContainers = RedHeart = redHeart;
+            SoulHeart = soulHeart;
+        }
+        catch (Exception exceprtion)
+        {
+            UnityEngine.Debug.LogError(exceprtion);
+            return false;
+        }
+        return true;
     }
 
     public int CompareTo(HealthData other)

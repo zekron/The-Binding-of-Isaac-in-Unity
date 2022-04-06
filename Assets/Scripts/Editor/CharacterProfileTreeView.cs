@@ -151,6 +151,22 @@ public abstract class CharacterProfileTreeView<T> : TreeViewWithTreeModel<T> whe
                     allowToggleVisibility = true
                 };
             }
+            else if (contents[i] == MyColumns.BaseHealth)
+            {
+                columns[i] = new MultiColumnHeaderState.Column
+                {
+                    headerContent = tempHeaderContent,
+                    contextMenuText = "Type",
+                    headerTextAlignment = TextAlignment.Right,
+                    sortedAscending = true,
+                    sortingArrowAlignment = TextAlignment.Left,
+                    width = 150,
+                    minWidth = 100,
+                    maxWidth = 200,
+                    autoResize = false,
+                    allowToggleVisibility = true
+                };
+            }
             else
             {
                 columns[i] = new MultiColumnHeaderState.Column

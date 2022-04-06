@@ -61,10 +61,10 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                     var soulHeartCellRect = new Rect(cellRect.x + baseWidth/* + labelPadding / 2*/, cellRect.y, baseWidth - labelPadding, cellRect.height);
                     var soulHeartLabelCellRect = new Rect(cellRect.x + 2 * baseWidth - labelPadding / 2, cellRect.y, labelPadding, cellRect.height);
 
-                    item.data.PlayerHealthData.RedHeart = (int)GUI.HorizontalSlider(redHeartCellRect, item.data.PlayerHealthData.RedHeart, 0, 5);
-                    DefaultGUI.Label(redHeartLabelCellRect, item.data.PlayerHealthData.RedHeart.ToString("D"), args.selected, args.focused);
+                    item.data.PlayerHealthData.Initialze((int)GUI.HorizontalSlider(redHeartCellRect, item.data.PlayerHealthData.RedHeart, 0, 5),
+                                                         (int)GUI.HorizontalSlider(soulHeartCellRect, item.data.PlayerHealthData.SoulHeart, 0, 5));
 
-                    item.data.PlayerHealthData.SoulHeart = (int)GUI.HorizontalSlider(soulHeartCellRect, item.data.PlayerHealthData.SoulHeart, 0, 5);
+                    DefaultGUI.Label(redHeartLabelCellRect, item.data.PlayerHealthData.RedHeart.ToString("D"), args.selected, args.focused);
                     DefaultGUI.Label(soulHeartLabelCellRect, item.data.PlayerHealthData.SoulHeart.ToString("D"), args.selected, args.focused);
                     break;
                 case MyColumns.BaseMoveSpeed:
