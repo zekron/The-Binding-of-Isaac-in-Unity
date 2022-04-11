@@ -9,8 +9,8 @@ public struct HealthData : IComparable<HealthData>
 
     public static HealthData Zero { get; }
 
-    public static HealthData RedOne { get => new HealthData(1, 0); }
-    public static HealthData SoulOne { get => new HealthData(0, 1); }
+    public static HealthData RedOne => new HealthData(1, 0);
+    public static HealthData SoulOne => new HealthData(0, 1);
 
     public HealthData(int redHeart, int soulHeart)
     {
@@ -18,11 +18,12 @@ public struct HealthData : IComparable<HealthData>
         SoulHeart = soulHeart;
     }
 
-    public bool Initialze(int redHeart, int soulHeart)
+    public bool RefreshData(int heartContainer, int redHeart, int soulHeart)
     {
         try
         {
-            RedHeartContainers = RedHeart = redHeart;
+            RedHeartContainers = heartContainer;
+            RedHeart = redHeart;
             SoulHeart = soulHeart;
         }
         catch (Exception exceprtion)

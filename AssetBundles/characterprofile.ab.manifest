@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 3365077273
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0c947faea431ddab17a23b382f11b9ae
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 0e6d0c41ddd08bf78bfdacedff5d962c
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 23c4e6162a856b2478424315f15a0740, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ea64a64b9d159b34082704dd5acdf71e, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ScriptableObjects/PlayerProfile TreeAsset.asset
+- Assets/ScriptableObjects/EnemyProfile TreeAsset.asset
+Dependencies: []

@@ -10,14 +10,12 @@ public class PlayerProfileWindow : ProfileWindow<PlayerProfileTreeElement>
     //private PlayerProfileTreeView m_TreeView;
     //private PlayerProfileTreeAsset m_MyTreeAsset;
 
-    private const string PATH_PLAYERPROFILE_SO = "Assets/ScriptableObjects/";
     private const string FILE_PLAYERPROFILE_SO = "PlayerProfile TreeAsset.asset";
 
-    [MenuItem("Custom Menu/Window/Player Profile Editor")]
+    //[MenuItem("Custom Menu/Window/Player Profile Editor")]
     private static void CreateWindow()
     {
-        EditorWindow window = GetWindow<PlayerProfileWindow>("Player Profile Editor", true);
-        //window.minSize = window.maxSize = new Vector2(600, 600);
+        GetWindow<PlayerProfileWindow>("Player Profile Editor", true);
     }
 
     //protected override void InitIfNeeded()
@@ -112,9 +110,9 @@ public class PlayerProfileWindow : ProfileWindow<PlayerProfileTreeElement>
             return m_MyTreeAsset.TreeElements;
         else
         {
-            CheckFileExists(PATH_PLAYERPROFILE_SO, FILE_PLAYERPROFILE_SO, typeof(PlayerProfileTreeAsset));
+            CheckFileExists(scriptableObjectFolderPath, FILE_PLAYERPROFILE_SO, typeof(PlayerProfileTreeAsset));
 
-            m_MyTreeAsset = AssetDatabase.LoadAssetAtPath<PlayerProfileTreeAsset>(Path.Combine(PATH_PLAYERPROFILE_SO, FILE_PLAYERPROFILE_SO));
+            m_MyTreeAsset = AssetDatabase.LoadAssetAtPath<PlayerProfileTreeAsset>(Path.Combine(scriptableObjectFolderPath, FILE_PLAYERPROFILE_SO));
 
             EditorUtility.SetDirty(m_MyTreeAsset);
             return m_MyTreeAsset.TreeElements;
@@ -126,7 +124,7 @@ public class PlayerProfileWindow : ProfileWindow<PlayerProfileTreeElement>
         if (CheckTreeAsset())
         {
             m_TreeView.CustomTreeModel.AddElement(m_MyTreeAsset.CreateProfile(), m_MyTreeAsset.TreeRoot, Mathf.Max(0, m_MyTreeAsset.TreeRoot.Children.Count - 1));
-            DoTreeView(multiColumnTreeViewRect);
+            DoTreeView(MultiColumnTreeViewRect);
         }
         else Debug.Log("AddPlayerProfile");
 
@@ -165,7 +163,9 @@ public class PlayerProfileWindow : ProfileWindow<PlayerProfileTreeElement>
             MyColumns.Tears,
             MyColumns.TearDelay,
             MyColumns.ShotSpeed,
-            MyColumns.Luck);
+            MyColumns.Luck,
+            MyColumns.StartingPickup,
+            MyColumns.StartingItem);
         //return PlayerProfileTreeView.CreateDefaultMultiColumnHeaderState(multiColumnTreeViewRect.width); ;
     }
 

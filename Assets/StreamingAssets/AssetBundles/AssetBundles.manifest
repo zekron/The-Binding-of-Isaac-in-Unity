@@ -1,0 +1,10 @@
+ManifestFileVersion: 0
+CRC: 1914329855
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: gameui.ab
+      Dependencies: {}
+    Info_1:
+      Name: characterprofile.ab
+      Dependencies: {}

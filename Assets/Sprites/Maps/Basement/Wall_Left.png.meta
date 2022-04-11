@@ -136,9 +136,9 @@ TextureImporter:
       name: Wall_Left_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 13
-        width: 155
+        width: 157
         height: 914
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -157,9 +157,9 @@ TextureImporter:
       name: Wall_Left_1
       rect:
         serializedVersion: 2
-        x: 165
+        x: 166
         y: 0
-        width: 143
+        width: 145
         height: 944
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -178,9 +178,9 @@ TextureImporter:
       name: Wall_Left_2
       rect:
         serializedVersion: 2
-        x: 330
+        x: 331
         y: 0
-        width: 143
+        width: 145
         height: 944
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -199,9 +199,9 @@ TextureImporter:
       name: Wall_Left_3
       rect:
         serializedVersion: 2
-        x: 495
+        x: 496
         y: 0
-        width: 143
+        width: 145
         height: 944
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -220,9 +220,9 @@ TextureImporter:
       name: Wall_Left_4
       rect:
         serializedVersion: 2
-        x: 660
+        x: 661
         y: 0
-        width: 143
+        width: 145
         height: 944
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -241,9 +241,9 @@ TextureImporter:
       name: Wall_Left_5
       rect:
         serializedVersion: 2
-        x: 825
+        x: 826
         y: 10
-        width: 143
+        width: 145
         height: 934
       alignment: 0
       pivot: {x: 0, y: 0}

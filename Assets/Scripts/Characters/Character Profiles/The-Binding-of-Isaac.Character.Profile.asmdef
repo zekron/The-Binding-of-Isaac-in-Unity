@@ -1,0 +1,17 @@
+{
+    "name": "The-Binding-of-Isaac.Character.Profile",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d9433cb6cfd5ef744b31c9070f11e5f5",
+        "GUID:17a47a08cae283f4a84d539eee00444a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

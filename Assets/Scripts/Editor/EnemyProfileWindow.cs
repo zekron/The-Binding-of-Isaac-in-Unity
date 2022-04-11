@@ -11,10 +11,9 @@ public class EnemyProfileWindow : ProfileWindow<EnemyProfileTreeElement>
     //private EnemyProfileTreeView m_TreeView;
     //private EnemyProfileTreeAsset m_MyTreeAsset;
 
-    private const string PATH_ENEMYPROFILE_SO = "Assets/ScriptableObjects/";
     private const string FILE_ENEMYPROFILE_SO = "EnemyProfile TreeAsset.asset";
 
-    [MenuItem("Custom Menu/Window/Enemy Profile Editor")]
+    //[MenuItem("Custom Menu/Window/Enemy Profile Editor")]
     private static void CreateWindow()
     {
         EditorWindow window = GetWindow<EnemyProfileWindow>("Enemy Profile Editor", true);
@@ -113,9 +112,9 @@ public class EnemyProfileWindow : ProfileWindow<EnemyProfileTreeElement>
             return m_MyTreeAsset.TreeElements;
         else
         {
-            CheckFileExists(PATH_ENEMYPROFILE_SO, FILE_ENEMYPROFILE_SO, typeof(EnemyProfileTreeAsset));
+            CheckFileExists(scriptableObjectFolderPath, FILE_ENEMYPROFILE_SO, typeof(EnemyProfileTreeAsset));
 
-            m_MyTreeAsset = AssetDatabase.LoadAssetAtPath<EnemyProfileTreeAsset>(Path.Combine(PATH_ENEMYPROFILE_SO, FILE_ENEMYPROFILE_SO));
+            m_MyTreeAsset = AssetDatabase.LoadAssetAtPath<EnemyProfileTreeAsset>(Path.Combine(scriptableObjectFolderPath, FILE_ENEMYPROFILE_SO));
 
             EditorUtility.SetDirty(m_MyTreeAsset);
             return m_MyTreeAsset.TreeElements;
@@ -127,7 +126,7 @@ public class EnemyProfileWindow : ProfileWindow<EnemyProfileTreeElement>
         if (CheckTreeAsset())
         {
             m_TreeView.CustomTreeModel.AddElement(m_MyTreeAsset.CreateProfile(), m_MyTreeAsset.TreeRoot, Mathf.Max(0, m_MyTreeAsset.TreeRoot.Children.Count - 1));
-            DoTreeView(multiColumnTreeViewRect);
+            DoTreeView(MultiColumnTreeViewRect);
         }
         else Debug.Log("AddPlayerProfile");
 

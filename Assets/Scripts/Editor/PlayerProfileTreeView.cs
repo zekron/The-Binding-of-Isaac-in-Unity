@@ -22,7 +22,9 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
         Luck
     }
 
-    public PlayerProfileTreeView(TreeViewState state, MultiColumnHeader multicolumnHeader, TreeModel<PlayerProfileTreeElement> model) : base(state, multicolumnHeader, model)
+    public PlayerProfileTreeView(TreeViewState state,
+                                 MultiColumnHeader multicolumnHeader,
+                                 TreeModel<PlayerProfileTreeElement> model) : base(state, multicolumnHeader, model)
     {
     }
 
@@ -61,13 +63,15 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                     var soulHeartCellRect = new Rect(cellRect.x + baseWidth/* + labelPadding / 2*/, cellRect.y, baseWidth - labelPadding, cellRect.height);
                     var soulHeartLabelCellRect = new Rect(cellRect.x + 2 * baseWidth - labelPadding / 2, cellRect.y, labelPadding, cellRect.height);
 
-                    item.data.PlayerHealthData.Initialze((int)GUI.HorizontalSlider(redHeartCellRect, item.data.PlayerHealthData.RedHeart, 0, 5),
-                                                         (int)GUI.HorizontalSlider(soulHeartCellRect, item.data.PlayerHealthData.SoulHeart, 0, 5));
+                    item.data.PlayerHealthData.RefreshData(item.data.PlayerHealthData.RedHeart,
+                                                           (int)GUI.HorizontalSlider(redHeartCellRect, item.data.PlayerHealthData.RedHeart, 0, 5),
+                                                           (int)GUI.HorizontalSlider(soulHeartCellRect, item.data.PlayerHealthData.SoulHeart, 0, 5));
 
                     DefaultGUI.Label(redHeartLabelCellRect, item.data.PlayerHealthData.RedHeart.ToString("D"), args.selected, args.focused);
                     DefaultGUI.Label(soulHeartLabelCellRect, item.data.PlayerHealthData.SoulHeart.ToString("D"), args.selected, args.focused);
                     break;
                 case MyColumns.BaseMoveSpeed:
+                    //CustommathematicTextField(cellRect, ref item.data.BaseMoveSpeed);
                     value = GUI.TextField(cellRect, item.data.BaseMoveSpeed.ToString());
                     if (float.TryParse(value, out result))
                         item.data.BaseMoveSpeed = result;
@@ -123,6 +127,23 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                     else
                         GUI.TextField(cellRect, item.data.Luck.ToString());
                     break;
+                case MyColumns.StartingPickup:
+                    baseWidth = cellRect.width / 3;
+                    var coinCellRect = new Rect(cellRect.x, cellRect.y, baseWidth - labelPadding, cellRect.height);
+                    var coinLabelCellRect = new Rect(cellRect.x + baseWidth - labelPadding / 2, cellRect.y, labelPadding, cellRect.height);
+                    var keyHeartCellRect = new Rect(cellRect.x + baseWidth/* + labelPadding / 2*/, cellRect.y, baseWidth - labelPadding, cellRect.height);
+                    var keyLabelCellRect = new Rect(cellRect.x + 2 * baseWidth - labelPadding / 2, cellRect.y, labelPadding, cellRect.height);
+
+                    item.data.PlayerPickupData.RefreshData((int)GUI.HorizontalSlider(coinCellRect, item.data.PlayerPickupData.Coin, 0, 5),
+                                                           (int)GUI.HorizontalSlider(coinCellRect, item.data.PlayerPickupData.Key, 0, 5),
+                                                           (int)GUI.HorizontalSlider(keyHeartCellRect, item.data.PlayerPickupData.Bomb, 0, 5));
+
+                    DefaultGUI.Label(coinLabelCellRect, item.data.PlayerPickupData.Coin.ToString("D"), args.selected, args.focused);
+                    DefaultGUI.Label(keyLabelCellRect, item.data.PlayerPickupData.Key.ToString("D"), args.selected, args.focused);
+
+                    break;
+                case MyColumns.StartingItem:
+                    break;
                 default:
                     break;
             }
@@ -133,7 +154,13 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
             {
                 case MyColumns.BaseHealth:
                     value = item.data.PlayerHealthData.RedHeart.ToString("D");
-                    GUI.DrawTexture(cellRect, GetHeartTexture(item.data.PlayerHealthData.RedHeart, item.data.PlayerHealthData.SoulHeart), ScaleMode.ScaleToFit);
+                    GUI.DrawTexture(cellRect, GetHeartTexture(item.data.PlayerHealthData.RedHeart,
+                                                              item.data.PlayerHealthData.SoulHeart), ScaleMode.ScaleToFit);
+                    break;
+                case MyColumns.StartingPickup:
+                    GUI.DrawTexture(cellRect, GetPickupTexture(item.data.PlayerPickupData.Coin,
+                                                               item.data.PlayerPickupData.Key,
+                                                               item.data.PlayerPickupData.Bomb), ScaleMode.ScaleToFit);
                     break;
                 case MyColumns.ID:
                     value = item.data.ElementID.ToString("D4");
@@ -175,165 +202,6 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
             }
         }
     }
-
-    internal static MultiColumnHeaderState CreateDefaultMultiColumnHeaderState(float treeViewWidth)
-    {
-        var columns = new[]
-        {
-            new MultiColumnHeaderState.Column
-            {
-                headerContent = new GUIContent("Character ID", "ID of character"),
-                contextMenuText = "Type",
-                headerTextAlignment = TextAlignment.Left,
-                sortedAscending = true,
-                sortingArrowAlignment = TextAlignment.Right,
-                width = 100,
-                minWidth = 100,
-                maxWidth = 200,
-                autoResize = false,
-                allowToggleVisibility = true
-            },
-            new MultiColumnHeaderState.Column
-            {
-                headerContent = new GUIContent("Character Name", "Name of character"),
-                contextMenuText = "Type",
-                headerTextAlignment = TextAlignment.Left,
-                sortedAscending = true,
-                sortingArrowAlignment = TextAlignment.Right,
-                width = 130,
-                minWidth = 100,
-                maxWidth = 200,
-                autoResize = false,
-                allowToggleVisibility = true
-            },
-            new MultiColumnHeaderState.Column
-            {
-                headerContent = new GUIContent("Base Health"),
-                headerTextAlignment = TextAlignment.Right,
-                sortedAscending = true,
-                sortingArrowAlignment = TextAlignment.Left,
-                width = 200,
-                minWidth = 60,
-                autoResize = false,
-                allowToggleVisibility = false
-            },
-            new MultiColumnHeaderState.Column
-            {
-                headerContent = new GUIContent("Base Speed"),
-                headerTextAlignment = TextAlignment.Right,
-                sortedAscending = true,
-                sortingArrowAlignment = TextAlignment.Left,
-                width = 150,
-                minWidth = 60,
-                autoResize = true,
-                allowToggleVisibility = false
-            },
-            new MultiColumnHeaderState.Column
-            {
-                headerContent = new GUIContent("Base Damage"),
-                headerTextAlignment = TextAlignment.Right,
-                sortedAscending = true,
-                sortingArrowAlignment = TextAlignment.Left,
-                width = 150,
-                minWidth = 60,
-                autoResize = true,
-                allowToggleVisibility = false
-            },
-            new MultiColumnHeaderState.Column
-            {
-                headerContent = new GUIContent("Damage Multiplier", "Will be used after Damage Formula"),
-                headerTextAlignment = TextAlignment.Right,
-                sortedAscending = true,
-                sortingArrowAlignment = TextAlignment.Left,
-                width = 110,
-                minWidth = 60,
-                autoResize = true,
-                allowToggleVisibility = true
-            },
-            new MultiColumnHeaderState.Column
-            {
-                headerContent = new GUIContent("Base Range", "How far the tears go"),
-                headerTextAlignment = TextAlignment.Right,
-                sortedAscending = true,
-                sortingArrowAlignment = TextAlignment.Left,
-                width = 95,
-                minWidth = 60,
-                autoResize = true,
-                allowToggleVisibility = true
-            },
-            new MultiColumnHeaderState.Column
-            {
-                headerContent = new GUIContent("Tears", "How many tears spawn per second"),
-                headerTextAlignment = TextAlignment.Right,
-                sortedAscending = true,
-                sortingArrowAlignment = TextAlignment.Left,
-                width = 70,
-                minWidth = 60,
-                autoResize = true,
-                allowToggleVisibility = true
-            },
-            new MultiColumnHeaderState.Column
-            {
-                headerContent = new GUIContent("Tears Delay", "Real mechanic about Tears, with formula"),
-                headerTextAlignment = TextAlignment.Right,
-                sortedAscending = true,
-                sortingArrowAlignment = TextAlignment.Left,
-                width = 70,
-                minWidth = 60,
-                autoResize = true,
-                allowToggleVisibility = true
-            },
-            new MultiColumnHeaderState.Column
-            {
-                headerContent = new GUIContent("Shot Speed", "Tear's speed"),
-                headerTextAlignment = TextAlignment.Right,
-                sortedAscending = true,
-                sortingArrowAlignment = TextAlignment.Left,
-                width = 70,
-                minWidth = 60,
-                autoResize = true,
-                allowToggleVisibility = true
-            },
-            new MultiColumnHeaderState.Column
-            {
-                headerContent = new GUIContent("Luck", "Affect a lot"),
-                headerTextAlignment = TextAlignment.Right,
-                sortedAscending = true,
-                sortingArrowAlignment = TextAlignment.Left,
-                width = 70,
-                minWidth = 60,
-                autoResize = true,
-                allowToggleVisibility = true
-            }
-        };
-
-        Assert.AreEqual(columns.Length, Enum.GetValues(typeof(MyColumns)).Length, "Number of columns should match number of enum values: You probably forgot to update one of them.");
-
-        var state = new MultiColumnHeaderState(columns);
-        return state;
-    }
-
-    //private void OnSortingChanged(MultiColumnHeader multiColumnHeader)
-    //{
-    //    SortIfNeeded(rootItem, GetRows());
-    //    Repaint();
-    //}
-
-    //private void SortIfNeeded(TreeViewItem root, IList<TreeViewItem> rows)
-    //{
-    //    if (rows.Count <= 1)
-    //        return;
-
-    //    if (multiColumnHeader.sortedColumnIndex == -1)
-    //    {
-    //        return; // No column to sort for (just use the order the data are in)
-    //    }
-
-    //    // Sort the roots of the existing tree items
-    //    SortByMultipleColumns();
-    //    TreeToList(root, rows);
-    //    Repaint();
-    //}
 
     protected override void SortByMultipleColumns()
     {
@@ -425,8 +293,8 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
         return myTypes.Order(l => l.data.name, ascending);
     }
 
-    Sprite redHeartSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/UI/Single/UI_RedHeart.png");
-    Sprite soulHeartSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/UI/Single/UI_SoulHeart.png");
+    readonly Sprite redHeartSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/UI/Single/UI_RedHeart.png");
+    readonly Sprite soulHeartSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/UI/Single/UI_SoulHeart.png");
     private Texture2D GetHeartTexture(int redHeartCount, int soulHeartCount)
     {
         var rect = redHeartSprite.rect;
@@ -440,6 +308,33 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
         for (int i = 0; i < redHeartCount + soulHeartCount; i++)
         {
             result.SetPixels((int)rect.x + i * width, (int)rect.y, width, height, i < redHeartCount ? redData : soulData);
+        }
+
+        result.Apply();
+        return result;
+    }
+    readonly Sprite coinSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/UI/Single/UI_Coin.png");
+    readonly Sprite keySprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/UI/Single/UI_Key.png");
+    readonly Sprite bombSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/UI/Single/UI_Bomb.png");
+    private Texture2D GetPickupTexture(int coinCount, int keyCount, int bombCount)
+    {
+        var rect = coinSprite.rect;
+        int width = (int)rect.width;
+        int height = (int)rect.height;
+        Texture2D result = new Texture2D((coinCount + keyCount + bombCount) * width, height);
+
+        var coinData = coinSprite.texture.GetPixels((int)rect.x, (int)rect.y, width, height);
+        var keyData = keySprite.texture.GetPixels((int)rect.x, (int)rect.y, width, height);
+        var bombData = bombSprite.texture.GetPixels((int)rect.x, (int)rect.y, width, height);
+
+        for (int i = 0; i < coinCount + keyCount + bombCount; i++)
+        {
+            if (i < coinCount)
+                result.SetPixels((int)rect.x + i * width, (int)rect.y, width, height, coinData);
+            else if (i < coinCount + keyCount)
+                result.SetPixels((int)rect.x + i * width, (int)rect.y, width, height, keyData);
+            else
+                result.SetPixels((int)rect.x + i * width, (int)rect.y, width, height, bombData);
         }
 
         result.Apply();

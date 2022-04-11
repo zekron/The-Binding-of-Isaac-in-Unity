@@ -7,18 +7,18 @@ public abstract class CharacterProfileTreeAsset<T> : ScriptableObject where T : 
 
     protected int m_MaxID = -1;
 
-    internal List<T> TreeElements
+    public List<T> TreeElements
     {
         get { return m_TreeElements; }
         set { m_TreeElements = value; }
     }
 
-    internal T TreeRoot
+    public T TreeRoot
     {
         get { return m_TreeElements[0]; }
     }
 
-    internal int TreeCount
+    public int TreeCount
     {
         get { return m_TreeElements.Count; }
     }
@@ -40,8 +40,12 @@ public abstract class CharacterProfileTreeAsset<T> : ScriptableObject where T : 
             if (m_TreeElements[i].ElementID == elementID)
                 return m_TreeElements[i];
         }
-
+#if UNITY_EDITOR
+        CustomDebugger.ThrowException(string.Format("Failed to get profile by ID -> {0}", elementID));
         return null;
+#else
+        return null;
+#endif
     }
 
     protected int GenerateUniqueID()

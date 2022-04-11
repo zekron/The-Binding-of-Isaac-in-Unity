@@ -1,0 +1,33 @@
+ManifestFileVersion: 0
+CRC: 2540245916
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: f82deccbfbf4aa2124a7c91b95ccfe9f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Sprites/UI/Trinket Slot.png
+- Assets/Sprites/UI/Side Tip.png
+- Assets/Sprites/UI/Background.png
+- Assets/Sprites/UI/UI_Main.png
+- Assets/Sprites/UI/UI_Maze.png
+- Assets/Sprites/UI/Single/UI_SoulHeart.png
+- Assets/Sprites/UI/Top Tip 50A.png
+- Assets/Sprites/UI/UI_Heart.png
+- Assets/Sprites/UI/Doors.png
+- Assets/Sprites/UI/Top Tip Black.png
+- Assets/Sprites/UI/UI_GoldenKey.png
+- Assets/Sprites/UI/Skill Bar.png
+- Assets/Sprites/UI/Arrows & Space.png
+- Assets/Sprites/UI/Single/UI_RedHeart.png
+- Assets/Sprites/UI/Comsumable slot.png
+Dependencies: []

@@ -7,6 +7,8 @@ using UnityEngine;
 
 public abstract class ProfileWindow<T> : EditorWindow where T : CharacterProfileTreeElement, new()
 {
+    protected static readonly string scriptableObjectFolderPath = ResourcesMgr.ScriptableObjectFolderPath;
+
     protected TreeViewState m_TreeViewState;
     protected MultiColumnHeaderState m_MultiColumnHeaderState;
     protected SearchField m_SearchField;
@@ -16,17 +18,17 @@ public abstract class ProfileWindow<T> : EditorWindow where T : CharacterProfile
     protected bool m_Initialized;
 
     #region Rect
-    protected Rect multiColumnTreeViewRect
+    protected Rect MultiColumnTreeViewRect
     {
         get { return new Rect(20, 30, position.width - 40, position.height - 60); }
     }
 
-    protected Rect toolbarRect
+    protected Rect ToolbarRect
     {
         get { return new Rect(20f, 10f, position.width - 40f, 20f); }
     }
 
-    protected Rect bottomToolbarRect
+    protected Rect BottomToolbarRect
     {
         get { return new Rect(20f, position.height - 18f, position.width - 40f, 16f); }
     }
@@ -36,9 +38,9 @@ public abstract class ProfileWindow<T> : EditorWindow where T : CharacterProfile
     {
         InitIfNeeded();
 
-        SearchBar(toolbarRect);
-        DoTreeView(multiColumnTreeViewRect);
-        BottomToolBar(bottomToolbarRect);
+        SearchBar(ToolbarRect);
+        DoTreeView(MultiColumnTreeViewRect);
+        BottomToolBar(BottomToolbarRect);
     }
 
     protected virtual void InitIfNeeded()

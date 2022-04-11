@@ -27,7 +27,9 @@ public abstract class CharacterProfileTreeView<T> : TreeViewWithTreeModel<T> whe
         Tears,
         TearDelay,
         ShotSpeed,
-        Luck
+        Luck,
+        StartingPickup,
+        StartingItem,
     }
 
     public CharacterProfileTreeView(TreeViewState state, MultiColumnHeader multiColumnHeader, TreeModel<T> model) : base(state, multiColumnHeader, model)
@@ -130,6 +132,12 @@ public abstract class CharacterProfileTreeView<T> : TreeViewWithTreeModel<T> whe
                 case MyColumns.Luck:
                     tempHeaderContent = new GUIContent("Luck", "Affect a lot");
                     break;
+                case MyColumns.StartingPickup:
+                    tempHeaderContent = new GUIContent("StartingPickup");
+                    break;
+                case MyColumns.StartingItem:
+                    tempHeaderContent = new GUIContent("StartingItem");
+                    break;
                 default:
                     tempHeaderContent = new GUIContent();
                     break;
@@ -151,7 +159,7 @@ public abstract class CharacterProfileTreeView<T> : TreeViewWithTreeModel<T> whe
                     allowToggleVisibility = true
                 };
             }
-            else if (contents[i] == MyColumns.BaseHealth)
+            else if (contents[i] == MyColumns.BaseHealth || contents[i] == MyColumns.StartingPickup)
             {
                 columns[i] = new MultiColumnHeaderState.Column
                 {
@@ -160,9 +168,9 @@ public abstract class CharacterProfileTreeView<T> : TreeViewWithTreeModel<T> whe
                     headerTextAlignment = TextAlignment.Right,
                     sortedAscending = true,
                     sortingArrowAlignment = TextAlignment.Left,
-                    width = 150,
-                    minWidth = 100,
-                    maxWidth = 200,
+                    width = 200,
+                    minWidth = 200,
+                    maxWidth = 300,
                     autoResize = false,
                     allowToggleVisibility = true
                 };
@@ -187,6 +195,51 @@ public abstract class CharacterProfileTreeView<T> : TreeViewWithTreeModel<T> whe
 
         var state = new MultiColumnHeaderState(columns);
         return state;
+    }
+
+    string text;
+    protected void CustommathematicTextField(Rect rect, ref float digit)
+    {
+        //TODO: TextField Calculator
+        //text = GUI.TextField(rect, digit.ToString());
+        //bool getDot = false; int dotIndex = 0;
+        //float result = 0;
+
+        //for (int i = 0; i < text.Length; i++)
+        //{
+        //    switch (text[i])
+        //    {
+        //        case '.':
+        //            if (!getDot)
+        //            {
+        //                getDot = true;
+        //                dotIndex = i;
+        //            }
+        //            else
+        //            {
+        //                text.Remove(i); i--;
+        //            }
+        //            break;
+        //        case '1':
+        //        case '2':
+        //        case '3':
+        //        case '4':
+        //        case '5':
+        //        case '6':
+        //        case '7':
+        //        case '8':
+        //        case '9':
+        //        case '0':
+        //            result = result * 10 + int.Parse(text[i].ToString()); break;
+        //        default:
+        //            break;
+        //    }
+        //}
+        //if (getDot)
+        //{
+        //    result = Mathf.Pow(0.1f, dotIndex-1);
+        //}
+        //digit = result;
     }
 
     protected abstract void SortByMultipleColumns();

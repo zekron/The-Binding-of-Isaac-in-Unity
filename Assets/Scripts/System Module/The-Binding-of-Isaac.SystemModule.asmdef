@@ -1,0 +1,17 @@
+{
+    "name": "The-Binding-of-Isaac.SystemModule",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d9433cb6cfd5ef744b31c9070f11e5f5",
+        "GUID:f0107ec13533ddd4aaa14d2cd3a90f7c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

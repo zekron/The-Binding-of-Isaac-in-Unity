@@ -1,0 +1,114 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class MoveController : MonoBehaviour
+{
+    private const int MOVE_SPEED_MULTIPLIER = 5;
+
+    [SerializeField] private bool useFixedUpdate = false;
+
+    [Header("Move")]
+    private Vector2 moveInput = Vector2.zero;
+    private Vector2 finalMoveDirection;
+    private Vector2 tempPlayerVelocity;
+    private float moveSpeed = 1f;
+    /// <summary>
+    /// 变速因子
+    /// </summary>
+    [SerializeField, Range(0, 5f)] private float shiftFactor = 3f;
+
+    [SerializeField] private SpriteRenderer bodyRenderer;
+    [SerializeField] private Animator bodyAnimator;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        moveSpeed *= MOVE_SPEED_MULTIPLIER;
+    }
+
+    private void Update()
+    {
+        UpdateSystemControl();
+
+        if (!useFixedUpdate)
+        {
+            UpdateGameControl();
+            UpdateMoveMent();
+            UpdateAnimation();
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (useFixedUpdate)
+        {
+            UpdateGameControl();
+            UpdateMoveMent();
+            UpdateAnimation();
+        }
+    }
+
+    private void UpdateMoveMent()
+    {
+        GenerateMoveDirection();
+
+        //tempPlayerVelocity = finalMoveDirection;
+
+        if (finalMoveDirection == Vector2.zero)
+        {
+            tempPlayerVelocity = Vector2.Lerp(tempPlayerVelocity, finalMoveDirection, GetMoveDeltaTime() * moveSpeed * shiftFactor);
+            if (Mathf.Abs(tempPlayerVelocity.x) <= 1e-2) tempPlayerVelocity.x = 0;
+            if (Mathf.Abs(tempPlayerVelocity.y) <= 1e-2) tempPlayerVelocity.y = 0;
+        }
+        else
+            tempPlayerVelocity = finalMoveDirection;
+
+        transform.Translate(tempPlayerVelocity * GetMoveDeltaTime(), Space.World);
+    }
+
+    private void GenerateMoveDirection()
+    {
+        moveInput = Input.GetAxis("Horizontal") * Vector2.right + Input.GetAxis("Vertical") * Vector2.up;
+        if (moveInput.magnitude > 1f)
+        {
+            moveInput.Normalize();
+        }
+
+        finalMoveDirection = moveInput * moveSpeed;
+    }
+
+    private float GetMoveDeltaTime()
+    {
+        return useFixedUpdate ? Time.fixedDeltaTime : Time.deltaTime;
+    }
+
+    private void UpdateAnimation()
+    {
+        if (moveInput.x < 0) { bodyRenderer.flipX = true; }
+        if (moveInput.x > 0) { bodyRenderer.flipX = false; }
+        bodyAnimator.SetFloat("UpDown", Mathf.Abs(moveInput.y));
+        bodyAnimator.SetFloat("LeftRight", Mathf.Abs(moveInput.x));
+    }
+
+    private void UpdateSystemControl()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            CustomDebugger.Log(string.Format("Key {0} pressed.", KeyCode.Escape));
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            CustomDebugger.Log(string.Format("Key {0} pressed.", KeyCode.R));
+        }
+    }
+
+    private void UpdateGameControl()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            CustomDebugger.Log(string.Format("Key {0} pressed.", KeyCode.R));
+        }
+    }
+}

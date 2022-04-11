@@ -1,9 +1,7 @@
 {
-    "name": "The Binding of Isaac.Character.Profile",
+    "name": "The-Binding-of-Isaac.GameLogic",
     "rootNamespace": "",
-    "references": [
-        "Tree-Data-Model"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
