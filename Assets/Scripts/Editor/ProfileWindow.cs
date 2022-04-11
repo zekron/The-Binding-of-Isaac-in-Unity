@@ -7,8 +7,6 @@ using UnityEngine;
 
 public abstract class ProfileWindow<T> : EditorWindow where T : CharacterProfileTreeElement, new()
 {
-    protected static readonly string scriptableObjectFolderPath = ResourcesMgr.ScriptableObjectFolderPath;
-
     protected TreeViewState m_TreeViewState;
     protected MultiColumnHeaderState m_MultiColumnHeaderState;
     protected SearchField m_SearchField;
@@ -126,7 +124,7 @@ public abstract class ProfileWindow<T> : EditorWindow where T : CharacterProfile
 
     protected void SetEditModeToggle(bool value)
     {
-        m_TreeView.InEditMode = !GUILayout.Toggle(value, "Edit Mode");
+        m_TreeView.InEditMode = GUILayout.Toggle(value, "Edit Mode");
     }
 
     protected bool CheckTreeAsset()

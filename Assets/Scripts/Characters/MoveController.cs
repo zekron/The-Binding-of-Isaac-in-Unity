@@ -21,11 +21,17 @@ public class MoveController : MonoBehaviour
 
     [SerializeField] private SpriteRenderer bodyRenderer;
     [SerializeField] private Animator bodyAnimator;
+    private float paddingX;
+    private float paddingY;
+    private bool canMove = false;
 
     // Start is called before the first frame update
     void Start()
     {
         moveSpeed *= MOVE_SPEED_MULTIPLIER;
+        var size = bodyRenderer.bounds.size;
+        paddingX = size.x / 2f;
+        paddingY = size.y / 2f;
     }
 
     private void Update()
@@ -53,6 +59,7 @@ public class MoveController : MonoBehaviour
     private void UpdateMoveMent()
     {
         GenerateMoveDirection();
+        if (!canMove && tempPlayerVelocity == Vector2.zero) return;
 
         //tempPlayerVelocity = finalMoveDirection;
 
@@ -66,6 +73,7 @@ public class MoveController : MonoBehaviour
             tempPlayerVelocity = finalMoveDirection;
 
         transform.Translate(tempPlayerVelocity * GetMoveDeltaTime(), Space.World);
+        transform.position = Viewport.PlayerMoveablePosition(transform.position, paddingX, paddingY);
     }
 
     private void GenerateMoveDirection()
@@ -77,6 +85,7 @@ public class MoveController : MonoBehaviour
         }
 
         finalMoveDirection = moveInput * moveSpeed;
+        canMove = finalMoveDirection != Vector2.zero;
     }
 
     private float GetMoveDeltaTime()

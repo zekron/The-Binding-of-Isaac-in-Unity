@@ -35,4 +35,6 @@ public enum PlayerCharacter
     Blue,
     Eve,
     Samson,
+
+    MAXCOUNT
 }

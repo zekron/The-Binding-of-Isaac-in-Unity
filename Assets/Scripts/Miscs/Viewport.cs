@@ -18,11 +18,11 @@ public class Viewport
     {
         Camera mainCamera = Camera.main;
 
-        Vector2 bottomLeft = mainCamera.ViewportToWorldPoint(Vector3.zero);
-        Vector2 topRight = mainCamera.ViewportToWorldPoint(Vector3.one);
+        Vector2 bottomLeft = mainCamera.ViewportToWorldPoint(StaticData.ViewportBottomLeft);
+        Vector2 topRight = mainCamera.ViewportToWorldPoint(StaticData.ViewportTopRight);
 
-        middleX = mainCamera.ViewportToWorldPoint(new Vector3(0.5f, 0f)).x;
-        middleY = mainCamera.ViewportToWorldPoint(new Vector3(0f, 0.5f)).y;
+        middleX = topRight.x - bottomLeft.x;
+        middleY = topRight.y - bottomLeft.y;
 
         minX = bottomLeft.x;
         minY = bottomLeft.y;

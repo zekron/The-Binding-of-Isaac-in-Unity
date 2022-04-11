@@ -21,6 +21,7 @@ MonoBehaviour:
       RedHeartContainers: 0
       RedHeart: 0
       SoulHeart: 0
+    PlayerItemData: {fileID: 0}
     BaseDamage: 0
     DamageMultiplier: 0
     BaseRange: 0
@@ -40,6 +41,7 @@ MonoBehaviour:
       RedHeartContainers: 3
       RedHeart: 3
       SoulHeart: 0
+    PlayerItemData: {fileID: 11400000, guid: 16a9926d646e2c84aab157c1db90699b, type: 2}
     BaseDamage: 3.5
     DamageMultiplier: 1
     BaseRange: 6.5
@@ -59,6 +61,7 @@ MonoBehaviour:
       RedHeartContainers: 4
       RedHeart: 4
       SoulHeart: 0
+    PlayerItemData: {fileID: 0}
     BaseDamage: 3.5
     DamageMultiplier: 0.75
     BaseRange: 6.5
@@ -78,6 +81,7 @@ MonoBehaviour:
       RedHeartContainers: 1
       RedHeart: 1
       SoulHeart: 0
+    PlayerItemData: {fileID: 0}
     BaseDamage: 3.5
     DamageMultiplier: 1.35
     BaseRange: 6.5
@@ -97,6 +101,7 @@ MonoBehaviour:
       RedHeartContainers: 0
       RedHeart: 0
       SoulHeart: 3
+    PlayerItemData: {fileID: 0}
     BaseDamage: 3.5
     DamageMultiplier: 1.05
     BaseRange: 6.5
@@ -116,6 +121,7 @@ MonoBehaviour:
       RedHeartContainers: 2
       RedHeart: 2
       SoulHeart: 0
+    PlayerItemData: {fileID: 0}
     BaseDamage: 3.5
     DamageMultiplier: 0.75
     BaseRange: 6.5
@@ -135,6 +141,7 @@ MonoBehaviour:
       RedHeartContainers: 3
       RedHeart: 3
       SoulHeart: 0
+    PlayerItemData: {fileID: 0}
     BaseDamage: 3.5
     DamageMultiplier: 1
     BaseRange: 5
@@ -154,6 +161,7 @@ MonoBehaviour:
       RedHeartContainers: 2
       RedHeart: 2
       SoulHeart: 0
+    PlayerItemData: {fileID: 0}
     BaseDamage: 3.5
     DamageMultiplier: 1.2
     BaseRange: 4.5

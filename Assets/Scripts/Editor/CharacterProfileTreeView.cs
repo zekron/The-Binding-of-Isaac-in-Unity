@@ -11,7 +11,7 @@ public abstract class CharacterProfileTreeView<T> : TreeViewWithTreeModel<T> whe
 
     protected MultiColumnHeader m_MultiColumnHeader;
 
-    internal bool InEditMode = true;
+    internal bool InEditMode = false;
     // All columns
     internal protected enum MyColumns
     {

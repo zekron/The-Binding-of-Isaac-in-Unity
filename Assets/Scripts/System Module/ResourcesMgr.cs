@@ -9,15 +9,6 @@ using UnityEditor;
 
 public class ResourcesMgr
 {
-    public static readonly string ScriptableObjectFolderPath = "Assets/ScriptableObjects/";
-    private static readonly string[] roomLayoutFolderPath = new[]
-    {
-        "Assets/ScriptableObjects/RoomLayout/NormalRoom",
-        "Assets/ScriptableObjects/RoomLayout/BossRoom",
-        "Assets/ScriptableObjects/RoomLayout/TreasureRoom",
-        "Assets/ScriptableObjects/RoomLayout/ShopRoom",
-    };
-
 #if UNITY_EDITOR
     private static readonly string[] roomLayoutAssetPath = new[]
     {
@@ -39,19 +30,33 @@ public class ResourcesMgr
     }
 #endif
 
-    public static string GetNormalRoomPath() => roomLayoutFolderPath[0];
-    public static string GetBossRoomPath() => roomLayoutFolderPath[1];
-    public static string GetTreasureRoomPath() => roomLayoutFolderPath[2];
-    public static string GetShopRoomPath() => roomLayoutFolderPath[3];
+    public static string GetNormalRoomPath() => StaticData.RoomLayoutFolderPath[0];
+    public static string GetBossRoomPath() => StaticData.RoomLayoutFolderPath[1];
+    public static string GetTreasureRoomPath() => StaticData.RoomLayoutFolderPath[2];
+    public static string GetShopRoomPath() => StaticData.RoomLayoutFolderPath[3];
 
+
+    private static Dictionary<string, AssetBundle> assetBundleCache = new Dictionary<string, AssetBundle>();
     public static AssetBundle LoadAssetBundleAtPath(string fileFullPath)
     {
         if (File.Exists(fileFullPath))
-            return AssetBundle.LoadFromFile(fileFullPath);
+        {
+            if (!assetBundleCache.ContainsKey(fileFullPath))
+            {
+                assetBundleCache.Add(fileFullPath, AssetBundle.LoadFromFile(fileFullPath));
+            }
+
+            return assetBundleCache[fileFullPath];
+        }
         else
         {
             CustomDebugger.ThrowException(string.Format("Path {0} not exist.", fileFullPath));
             return null;
         }
+    }
+
+    public static void UnloadAllAssetBundles(bool uploadAllObjects)
+    {
+        AssetBundle.UnloadAllAssetBundles(uploadAllObjects);
     }
 }

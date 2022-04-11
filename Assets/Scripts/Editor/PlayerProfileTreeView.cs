@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.IMGUI.Controls;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.Assertions;
 public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeElement>
@@ -131,18 +132,22 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                     baseWidth = cellRect.width / 3;
                     var coinCellRect = new Rect(cellRect.x, cellRect.y, baseWidth - labelPadding, cellRect.height);
                     var coinLabelCellRect = new Rect(cellRect.x + baseWidth - labelPadding / 2, cellRect.y, labelPadding, cellRect.height);
-                    var keyHeartCellRect = new Rect(cellRect.x + baseWidth/* + labelPadding / 2*/, cellRect.y, baseWidth - labelPadding, cellRect.height);
+                    var keyCellRect = new Rect(cellRect.x + baseWidth/* + labelPadding / 2*/, cellRect.y, baseWidth - labelPadding, cellRect.height);
                     var keyLabelCellRect = new Rect(cellRect.x + 2 * baseWidth - labelPadding / 2, cellRect.y, labelPadding, cellRect.height);
+                    var bombCellRect = new Rect(cellRect.x + 2 * baseWidth/* + labelPadding / 2*/, cellRect.y, baseWidth - labelPadding, cellRect.height);
+                    var bombLabelCellRect = new Rect(cellRect.x + 3 * baseWidth - labelPadding / 2, cellRect.y, labelPadding, cellRect.height);
 
                     item.data.PlayerPickupData.RefreshData((int)GUI.HorizontalSlider(coinCellRect, item.data.PlayerPickupData.Coin, 0, 5),
-                                                           (int)GUI.HorizontalSlider(coinCellRect, item.data.PlayerPickupData.Key, 0, 5),
-                                                           (int)GUI.HorizontalSlider(keyHeartCellRect, item.data.PlayerPickupData.Bomb, 0, 5));
+                                                           (int)GUI.HorizontalSlider(keyCellRect, item.data.PlayerPickupData.Key, 0, 5),
+                                                           (int)GUI.HorizontalSlider(bombCellRect, item.data.PlayerPickupData.Bomb, 0, 5));
 
                     DefaultGUI.Label(coinLabelCellRect, item.data.PlayerPickupData.Coin.ToString("D"), args.selected, args.focused);
                     DefaultGUI.Label(keyLabelCellRect, item.data.PlayerPickupData.Key.ToString("D"), args.selected, args.focused);
+                    DefaultGUI.Label(bombLabelCellRect, item.data.PlayerPickupData.Bomb.ToString("D"), args.selected, args.focused);
 
                     break;
                 case MyColumns.StartingItem:
+                    item.data.PlayerItemData = EditorGUI.ObjectField(cellRect, item.data.PlayerItemData, typeof(Item), false) as Item;
                     break;
                 default:
                     break;
@@ -161,6 +166,10 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                     GUI.DrawTexture(cellRect, GetPickupTexture(item.data.PlayerPickupData.Coin,
                                                                item.data.PlayerPickupData.Key,
                                                                item.data.PlayerPickupData.Bomb), ScaleMode.ScaleToFit);
+                    break;
+                case MyColumns.StartingItem:
+                    if (item.data.PlayerItemData)
+                        GUI.DrawTexture(cellRect, item.data.PlayerItemData.itemSprite.texture, ScaleMode.ScaleToFit);
                     break;
                 case MyColumns.ID:
                     value = item.data.ElementID.ToString("D4");
@@ -295,8 +304,11 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
 
     readonly Sprite redHeartSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/UI/Single/UI_RedHeart.png");
     readonly Sprite soulHeartSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/UI/Single/UI_SoulHeart.png");
+    readonly Sprite emptySprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/UI/Single/UI_Empty.png");
     private Texture2D GetHeartTexture(int redHeartCount, int soulHeartCount)
     {
+        if (redHeartCount + soulHeartCount <= 0) return emptySprite.texture;
+
         var rect = redHeartSprite.rect;
         int width = (int)rect.width;
         int height = (int)rect.height;
@@ -318,6 +330,8 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
     readonly Sprite bombSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/UI/Single/UI_Bomb.png");
     private Texture2D GetPickupTexture(int coinCount, int keyCount, int bombCount)
     {
+        if (coinCount + keyCount + bombCount <= 0) return emptySprite.texture;
+
         var rect = coinSprite.rect;
         int width = (int)rect.width;
         int height = (int)rect.height;

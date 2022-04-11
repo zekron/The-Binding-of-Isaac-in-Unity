@@ -6,16 +6,26 @@ public class PlayerProfileTreeAsset : CharacterProfileTreeAsset<PlayerProfileTre
 {
     public PlayerProfileTreeAsset()
     {
-        m_TreeElements = new List<PlayerProfileTreeElement>(System.Enum.GetValues(typeof(PlayerCharacter)).Length)
+        m_TreeElements = new List<PlayerProfileTreeElement>()
         {
-            new PlayerProfileTreeElement("Root", HealthData.RedOne, PickupData.zero, depth: -1, id: m_MaxID),
+            new PlayerProfileTreeElement("Root",
+                                         HealthData.RedOne,
+                                         PickupData.zero,
+                                         null,
+                                         depth: -1,
+                                         id: m_MaxID),
         };
         CreateProfile();
     }
 
     public override PlayerProfileTreeElement CreateProfile()
     {
-        PlayerProfileTreeElement result = new PlayerProfileTreeElement("Name here", HealthData.RedOne, PickupData.zero, depth: 0, id: GenerateUniqueID());
+        PlayerProfileTreeElement result = new PlayerProfileTreeElement("Name here",
+                                                                       HealthData.RedOne,
+                                                                       PickupData.zero,
+                                                                       null,
+                                                                       depth: 0,
+                                                                       id: GenerateUniqueID());
         m_TreeElements.Add(result);
         return result;
     }
