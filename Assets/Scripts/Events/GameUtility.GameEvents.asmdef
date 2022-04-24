@@ -1,11 +1,8 @@
 {
-    "name": "The-Binding-of-Isaac.Layer",
+    "name": "GameUtility.GameEvent",
     "rootNamespace": "",
     "references": [
-        "GUID:17a47a08cae283f4a84d539eee00444a",
-        "GUID:cb2e0a61e9801a243bc09e3392866cfc",
-        "GUID:b45ae0958457c00498474bcbb6e64ffe",
-        "GUID:d9433cb6cfd5ef744b31c9070f11e5f5"
+        "GUID:17a47a08cae283f4a84d539eee00444a"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1967c1ef7080c4d91da24d9ad370ef, type: 3}
+  m_Name: Test RoomLayout
+  m_EditorClassIdentifier: 
+  SpriteFloor: {fileID: 5490942270119548400, guid: 46ae9f692c21ef945844c7cc0fbeaf36, type: 3}
+  SpriteTop: {fileID: -6184129958784564742, guid: 70500f8bc6b2a4b4f8d7013c8a1bc878, type: 3}
+  SpriteLeft: {fileID: 1590666082182623146, guid: c369cd1e3959140458d29815568bf395, type: 3}
+  SpriteTip: {fileID: 0}
+  IsGenerateReward: 0
+  RewardPosition: {x: 0, y: 0}
+  monsterList: []
+  obstacleList: []
+  propList: []

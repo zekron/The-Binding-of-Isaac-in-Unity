@@ -44,6 +44,9 @@ TagManager:
   - name: Room
     uniqueID: 4133623301
     locked: 0
+  - name: Door
+    uniqueID: 2224465001
+    locked: 0
   - name: Character
     uniqueID: 836492739
     locked: 0

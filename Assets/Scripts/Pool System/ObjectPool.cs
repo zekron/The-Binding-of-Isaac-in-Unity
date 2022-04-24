@@ -13,12 +13,12 @@ public class ObjectPool
 
     private Queue<GameObject> queue;
 
-    private Transform parent;
+    private Transform poolParent;
 
     public void Initialize(Transform parent)
     {
         queue = new Queue<GameObject>();
-        this.parent = parent;
+        poolParent = parent;
 
         for (var i = 0; i < size; i++)
         {
@@ -28,7 +28,7 @@ public class ObjectPool
 
     private GameObject InstantiateObject()
     {
-        var copy = GameObject.Instantiate(prefab, parent);
+        var copy = GameObject.Instantiate(prefab, poolParent);
 
         copy.SetActive(false);
 
@@ -105,6 +105,18 @@ public class ObjectPool
         preparedObject.transform.position = position;
         preparedObject.transform.rotation = rotation;
         preparedObject.transform.localScale = localScale;
+
+        return preparedObject;
+    }
+
+    public GameObject PreparedObject(Vector3 position, Quaternion rotation, Transform parent)
+    {
+        GameObject preparedObject = GetAvailableObject();
+
+        preparedObject.SetActive(true);
+        preparedObject.transform.position = position;
+        preparedObject.transform.rotation = rotation;
+        preparedObject.transform.parent = parent;
 
         return preparedObject;
     }

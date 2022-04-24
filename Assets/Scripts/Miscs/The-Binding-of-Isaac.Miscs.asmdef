@@ -1,3 +1,16 @@
 {
-	"name": "The-Binding-of-Isaac.Miscs"
+    "name": "The-Binding-of-Isaac.Miscs",
+    "rootNamespace": "",
+    "references": [
+        "GUID:17a47a08cae283f4a84d539eee00444a"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }

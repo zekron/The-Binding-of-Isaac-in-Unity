@@ -9,6 +9,8 @@ public class ObjectPoolManager : MonoBehaviour
     [SerializeField] private ObjectPool[] vFXPools;
     [SerializeField] private ObjectPool[] itemPools;
     [SerializeField] private ObjectPool[] playerModelPools;
+    [SerializeField] private ObjectPool[] doorPools;
+    [SerializeField] private ObjectPool[] roomPools;
 
     private static Dictionary<GameObject, ObjectPool> objectPoolDictionary;
 
@@ -22,6 +24,8 @@ public class ObjectPoolManager : MonoBehaviour
         Initialize(vFXPools);
         Initialize(itemPools);
         Initialize(playerModelPools);
+        Initialize(doorPools);
+        Initialize(roomPools);
     }
 
 #if UNITY_EDITOR
@@ -32,6 +36,8 @@ public class ObjectPoolManager : MonoBehaviour
         CheckPoolSize(enemyProjectilePools);
         CheckPoolSize(vFXPools);
         CheckPoolSize(itemPools);
+        CheckPoolSize(doorPools);
+        CheckPoolSize(roomPools);
     }
 #endif
 
@@ -197,5 +203,18 @@ public class ObjectPoolManager : MonoBehaviour
         }
 #endif
         return objectPoolDictionary[prefab].PreparedObject(position, rotation, localScale);
+    }
+
+    public static GameObject Release(GameObject prefab, Vector3 position, Quaternion rotation, Transform parent)
+    {
+#if UNITY_EDITOR
+        if (!objectPoolDictionary.ContainsKey(prefab))
+        {
+            Debug.LogError("Pool Manager could NOT find prefab: " + prefab.name);
+
+            return null;
+        }
+#endif
+        return objectPoolDictionary[prefab].PreparedObject(position, rotation, parent);
     }
 }

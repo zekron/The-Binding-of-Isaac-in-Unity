@@ -15,7 +15,7 @@ public class Room : MonoBehaviour
     [HideInInspector]
     public Vector2 coordinate;//坐标
 
-    private RoomLayoutSO roomLayout;//布局文件
+    [SerializeField] private RoomLayoutSO roomLayout;//布局文件
 
     public bool isArrived = false;//是否已到达
     public bool isCleared = false;//是否已清理过
@@ -30,4 +30,64 @@ public class Room : MonoBehaviour
     public static int HorizontalUnit { get { return 13; } }
     public static int VerticalUnit { get { return 7; } }
     public static float UnitSize { get { return 0.28f; } }
+
+    #region 房间布局
+    [SerializeField] private SpriteRenderer[] topBottomWallSprite;
+    [SerializeField] private SpriteRenderer[] leftRightWallSprite;
+    [SerializeField] private SpriteRenderer floorSprite;
+    [SerializeField] private Transform doorTransform;
+    private List<Door> roomDoors;
+    #endregion
+
+    #region Test
+    [Header("Test Part")]
+    [SerializeField] private GameObject doorPrefab;
+    #endregion
+
+    private void OnEnable()
+    {
+        RoomLayoutInitialize();
+        if (roomDoors == null)
+        {
+            roomDoors = new List<Door>(4);
+        }
+    }
+
+    private void OnDisable()
+    {
+
+    }
+
+    private void Start()
+    {
+        DoorInitialize();
+    }
+
+    private void RoomLayoutInitialize()
+    {
+        floorSprite.sprite = roomLayout.SpriteFloor;
+        for (int i = 0; i < topBottomWallSprite.Length; i++)
+        {
+            topBottomWallSprite[i].sprite = roomLayout.SpriteTop;
+            leftRightWallSprite[i].sprite = roomLayout.SpriteLeft;
+        }
+    }
+
+    private void DoorInitialize()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            var tempTransform = Door.GetDoorTransform((DoorPosition)i);
+            roomDoors.Add(ObjectPoolManager.Release(doorPrefab,
+                                                    GameLogicUtility.LocalPointToWorldPoint(transform, tempTransform.localPosition),
+                                                    tempTransform.rotation,
+                                                    doorTransform).GetComponent<Door>());
+            roomDoors[i].RaiseEvent(DoorStatus.Open);
+        }
+    }
+
+    private Vector3 LocalPointToWorldPoint(Vector3 localPoint)
+    {
+        return localPoint + transform.position;
+    }
 }
