@@ -15,6 +15,8 @@ public class Room : MonoBehaviour
     [HideInInspector]
     public Vector2 coordinate;//坐标
 
+    public MapRoomInfo RoomInfo;
+
     [SerializeField] private RoomLayoutSO roomLayout;//布局文件
 
     public bool isArrived = false;//是否已到达
@@ -37,6 +39,7 @@ public class Room : MonoBehaviour
     [SerializeField] private SpriteRenderer floorSprite;
     [SerializeField] private Transform doorTransform;
     private List<Door> roomDoors;
+    private int doorsCount => roomDoors.Count;
     #endregion
 
     #region Test
@@ -60,7 +63,7 @@ public class Room : MonoBehaviour
 
     private void Start()
     {
-        DoorInitialize();
+        //DoorInitialize();
     }
 
     private void RoomLayoutInitialize()
@@ -73,21 +76,43 @@ public class Room : MonoBehaviour
         }
     }
 
-    private void DoorInitialize()
-    {
-        for (int i = 0; i < 4; i++)
-        {
-            var tempTransform = Door.GetDoorTransform((DoorPosition)i);
-            roomDoors.Add(ObjectPoolManager.Release(doorPrefab,
-                                                    GameLogicUtility.LocalPointToWorldPoint(transform, tempTransform.localPosition),
-                                                    tempTransform.rotation,
-                                                    doorTransform).GetComponent<Door>());
-            roomDoors[i].RaiseEvent(DoorStatus.Open);
-        }
-    }
+    //private void DoorInitialize()
+    //{
+    //    for (int i = 0; i < 4; i++)
+    //    {
+    //        var tempTransform = Door.GetDoorTransform((DoorPosition)i);
+    //        roomDoors.Add(ObjectPoolManager.Release(doorPrefab,
+    //                                                GameLogicUtility.LocalPointToWorldPoint(transform, tempTransform.localPosition),
+    //                                                tempTransform.rotation,
+    //                                                doorTransform).GetComponent<Door>());
+    //        roomDoors[i].RaiseEvent(DoorStatus.Open);
+    //    }
+    //}
 
-    private Vector3 LocalPointToWorldPoint(Vector3 localPoint)
+    public void CreateDoor(Vector2 vector)
     {
-        return localPoint + transform.position;
+        (Vector3 localPosition, Quaternion rotation) tempTransform = (Vector3.zero, Quaternion.identity);
+        if (vector == Vector2.up)
+        {
+            tempTransform = Door.GetDoorTransform(DoorPosition.Up);
+        }
+        else if (vector == Vector2.down)
+        {
+            tempTransform = Door.GetDoorTransform(DoorPosition.Down);
+        }
+        else if (vector == Vector2.left)
+        {
+            tempTransform = Door.GetDoorTransform(DoorPosition.Left);
+        }
+        else if (vector == Vector2.right)
+        {
+            tempTransform = Door.GetDoorTransform(DoorPosition.Right);
+        }
+        roomDoors.Add(ObjectPoolManager.Release(doorPrefab,
+                                                GameLogicUtility.LocalPointToWorldPoint(transform,
+                                                                                        tempTransform.localPosition),
+                                                tempTransform.rotation,
+                                                doorTransform).GetComponent<Door>());
+        roomDoors[doorsCount - 1].RaiseEvent(DoorStatus.Open);
     }
 }

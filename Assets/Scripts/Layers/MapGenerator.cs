@@ -2,28 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MapGenerator : MonoBehaviour
+public class MapGenerator
 {
-    private static readonly (int x, int y) roomOffsetPoint = (10, 10);
+    private static readonly MapCoordinate roomOffsetPoint = new MapCoordinate(10, 10);
+    private static List<MapCoordinate> coordinateList = new List<MapCoordinate>();
+    private static Queue<MapRoomInfo> coordinateQueue = new Queue<MapRoomInfo>();
 
-    public static Queue<MapRoomInfo> CreateMap(ChapterType chapterType, int floorDepth, FloorCurseType curseType, bool isHardMode)
+    public static MapRoomInfo CreateMap(ChapterType chapterType, int floorDepth, FloorCurseType curseType, bool isHardMode)
     {
-        var result = new Queue<MapRoomInfo>();
-        var roomNumber = GetRoomNumberWithLevelFloorDepth(floorDepth, curseType, isHardMode);
-        var deadEnds = GetMinDeadEndsWithFloorDepth(floorDepth, curseType);
+        coordinateList.Clear();
+        coordinateQueue.Clear();
 
         //生成初始房间地图
-        result.Enqueue(new MapRoomInfo((roomOffsetPoint.x, roomOffsetPoint.y)));
-        MapRoomInfo position;
-        for (int i = 1; i < roomNumber; i++)
+        var roomNumber = GetRoomNumberWithLevelFloorDepth(floorDepth, curseType, isHardMode);
+        var result = new MapRoomInfo(roomOffsetPoint, null);
+        var parent = result;
+        coordinateQueue.Enqueue(result);
+        roomNumber--;
+
+        while (coordinateQueue.Count > 0 && roomNumber > 0)
         {
-            do
-            {
-                position = new MapRoomInfo(GenerateRoomCoordinate(result.Peek().Coordinate));
-            } while (result.Contains(position));
-            result.Enqueue(position);
+            roomNumber -= GenerateRoomCoordinate(coordinateQueue.Dequeue());
         }
+
         //TODO: 获得死路房间坐标，设置特殊房间
+        var deadEnds = GetMinDeadEndsWithFloorDepth(floorDepth, curseType);
 
         return result;
     }
@@ -48,21 +51,65 @@ public class MapGenerator : MonoBehaviour
 
         return minDeadEnds;
     }
-    private static (int x, int y) GenerateRoomCoordinate((int x, int y) curPosition)
+    private static int GenerateRoomCoordinate(MapRoomInfo curRoomInfo)
     {
-        var direction = (MoveDirection)Random.Range(0, System.Enum.GetValues(typeof(MoveDirection)).Length);
+        Queue<MoveDirection> directionQueue = new Queue<MoveDirection>();
+        int result = 0;
+
+        for (int i = 0; i < System.Enum.GetValues(typeof(MoveDirection)).Length; i++)
+        {
+            if (CanGenerate(curRoomInfo.Coordinate, (MoveDirection)i))
+            {
+                directionQueue.Enqueue((MoveDirection)i);
+            }
+        }
+
+        //Try Generate
+        var queueCount = directionQueue.Count;
+        for (int i = 1; directionQueue.Count > 0; i++)
+        {
+            var direction = directionQueue.Dequeue();
+            if (Random.value <= Percent(queueCount, queueCount - i))
+            {
+                var newPoint = new MapRoomInfo(curRoomInfo.Coordinate + GetMoveDirectionPoint(direction), curRoomInfo);
+                coordinateQueue.Enqueue(newPoint);
+                curRoomInfo.Children.Add(newPoint);
+                result++;
+            }
+        }
+
+        return result;
+    }
+
+    private static bool CanGenerate(MapCoordinate point, MoveDirection direction)
+    {
+        return !coordinateList.Contains(point + GetMoveDirectionPoint(direction));
+    }
+
+    private static float Percent(int total, int remain)
+    {
+        return (float)(total - remain) / total;
+        //if (remain == 0) return 1;
+        //{
+
+        //}
+        //return 0.7f;
+    }
+
+    private static MapCoordinate GetMoveDirectionPoint(MoveDirection direction)
+    {
         switch (direction)
         {
             case MoveDirection.Up:
-                return (curPosition.x, curPosition.y + 1);
+                return MapCoordinate.up;
             case MoveDirection.Down:
-                return (curPosition.x, curPosition.y - 1);
+                return MapCoordinate.down;
             case MoveDirection.Left:
-                return (curPosition.x - 1, curPosition.y);
+                return MapCoordinate.left;
             case MoveDirection.Right:
-                return (curPosition.x + 1, curPosition.y);
+                return MapCoordinate.right;
             default:
-                return (0, 0);
+                return MapCoordinate.zero;
         }
     }
 

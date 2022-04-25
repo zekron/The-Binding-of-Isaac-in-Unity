@@ -1,15 +1,26 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
-public struct MapRoomInfo
+public class MapRoomInfo
 {
-    public (int x, int y) Coordinate;
+    public MapCoordinate Coordinate;
     public RoomType CurrentRoomType;
 
-    public MapRoomInfo((int x, int y) coordinate, RoomType currentRoomType = RoomType.Normal)
+    private Vector2 coorindateVector;
+    private MapRoomInfo parent;
+    private List<MapRoomInfo> children;
+
+    public MapRoomInfo(MapCoordinate coordinate, MapRoomInfo parent, RoomType currentRoomType = RoomType.Normal)
     {
         Coordinate = coordinate;
+        this.parent = parent;
         CurrentRoomType = currentRoomType;
+
+        coorindateVector = new Vector2(Coordinate.x, Coordinate.y);
+        children = new List<MapRoomInfo>();
     }
 
-    public Vector2 CoordinateVector => new Vector2(Coordinate.x, Coordinate.y);
+    public Vector2 CoordinateVector => coorindateVector;
+    public MapRoomInfo Parent => parent;
+    public List<MapRoomInfo> Children => children;
 }

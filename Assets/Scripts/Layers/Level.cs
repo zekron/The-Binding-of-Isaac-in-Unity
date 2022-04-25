@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,28 +27,84 @@ public class Level : MonoBehaviour
         }
     }
 
-    private void CreateRooms(Queue<MapRoomInfo> number)
+    private void CreateRooms(MapRoomInfo map)
     {
-        Room lastRoom;
-        for (; number.Count > 0;)
+        Queue<MapRoomInfo> queue = new Queue<MapRoomInfo>();
+        queue.Enqueue(map);
+
+        while (queue.Count > 0)
         {
-            lastRoom = CreateRoom(number.Dequeue());
+            var info = queue.Dequeue();
+
+            currentRoom = CreateRoom(info);
+            roomArray[currentRoom.RoomInfo.Coordinate.x, currentRoom.RoomInfo.Coordinate.y] = currentRoom;
+            CreateDoor(currentRoom);
+
+            foreach (var child in info.Children)
+            {
+                queue.Enqueue(child);
+            }
         }
+        //for (; map.Count > 0;)
+        //{
+        //    currentRoom = CreateRoom(map.Dequeue());
+        //    roomArray[currentRoom.RoomInfo.Coordinate.x, currentRoom.RoomInfo.Coordinate.y] = currentRoom;
+
+        //    CreateDoor(currentRoom);
+        //    lastRoom = currentRoom;
+        //}
         currentRoom = roomArray[roomOffsetPoint.x, roomOffsetPoint.y];
     }
 
     private Room CreateRoom(MapRoomInfo roomInfo)
     {
-        int x = (int)roomInfo.Coordinate.x - roomOffsetPoint.x;
-        int y = (int)roomInfo.Coordinate.y - roomOffsetPoint.y;
+        int x = roomInfo.Coordinate.x - roomOffsetPoint.x;
+        int y = roomInfo.Coordinate.y - roomOffsetPoint.y;
         var result = ObjectPoolManager.Release(roomPrefab,
                                                GameLogicUtility.LocalPointToWorldPoint(transform,
                                                                                        new Vector3(x * Room.RoomWidth,
                                                                                                    y * Room.RoomHeight)),
                                                Quaternion.identity,
                                                transform).GetComponent<Room>();
-        result.coordinate = roomInfo.CoordinateVector;
+        result.RoomInfo = roomInfo;
 
         return result;
+    }
+
+    /// <summary>
+    /// 检查 <paramref name="currentRoom"></paramref> 四个方向是否有房间，有则创建门
+    /// </summary>
+    /// <param name="currentRoom"></param>
+    /// <param name="lastRoom"></param>
+    private void CreateDoor(Room currentRoom)
+    {
+        if (currentRoom == null || currentRoom.RoomInfo.Parent == null) return;
+
+        MapRoomInfo parentInfo = currentRoom.RoomInfo.Parent;
+        var coordinate = currentRoom.RoomInfo.Coordinate - parentInfo.Coordinate;
+        if (coordinate == MapCoordinate.up)
+        {
+            roomArray[parentInfo.Coordinate.x,
+                      parentInfo.Coordinate.y].CreateDoor(Vector2.up);
+            currentRoom.CreateDoor(Vector2.down);
+        }
+        else if (coordinate == MapCoordinate.down)
+        {
+            roomArray[parentInfo.Coordinate.x,
+                      parentInfo.Coordinate.y].CreateDoor(Vector2.down);
+            currentRoom.CreateDoor(Vector2.up);
+        }
+        else if (coordinate == MapCoordinate.left)
+        {
+            roomArray[parentInfo.Coordinate.x,
+                      parentInfo.Coordinate.y].CreateDoor(Vector2.left);
+            currentRoom.CreateDoor(Vector2.right);
+        }
+        else if (coordinate == MapCoordinate.right)
+        {
+            roomArray[parentInfo.Coordinate.x,
+                      parentInfo.Coordinate.y].CreateDoor(Vector2.right);
+            currentRoom.CreateDoor(Vector2.left);
+        }
     }
 }
