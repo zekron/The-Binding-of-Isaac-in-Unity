@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class MapRoomInfo
 {
     public MapCoordinate Coordinate;
@@ -23,4 +24,18 @@ public class MapRoomInfo
     public Vector2 CoordinateVector => coorindateVector;
     public MapRoomInfo Parent => parent;
     public List<MapRoomInfo> Children => children;
+
+    public int Depth
+    {
+        get
+        {
+            int result = 0; var info = this;
+            while (info.parent != null)
+            {
+                result++;
+                info = info.parent;
+            }
+            return result;
+        }
+    }
 }

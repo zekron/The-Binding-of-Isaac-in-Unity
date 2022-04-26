@@ -63,7 +63,8 @@ public class Level : MonoBehaviour
         var result = ObjectPoolManager.Release(roomPrefab,
                                                GameLogicUtility.LocalPointToWorldPoint(transform,
                                                                                        new Vector3(x * Room.RoomWidth,
-                                                                                                   y * Room.RoomHeight)),
+                                                                                                   y * Room.RoomHeight,
+                                                                                                   roomInfo.Depth)),
                                                Quaternion.identity,
                                                transform).GetComponent<Room>();
         result.RoomInfo = roomInfo;

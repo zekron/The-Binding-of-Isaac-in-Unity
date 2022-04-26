@@ -18,11 +18,16 @@ public class MapGenerator
         var result = new MapRoomInfo(roomOffsetPoint, null);
         var parent = result;
         coordinateQueue.Enqueue(result);
+        coordinateList.Add(roomOffsetPoint);
         roomNumber--;
 
         while (coordinateQueue.Count > 0 && roomNumber > 0)
         {
-            roomNumber -= GenerateRoomCoordinate(coordinateQueue.Dequeue());
+            GenerateRoomCoordinate(coordinateQueue.Dequeue(), ref roomNumber);
+        }
+        if (roomNumber > 0)
+        {
+
         }
 
         //TODO: 获得死路房间坐标，设置特殊房间
@@ -31,6 +36,13 @@ public class MapGenerator
         return result;
     }
 
+    /// <summary>
+    /// 根据 <paramref name="curseType"/> 和 <paramref name="isHardMode"/> 计算出当前 <paramref name="floorDepth"/> 的房间数
+    /// </summary>
+    /// <param name="floorDepth">层深</param>
+    /// <param name="curseType">诅咒类型</param>
+    /// <param name="isHardMode">是否为困难模式</param>
+    /// <returns></returns>
     private static int GetRoomNumberWithLevelFloorDepth(int floorDepth, FloorCurseType curseType, bool isHardMode)
     {
         int roomNumber = Mathf.Min(20, Random.Range(0, 2) + 5 + floorDepth * 10 / 3);
@@ -42,6 +54,13 @@ public class MapGenerator
 
         return roomNumber;
     }
+
+    /// <summary>
+    /// 根据 <paramref name="curseType"/> 计算出当前 <paramref name="floorDepth"/> 的最少死路数
+    /// </summary>
+    /// <param name="floorDepth">层深</param>
+    /// <param name="curseType">诅咒类型（是否受到 Curse of the Labyrinth）</param>
+    /// <returns></returns>
     private static int GetMinDeadEndsWithFloorDepth(int floorDepth, FloorCurseType curseType)
     {
         var minDeadEnds = 5;
@@ -51,12 +70,14 @@ public class MapGenerator
 
         return minDeadEnds;
     }
-    private static int GenerateRoomCoordinate(MapRoomInfo curRoomInfo)
+
+    private static int GenerateRoomCoordinate(MapRoomInfo curRoomInfo, ref int roomNumber)
     {
         Queue<MoveDirection> directionQueue = new Queue<MoveDirection>();
-        int result = 0;
 
-        for (int i = 0; i < System.Enum.GetValues(typeof(MoveDirection)).Length; i++)
+        directionArray.Shuffle();
+        int length = directionArray.Length - (2 - curRoomInfo.Depth);
+        for (int i = 0; i < length; i++)
         {
             if (CanGenerate(curRoomInfo.Coordinate, (MoveDirection)i))
             {
@@ -65,16 +86,20 @@ public class MapGenerator
         }
 
         //Try Generate
+        int result = 0;
         var queueCount = directionQueue.Count;
-        for (int i = 1; directionQueue.Count > 0; i++)
+        for (int i = 0; directionQueue.Count > 0 && roomNumber > 0; i++)
         {
             var direction = directionQueue.Dequeue();
-            if (Random.value <= Percent(queueCount, queueCount - i))
+            if (Random.value <= Percent(queueCount, queueCount - i, result))
             {
-                var newPoint = new MapRoomInfo(curRoomInfo.Coordinate + GetMoveDirectionPoint(direction), curRoomInfo);
+                var newCoordinate = curRoomInfo.Coordinate + GetMoveDirectionPoint(direction);
+                coordinateList.Add(newCoordinate);
+                var newPoint = new MapRoomInfo(newCoordinate, curRoomInfo);
                 coordinateQueue.Enqueue(newPoint);
                 curRoomInfo.Children.Add(newPoint);
                 result++;
+                roomNumber--;
             }
         }
 
@@ -86,9 +111,16 @@ public class MapGenerator
         return !coordinateList.Contains(point + GetMoveDirectionPoint(direction));
     }
 
-    private static float Percent(int total, int remain)
+    /// <summary>
+    /// 根据 <paramref name="result"/> 和 <paramref name="remain"/> 情况调整成功概率
+    /// </summary>
+    /// <param name="total">可以生成房间的坐标数目</param>
+    /// <param name="remain">剩余可以生成房间的坐标数目</param>
+    /// <param name="result">当前已经可以生成房间的坐标数目</param>
+    /// <returns></returns>
+    private static float Percent(int total, int remain, int result)
     {
-        return (float)(total - remain) / total;
+        return (float)remain / total;
         //if (remain == 0) return 1;
         //{
 
@@ -113,5 +145,12 @@ public class MapGenerator
         }
     }
 
+    static MoveDirection[] directionArray = new MoveDirection[]
+     {
+        MoveDirection.Up,
+        MoveDirection.Down,
+        MoveDirection.Left,
+        MoveDirection.Right
+     };
     enum MoveDirection { Up, Down, Left, Right }
 }
