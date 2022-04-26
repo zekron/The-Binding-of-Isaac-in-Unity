@@ -89,7 +89,7 @@ public class Room : MonoBehaviour
     //    }
     //}
 
-    public void CreateDoor(Vector2 vector)
+    public void CreateDoor(Vector2 vector,RoomType roomType = RoomType.Normal)
     {
         (Vector3 localPosition, Quaternion rotation) tempTransform = (Vector3.zero, Quaternion.identity);
         if (vector == Vector2.up)

@@ -6,18 +6,20 @@ public class MapGenerator
 {
     private static readonly MapCoordinate roomOffsetPoint = new MapCoordinate(10, 10);
     private static List<MapCoordinate> coordinateList = new List<MapCoordinate>();
+    private static List<MapRoomInfo> deadEndList = new List<MapRoomInfo>();
     private static Queue<MapRoomInfo> coordinateQueue = new Queue<MapRoomInfo>();
 
     public static MapRoomInfo CreateMap(ChapterType chapterType, int floorDepth, FloorCurseType curseType, bool isHardMode)
     {
         coordinateList.Clear();
         coordinateQueue.Clear();
+        deadEndList.Clear();
 
         //生成初始房间地图
         var roomNumber = GetRoomNumberWithLevelFloorDepth(floorDepth, curseType, isHardMode);
         var result = new MapRoomInfo(roomOffsetPoint, null);
-        var parent = result;
         coordinateQueue.Enqueue(result);
+        deadEndList.Add(result);
         coordinateList.Add(roomOffsetPoint);
         roomNumber--;
 
@@ -25,15 +27,37 @@ public class MapGenerator
         {
             GenerateRoomCoordinate(coordinateQueue.Dequeue(), ref roomNumber);
         }
-        if (roomNumber > 0)
-        {
-
-        }
 
         //TODO: 获得死路房间坐标，设置特殊房间
         var deadEnds = GetMinDeadEndsWithFloorDepth(floorDepth, curseType);
+        deadEndList.Sort((x, y) => y.Depth - x.Depth);
+
+        PlaceRoom(RoomType.Boss);
+        PlaceRoom(RoomType.SuperSecret);
+        if (CanPlaceShopRoom(floorDepth))
+        {
+            PlaceRoom(RoomType.Shop);
+        }
+        if (CanPlaceTreasureRoom(floorDepth))
+        {
+            PlaceRoom(RoomType.Treasure);
+        }
+        foreach (var deadEnd in deadEndList)
+        {
+            CustomDebugger.Log(deadEnd.ToString());
+        }
 
         return result;
+    }
+
+    private static bool CanPlaceTreasureRoom(int floorDepth)
+    {
+        return floorDepth < 7;
+    }
+
+    private static bool CanPlaceShopRoom(int floorDepth)
+    {
+        return floorDepth < 7;
     }
 
     /// <summary>
@@ -96,6 +120,7 @@ public class MapGenerator
                 var newCoordinate = curRoomInfo.Coordinate + GetMoveDirectionPoint(direction);
                 coordinateList.Add(newCoordinate);
                 var newPoint = new MapRoomInfo(newCoordinate, curRoomInfo);
+                deadEndList.Add(newPoint);
                 coordinateQueue.Enqueue(newPoint);
                 curRoomInfo.Children.Add(newPoint);
                 result++;
@@ -103,12 +128,69 @@ public class MapGenerator
             }
         }
 
+        if (!IsDeadEndCoordinate(curRoomInfo) && deadEndList.Contains(curRoomInfo))
+        {
+            deadEndList.Remove(curRoomInfo);
+        }
+
         return result;
+    }
+
+    private static void PlaceRoom(RoomType roomType)
+    {
+        if (deadEndList.Count < 0) return;
+
+        MapRoomInfo roomInfo = deadEndList[0];
+        switch (roomType)
+        {
+            case RoomType.Boss:
+                deadEndList[0].CurrentRoomType = RoomType.Boss;
+                deadEndList.RemoveAt(0);
+                break;
+            case RoomType.SuperSecret:
+                deadEndList[0].CurrentRoomType = RoomType.SuperSecret;
+                deadEndList.RemoveAt(0);
+                break;
+            case RoomType.Shop:
+                deadEndList[0].CurrentRoomType = RoomType.Shop;
+                deadEndList.RemoveAt(0);
+                break;
+            case RoomType.Treasure:
+                deadEndList[0].CurrentRoomType = RoomType.Treasure;
+                deadEndList.RemoveAt(0);
+                break;
+            case RoomType.Sacrifice:
+                break;
+            case RoomType.Library:
+                break;
+            case RoomType.Curse:
+                break;
+            case RoomType.MiniBoss:
+                break;
+            case RoomType.Challenge:
+                break;
+            case RoomType.BossChallenge:
+                break;
+            case RoomType.Arcade:
+                break;
+            case RoomType.Secret:
+                break;
+            case RoomType.Starting:
+                break;
+            default:
+                break;
+        }
     }
 
     private static bool CanGenerate(MapCoordinate point, MoveDirection direction)
     {
         return !coordinateList.Contains(point + GetMoveDirectionPoint(direction));
+    }
+
+    private static bool IsDeadEndCoordinate(MapRoomInfo roomInfo)
+    {
+        return (roomInfo.Parent == null && roomInfo.Children.Count == 1)
+            || (roomInfo.Parent != null && roomInfo.Children.Count == 0);
     }
 
     /// <summary>
@@ -120,12 +202,8 @@ public class MapGenerator
     /// <returns></returns>
     private static float Percent(int total, int remain, int result)
     {
+        //TODO
         return (float)remain / total;
-        //if (remain == 0) return 1;
-        //{
-
-        //}
-        //return 0.7f;
     }
 
     private static MapCoordinate GetMoveDirectionPoint(MoveDirection direction)

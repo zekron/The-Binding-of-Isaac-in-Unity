@@ -7,7 +7,6 @@ public class MapRoomInfo
     public MapCoordinate Coordinate;
     public RoomType CurrentRoomType;
 
-    private Vector2 coorindateVector;
     private MapRoomInfo parent;
     private List<MapRoomInfo> children;
 
@@ -17,11 +16,9 @@ public class MapRoomInfo
         this.parent = parent;
         CurrentRoomType = currentRoomType;
 
-        coorindateVector = new Vector2(Coordinate.x, Coordinate.y);
         children = new List<MapRoomInfo>();
     }
 
-    public Vector2 CoordinateVector => coorindateVector;
     public MapRoomInfo Parent => parent;
     public List<MapRoomInfo> Children => children;
 
@@ -37,5 +34,10 @@ public class MapRoomInfo
             }
             return result;
         }
+    }
+
+    public override string ToString()
+    {
+        return string.Format("Coordinate: {0}. RoomType: {1}. Depth: {2}.", Coordinate.ToString(), CurrentRoomType, Depth);
     }
 }

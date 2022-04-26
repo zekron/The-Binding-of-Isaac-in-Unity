@@ -38,10 +38,11 @@ public enum RoomType
     Normal,
 
     Boss,
+    MiniBoss,
     Devil,
     Angel,
 
-    Treature,
+    Treasure,
     Shop,
     Library,
 
@@ -51,6 +52,7 @@ public enum RoomType
     BossChallenge,
 
     Curse,
+    Sacrifice,
 
     Secret,
     SuperSecret,
