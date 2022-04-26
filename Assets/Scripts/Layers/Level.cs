@@ -86,26 +86,26 @@ public class Level : MonoBehaviour
         if (coordinate == MapCoordinate.up)
         {
             roomArray[parentInfo.Coordinate.x,
-                      parentInfo.Coordinate.y].CreateDoor(Vector2.up);
-            currentRoom.CreateDoor(Vector2.down);
+                      parentInfo.Coordinate.y].CreateDoor(Vector2.up, currentRoom.RoomInfo.CurrentRoomType);
+            currentRoom.CreateDoor(Vector2.down, currentRoom.RoomInfo.CurrentRoomType);
         }
         else if (coordinate == MapCoordinate.down)
         {
             roomArray[parentInfo.Coordinate.x,
-                      parentInfo.Coordinate.y].CreateDoor(Vector2.down);
-            currentRoom.CreateDoor(Vector2.up);
+                      parentInfo.Coordinate.y].CreateDoor(Vector2.down, currentRoom.RoomInfo.CurrentRoomType);
+            currentRoom.CreateDoor(Vector2.up, currentRoom.RoomInfo.CurrentRoomType);
         }
         else if (coordinate == MapCoordinate.left)
         {
             roomArray[parentInfo.Coordinate.x,
-                      parentInfo.Coordinate.y].CreateDoor(Vector2.left);
-            currentRoom.CreateDoor(Vector2.right);
+                      parentInfo.Coordinate.y].CreateDoor(Vector2.left, currentRoom.RoomInfo.CurrentRoomType);
+            currentRoom.CreateDoor(Vector2.right, currentRoom.RoomInfo.CurrentRoomType);
         }
         else if (coordinate == MapCoordinate.right)
         {
             roomArray[parentInfo.Coordinate.x,
-                      parentInfo.Coordinate.y].CreateDoor(Vector2.right);
-            currentRoom.CreateDoor(Vector2.left);
+                      parentInfo.Coordinate.y].CreateDoor(Vector2.right, currentRoom.RoomInfo.CurrentRoomType);
+            currentRoom.CreateDoor(Vector2.left, currentRoom.RoomInfo.CurrentRoomType);
         }
     }
 }

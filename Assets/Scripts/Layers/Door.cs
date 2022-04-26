@@ -68,14 +68,15 @@ public class Door : MonoBehaviour
 
     public void DoorOpen()
     {
+        //TODO
         doorStatus = DoorStatus.Open;
-        doorAnimation.Play("Door_Open");
+        doorAnimation.Play("Door_Normal_Open");
     }
 
     public void DoorReset()
     {
         doorStatus = DoorStatus.Closed;
-        doorAnimation.Play("Door_Idle");
+        doorAnimation.Play("Door_Normal_Idle");
     }
 
     private void DoorBroken()

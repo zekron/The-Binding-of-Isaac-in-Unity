@@ -12,9 +12,6 @@ public class Room : MonoBehaviour
     [HideInInspector]
     public RoomType roomType;//房间类型
 
-    [HideInInspector]
-    public Vector2 coordinate;//坐标
-
     public MapRoomInfo RoomInfo;
 
     [SerializeField] private RoomLayoutSO roomLayout;//布局文件
@@ -89,7 +86,7 @@ public class Room : MonoBehaviour
     //    }
     //}
 
-    public void CreateDoor(Vector2 vector,RoomType roomType = RoomType.Normal)
+    public void CreateDoor(Vector2 vector, RoomType roomType = RoomType.Normal)
     {
         (Vector3 localPosition, Quaternion rotation) tempTransform = (Vector3.zero, Quaternion.identity);
         if (vector == Vector2.up)
@@ -108,11 +105,53 @@ public class Room : MonoBehaviour
         {
             tempTransform = Door.GetDoorTransform(DoorPosition.Right);
         }
-        roomDoors.Add(ObjectPoolManager.Release(doorPrefab,
+        roomDoors.Add(ObjectPoolManager.Release(GetDoorPrefabWithRoomType(roomType),
                                                 GameLogicUtility.LocalPointToWorldPoint(transform,
                                                                                         tempTransform.localPosition),
                                                 tempTransform.rotation,
                                                 doorTransform).GetComponent<Door>());
         roomDoors[doorsCount - 1].RaiseEvent(DoorStatus.Open);
+    }
+
+    private GameObject GetDoorPrefabWithRoomType(RoomType type)
+    {
+        switch (type)
+        {
+            case RoomType.Starting:
+            case RoomType.Normal:
+            case RoomType.MiniBoss:
+            case RoomType.Error:
+                return doorPrefab;
+            case RoomType.Boss:
+                CustomDebugger.Log(string.Format("Boss, {0}", RoomInfo.Coordinate.ToString()));
+                break;
+            case RoomType.Devil:
+                break;
+            case RoomType.Angel:
+                break;
+            case RoomType.Treasure:
+                CustomDebugger.Log(string.Format("Treasure, {0}", RoomInfo.Coordinate.ToString()));
+                break;
+            case RoomType.Shop:
+                CustomDebugger.Log(string.Format("Shop, {0}", RoomInfo.Coordinate.ToString()));
+                break;
+            case RoomType.Library:
+                break;
+            case RoomType.Arcade:
+                break;
+            case RoomType.Challenge:
+                break;
+            case RoomType.BossChallenge:
+                break;
+            case RoomType.Curse:
+                break;
+            case RoomType.Sacrifice:
+                break;
+            case RoomType.Secret:
+            case RoomType.SuperSecret:
+                CustomDebugger.Log(string.Format("Cave, {0}", RoomInfo.Coordinate.ToString()));
+                break;
+        }
+        return doorPrefab;
     }
 }
