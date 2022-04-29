@@ -8,7 +8,6 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     [Header("房间属性")]
-
     [HideInInspector]
     public RoomType roomType;//房间类型
 
@@ -31,6 +30,7 @@ public class Room : MonoBehaviour
     public static float UnitSize { get { return 0.28f; } }
 
     #region 房间布局
+    [Header("房间布局")]
     [SerializeField] private SpriteRenderer[] topBottomWallSprite;
     [SerializeField] private SpriteRenderer[] leftRightWallSprite;
     [SerializeField] private SpriteRenderer floorSprite;

@@ -9,14 +9,13 @@ public class Door : MonoBehaviour
     [SerializeField] private SpriteRenderer doorSprite;
     [SerializeField] private SpriteRenderer doorFrameSprite;
     [SerializeField] private SpriteRenderer doorLockSprite;
-    [SerializeField] private AnimationClip[] animationClips;
+    [SerializeField] private DoorType doorType;
 
     [SerializeField] private UnityAction<DoorStatus> onDoorStatusChanged;
 
     private Animation doorAnimation;
 
     private DoorStatus doorStatus;
-    private DoorType doorType;
 
     private void OnEnable()
     {
@@ -62,13 +61,13 @@ public class Door : MonoBehaviour
     {
         //TODO
         doorStatus = DoorStatus.Open;
-        doorAnimation.Play(animationClips[(int)doorStatus].name);
+        doorAnimation.Play(string.Format("Door_{0}_{1}", doorType, doorStatus));
     }
 
     public void DoorReset()
     {
         doorStatus = DoorStatus.Closed;
-        doorAnimation.Play(animationClips[(int)doorStatus].name);
+        doorAnimation.Play(string.Format("Door_{0}_{1}", doorType, doorStatus));
     }
 
     private void DoorBroken()
