@@ -430,6 +430,8 @@ MonoBehaviour:
   doorPools:
   - prefab: {fileID: 7924570295946511335, guid: 7908b15f137f36e418db83c7cfdd7fc9, type: 3}
     size: 2
+  - prefab: {fileID: 7924570295946511335, guid: d17a04163eaa22848b3884a7debe85fe, type: 3}
+    size: 2
   roomPools:
   - prefab: {fileID: 6994571110450151080, guid: d60cb5eb5597ca64d93f04d487f3fae7, type: 3}
     size: 3

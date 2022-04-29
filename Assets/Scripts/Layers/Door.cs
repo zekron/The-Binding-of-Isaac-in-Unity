@@ -9,6 +9,7 @@ public class Door : MonoBehaviour
     [SerializeField] private SpriteRenderer doorSprite;
     [SerializeField] private SpriteRenderer doorFrameSprite;
     [SerializeField] private SpriteRenderer doorLockSprite;
+    [SerializeField] private AnimationClip[] animationClips;
 
     [SerializeField] private UnityAction<DoorStatus> onDoorStatusChanged;
 
@@ -28,21 +29,12 @@ public class Door : MonoBehaviour
         onDoorStatusChanged -= OnDoorStatusChanged;
     }
 
-    private void OnDoorStatusChanged(DoorStatus arg0)
+#if UNITY_EDITOR
+    private void OnValidate()
     {
-        switch (arg0)
-        {
-            case DoorStatus.Closed:
-                DoorReset();
-                break;
-            case DoorStatus.Open:
-                DoorOpen();
-                break;
-            case DoorStatus.Broken:
-                DoorBroken();
-                break;
-        }
+        //animationClips = UnityEditor.AnimationUtility.GetAnimationClips(gameObject);
     }
+#endif
 
     private void Awake()
     {
@@ -70,13 +62,13 @@ public class Door : MonoBehaviour
     {
         //TODO
         doorStatus = DoorStatus.Open;
-        doorAnimation.Play("Door_Normal_Open");
+        doorAnimation.Play(animationClips[(int)doorStatus].name);
     }
 
     public void DoorReset()
     {
         doorStatus = DoorStatus.Closed;
-        doorAnimation.Play("Door_Normal_Idle");
+        doorAnimation.Play(animationClips[(int)doorStatus].name);
     }
 
     private void DoorBroken()
@@ -88,5 +80,21 @@ public class Door : MonoBehaviour
     public void RaiseEvent(DoorStatus status)
     {
         onDoorStatusChanged.Invoke(status);
+    }
+
+    private void OnDoorStatusChanged(DoorStatus arg0)
+    {
+        switch (arg0)
+        {
+            case DoorStatus.Closed:
+                DoorReset();
+                break;
+            case DoorStatus.Open:
+                DoorOpen();
+                break;
+            case DoorStatus.Broken:
+                DoorBroken();
+                break;
+        }
     }
 }

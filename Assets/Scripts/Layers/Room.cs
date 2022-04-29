@@ -110,6 +110,8 @@ public class Room : MonoBehaviour
                                                                                         tempTransform.localPosition),
                                                 tempTransform.rotation,
                                                 doorTransform).GetComponent<Door>());
+
+        //test
         roomDoors[doorsCount - 1].RaiseEvent(DoorStatus.Open);
     }
 

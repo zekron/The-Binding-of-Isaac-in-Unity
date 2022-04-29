@@ -10,6 +10,12 @@ public static class GameLogicUtility
         return localPoint + parent.position;
     }
 
+    /// <summary>
+    /// Ï´ÅÆ
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="list"></param>
+    /// <returns></returns>
     public static IList<T> Shuffle<T>(this IList<T> list)
     {
         int num = list.Count;
