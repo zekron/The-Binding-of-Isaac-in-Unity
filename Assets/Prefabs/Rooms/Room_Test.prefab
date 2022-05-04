@@ -292,7 +292,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomType: 0
-  coordinate: {x: 0, y: 0}
+  RoomInfo:
+    Coordinate:
+      x: 0
+      y: 0
+    CurrentRoomType: 0
+    Depth: 0
   roomLayout: {fileID: 11400000, guid: b9f3d0ebcd313434d8da07390ec74669, type: 2}
   isArrived: 0
   isCleared: 0
@@ -304,7 +309,15 @@ MonoBehaviour:
   - {fileID: 6994571110206444552}
   floorSprite: {fileID: 6994571109779623804}
   doorTransform: {fileID: 6994571111351574383}
-  doorPrefab: {fileID: 7924570295946511335, guid: 7908b15f137f36e418db83c7cfdd7fc9, type: 3}
+  normalDoor: {fileID: 7924570295946511335, guid: 7908b15f137f36e418db83c7cfdd7fc9, type: 3}
+  bossDoor: {fileID: 7924570295946511335, guid: d17a04163eaa22848b3884a7debe85fe, type: 3}
+  treasureDoor: {fileID: 7924570295946511335, guid: dbf612341784bd34fb0b3f211a5d5aa9, type: 3}
+  shopDoor: {fileID: 7924570295946511335, guid: 19a330c8f5769714c8f733bc7ff9c18d, type: 3}
+  secretDoor: {fileID: 7924570295946511335, guid: 065e81a646b2b8e44a6cd19766941f30, type: 3}
+  arcadeDoor: {fileID: 7924570295946511335, guid: 98d02f867b8c44e4c8766683b1b499e2, type: 3}
+  bossChallengeDoor: {fileID: 7924570295946511335, guid: 923e4dc3ae4006a4593bf6aae7cb0a9f, type: 3}
+  challengeDoor: {fileID: 7924570295946511335, guid: 10cabd365572e864da1b9b54f1abc91c, type: 3}
+  curseDoor: {fileID: 7924570295946511335, guid: dc0f52eea11579849a7d344d53a9b48b, type: 3}
 --- !u!1 &6994571110708521661
 GameObject:
   m_ObjectHideFlags: 0

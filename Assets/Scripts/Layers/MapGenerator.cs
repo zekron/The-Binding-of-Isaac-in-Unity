@@ -138,7 +138,7 @@ public class MapGenerator
 
     private static void PlaceRoom(RoomType roomType)
     {
-        if (deadEndList.Count < 0) return;
+        if (deadEndList.Count <= 0) return;
 
         MapRoomInfo roomInfo = deadEndList[0];
         switch (roomType)

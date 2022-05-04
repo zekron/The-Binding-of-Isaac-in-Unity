@@ -71,12 +71,12 @@ SpriteRenderer:
   m_SortingLayerID: -2070502295
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: -5781459323266683018, guid: 8e482545ef6b5e44396c86702629c0af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 044411cf00c60d740b3dbbbb2ac0d275, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 0.69, y: 0.7}
+  m_Size: {x: 0.68, y: 0.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -153,7 +153,7 @@ SpriteRenderer:
   m_SortingLayerID: -2070502295
   m_SortingLayer: 2
   m_SortingOrder: 2
-  m_Sprite: {fileID: 7957475137381874638, guid: 8e482545ef6b5e44396c86702629c0af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1d46b038c9d502045a9ecf702010eedc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -175,7 +175,7 @@ GameObject:
   - component: {fileID: 7061379768311836313}
   - component: {fileID: 4658934197568280628}
   m_Layer: 0
-  m_Name: Doors_Lcok
+  m_Name: Doors_Lock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -235,7 +235,7 @@ SpriteRenderer:
   m_SortingLayerID: -2070502295
   m_SortingLayer: 2
   m_SortingOrder: 2
-  m_Sprite: {fileID: -3834454974551121022, guid: 8e482545ef6b5e44396c86702629c0af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 003b7b493df1af4439382a7232a7a4dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -317,7 +317,7 @@ SpriteRenderer:
   m_SortingLayerID: -2070502295
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4950680412457382125, guid: 8e482545ef6b5e44396c86702629c0af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 058981ccd25b16741897e0053902661c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -469,12 +469,12 @@ SpriteRenderer:
   m_SortingLayerID: -2070502295
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: -5781459323266683018, guid: 8e482545ef6b5e44396c86702629c0af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 82f44740bcee23446aee7df89c6f6ee9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 0.69, y: 0.7}
+  m_Size: {x: 0.68, y: 0.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

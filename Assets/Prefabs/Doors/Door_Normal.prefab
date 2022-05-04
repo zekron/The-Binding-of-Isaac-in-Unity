@@ -71,7 +71,7 @@ SpriteRenderer:
   m_SortingLayerID: -2070502295
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: -5781459323266683018, guid: 8e482545ef6b5e44396c86702629c0af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 044411cf00c60d740b3dbbbb2ac0d275, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -153,7 +153,7 @@ SpriteRenderer:
   m_SortingLayerID: -2070502295
   m_SortingLayer: 2
   m_SortingOrder: 2
-  m_Sprite: {fileID: -292930424708612062, guid: 8e482545ef6b5e44396c86702629c0af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e55603d4c60c1f64f9386102b9471cae, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -235,7 +235,7 @@ SpriteRenderer:
   m_SortingLayerID: -2070502295
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: -4950680412457382125, guid: 8e482545ef6b5e44396c86702629c0af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 058981ccd25b16741897e0053902661c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -297,9 +297,7 @@ MonoBehaviour:
   doorSprite: {fileID: 0}
   doorFrameSprite: {fileID: 168117180839299066}
   doorLockSprite: {fileID: 0}
-  animationClips:
-  - {fileID: 7400000, guid: 77c6c5a896704e74da7859a7bbdb75aa, type: 2}
-  - {fileID: 7400000, guid: ff10b36308b5482479de54ffbae1c306, type: 2}
+  doorType: 0
 --- !u!111 &71363716
 Animation:
   m_ObjectHideFlags: 0
@@ -388,9 +386,9 @@ SpriteRenderer:
   m_SortingLayerID: -2070502295
   m_SortingLayer: 2
   m_SortingOrder: 1
-  m_Sprite: {fileID: -5781459323266683018, guid: 8e482545ef6b5e44396c86702629c0af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 82f44740bcee23446aee7df89c6f6ee9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
   m_Size: {x: 0.69, y: 0.7}

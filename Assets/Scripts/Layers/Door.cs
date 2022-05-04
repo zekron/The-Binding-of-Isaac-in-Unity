@@ -14,6 +14,7 @@ public class Door : MonoBehaviour
     [SerializeField] private UnityAction<DoorStatus> onDoorStatusChanged;
 
     private Animation doorAnimation;
+    private CustomFrameAnimation smokeAnimation;
 
     private DoorStatus doorStatus;
 
@@ -27,13 +28,6 @@ public class Door : MonoBehaviour
     {
         onDoorStatusChanged -= OnDoorStatusChanged;
     }
-
-#if UNITY_EDITOR
-    private void OnValidate()
-    {
-        //animationClips = UnityEditor.AnimationUtility.GetAnimationClips(gameObject);
-    }
-#endif
 
     private void Awake()
     {
@@ -62,6 +56,15 @@ public class Door : MonoBehaviour
         //TODO
         doorStatus = DoorStatus.Open;
         doorAnimation.Play(string.Format("Door_{0}_{1}", doorType, doorStatus));
+        switch (doorType)
+        {
+            case DoorType.BossChallenge:
+            case DoorType.Challenge:
+            case DoorType.Devil:
+            case DoorType.Angel:
+                smokeAnimation.PlayOnce();
+                break;
+        }
     }
 
     public void DoorReset()

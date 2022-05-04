@@ -41,7 +41,15 @@ public class Room : MonoBehaviour
 
     #region Test
     [Header("Test Part")]
-    [SerializeField] private GameObject doorPrefab;
+    [SerializeField] private GameObject normalDoor;
+    [SerializeField] private GameObject bossDoor;
+    [SerializeField] private GameObject treasureDoor;
+    [SerializeField] private GameObject shopDoor;
+    [SerializeField] private GameObject secretDoor;
+    [SerializeField] private GameObject arcadeDoor;
+    [SerializeField] private GameObject bossChallengeDoor;
+    [SerializeField] private GameObject challengeDoor;
+    [SerializeField] private GameObject curseDoor;
     #endregion
 
     private void OnEnable()
@@ -123,37 +131,31 @@ public class Room : MonoBehaviour
             case RoomType.Normal:
             case RoomType.MiniBoss:
             case RoomType.Error:
-                return doorPrefab;
+            case RoomType.Library:
+            case RoomType.Sacrifice:
+                return normalDoor;
             case RoomType.Boss:
-                CustomDebugger.Log(string.Format("Boss, {0}", RoomInfo.Coordinate.ToString()));
-                break;
+                return bossDoor;
             case RoomType.Devil:
                 break;
             case RoomType.Angel:
                 break;
             case RoomType.Treasure:
-                CustomDebugger.Log(string.Format("Treasure, {0}", RoomInfo.Coordinate.ToString()));
-                break;
+                return treasureDoor;
             case RoomType.Shop:
-                CustomDebugger.Log(string.Format("Shop, {0}", RoomInfo.Coordinate.ToString()));
-                break;
-            case RoomType.Library:
-                break;
+                return shopDoor;
             case RoomType.Arcade:
-                break;
+                return arcadeDoor;
             case RoomType.Challenge:
-                break;
+                return challengeDoor;
             case RoomType.BossChallenge:
-                break;
+                return bossChallengeDoor;
             case RoomType.Curse:
-                break;
-            case RoomType.Sacrifice:
-                break;
+                return curseDoor;
             case RoomType.Secret:
             case RoomType.SuperSecret:
-                CustomDebugger.Log(string.Format("Cave, {0}", RoomInfo.Coordinate.ToString()));
-                break;
+                return secretDoor;
         }
-        return doorPrefab;
+        return normalDoor;
     }
 }
