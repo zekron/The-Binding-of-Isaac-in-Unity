@@ -6,15 +6,17 @@ using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
+    [SerializeField] private FloorCurseType currentCurse = FloorCurseType.None;
+    [SerializeField] private int currentLevel = 1;
     [SerializeField] private GameObject roomPrefab;
-    private Room[,] roomArray = new Room[20, 20];
+    private Room[,] roomArray = new Room[MapCoordinate.RoomOffsetPoint.x << 1, MapCoordinate.RoomOffsetPoint.y << 1];
     private Room currentRoom;
-    private static readonly (int x, int y) roomOffsetPoint = (10, 10);
 
     // Start is called before the first frame update
     void Start()
     {
-        CreateRooms(MapGenerator.CreateMap(ChapterType.Basement, 1, FloorCurseType.None, isHardMode: false));
+        CreateRooms(MapGenerator.CreateMap(ChapterType.Basement, currentLevel, currentCurse, isHardMode: false));
+        EnterRoom(MapCoordinate.RoomOffsetPoint);
         //CreateRooms(Random.Range(1, 5));
     }
 
@@ -27,10 +29,10 @@ public class Level : MonoBehaviour
         }
     }
 
-    private void CreateRooms(MapRoomInfo map)
+    private void CreateRooms(MapRoomInfo rootRoomInfo)
     {
         Queue<MapRoomInfo> queue = new Queue<MapRoomInfo>();
-        queue.Enqueue(map);
+        queue.Enqueue(rootRoomInfo);
 
         while (queue.Count > 0)
         {
@@ -53,17 +55,20 @@ public class Level : MonoBehaviour
         //    CreateDoor(currentRoom);
         //    lastRoom = currentRoom;
         //}
-        currentRoom = roomArray[roomOffsetPoint.x, roomOffsetPoint.y];
+    }
+
+    private void EnterRoom(MapCoordinate coordinate)
+    {
+        currentRoom = roomArray[coordinate.x, coordinate.y];
     }
 
     private Room CreateRoom(MapRoomInfo roomInfo)
     {
-        int x = roomInfo.Coordinate.x - roomOffsetPoint.x;
-        int y = roomInfo.Coordinate.y - roomOffsetPoint.y;
+        var coordinate = roomInfo.Coordinate - MapCoordinate.RoomOffsetPoint;
         var result = ObjectPoolManager.Release(roomPrefab,
                                                GameLogicUtility.LocalPointToWorldPoint(transform,
-                                                                                       new Vector3(x * Room.RoomWidth,
-                                                                                                   y * Room.RoomHeight,
+                                                                                       new Vector3(coordinate.x * Room.RoomWidth,
+                                                                                                   coordinate.y * Room.RoomHeight,
                                                                                                    roomInfo.Depth)),
                                                Quaternion.identity,
                                                transform).GetComponent<Room>();
@@ -83,25 +88,25 @@ public class Level : MonoBehaviour
 
         MapRoomInfo parentInfo = currentRoom.RoomInfo.Parent;
         var coordinate = currentRoom.RoomInfo.Coordinate - parentInfo.Coordinate;
-        if (coordinate == MapCoordinate.up)
+        if (coordinate.Equals(MapCoordinate.up))
         {
             roomArray[parentInfo.Coordinate.x,
                       parentInfo.Coordinate.y].CreateDoor(Vector2.up, currentRoom.RoomInfo.CurrentRoomType);
             currentRoom.CreateDoor(Vector2.down, currentRoom.RoomInfo.CurrentRoomType);
         }
-        else if (coordinate == MapCoordinate.down)
+        else if (coordinate.Equals(MapCoordinate.down))
         {
             roomArray[parentInfo.Coordinate.x,
                       parentInfo.Coordinate.y].CreateDoor(Vector2.down, currentRoom.RoomInfo.CurrentRoomType);
             currentRoom.CreateDoor(Vector2.up, currentRoom.RoomInfo.CurrentRoomType);
         }
-        else if (coordinate == MapCoordinate.left)
+        else if (coordinate.Equals(MapCoordinate.left))
         {
             roomArray[parentInfo.Coordinate.x,
                       parentInfo.Coordinate.y].CreateDoor(Vector2.left, currentRoom.RoomInfo.CurrentRoomType);
             currentRoom.CreateDoor(Vector2.right, currentRoom.RoomInfo.CurrentRoomType);
         }
-        else if (coordinate == MapCoordinate.right)
+        else if (coordinate.Equals(MapCoordinate.right))
         {
             roomArray[parentInfo.Coordinate.x,
                       parentInfo.Coordinate.y].CreateDoor(Vector2.right, currentRoom.RoomInfo.CurrentRoomType);

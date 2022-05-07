@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 using UnityEngine;
 
 public static class GameLogicUtility
@@ -26,9 +27,32 @@ public static class GameLogicUtility
             T temp = list[ran];
             list[ran] = list[num - 1];
             list[num - 1] = temp;
-            //list.Insert(list.Count - 1, list[ran]);
             num--;
         }
         return list;
+    }
+
+    public static string ToString<T>(this IList<T> list)
+    {
+        StringBuilder sb = new StringBuilder();
+        foreach (var item in list)
+        {
+            sb.AppendLine(item.ToString());
+        }
+        return sb.ToString();
+    }
+
+    public static Queue<T> Reverse<T>(this Queue<T> queue)
+    {
+        var stack = new Stack<T>(queue.Count);
+        for (; queue.Count > 0;)
+        {
+            stack.Push(queue.Dequeue());
+        }
+        for (; stack.Count > 0;)
+        {
+            queue.Enqueue(stack.Pop());
+        }
+        return queue;
     }
 }

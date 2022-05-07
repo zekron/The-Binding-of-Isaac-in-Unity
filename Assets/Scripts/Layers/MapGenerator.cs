@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MapGenerator
 {
-    private static readonly MapCoordinate roomOffsetPoint = new MapCoordinate(10, 10);
     private static List<MapCoordinate> coordinateList = new List<MapCoordinate>();
     private static List<MapRoomInfo> deadEndList = new List<MapRoomInfo>();
     private static Queue<MapRoomInfo> coordinateQueue = new Queue<MapRoomInfo>();
@@ -17,19 +16,33 @@ public class MapGenerator
 
         //生成初始房间地图
         var roomNumber = GetRoomNumberWithLevelFloorDepth(floorDepth, curseType, isHardMode);
-        var result = new MapRoomInfo(roomOffsetPoint, null);
+        var deadEnds = GetMinDeadEndsWithFloorDepth(floorDepth, curseType);
+        var result = new MapRoomInfo(MapCoordinate.RoomOffsetPoint, null);
         coordinateQueue.Enqueue(result);
         deadEndList.Add(result);
-        coordinateList.Add(roomOffsetPoint);
+        coordinateList.Add(MapCoordinate.RoomOffsetPoint);
         roomNumber--;
 
-        while (coordinateQueue.Count > 0 && roomNumber > 0)
+        GenerateMainPath(result, roomNumber - deadEnds);
+
+        coordinateQueue.Reverse();
+        while (coordinateQueue.Count > 0 && deadEnds > 0)
         {
-            GenerateRoomCoordinate(coordinateQueue.Dequeue(), ref roomNumber);
+            if (InsertDeadEnd(coordinateQueue.Peek()))
+            {
+                deadEnds--;
+                coordinateQueue.Enqueue(coordinateQueue.Dequeue());
+            }
+            else
+            {
+                coordinateQueue.Dequeue();
+            }
         }
 
+
+        //while (deadEndList.Count < deadEnds)
+
         //TODO: 获得死路房间坐标，设置特殊房间
-        var deadEnds = GetMinDeadEndsWithFloorDepth(floorDepth, curseType);
         deadEndList.Sort((x, y) => y.Depth - x.Depth);
 
         PlaceRoom(RoomType.Boss);
@@ -42,20 +55,17 @@ public class MapGenerator
         {
             PlaceRoom(RoomType.Treasure);
         }
-        foreach (var deadEnd in deadEndList)
-        {
-            CustomDebugger.Log(deadEnd.ToString());
-        }
+        TryPlacingSecret();
 
         return result;
     }
 
-    private static bool CanPlaceTreasureRoom(int floorDepth)
+    private static bool CanPlaceShopRoom(int floorDepth)
     {
         return floorDepth < 7;
     }
 
-    private static bool CanPlaceShopRoom(int floorDepth)
+    private static bool CanPlaceTreasureRoom(int floorDepth)
     {
         return floorDepth < 7;
     }
@@ -91,49 +101,65 @@ public class MapGenerator
 
         if (floorDepth != 1) minDeadEnds += 1;
         if (curseType == FloorCurseType.CurseoftheLabyrinth) minDeadEnds += 1;
+        if (floorDepth > 3 && Random.value >= 0.5f) minDeadEnds += 1;
 
         return minDeadEnds;
     }
 
-    private static int GenerateRoomCoordinate(MapRoomInfo curRoomInfo, ref int roomNumber)
+    private static void GenerateMainPath(MapRoomInfo curRoomInfo, int roomNumber)
     {
-        Queue<MoveDirection> directionQueue = new Queue<MoveDirection>();
-
-        directionArray.Shuffle();
-        int length = directionArray.Length - (2 - curRoomInfo.Depth);
-        for (int i = 0; i < length; i++)
+        var tempInfo = curRoomInfo;
+        int cnt = 0;
+        while (roomNumber - cnt > 0)
         {
-            if (CanGenerate(curRoomInfo.Coordinate, (MoveDirection)i))
+            if (Random.value > 0.5f) directionArray.Shuffle();
+            for (int i = 0; i < directionArray.Length; i++)
             {
-                directionQueue.Enqueue((MoveDirection)i);
+                if (CanGenerate(tempInfo.Coordinate, directionArray[i]))
+                {
+                    tempInfo = CreateCoordinate(tempInfo, directionArray[i]);
+                    coordinateQueue.Enqueue(tempInfo);
+                    break;
+                }
+            }
+            cnt++;
+            if ((cnt & 7) == 0)
+            {
+                tempInfo = curRoomInfo;
+            }
+        }
+        deadEndList.Add(tempInfo);
+    }
+
+    private static bool InsertDeadEnd(MapRoomInfo curRoomInfo)
+    {
+        bool isSuccess = false;
+        for (int i = 0; i < directionArray.Length; i++)
+        {
+            if (CanGenerate(curRoomInfo.Coordinate, directionArray[i]))
+            {
+                deadEndList.Add(CreateCoordinate(curRoomInfo, directionArray[i]));
+                isSuccess = true;
+                break;
             }
         }
 
-        //Try Generate
-        int result = 0;
-        var queueCount = directionQueue.Count;
-        for (int i = 0; directionQueue.Count > 0 && roomNumber > 0; i++)
-        {
-            var direction = directionQueue.Dequeue();
-            if (Random.value <= Percent(queueCount, queueCount - i, result))
-            {
-                var newCoordinate = curRoomInfo.Coordinate + GetMoveDirectionPoint(direction);
-                coordinateList.Add(newCoordinate);
-                var newPoint = new MapRoomInfo(newCoordinate, curRoomInfo);
-                deadEndList.Add(newPoint);
-                coordinateQueue.Enqueue(newPoint);
-                curRoomInfo.Children.Add(newPoint);
-                result++;
-                roomNumber--;
-            }
-        }
-
-        if (!IsDeadEndCoordinate(curRoomInfo) && deadEndList.Contains(curRoomInfo))
+        if (isSuccess && !IsDeadEndCoordinate(curRoomInfo) && deadEndList.Contains(curRoomInfo))
         {
             deadEndList.Remove(curRoomInfo);
         }
 
-        return result;
+        return isSuccess;
+    }
+
+    private static MapRoomInfo CreateCoordinate(MapRoomInfo curRoomInfo, MoveDirection direction)
+    {
+        var newCoordinate = curRoomInfo.Coordinate + GetMoveDirectionPoint(direction);
+        coordinateList.Add(newCoordinate);
+        var newPoint = new MapRoomInfo(newCoordinate, curRoomInfo);
+        curRoomInfo.Children.Add(newPoint);
+
+        return newPoint;
     }
 
     private static void PlaceRoom(RoomType roomType)
@@ -182,9 +208,50 @@ public class MapGenerator
         }
     }
 
+    private static void TryPlacingSecret()
+    {
+        //throw new System.NotImplementedException();
+    }
+
     private static bool CanGenerate(MapCoordinate point, MoveDirection direction)
     {
-        return !coordinateList.Contains(point + GetMoveDirectionPoint(direction));
+        MapCoordinate coordinate = point + GetMoveDirectionPoint(direction);
+        bool result = !IsOutOfBound(coordinate);
+        if (result) result = !HasBeenOccupied(coordinate);
+        if (result) result = !HasAnyNeighbours(coordinate);
+        return result;
+    }
+
+    private static bool IsOutOfBound(MapCoordinate coordinate)
+    {
+        return coordinate.x >= MapCoordinate.RoomOffsetPoint.x * 2
+            || coordinate.x < 0
+            || coordinate.y >= MapCoordinate.RoomOffsetPoint.y * 2
+            || coordinate.y < 0;
+    }
+
+    private static bool HasBeenOccupied(MapCoordinate coordinate)
+    {
+        return coordinateList.Contains(coordinate);
+    }
+
+    /// <summary>
+    /// <paramref name="coordinate"/> 是否有 <paramref name="neighbourNum"/> 个邻居
+    /// </summary>
+    /// <param name="coordinate"></param>
+    /// <param name="neighbourNum"></param>
+    /// <returns></returns>
+    private static bool HasAnyNeighbours(MapCoordinate coordinate, int neighbourNum = 2)
+    {
+        bool result = false;
+        int count = 0;
+        for (int i = 0; i < directionArray.Length; i++)
+        {
+            if (HasBeenOccupied(coordinate + GetMoveDirectionPoint(directionArray[i]))) count++;
+
+            if (count >= neighbourNum) return true;
+        }
+        return result;
     }
 
     private static bool IsDeadEndCoordinate(MapRoomInfo roomInfo)
@@ -200,7 +267,7 @@ public class MapGenerator
     /// <param name="remain">剩余可以生成房间的坐标数目</param>
     /// <param name="result">当前已经可以生成房间的坐标数目</param>
     /// <returns></returns>
-    private static float Percent(int total, int remain, int result)
+    private static float Percent(int total, int remain)
     {
         //TODO
         return (float)remain / total;

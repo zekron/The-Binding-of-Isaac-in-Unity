@@ -18,6 +18,8 @@ public class Door : MonoBehaviour
     private DoorStatus doorStatus;
     private DoorType doorType;
 
+    private Bounds doorBound;
+
     private void OnEnable()
     {
         doorStatus = DoorStatus.Closed;
@@ -39,6 +41,7 @@ public class Door : MonoBehaviour
     private void Awake()
     {
         doorAnimation = GetComponent<Animation>();
+        smokeAnimation = GetComponentInChildren<CustomFrameAnimation>();
     }
 
     public static (Vector3 localPosition, Quaternion rotation) GetDoorTransform(DoorPosition type)
@@ -58,20 +61,33 @@ public class Door : MonoBehaviour
         }
     }
 
-    public void DoorOpen()
+    public void OpenDoor()
     {
         //TODO
         doorStatus = DoorStatus.Open;
+<<<<<<< Updated upstream
         doorAnimation.Play(animationClips[(int)doorStatus].name);
+=======
+        doorAnimation.Play(string.Format("Door_{0}_{1}", doorType, doorStatus));
+        switch (doorType)
+        {
+            case DoorType.BossChallenge:
+            case DoorType.Challenge:
+            case DoorType.Devil:
+            case DoorType.Angel:
+                smokeAnimation?.PlayOnce();
+                break;
+        }
+>>>>>>> Stashed changes
     }
 
-    public void DoorReset()
+    public void ResetDoor()
     {
         doorStatus = DoorStatus.Closed;
         doorAnimation.Play(animationClips[(int)doorStatus].name);
     }
 
-    private void DoorBroken()
+    private void BreakDoor()
     {
         doorStatus = DoorStatus.Broken;
         throw new NotImplementedException();
@@ -87,13 +103,13 @@ public class Door : MonoBehaviour
         switch (arg0)
         {
             case DoorStatus.Closed:
-                DoorReset();
+                ResetDoor();
                 break;
             case DoorStatus.Open:
-                DoorOpen();
+                OpenDoor();
                 break;
             case DoorStatus.Broken:
-                DoorBroken();
+                BreakDoor();
                 break;
         }
     }

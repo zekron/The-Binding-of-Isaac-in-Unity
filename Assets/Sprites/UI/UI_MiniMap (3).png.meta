@@ -1,16 +1,7 @@
 fileFormatVersion: 2
-guid: 4a3a677dd70f4804e831d5dd8c6d3a35
+guid: f2bde2bc962b3d644b145e0678dd2879
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 388079223463450178
-    second: UI_Maze_0
-  - first:
-      213: -2821806714817384655
-    second: UI_Maze_1
-  - first:
-      213: 5932473359755353913
-    second: UI_Maze_2
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -29,7 +20,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 0
+  isReadable: 1
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
@@ -50,7 +41,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 0
   alignment: 0
@@ -122,70 +113,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: UI_Maze_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 60
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2469f336ffbb26500800000000000000
-      internalID: 388079223463450178
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Maze_1
-      rect:
-        serializedVersion: 2
-        x: 70
-        y: 0
-        width: 60
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 13f6f725ebde6d8d0800000000000000
-      internalID: -2821806714817384655
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_Maze_2
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 0
-        width: 60
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 93f9fafc611645250800000000000000
-      internalID: 5932473359755353913
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -200,5 +128,5 @@ TextureImporter:
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
   userData: 
-  assetBundleName: gameui
-  assetBundleVariant: ab
+  assetBundleName: 
+  assetBundleVariant: 

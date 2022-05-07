@@ -107,6 +107,9 @@ public enum DoorStatus
     Broken,
 }
 
+
+public enum MiniMapIconStatus { None, Unknown, Current, Arrived }
+
 /// <summary>
 /// Íæ¼ÒÃû×Ö
 /// </summary>
