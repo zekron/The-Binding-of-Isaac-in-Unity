@@ -67,6 +67,7 @@ public class Door : MonoBehaviour
             case DoorType.Angel:
                 smokeAnimation?.PlayOnce();
                 break;
+        }
     }
 
     public void ResetDoor()
