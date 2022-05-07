@@ -17,24 +17,14 @@ public class MapRoomInfo
         CurrentRoomType = currentRoomType;
 
         children = new List<MapRoomInfo>();
+
+        if (parent != null) Depth = parent.Depth + 1;
     }
 
     public MapRoomInfo Parent => parent;
     public List<MapRoomInfo> Children => children;
 
-    public int Depth
-    {
-        get
-        {
-            int result = 0; var info = this;
-            while (info.parent != null)
-            {
-                result++;
-                info = info.parent;
-            }
-            return result;
-        }
-    }
+    public int Depth;
 
     public override string ToString()
     {

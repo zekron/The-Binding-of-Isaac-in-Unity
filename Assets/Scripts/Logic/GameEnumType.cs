@@ -83,7 +83,7 @@ public enum DoorType
 
     Curse,
 
-    Cave,
+    Secret,
 }
 
 /// <summary>

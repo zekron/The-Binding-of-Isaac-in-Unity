@@ -9,14 +9,14 @@ public class Door : MonoBehaviour
     [SerializeField] private SpriteRenderer doorSprite;
     [SerializeField] private SpriteRenderer doorFrameSprite;
     [SerializeField] private SpriteRenderer doorLockSprite;
-    [SerializeField] private AnimationClip[] animationClips;
+    [SerializeField] private DoorType doorType;
 
     [SerializeField] private UnityAction<DoorStatus> onDoorStatusChanged;
 
     private Animation doorAnimation;
+    private CustomFrameAnimation smokeAnimation;
 
     private DoorStatus doorStatus;
-    private DoorType doorType;
 
     private Bounds doorBound;
 
@@ -30,13 +30,6 @@ public class Door : MonoBehaviour
     {
         onDoorStatusChanged -= OnDoorStatusChanged;
     }
-
-#if UNITY_EDITOR
-    private void OnValidate()
-    {
-        //animationClips = UnityEditor.AnimationUtility.GetAnimationClips(gameObject);
-    }
-#endif
 
     private void Awake()
     {
@@ -65,9 +58,6 @@ public class Door : MonoBehaviour
     {
         //TODO
         doorStatus = DoorStatus.Open;
-<<<<<<< Updated upstream
-        doorAnimation.Play(animationClips[(int)doorStatus].name);
-=======
         doorAnimation.Play(string.Format("Door_{0}_{1}", doorType, doorStatus));
         switch (doorType)
         {
@@ -77,14 +67,12 @@ public class Door : MonoBehaviour
             case DoorType.Angel:
                 smokeAnimation?.PlayOnce();
                 break;
-        }
->>>>>>> Stashed changes
     }
 
     public void ResetDoor()
     {
         doorStatus = DoorStatus.Closed;
-        doorAnimation.Play(animationClips[(int)doorStatus].name);
+        doorAnimation.Play(string.Format("Door_{0}_{1}", doorType, doorStatus));
     }
 
     private void BreakDoor()

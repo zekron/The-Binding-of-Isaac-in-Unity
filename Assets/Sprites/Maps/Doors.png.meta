@@ -59,6 +59,18 @@ TextureImporter:
   - first:
       213: -551082938411016477
     second: Doors_2
+  - first:
+      213: 3499683669041570755
+    second: Doors_3
+  - first:
+      213: 1496226213467112817
+    second: Doors_5
+  - first:
+      213: -4954721434361786270
+    second: Doors_22
+  - first:
+      213: -487793327036657841
+    second: Doors_23
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -175,12 +187,12 @@ TextureImporter:
       name: Doors_0
       rect:
         serializedVersion: 2
-        x: 76
-        y: 429
-        width: 128
-        height: 75
+        x: 31
+        y: 448
+        width: 86
+        height: 67
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -196,12 +208,12 @@ TextureImporter:
       name: Doors_1
       rect:
         serializedVersion: 2
-        x: 225
-        y: 428
-        width: 129
-        height: 75
+        x: 140
+        y: 430
+        width: 128
+        height: 76
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -217,12 +229,12 @@ TextureImporter:
       name: Doors_6
       rect:
         serializedVersion: 2
-        x: 464
-        y: 450
-        width: 28
-        height: 36
+        x: 679
+        y: 433
+        width: 69
+        height: 71
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -238,12 +250,12 @@ TextureImporter:
       name: Doors_7
       rect:
         serializedVersion: 2
-        x: 499
-        y: 450
-        width: 22
-        height: 36
+        x: 34
+        y: 295
+        width: 118
+        height: 92
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -259,12 +271,12 @@ TextureImporter:
       name: Doors_8
       rect:
         serializedVersion: 2
-        x: 528
-        y: 450
-        width: 28
-        height: 35
+        x: 163
+        y: 295
+        width: 184
+        height: 118
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -280,12 +292,12 @@ TextureImporter:
       name: Doors_9
       rect:
         serializedVersion: 2
-        x: 582
-        y: 433
-        width: 69
-        height: 70
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+        x: 358
+        y: 292
+        width: 184
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -301,12 +313,12 @@ TextureImporter:
       name: Doors_10
       rect:
         serializedVersion: 2
-        x: 657
-        y: 433
-        width: 69
-        height: 70
-      alignment: 5
-      pivot: {x: 1, y: 0.5}
+        x: 566
+        y: 310
+        width: 183
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -322,12 +334,12 @@ TextureImporter:
       name: Doors_11
       rect:
         serializedVersion: 2
-        x: 13
-        y: 272
-        width: 117
-        height: 92
+        x: 1
+        y: 162
+        width: 184
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -343,12 +355,12 @@ TextureImporter:
       name: Doors_12
       rect:
         serializedVersion: 2
-        x: 142
-        y: 296
-        width: 183
-        height: 118
+        x: 196
+        y: 179
+        width: 184
+        height: 99
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -364,12 +376,12 @@ TextureImporter:
       name: Doors_13
       rect:
         serializedVersion: 2
-        x: 347
-        y: 299
+        x: 385
+        y: 133
         width: 184
-        height: 99
+        height: 142
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -385,12 +397,12 @@ TextureImporter:
       name: Doors_14
       rect:
         serializedVersion: 2
-        x: 547
-        y: 300
+        x: 575
+        y: 162
         width: 184
-        height: 106
+        height: 124
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -406,12 +418,12 @@ TextureImporter:
       name: Doors_15
       rect:
         serializedVersion: 2
-        x: 34
-        y: 158
-        width: 86
-        height: 67
+        x: 163
+        y: 27
+        width: 184
+        height: 130
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -427,12 +439,12 @@ TextureImporter:
       name: Doors_16
       rect:
         serializedVersion: 2
-        x: 148
-        y: 181
+        x: 352
+        y: 0
         width: 184
-        height: 99
+        height: 128
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -448,12 +460,12 @@ TextureImporter:
       name: Doors_17
       rect:
         serializedVersion: 2
-        x: 340
-        y: 149
-        width: 184
-        height: 142
+        x: 575
+        y: 103
+        width: 28
+        height: 36
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -469,12 +481,12 @@ TextureImporter:
       name: Doors_18
       rect:
         serializedVersion: 2
-        x: 548
-        y: 156
-        width: 184
-        height: 124
+        x: 661
+        y: 34
+        width: 65
+        height: 70
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -487,78 +499,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Doors_19
-      rect:
-        serializedVersion: 2
-        x: 142
-        y: 34
-        width: 184
-        height: 130
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6fed9832e826cf800800000000000000
-      internalID: 647500809055624950
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Doors_20
-      rect:
-        serializedVersion: 2
-        x: 334
-        y: 0
-        width: 184
-        height: 127
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 52a4d5d5c78a91af0800000000000000
-      internalID: -425123437713995227
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Doors_21
-      rect:
-        serializedVersion: 2
-        x: 561
-        y: 5
-        width: 134
-        height: 100
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9af9ecfb980cec9d0800000000000000
-      internalID: -2752050624415752279
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Doors_2
       rect:
         serializedVersion: 2
-        x: 373
-        y: 430
-        width: 67
-        height: 70
+        x: 292
+        y: 427
+        width: 129
+        height: 75
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -566,6 +515,90 @@ TextureImporter:
       bones: []
       spriteID: 3ee9b3ebcf82a58f0800000000000000
       internalID: -551082938411016477
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Doors_3
+      rect:
+        serializedVersion: 2
+        x: 457
+        y: 419
+        width: 134
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c3657f31cf519030800000000000000
+      internalID: 3499683669041570755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Doors_5
+      rect:
+        serializedVersion: 2
+        x: 604
+        y: 433
+        width: 69
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 175c55550d9a3c410800000000000000
+      internalID: 1496226213467112817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Doors_22
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 47
+        width: 22
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2601adf4b1b4d3bb0800000000000000
+      internalID: -4954721434361786270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Doors_23
+      rect:
+        serializedVersion: 2
+        x: 615
+        y: 39
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4f8c22bd820b39f0800000000000000
+      internalID: -487793327036657841
       vertices: []
       indices: 
       edges: []
