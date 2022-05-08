@@ -108,7 +108,25 @@ public enum DoorStatus
 }
 
 
-public enum MiniMapIconStatus { None, Unknown, Current, Arrived }
+public enum MiniMapIconStatus
+{
+    /// <summary>
+    /// 初始化
+    /// </summary>
+    None,
+    /// <summary>
+    /// 未经探索的，一般为邻近的房间，或者使用了Card Sun
+    /// </summary>
+    Unexplored,
+    /// <summary>
+    /// 当前所在房间
+    /// </summary>
+    Current,
+    /// <summary>
+    /// 已探索的
+    /// </summary>
+    Explored
+}
 
 /// <summary>
 /// 玩家名字

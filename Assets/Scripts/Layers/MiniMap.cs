@@ -9,25 +9,23 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
 public class MiniMap : MonoBehaviour
 {
-    [SerializeField] private Sprite iconArrived;
+    [SerializeField] private Sprite iconExplored;
     [SerializeField] private Sprite iconCurrent;
-    [SerializeField] private Sprite iconUnknown;
+    [SerializeField] private Sprite iconUnexplored;
 
     private Dictionary<MapCoordinate, MiniMapIconStatus> drawnList;
     private Texture2D emptyTexture;
     private Image mapImage;
     private int basicIconWidth;
     private int basicIconHeight;
-    private int mapTextureHeight;
-    private int mapTextureWidth;
 
     // Start is called before the first frame update
     void Start()
     {
         mapImage = GetComponent<Image>();
 
-        basicIconWidth = (int)iconArrived.rect.width;
-        basicIconHeight = (int)iconArrived.rect.height;
+        basicIconWidth = (int)iconExplored.rect.width;
+        basicIconHeight = (int)iconExplored.rect.height;
 
         emptyTexture = new Texture2D(basicIconWidth, basicIconHeight);
         for (int i = 0; i < basicIconWidth; i++)
@@ -39,14 +37,12 @@ public class MiniMap : MonoBehaviour
         }
 
         drawnList = new Dictionary<MapCoordinate, MiniMapIconStatus>();
-        Activate(MapCoordinate.RoomOffsetPoint, MiniMapIconStatus.Current);
-        Activate(MapCoordinate.RoomOffsetPoint + MapCoordinate.left, MiniMapIconStatus.Unknown);
-        Activate(MapCoordinate.RoomOffsetPoint + MapCoordinate.right, MiniMapIconStatus.Unknown);
-        Activate(MapCoordinate.RoomOffsetPoint + MapCoordinate.up, MiniMapIconStatus.Unknown);
-        Activate(MapCoordinate.RoomOffsetPoint + MapCoordinate.up * 2, MiniMapIconStatus.Unknown);
-        Activate(MapCoordinate.RoomOffsetPoint + MapCoordinate.down, MiniMapIconStatus.Unknown);
-        mapTextureWidth = 3 * basicIconWidth;
-        mapTextureHeight = 4 * basicIconHeight;
+        Activate(MapCoordinate.RoomOffsetPoint, MiniMapIconStatus.Unexplored);
+        Activate(MapCoordinate.RoomOffsetPoint + MapCoordinate.left, MiniMapIconStatus.Unexplored);
+        Activate(MapCoordinate.RoomOffsetPoint + MapCoordinate.right, MiniMapIconStatus.Unexplored);
+        Activate(MapCoordinate.RoomOffsetPoint + MapCoordinate.up, MiniMapIconStatus.Unexplored);
+        Activate(MapCoordinate.RoomOffsetPoint + MapCoordinate.up * 2, MiniMapIconStatus.Unexplored);
+        Activate(MapCoordinate.RoomOffsetPoint + MapCoordinate.down, MiniMapIconStatus.Unexplored);
 
         DrawTexture();
     }
@@ -54,46 +50,115 @@ public class MiniMap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            Activate(MapCoordinate.RoomOffsetPoint, MiniMapIconStatus.Current);
+        }
     }
 
+
+    MapCoordinate currentCellCoordinate;
     private void Activate(MapCoordinate coordinate, MiniMapIconStatus status)
     {
         if (!drawnList.ContainsKey(coordinate))
         {
             drawnList.Add(coordinate, status);
+            RefreshMiniMapData(coordinate);
         }
         else
         {
             drawnList[coordinate] = status;
+            DrawCell(coordinate);
+        }
+        if (status == MiniMapIconStatus.Current)
+        {
+            currentCellCoordinate = coordinate;
         }
     }
 
+    private MapCoordinate miniMapOriginalPoint = new MapCoordinate(int.MaxValue, int.MaxValue);
+    private MapCoordinate miniMapTopRightPoint = new MapCoordinate(0, 0);
+    private void RefreshMiniMapData(MapCoordinate coordinate)
+    {
+        miniMapOriginalPoint.x = Mathf.Min(coordinate.x, miniMapOriginalPoint.x);
+        miniMapOriginalPoint.y = Mathf.Min(coordinate.y, miniMapOriginalPoint.y);
+
+        miniMapTopRightPoint.x = Mathf.Max(coordinate.x, miniMapTopRightPoint.x);
+        miniMapTopRightPoint.y = Mathf.Max(coordinate.y, miniMapTopRightPoint.y);
+    }
+
+    Sprite miniMapSprite;
+
+    private void DrawCell(MapCoordinate mapCoordinate)
+    {
+        var texture = miniMapSprite.texture;
+        SetMiniMapCellPixels(texture, mapCoordinate);
+
+        texture.Apply();
+        mapImage.sprite = miniMapSprite = Sprite.Create(texture,
+                                                        new Rect(Vector3.zero, new Vector2(texture.width, texture.height)),
+                                                        Vector2.zero);
+
+    }
     private void DrawTexture()
     {
-        var result = new Texture2D(mapTextureWidth, mapTextureHeight);
-        for (int i = 0; i < 3; i++)
+        var topRight = MapCoordinate2MiniMapCoordinate(miniMapTopRightPoint + MapCoordinate.one);
+        var texture = new Texture2D(topRight.x * basicIconWidth, topRight.y * basicIconHeight);
+
+        for (int y = 0; y < topRight.y; y++)
         {
-            result.SetPixels((int)iconCurrent.rect.x + i * basicIconWidth,
-                             (int)iconCurrent.rect.y,
-                             (int)iconCurrent.rect.width,
-                             (int)iconCurrent.rect.height,
-                             emptyTexture.GetPixels());
+            for (int x = 0; x < topRight.x; x++)
+            {
+                SetMiniMapCellPixels(texture, MiniMapCoordinate2MapCoordinate(x, y));
+            }
+
         }
-        result.Apply();
+        texture.Apply();
 
-        Sprite miniMap = Sprite.Create(result, new Rect(Vector3.zero, new Vector2(result.width, result.height)), Vector2.zero);
-
-        mapImage.sprite = miniMap;
+        mapImage.sprite = miniMapSprite = Sprite.Create(texture,
+                                                        new Rect(Vector3.zero, new Vector2(texture.width, texture.height)),
+                                                        Vector2.zero);
         mapImage.SetNativeSize();
     }
 
-    private int dictionaryComparer()
+    private void SetMiniMapCellPixels(Texture2D texture, MapCoordinate mapCoordinate)
     {
-        foreach (var item in drawnList)
-        {
+        MapCoordinate miniMapCoordinate = MapCoordinate2MiniMapCoordinate(mapCoordinate);
+        texture.SetPixels(
+            (int)iconCurrent.rect.x + miniMapCoordinate.x * basicIconWidth,
+            (int)iconCurrent.rect.y + miniMapCoordinate.y * basicIconHeight,
+            (int)iconCurrent.rect.width,
+            (int)iconCurrent.rect.height,
+            GetMiniMapCellPixels(drawnList.ContainsKey(mapCoordinate) ? drawnList[mapCoordinate] : MiniMapIconStatus.None));
+    }
 
+    private Color[] GetMiniMapCellPixels(MiniMapIconStatus status)
+    {
+        switch (status)
+        {
+            case MiniMapIconStatus.None:
+                return emptyTexture.GetPixels();
+            case MiniMapIconStatus.Unexplored:
+                return iconUnexplored.texture.GetPixels();
+            case MiniMapIconStatus.Current:
+                return iconCurrent.texture.GetPixels();
+            case MiniMapIconStatus.Explored:
+                return iconExplored.texture.GetPixels();
+            default:
+                return emptyTexture.GetPixels();
         }
-        return 1;
+    }
+
+    private MapCoordinate MapCoordinate2MiniMapCoordinate(MapCoordinate coordinate)
+    {
+        return new MapCoordinate(coordinate - miniMapOriginalPoint);
+    }
+    private MapCoordinate MiniMapCoordinate2MapCoordinate(MapCoordinate coordinate)
+    {
+        return new MapCoordinate(coordinate + miniMapOriginalPoint);
+    }
+    private MapCoordinate MiniMapCoordinate2MapCoordinate(int x, int y)
+    {
+        return new MapCoordinate(x + miniMapOriginalPoint.x, y + miniMapOriginalPoint.y);
     }
 }

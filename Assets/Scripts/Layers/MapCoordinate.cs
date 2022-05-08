@@ -12,11 +12,17 @@ public struct MapCoordinate : IEquatable<MapCoordinate>, IComparer<MapCoordinate
         this.x = x;
         this.y = y;
     }
+    public MapCoordinate(MapCoordinate coordinate)
+    {
+        x = coordinate.x;
+        y = coordinate.y;
+    }
 
     public static MapCoordinate up => new MapCoordinate(0, 1);
     public static MapCoordinate down => new MapCoordinate(0, -1);
     public static MapCoordinate left => new MapCoordinate(-1, 0);
     public static MapCoordinate right => new MapCoordinate(1, 0);
+    public static MapCoordinate one => new MapCoordinate(1, 1);
     public static MapCoordinate zero => new MapCoordinate(0, 0);
 
     public static readonly MapCoordinate RoomOffsetPoint = new MapCoordinate(5, 5);
