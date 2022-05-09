@@ -55,4 +55,18 @@ public static class GameLogicUtility
         }
         return queue;
     }
+
+    public static Texture2D GetEmptyTexture(int width, int height)
+    {
+        var result = new Texture2D(width, height);
+        for (int y = 0; y < height; y++)
+        {
+            for (int x = 0; x < width; x++)
+            {
+                result.SetPixel(x, y, Color.clear);
+            }
+        }
+        result.Apply();
+        return result;
+    }
 }

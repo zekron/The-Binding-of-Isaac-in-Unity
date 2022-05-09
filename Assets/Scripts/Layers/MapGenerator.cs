@@ -112,12 +112,12 @@ public class MapGenerator
         int cnt = 0;
         while (roomNumber - cnt > 0)
         {
-            if (Random.value > 0.5f) directionArray.Shuffle();
-            for (int i = 0; i < directionArray.Length; i++)
+            if (Random.value > 0.5f) MapCoordinate.directionArray.Shuffle();
+            for (int i = 0; i < MapCoordinate.directionArray.Length; i++)
             {
-                if (CanGenerate(tempInfo.Coordinate, directionArray[i]))
+                if (CanGenerate(tempInfo.Coordinate, MapCoordinate.directionArray[i]))
                 {
-                    tempInfo = CreateCoordinate(tempInfo, directionArray[i]);
+                    tempInfo = CreateCoordinate(tempInfo, MapCoordinate.directionArray[i]);
                     coordinateQueue.Enqueue(tempInfo);
                     break;
                 }
@@ -134,11 +134,11 @@ public class MapGenerator
     private static bool InsertDeadEnd(MapRoomInfo curRoomInfo)
     {
         bool isSuccess = false;
-        for (int i = 0; i < directionArray.Length; i++)
+        for (int i = 0; i < MapCoordinate.directionArray.Length; i++)
         {
-            if (CanGenerate(curRoomInfo.Coordinate, directionArray[i]))
+            if (CanGenerate(curRoomInfo.Coordinate, MapCoordinate.directionArray[i]))
             {
-                deadEndList.Add(CreateCoordinate(curRoomInfo, directionArray[i]));
+                deadEndList.Add(CreateCoordinate(curRoomInfo, MapCoordinate.directionArray[i]));
                 isSuccess = true;
                 break;
             }
@@ -152,9 +152,9 @@ public class MapGenerator
         return isSuccess;
     }
 
-    private static MapRoomInfo CreateCoordinate(MapRoomInfo curRoomInfo, MoveDirection direction)
+    private static MapRoomInfo CreateCoordinate(MapRoomInfo curRoomInfo, MapCoordinate.MoveDirection direction)
     {
-        var newCoordinate = curRoomInfo.Coordinate + GetMoveDirectionPoint(direction);
+        var newCoordinate = curRoomInfo.Coordinate + MapCoordinate.GetMoveDirectionPoint(direction);
         coordinateList.Add(newCoordinate);
         var newPoint = new MapRoomInfo(newCoordinate, curRoomInfo);
         curRoomInfo.Children.Add(newPoint);
@@ -213,9 +213,9 @@ public class MapGenerator
         //throw new System.NotImplementedException();
     }
 
-    private static bool CanGenerate(MapCoordinate point, MoveDirection direction)
+    private static bool CanGenerate(MapCoordinate point, MapCoordinate.MoveDirection direction)
     {
-        MapCoordinate coordinate = point + GetMoveDirectionPoint(direction);
+        MapCoordinate coordinate = point + MapCoordinate.GetMoveDirectionPoint(direction);
         bool result = !IsOutOfBound(coordinate);
         if (result) result = !HasBeenOccupied(coordinate);
         if (result) result = !HasAnyNeighbours(coordinate);
@@ -245,9 +245,9 @@ public class MapGenerator
     {
         bool result = false;
         int count = 0;
-        for (int i = 0; i < directionArray.Length; i++)
+        for (int i = 0; i < MapCoordinate.directionArray.Length; i++)
         {
-            if (HasBeenOccupied(coordinate + GetMoveDirectionPoint(directionArray[i]))) count++;
+            if (HasBeenOccupied(coordinate + MapCoordinate.GetMoveDirectionPoint(MapCoordinate.directionArray[i]))) count++;
 
             if (count >= neighbourNum) return true;
         }
@@ -273,29 +273,29 @@ public class MapGenerator
         return (float)remain / total;
     }
 
-    private static MapCoordinate GetMoveDirectionPoint(MoveDirection direction)
-    {
-        switch (direction)
-        {
-            case MoveDirection.Up:
-                return MapCoordinate.up;
-            case MoveDirection.Down:
-                return MapCoordinate.down;
-            case MoveDirection.Left:
-                return MapCoordinate.left;
-            case MoveDirection.Right:
-                return MapCoordinate.right;
-            default:
-                return MapCoordinate.zero;
-        }
-    }
+    //private static MapCoordinate GetMoveDirectionPoint(MoveDirection direction)
+    //{
+    //    switch (direction)
+    //    {
+    //        case MoveDirection.Up:
+    //            return MapCoordinate.up;
+    //        case MoveDirection.Down:
+    //            return MapCoordinate.down;
+    //        case MoveDirection.Left:
+    //            return MapCoordinate.left;
+    //        case MoveDirection.Right:
+    //            return MapCoordinate.right;
+    //        default:
+    //            return MapCoordinate.zero;
+    //    }
+    //}
 
-    static MoveDirection[] directionArray = new MoveDirection[]
-     {
-        MoveDirection.Up,
-        MoveDirection.Down,
-        MoveDirection.Left,
-        MoveDirection.Right
-     };
-    enum MoveDirection { Up, Down, Left, Right }
+    //static MoveDirection[] directionArray = new MoveDirection[]
+    // {
+    //    MoveDirection.Up,
+    //    MoveDirection.Down,
+    //    MoveDirection.Left,
+    //    MoveDirection.Right
+    // };
+    //enum MoveDirection { Up, Down, Left, Right }
 }

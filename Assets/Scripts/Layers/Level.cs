@@ -9,6 +9,9 @@ public class Level : MonoBehaviour
     [SerializeField] private FloorCurseType currentCurse = FloorCurseType.None;
     [SerializeField] private int currentLevel = 1;
     [SerializeField] private GameObject roomPrefab;
+    [SerializeField] private MapCoordinateEventChannelSO onCreateRoomEvent;
+    [SerializeField] private MapCoordinateStatusEventChannelSO onEnterRoomEvent;
+
     private Room[,] roomArray = new Room[MapCoordinate.RoomOffsetPoint.x << 1, MapCoordinate.RoomOffsetPoint.y << 1];
     private Room currentRoom;
 
@@ -59,6 +62,11 @@ public class Level : MonoBehaviour
 
     private void EnterRoom(MapCoordinate coordinate)
     {
+        onEnterRoomEvent.RaiseEvent(MapCoordinate.zero,
+                                    currentRoom.isCleared ? MiniMapIconStatus.Explored : MiniMapIconStatus.Unexplored);
+
+        onEnterRoomEvent.RaiseEvent(coordinate - currentRoom.RoomInfo.Coordinate,
+                                    MiniMapIconStatus.Current);
         currentRoom = roomArray[coordinate.x, coordinate.y];
     }
 
@@ -73,6 +81,7 @@ public class Level : MonoBehaviour
                                                Quaternion.identity,
                                                transform).GetComponent<Room>();
         result.RoomInfo = roomInfo;
+        onCreateRoomEvent.RaiseEvent(roomInfo.Coordinate);
 
         return result;
     }

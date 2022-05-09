@@ -18,6 +18,7 @@ public struct MapCoordinate : IEquatable<MapCoordinate>, IComparer<MapCoordinate
         y = coordinate.y;
     }
 
+    public enum MoveDirection { Up, Down, Left, Right }
     public static MapCoordinate up => new MapCoordinate(0, 1);
     public static MapCoordinate down => new MapCoordinate(0, -1);
     public static MapCoordinate left => new MapCoordinate(-1, 0);
@@ -41,6 +42,30 @@ public struct MapCoordinate : IEquatable<MapCoordinate>, IComparer<MapCoordinate
     {
         return new MapCoordinate(a.x * b, a.y * b);
     }
+    public static MapCoordinate GetMoveDirectionPoint(MoveDirection direction)
+    {
+        switch (direction)
+        {
+            case MoveDirection.Up:
+                return up;
+            case MoveDirection.Down:
+                return down;
+            case MoveDirection.Left:
+                return left;
+            case MoveDirection.Right:
+                return right;
+            default:
+                return zero;
+        }
+    }
+
+    public static MoveDirection[] directionArray = new MoveDirection[]
+     {
+        MoveDirection.Up,
+        MoveDirection.Down,
+        MoveDirection.Left,
+        MoveDirection.Right
+     };
 
     public override string ToString()
     {
