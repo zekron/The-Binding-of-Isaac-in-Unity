@@ -12,12 +12,10 @@ public class MiniMap : MonoBehaviour
     [SerializeField] private Sprite iconExplored;
     [SerializeField] private Sprite iconCurrent;
     [SerializeField] private Sprite iconUnexplored;
-    [SerializeField] private MiniMapCoordinateEventChannelSO onMiniMapCoordinateChangedEvent;
     [SerializeField] private MapCoordinateEventChannelSO onCreateRoomEvent;
     [SerializeField] private MapCoordinateStatusEventChannelSO onEnterRoomEvent;
 
     private Dictionary<MapCoordinate, MiniMapIconStatus> coordinateDict;
-    private List<MiniMapCoordinate> coordinateList;
     private MapCoordinate currentCellCoordinate;
     private Texture2D emptyTexture;
     private Image mapImage;
@@ -42,9 +40,8 @@ public class MiniMap : MonoBehaviour
         basicIconHeight = (int)iconExplored.rect.height;
 
         coordinateDict = new Dictionary<MapCoordinate, MiniMapIconStatus>();
-        coordinateList = new List<MiniMapCoordinate>();
 
-        currentCellCoordinate = MapCoordinate.RoomOffsetPoint;
+        //currentCellCoordinate = MapCoordinate.RoomOffsetPoint;
     }
 
     // Start is called before the first frame update
@@ -56,19 +53,6 @@ public class MiniMap : MonoBehaviour
                                                         new Rect(Vector2.zero,
                                                                  new Vector2(emptyTexture.width, emptyTexture.height)),
                                                         Vector2.zero);
-
-        #region Test
-        OnCreateRoom(MapCoordinate.RoomOffsetPoint);
-        OnCreateRoom(MapCoordinate.RoomOffsetPoint + MapCoordinate.left);
-        OnCreateRoom(MapCoordinate.RoomOffsetPoint + MapCoordinate.right);
-        OnCreateRoom(MapCoordinate.RoomOffsetPoint + MapCoordinate.up);
-        OnCreateRoom(MapCoordinate.RoomOffsetPoint + MapCoordinate.up * 2);
-        OnCreateRoom(MapCoordinate.RoomOffsetPoint + MapCoordinate.down);
-
-        OnMoving(MapCoordinate.zero, MiniMapIconStatus.Current);
-        #endregion
-
-        //DrawTexture();
     }
 
     // Update is called once per frame
@@ -115,17 +99,6 @@ public class MiniMap : MonoBehaviour
         {
             coordinateDict[coordinate] = status;
         }
-        //if (status != MiniMapIconStatus.None) RefreshMiniMapData(coordinate);
-
-        //if (coordinateDict[coordinate] != status)
-        //{
-        //    DrawCell(coordinate);
-        //}
-        //if (status == MiniMapIconStatus.Current)
-        //{
-        //    DrawCurrentCell(currentCellCoordinate = coordinate);
-        //    currentCellCoordinate = coordinate;
-        //}
     }
 
     private void OnCreateRoom(MapCoordinate mapCoordinate)
@@ -169,14 +142,7 @@ public class MiniMap : MonoBehaviour
 
     private void DrawCurrentCell(MapCoordinate mapCoordinate)
     {
-        //ShiftTexture
-        var oldTexture = miniMapSprite.texture;
-        var texture = ResizeTexture(mapCoordinate);
         var direction = mapCoordinate - currentCellCoordinate;  //新坐标移动方向
-        if (oldTexture.width != texture.width || oldTexture.height != texture.height)
-            ShiftTexture(oldTexture, texture, direction);
-        else
-            texture.SetPixels(oldTexture.GetPixels());
 
         var toBeDrawnList = new List<MapCoordinate>(5);
         toBeDrawnList.Add(mapCoordinate);
@@ -192,8 +158,28 @@ public class MiniMap : MonoBehaviour
                     Activate(neighbour, MiniMapIconStatus.Unexplored);//TODO: Test
                     toBeDrawnList.Add(neighbour);
                 }
+                switch (MapCoordinate.directionArray[i])
+                {
+                    //如果该方向上有房间而且旧小地图处于边缘，则需要往该方向平移平移
+                    case MapCoordinate.MoveDirection.Down when currentCellCoordinate.y == miniMapOriginalPoint.y:
+                    case MapCoordinate.MoveDirection.Left when currentCellCoordinate.x == miniMapOriginalPoint.x:
+                        direction += MapCoordinate.GetMoveDirectionPoint(MapCoordinate.directionArray[i]);
+                        break;
+                }
             }
         }
+
+        var texture = ResizeTexture(mapCoordinate);
+        var oldTexture = miniMapSprite.texture;
+        //如果方向为往下或者往左但是这个方向上没有房间，旧小地图则不用往这个方向（的反方向）平移
+        if (!toBeDrawnList.Contains(mapCoordinate + MapCoordinate.down) && direction.y == -1) direction.y = 0;
+        if (!toBeDrawnList.Contains(mapCoordinate + MapCoordinate.left) && direction.x == -1) direction.x = 0;
+        //ShiftTexture
+        if (!currentCellCoordinate.Equals(MapCoordinate.zero))
+            if (oldTexture.width != texture.width || oldTexture.height != texture.height)
+                ShiftTexture(oldTexture, texture, direction);
+            else
+                texture.SetPixels(oldTexture.GetPixels());
 
         for (int i = 0; i < toBeDrawnList.Count; i++)
         {
@@ -232,27 +218,6 @@ public class MiniMap : MonoBehaviour
         return GameLogicUtility.GetEmptyTexture(topRight.x * basicIconWidth, topRight.y * basicIconHeight);
     }
 
-    private void DrawTexture()
-    {
-        var topRight = MapCoordinate2MiniMapCoordinate(miniMapTopRightPoint + MapCoordinate.one);
-        var texture = new Texture2D(topRight.x * basicIconWidth, topRight.y * basicIconHeight);
-
-        for (int y = 0; y < topRight.y; y++)
-        {
-            for (int x = 0; x < topRight.x; x++)
-            {
-                SetMiniMapCellPixels(texture, x, y);
-            }
-
-        }
-        texture.Apply();
-
-        mapImage.sprite = miniMapSprite = Sprite.Create(texture,
-                                                        new Rect(Vector3.zero, new Vector2(texture.width, texture.height)),
-                                                        Vector2.zero);
-        mapImage.SetNativeSize();
-    }
-
     private void ShiftTexture(Texture2D textureNeed2Shift, Texture2D baseTexture, MapCoordinate direction)
     {
         baseTexture.SetPixels(direction.x > 0 ? 0 : direction.x * -basicIconWidth,
@@ -261,15 +226,6 @@ public class MiniMap : MonoBehaviour
                               textureNeed2Shift.height,
                               textureNeed2Shift.GetPixels());
         baseTexture.Apply();
-    }
-
-    private void SetMiniMapRowPixels(Texture2D texture, MapCoordinate mapCoordinate)
-    {
-        MapCoordinate miniMapCoordinate = MapCoordinate2MiniMapCoordinate(mapCoordinate);
-        for (int i = 0; i < miniMapTopRightPoint.x; i++)
-        {
-            SetMiniMapCellPixels(texture, i, miniMapCoordinate.y);
-        }
     }
 
     /// <summary>
@@ -302,6 +258,30 @@ public class MiniMap : MonoBehaviour
             (int)iconCurrent.rect.width,
             (int)iconCurrent.rect.height,
             GetMiniMapCellPixels(coordinateDict.ContainsKey(mapCoordinate) ? coordinateDict[mapCoordinate] : MiniMapIconStatus.None));
+    }
+
+    /// <summary>
+    /// Test
+    /// </summary>
+    private void DrawTexture()
+    {
+        var topRight = MapCoordinate2MiniMapCoordinate(miniMapTopRightPoint + MapCoordinate.one);
+        var texture = new Texture2D(topRight.x * basicIconWidth, topRight.y * basicIconHeight);
+
+        for (int y = 0; y < topRight.y; y++)
+        {
+            for (int x = 0; x < topRight.x; x++)
+            {
+                SetMiniMapCellPixels(texture, x, y);
+            }
+
+        }
+        texture.Apply();
+
+        mapImage.sprite = miniMapSprite = Sprite.Create(texture,
+                                                        new Rect(Vector3.zero, new Vector2(texture.width, texture.height)),
+                                                        Vector2.zero);
+        mapImage.SetNativeSize();
     }
 
     private Color[] GetMiniMapCellPixels(MiniMapIconStatus status)

@@ -19,7 +19,6 @@ public class MapGenerator
         var deadEnds = GetMinDeadEndsWithFloorDepth(floorDepth, curseType);
         var result = new MapRoomInfo(MapCoordinate.RoomOffsetPoint, null);
         coordinateQueue.Enqueue(result);
-        deadEndList.Add(result);
         coordinateList.Add(MapCoordinate.RoomOffsetPoint);
         roomNumber--;
 
@@ -97,9 +96,9 @@ public class MapGenerator
     /// <returns></returns>
     private static int GetMinDeadEndsWithFloorDepth(int floorDepth, FloorCurseType curseType)
     {
-        var minDeadEnds = 5;
+        var minDeadEnds = 4;
 
-        if (floorDepth != 1) minDeadEnds += 1;
+        if (floorDepth != 1) minDeadEnds += 2;
         if (curseType == FloorCurseType.CurseoftheLabyrinth) minDeadEnds += 1;
         if (floorDepth > 3 && Random.value >= 0.5f) minDeadEnds += 1;
 
@@ -128,7 +127,6 @@ public class MapGenerator
                 tempInfo = curRoomInfo;
             }
         }
-        deadEndList.Add(tempInfo);
     }
 
     private static bool InsertDeadEnd(MapRoomInfo curRoomInfo)

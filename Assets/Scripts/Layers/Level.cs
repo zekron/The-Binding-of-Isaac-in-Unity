@@ -19,7 +19,9 @@ public class Level : MonoBehaviour
     void Start()
     {
         CreateRooms(MapGenerator.CreateMap(ChapterType.Basement, currentLevel, currentCurse, isHardMode: false));
-        EnterRoom(MapCoordinate.RoomOffsetPoint);
+
+        onEnterRoomEvent.RaiseEvent(MapCoordinate.RoomOffsetPoint, MiniMapIconStatus.Current);
+        currentRoom = roomArray[MapCoordinate.RoomOffsetPoint.x, MapCoordinate.RoomOffsetPoint.y];
         //CreateRooms(Random.Range(1, 5));
     }
 
@@ -62,11 +64,11 @@ public class Level : MonoBehaviour
 
     private void EnterRoom(MapCoordinate coordinate)
     {
-        //onEnterRoomEvent.RaiseEvent(MapCoordinate.zero,
-        //                            currentRoom.isCleared ? MiniMapIconStatus.Explored : MiniMapIconStatus.Unexplored);
+        onEnterRoomEvent.RaiseEvent(MapCoordinate.zero,
+                                    currentRoom.isCleared ? MiniMapIconStatus.Explored : MiniMapIconStatus.Unexplored);
 
-        //onEnterRoomEvent.RaiseEvent(coordinate - currentRoom.RoomInfo.Coordinate,
-        //                            MiniMapIconStatus.Current);
+        onEnterRoomEvent.RaiseEvent(coordinate - currentRoom.RoomInfo.Coordinate,
+                                    MiniMapIconStatus.Current);
         currentRoom = roomArray[coordinate.x, coordinate.y];
     }
 
@@ -81,7 +83,7 @@ public class Level : MonoBehaviour
                                                Quaternion.identity,
                                                transform).GetComponent<Room>();
         result.RoomInfo = roomInfo;
-        //onCreateRoomEvent.RaiseEvent(roomInfo.Coordinate);
+        onCreateRoomEvent.RaiseEvent(roomInfo.Coordinate);
 
         return result;
     }
