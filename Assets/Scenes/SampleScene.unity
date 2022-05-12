@@ -170,7 +170,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &186525605
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1127,7 +1127,6 @@ MonoBehaviour:
   iconExplored: {fileID: 21300000, guid: 3f1aad8a673347b439dd2edbbc6c9844, type: 3}
   iconCurrent: {fileID: 21300000, guid: 6edfffb896e900c43ab9b8713e464848, type: 3}
   iconUnexplored: {fileID: 21300000, guid: f2bde2bc962b3d644b145e0678dd2879, type: 3}
-  onMiniMapCoordinateChangedEvent: {fileID: 0}
   onCreateRoomEvent: {fileID: 11400000, guid: 3e5eb646d67d24440ab6718cde4a3bad, type: 2}
   onEnterRoomEvent: {fileID: 11400000, guid: 4f0fabdceb2c8c64dbb4f0e7b54ba0e4, type: 2}
 --- !u!114 &921785832
