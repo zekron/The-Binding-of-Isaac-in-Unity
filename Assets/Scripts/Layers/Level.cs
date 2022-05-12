@@ -62,11 +62,11 @@ public class Level : MonoBehaviour
 
     private void EnterRoom(MapCoordinate coordinate)
     {
-        onEnterRoomEvent.RaiseEvent(MapCoordinate.zero,
-                                    currentRoom.isCleared ? MiniMapIconStatus.Explored : MiniMapIconStatus.Unexplored);
+        //onEnterRoomEvent.RaiseEvent(MapCoordinate.zero,
+        //                            currentRoom.isCleared ? MiniMapIconStatus.Explored : MiniMapIconStatus.Unexplored);
 
-        onEnterRoomEvent.RaiseEvent(coordinate - currentRoom.RoomInfo.Coordinate,
-                                    MiniMapIconStatus.Current);
+        //onEnterRoomEvent.RaiseEvent(coordinate - currentRoom.RoomInfo.Coordinate,
+        //                            MiniMapIconStatus.Current);
         currentRoom = roomArray[coordinate.x, coordinate.y];
     }
 
@@ -81,7 +81,7 @@ public class Level : MonoBehaviour
                                                Quaternion.identity,
                                                transform).GetComponent<Room>();
         result.RoomInfo = roomInfo;
-        onCreateRoomEvent.RaiseEvent(roomInfo.Coordinate);
+        //onCreateRoomEvent.RaiseEvent(roomInfo.Coordinate);
 
         return result;
     }

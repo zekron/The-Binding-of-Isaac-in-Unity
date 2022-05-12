@@ -64,6 +64,8 @@ public class MiniMap : MonoBehaviour
         OnCreateRoom(MapCoordinate.RoomOffsetPoint + MapCoordinate.up);
         OnCreateRoom(MapCoordinate.RoomOffsetPoint + MapCoordinate.up * 2);
         OnCreateRoom(MapCoordinate.RoomOffsetPoint + MapCoordinate.down);
+
+        OnMoving(MapCoordinate.zero, MiniMapIconStatus.Current);
         #endregion
 
         //DrawTexture();
@@ -72,18 +74,29 @@ public class MiniMap : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Keypad8))
+        {
+            OnMoving(MapCoordinate.zero, MiniMapIconStatus.Unexplored);
+
+            OnMoving(MapCoordinate.up, MiniMapIconStatus.Current);
+        }
         if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            onEnterRoomEvent.RaiseEvent(MapCoordinate.zero,
-                                        MiniMapIconStatus.Current);
-        }
-        if (Input.GetKeyDown(KeyCode.Keypad3))
-        {
-            onEnterRoomEvent.RaiseEvent(MapCoordinate.zero,
-                                        MiniMapIconStatus.Unexplored);
+            OnMoving(MapCoordinate.zero, MiniMapIconStatus.Unexplored);
 
-            onEnterRoomEvent.RaiseEvent(MapCoordinate.up,
-                                        MiniMapIconStatus.Current);
+            OnMoving(MapCoordinate.down, MiniMapIconStatus.Current);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad4))
+        {
+            OnMoving(MapCoordinate.zero, MiniMapIconStatus.Unexplored);
+
+            OnMoving(MapCoordinate.left, MiniMapIconStatus.Current);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad6))
+        {
+            OnMoving(MapCoordinate.zero, MiniMapIconStatus.Unexplored);
+
+            OnMoving(MapCoordinate.right, MiniMapIconStatus.Current);
         }
     }
 
@@ -156,6 +169,15 @@ public class MiniMap : MonoBehaviour
 
     private void DrawCurrentCell(MapCoordinate mapCoordinate)
     {
+        //ShiftTexture
+        var oldTexture = miniMapSprite.texture;
+        var texture = ResizeTexture(mapCoordinate);
+        var direction = mapCoordinate - currentCellCoordinate;  //新坐标移动方向
+        if (oldTexture.width != texture.width || oldTexture.height != texture.height)
+            ShiftTexture(oldTexture, texture, direction);
+        else
+            texture.SetPixels(oldTexture.GetPixels());
+
         var toBeDrawnList = new List<MapCoordinate>(5);
         toBeDrawnList.Add(mapCoordinate);
 
@@ -164,23 +186,12 @@ public class MiniMap : MonoBehaviour
             MapCoordinate neighbour = mapCoordinate + MapCoordinate.GetMoveDirectionPoint(MapCoordinate.directionArray[i]);
             if (coordinateDict.ContainsKey(neighbour))
             {
-                if (coordinateDict[neighbour] != MiniMapIconStatus.Explored)
+                if (coordinateDict[neighbour] != MiniMapIconStatus.Explored
+                    && !neighbour.Equals(currentCellCoordinate))
                 {
                     Activate(neighbour, MiniMapIconStatus.Unexplored);//TODO: Test
                     toBeDrawnList.Add(neighbour);
                 }
-            }
-        }
-
-        //ShiftTexture
-        var oldTexture = miniMapSprite.texture;
-        var texture = ResizeTexture(mapCoordinate);
-        var direction = mapCoordinate - currentCellCoordinate;
-        if (direction.y != 0)
-        {
-            for (int rowCount = 0; rowCount < Mathf.Abs(direction.y); rowCount++)
-            {
-                SetMiniMapRowPixels(texture, currentCellCoordinate + (direction.y > 0 ? MapCoordinate.up : MapCoordinate.down));
             }
         }
 
@@ -210,7 +221,12 @@ public class MiniMap : MonoBehaviour
 
     private Texture2D ResizeTexture(MapCoordinate coordinate)
     {
-        RefreshMiniMapData(coordinate);
+        if (coordinateDict.ContainsKey(coordinate + MapCoordinate.up)) RefreshMiniMapData(coordinate + MapCoordinate.up);
+        if (coordinateDict.ContainsKey(coordinate + MapCoordinate.down)) RefreshMiniMapData(coordinate + MapCoordinate.down);
+        if (coordinateDict.ContainsKey(coordinate + MapCoordinate.left)) RefreshMiniMapData(coordinate + MapCoordinate.left);
+        if (coordinateDict.ContainsKey(coordinate + MapCoordinate.right)) RefreshMiniMapData(coordinate + MapCoordinate.right);
+        if (coordinateDict.ContainsKey(coordinate)) RefreshMiniMapData(coordinate);
+
         var topRight = MapCoordinate2MiniMapCoordinate(miniMapTopRightPoint + MapCoordinate.one);
 
         return GameLogicUtility.GetEmptyTexture(topRight.x * basicIconWidth, topRight.y * basicIconHeight);
@@ -235,6 +251,16 @@ public class MiniMap : MonoBehaviour
                                                         new Rect(Vector3.zero, new Vector2(texture.width, texture.height)),
                                                         Vector2.zero);
         mapImage.SetNativeSize();
+    }
+
+    private void ShiftTexture(Texture2D textureNeed2Shift, Texture2D baseTexture, MapCoordinate direction)
+    {
+        baseTexture.SetPixels(direction.x > 0 ? 0 : direction.x * -basicIconWidth,
+                              direction.y > 0 ? 0 : direction.y * -basicIconHeight,
+                              textureNeed2Shift.width,
+                              textureNeed2Shift.height,
+                              textureNeed2Shift.GetPixels());
+        baseTexture.Apply();
     }
 
     private void SetMiniMapRowPixels(Texture2D texture, MapCoordinate mapCoordinate)
