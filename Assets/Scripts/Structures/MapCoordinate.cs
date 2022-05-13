@@ -28,20 +28,13 @@ public struct MapCoordinate : IEquatable<MapCoordinate>, IComparer<MapCoordinate
 
     public static readonly MapCoordinate RoomOffsetPoint = new MapCoordinate(5, 5);
 
-    public static MapCoordinate operator -(MapCoordinate a, MapCoordinate b)
-    {
-        return new MapCoordinate(a.x - b.x, a.y - b.y);
-    }
+    public static MapCoordinate operator -(MapCoordinate a) => new MapCoordinate(-a.x, -a.y);
+    public static MapCoordinate operator -(MapCoordinate a, MapCoordinate b) => new MapCoordinate(a.x - b.x, a.y - b.y);
+    public static MapCoordinate operator +(MapCoordinate a, MapCoordinate b) => new MapCoordinate(a.x + b.x, a.y + b.y);
+    public static MapCoordinate operator *(MapCoordinate a, int b) => new MapCoordinate(a.x * b, a.y * b);
+    public static bool operator ==(MapCoordinate a, MapCoordinate b) => a.x == b.x && a.y == b.y;
+    public static bool operator !=(MapCoordinate a, MapCoordinate b) => a.x != b.x || a.y != b.y;
 
-    public static MapCoordinate operator +(MapCoordinate a, MapCoordinate b)
-    {
-        return new MapCoordinate(a.x + b.x, a.y + b.y);
-    }
-
-    public static MapCoordinate operator *(MapCoordinate a, int b)
-    {
-        return new MapCoordinate(a.x * b, a.y * b);
-    }
     public static MapCoordinate GetMoveDirectionPoint(MoveDirection direction)
     {
         switch (direction)
@@ -88,5 +81,15 @@ public struct MapCoordinate : IEquatable<MapCoordinate>, IComparer<MapCoordinate
             else
                 return -1;
         else return -1;
+    }
+
+    public override bool Equals(object obj)
+    {
+        return base.Equals(obj);
+    }
+
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
     }
 }

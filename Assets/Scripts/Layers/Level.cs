@@ -99,29 +99,33 @@ public class Level : MonoBehaviour
 
         MapRoomInfo parentInfo = currentRoom.RoomInfo.Parent;
         var coordinate = currentRoom.RoomInfo.Coordinate - parentInfo.Coordinate;
-        if (coordinate.Equals(MapCoordinate.up))
-        {
-            roomArray[parentInfo.Coordinate.x,
-                      parentInfo.Coordinate.y].CreateDoor(Vector2.up, currentRoom.RoomInfo.CurrentRoomType);
-            currentRoom.CreateDoor(Vector2.down, currentRoom.RoomInfo.CurrentRoomType);
-        }
-        else if (coordinate.Equals(MapCoordinate.down))
-        {
-            roomArray[parentInfo.Coordinate.x,
-                      parentInfo.Coordinate.y].CreateDoor(Vector2.down, currentRoom.RoomInfo.CurrentRoomType);
-            currentRoom.CreateDoor(Vector2.up, currentRoom.RoomInfo.CurrentRoomType);
-        }
-        else if (coordinate.Equals(MapCoordinate.left))
-        {
-            roomArray[parentInfo.Coordinate.x,
-                      parentInfo.Coordinate.y].CreateDoor(Vector2.left, currentRoom.RoomInfo.CurrentRoomType);
-            currentRoom.CreateDoor(Vector2.right, currentRoom.RoomInfo.CurrentRoomType);
-        }
-        else if (coordinate.Equals(MapCoordinate.right))
-        {
-            roomArray[parentInfo.Coordinate.x,
-                      parentInfo.Coordinate.y].CreateDoor(Vector2.right, currentRoom.RoomInfo.CurrentRoomType);
-            currentRoom.CreateDoor(Vector2.left, currentRoom.RoomInfo.CurrentRoomType);
-        }
+
+        roomArray[parentInfo.Coordinate.x,
+                  parentInfo.Coordinate.y].CreateDoor(coordinate, currentRoom.RoomInfo.CurrentRoomType);
+        currentRoom.CreateDoor(-coordinate, currentRoom.RoomInfo.CurrentRoomType);
+        //if (coordinate.Equals(MapCoordinate.up))
+        //{
+        //    roomArray[parentInfo.Coordinate.x,
+        //              parentInfo.Coordinate.y].CreateDoor(Vector2.up, currentRoom.RoomInfo.CurrentRoomType);
+        //    currentRoom.CreateDoor(Vector2.down, currentRoom.RoomInfo.CurrentRoomType);
+        //}
+        //else if (coordinate.Equals(MapCoordinate.down))
+        //{
+        //    roomArray[parentInfo.Coordinate.x,
+        //              parentInfo.Coordinate.y].CreateDoor(Vector2.down, currentRoom.RoomInfo.CurrentRoomType);
+        //    currentRoom.CreateDoor(Vector2.up, currentRoom.RoomInfo.CurrentRoomType);
+        //}
+        //else if (coordinate.Equals(MapCoordinate.left))
+        //{
+        //    roomArray[parentInfo.Coordinate.x,
+        //              parentInfo.Coordinate.y].CreateDoor(Vector2.left, currentRoom.RoomInfo.CurrentRoomType);
+        //    currentRoom.CreateDoor(Vector2.right, currentRoom.RoomInfo.CurrentRoomType);
+        //}
+        //else if (coordinate.Equals(MapCoordinate.right))
+        //{
+        //    roomArray[parentInfo.Coordinate.x,
+        //              parentInfo.Coordinate.y].CreateDoor(Vector2.right, currentRoom.RoomInfo.CurrentRoomType);
+        //    currentRoom.CreateDoor(Vector2.left, currentRoom.RoomInfo.CurrentRoomType);
+        //}
     }
 }

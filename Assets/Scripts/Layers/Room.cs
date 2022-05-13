@@ -94,22 +94,22 @@ public class Room : MonoBehaviour
     //    }
     //}
 
-    public void CreateDoor(Vector2 vector, RoomType roomType = RoomType.Normal)
+    public void CreateDoor(MapCoordinate direction, RoomType roomType = RoomType.Normal)
     {
         (Vector3 localPosition, Quaternion rotation) tempTransform = (Vector3.zero, Quaternion.identity);
-        if (vector == Vector2.up)
+        if (direction == MapCoordinate.up)
         {
             tempTransform = Door.GetDoorTransform(DoorPosition.Up);
         }
-        else if (vector == Vector2.down)
+        else if (direction == MapCoordinate.down)
         {
             tempTransform = Door.GetDoorTransform(DoorPosition.Down);
         }
-        else if (vector == Vector2.left)
+        else if (direction == MapCoordinate.left)
         {
             tempTransform = Door.GetDoorTransform(DoorPosition.Left);
         }
-        else if (vector == Vector2.right)
+        else if (direction == MapCoordinate.right)
         {
             tempTransform = Door.GetDoorTransform(DoorPosition.Right);
         }
