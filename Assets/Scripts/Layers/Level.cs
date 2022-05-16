@@ -11,16 +11,26 @@ public class Level : MonoBehaviour
     [SerializeField] private GameObject roomPrefab;
     [SerializeField] private MapCoordinateEventChannelSO onCreateRoomEvent;
     [SerializeField] private MapCoordinateStatusEventChannelSO onEnterRoomEvent;
+    [SerializeField] private DoorPositionEventChannelSO onEnterDoorEvent;
 
     private Room[,] roomArray = new Room[MapCoordinate.RoomOffsetPoint.x << 1, MapCoordinate.RoomOffsetPoint.y << 1];
     private Room currentRoom;
+
+    private void OnEnable()
+    {
+        onEnterDoorEvent.OnEventRaised += PrepareEnterRoom;
+    }
+    private void OnDisable()
+    {
+        onEnterDoorEvent.OnEventRaised -= PrepareEnterRoom;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         CreateRooms(MapGenerator.CreateMap(ChapterType.Basement, currentLevel, currentCurse, isHardMode: false));
 
-        onEnterRoomEvent.RaiseEvent(MapCoordinate.RoomOffsetPoint, MiniMapIconStatus.Current);
+        onEnterRoomEvent.RaiseEvent(MapCoordinate.zero, MiniMapIconStatus.Current);
         currentRoom = roomArray[MapCoordinate.RoomOffsetPoint.x, MapCoordinate.RoomOffsetPoint.y];
         //CreateRooms(Random.Range(1, 5));
     }
@@ -62,14 +72,22 @@ public class Level : MonoBehaviour
         //}
     }
 
-    private void EnterRoom(MapCoordinate coordinate)
+    private void PrepareEnterRoom(DoorPosition doorPosition)
     {
+        //if (no transport)
+        EnterRoom(doorPosition, doorPosition.ToMapCoordinate() + currentRoom.RoomInfo.Coordinate);
+    }
+
+    private void EnterRoom(DoorPosition doorPosition, MapCoordinate coordinate)
+    {
+        //MiniMap
         onEnterRoomEvent.RaiseEvent(MapCoordinate.zero,
                                     currentRoom.isCleared ? MiniMapIconStatus.Explored : MiniMapIconStatus.Unexplored);
-
-        onEnterRoomEvent.RaiseEvent(coordinate - currentRoom.RoomInfo.Coordinate,
+        onEnterRoomEvent.RaiseEvent(doorPosition.ToMapCoordinate(),
                                     MiniMapIconStatus.Current);
+
         currentRoom = roomArray[coordinate.x, coordinate.y];
+        currentRoom.EnterRoom(doorPosition);
     }
 
     private Room CreateRoom(MapRoomInfo roomInfo)
@@ -77,9 +95,8 @@ public class Level : MonoBehaviour
         var coordinate = roomInfo.Coordinate - MapCoordinate.RoomOffsetPoint;
         var result = ObjectPoolManager.Release(roomPrefab,
                                                GameLogicUtility.LocalPointToWorldPoint(transform,
-                                                                                       new Vector3(coordinate.x * Room.RoomWidth,
-                                                                                                   coordinate.y * Room.RoomHeight,
-                                                                                                   roomInfo.Depth)),
+                                                                                       new Vector3(coordinate.x * StaticData.RoomWidth,
+                                                                                                   coordinate.y * StaticData.RoomHeight)),
                                                Quaternion.identity,
                                                transform).GetComponent<Room>();
         result.RoomInfo = roomInfo;
@@ -103,29 +120,5 @@ public class Level : MonoBehaviour
         roomArray[parentInfo.Coordinate.x,
                   parentInfo.Coordinate.y].CreateDoor(coordinate, currentRoom.RoomInfo.CurrentRoomType);
         currentRoom.CreateDoor(-coordinate, currentRoom.RoomInfo.CurrentRoomType);
-        //if (coordinate.Equals(MapCoordinate.up))
-        //{
-        //    roomArray[parentInfo.Coordinate.x,
-        //              parentInfo.Coordinate.y].CreateDoor(Vector2.up, currentRoom.RoomInfo.CurrentRoomType);
-        //    currentRoom.CreateDoor(Vector2.down, currentRoom.RoomInfo.CurrentRoomType);
-        //}
-        //else if (coordinate.Equals(MapCoordinate.down))
-        //{
-        //    roomArray[parentInfo.Coordinate.x,
-        //              parentInfo.Coordinate.y].CreateDoor(Vector2.down, currentRoom.RoomInfo.CurrentRoomType);
-        //    currentRoom.CreateDoor(Vector2.up, currentRoom.RoomInfo.CurrentRoomType);
-        //}
-        //else if (coordinate.Equals(MapCoordinate.left))
-        //{
-        //    roomArray[parentInfo.Coordinate.x,
-        //              parentInfo.Coordinate.y].CreateDoor(Vector2.left, currentRoom.RoomInfo.CurrentRoomType);
-        //    currentRoom.CreateDoor(Vector2.right, currentRoom.RoomInfo.CurrentRoomType);
-        //}
-        //else if (coordinate.Equals(MapCoordinate.right))
-        //{
-        //    roomArray[parentInfo.Coordinate.x,
-        //              parentInfo.Coordinate.y].CreateDoor(Vector2.right, currentRoom.RoomInfo.CurrentRoomType);
-        //    currentRoom.CreateDoor(Vector2.left, currentRoom.RoomInfo.CurrentRoomType);
-        //}
     }
 }

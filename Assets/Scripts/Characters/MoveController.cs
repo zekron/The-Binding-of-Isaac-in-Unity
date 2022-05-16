@@ -7,6 +7,7 @@ public class MoveController : MonoBehaviour
 {
     private const int MOVE_SPEED_MULTIPLIER = 5;
 
+    [SerializeField] private TwoVector3EventChannelSO onEnterRoomEvent;
     [SerializeField] private bool useFixedUpdate = false;
 
     [Header("Move")]
@@ -25,6 +26,14 @@ public class MoveController : MonoBehaviour
     private float paddingY;
     private bool canMove = false;
 
+    private void OnEnable()
+    {
+        onEnterRoomEvent.OnEventRaised += Refresh;
+    }
+    private void OnDisable()
+    {
+        onEnterRoomEvent.OnEventRaised -= Refresh;
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -73,7 +82,7 @@ public class MoveController : MonoBehaviour
             tempPlayerVelocity = finalMoveDirection;
 
         transform.Translate(tempPlayerVelocity * GetMoveDeltaTime(), Space.World);
-        transform.position = Viewport.PlayerMoveablePosition(transform.position, paddingX, paddingY);
+        //transform.position = Viewport.PlayerMoveablePosition(transform.position, paddingX, paddingY);
     }
 
     private void GenerateMoveDirection()
@@ -119,5 +128,11 @@ public class MoveController : MonoBehaviour
         {
             CustomDebugger.Log(string.Format("Key {0} pressed.", KeyCode.R));
         }
+    }
+
+    private void Refresh(Vector3 cameraPosition, Vector3 playerPosition)
+    {
+        transform.position = playerPosition;
+        tempPlayerVelocity = Vector2.zero;
     }
 }

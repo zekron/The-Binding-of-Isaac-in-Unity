@@ -291,7 +291,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2833a0201b8c8824592ad1cae668fa46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  roomType: 0
   RoomInfo:
     Coordinate:
       x: 0
@@ -299,6 +298,8 @@ MonoBehaviour:
     CurrentRoomType: 0
     Depth: 0
   roomLayout: {fileID: 11400000, guid: b9f3d0ebcd313434d8da07390ec74669, type: 2}
+  onDoorStatusChanged: {fileID: 0}
+  onEnterRoomEvent: {fileID: 11400000, guid: 7a200d5f8ec2ee24fa11345449ebfbc9, type: 2}
   isArrived: 0
   isCleared: 0
   topBottomWallSprite:

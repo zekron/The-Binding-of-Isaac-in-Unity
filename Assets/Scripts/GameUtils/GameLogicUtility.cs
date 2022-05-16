@@ -69,4 +69,44 @@ public static class GameLogicUtility
         result.Apply();
         return result;
     }
+
+    public static DoorPosition ToDoorPosition(this MapCoordinate mapCoordinate)
+    {
+        if (mapCoordinate == MapCoordinate.up) return DoorPosition.Up;
+        else if (mapCoordinate == MapCoordinate.right) return DoorPosition.Right;
+        else if (mapCoordinate == MapCoordinate.left) return DoorPosition.Left;
+        else return DoorPosition.Down;
+    }
+    public static MapCoordinate ToMapCoordinate(this DoorPosition doorPosition)
+    {
+        switch (doorPosition)
+        {
+            case DoorPosition.Up:
+                return MapCoordinate.up;
+            case DoorPosition.Down:
+                return MapCoordinate.down;
+            case DoorPosition.Left:
+                return MapCoordinate.left;
+            case DoorPosition.Right:
+                return MapCoordinate.right;
+            default:
+                return MapCoordinate.zero;
+        }
+    }
+    public static Vector3 ToVector3(this DoorPosition doorPosition)
+    {
+        switch (doorPosition)
+        {
+            case DoorPosition.Up:
+                return Vector3.up;
+            case DoorPosition.Down:
+                return Vector3.down;
+            case DoorPosition.Left:
+                return Vector3.left;
+            case DoorPosition.Right:
+                return Vector3.right;
+            default:
+                return Vector3.zero;
+        }
+    }
 }

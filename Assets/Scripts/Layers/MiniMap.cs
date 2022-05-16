@@ -41,7 +41,7 @@ public class MiniMap : MonoBehaviour
 
         coordinateDict = new Dictionary<MapCoordinate, MiniMapIconStatus>();
 
-        //currentCellCoordinate = MapCoordinate.RoomOffsetPoint;
+        currentCellCoordinate = MapCoordinate.RoomOffsetPoint;
     }
 
     // Start is called before the first frame update

@@ -8,26 +8,14 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     [Header("房间属性")]
-    [HideInInspector]
-    public RoomType roomType;//房间类型
-
     public MapRoomInfo RoomInfo;
 
     [SerializeField] private RoomLayoutSO roomLayout;//布局文件
+    [SerializeField] private DoorStatusEventChannelSO onDoorStatusChanged;
+    [SerializeField] private TwoVector3EventChannelSO onEnterRoomEvent;
 
     public bool isArrived = false;//是否已到达
     public bool isCleared = false;//是否已清理过
-
-    //房间宽高，像素值/100
-    public static float RoomWidth { get { return 15.06f; } }
-    public static float RoomHeight { get { return 9.44f; } }
-    public static int RoomWidthPixels { get { return 1506; } }
-    public static int RoomHeightPixels { get { return 944; } }
-
-    //单位数量和大小
-    public static int HorizontalUnit { get { return 13; } }
-    public static int VerticalUnit { get { return 7; } }
-    public static float UnitSize { get { return 0.28f; } }
 
     #region 房间布局
     [Header("房间布局")]
@@ -68,7 +56,7 @@ public class Room : MonoBehaviour
 
     private void Start()
     {
-        //DoorInitialize();
+
     }
 
     private void RoomLayoutInitialize()
@@ -81,46 +69,45 @@ public class Room : MonoBehaviour
         }
     }
 
-    //private void DoorInitialize()
-    //{
-    //    for (int i = 0; i < 4; i++)
-    //    {
-    //        var tempTransform = Door.GetDoorTransform((DoorPosition)i);
-    //        roomDoors.Add(ObjectPoolManager.Release(doorPrefab,
-    //                                                GameLogicUtility.LocalPointToWorldPoint(transform, tempTransform.localPosition),
-    //                                                tempTransform.rotation,
-    //                                                doorTransform).GetComponent<Door>());
-    //        roomDoors[i].RaiseEvent(DoorStatus.Open);
-    //    }
-    //}
+    public void EnterRoom(DoorPosition doorPosition)
+    {
+        var playerPosition = transform.position;
+        switch (doorPosition)
+        {
+            case DoorPosition.Up:
+                playerPosition.y -= 2.84f;
+                break;
+            case DoorPosition.Down:
+                playerPosition.y += 2.84f;
+                break;
+            case DoorPosition.Left:
+                playerPosition.x += 5.64f;
+                break;
+            case DoorPosition.Right:
+                playerPosition.x -= 5.64f;
+                break;
+            default:
+                break;
+        }
+        onEnterRoomEvent.RaiseEvent(transform.localPosition, playerPosition);
+
+        //if (isCleared)
+        //  onDoorStatusChanged.RaiseEvent(DoorStatus.Open);
+    }
 
     public void CreateDoor(MapCoordinate direction, RoomType roomType = RoomType.Normal)
     {
-        (Vector3 localPosition, Quaternion rotation) tempTransform = (Vector3.zero, Quaternion.identity);
-        if (direction == MapCoordinate.up)
-        {
-            tempTransform = Door.GetDoorTransform(DoorPosition.Up);
-        }
-        else if (direction == MapCoordinate.down)
-        {
-            tempTransform = Door.GetDoorTransform(DoorPosition.Down);
-        }
-        else if (direction == MapCoordinate.left)
-        {
-            tempTransform = Door.GetDoorTransform(DoorPosition.Left);
-        }
-        else if (direction == MapCoordinate.right)
-        {
-            tempTransform = Door.GetDoorTransform(DoorPosition.Right);
-        }
+        var tempTransform = Door.GetDoorTransform(direction.ToDoorPosition());
+
         roomDoors.Add(ObjectPoolManager.Release(GetDoorPrefabWithRoomType(roomType),
                                                 GameLogicUtility.LocalPointToWorldPoint(transform,
                                                                                         tempTransform.localPosition),
                                                 tempTransform.rotation,
                                                 doorTransform).GetComponent<Door>());
-
+        roomDoors[doorsCount - 1].doorPosition = direction.ToDoorPosition();
         //test
         //roomDoors[doorsCount - 1].RaiseEvent(DoorStatus.Open);
+        //onDoorStatusChanged.RaiseEvent(DoorStatus.Open);
     }
 
     private GameObject GetDoorPrefabWithRoomType(RoomType type)

@@ -1,9 +1,7 @@
 {
     "name": "The-Binding-of-Isaac.Structures",
     "rootNamespace": "",
-    "references": [
-        "GUID:17a47a08cae283f4a84d539eee00444a"
-    ],
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

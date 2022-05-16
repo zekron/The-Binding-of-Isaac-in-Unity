@@ -9,9 +9,7 @@ public class MiniMapViewer : MonoBehaviour
     [SerializeField] private Sprite iconExplored;
     [SerializeField] private Sprite iconCurrent;
     [SerializeField] private Sprite iconUnexplored;
-    [SerializeField] private MiniMapCoordinateEventChannelSO onMiniMapCoordinateChangedEvent;
 
-    private List<MiniMapCoordinate> coordinateList;
     private Texture2D emptyTexture;
     private Sprite miniMapSprite;
     private Image mapImage;
@@ -21,7 +19,6 @@ public class MiniMapViewer : MonoBehaviour
     void Start()
     {
         mapImage = GetComponent<Image>();
-        coordinateList = new List<MiniMapCoordinate>();
 
         basicIconWidth = (int)iconExplored.rect.width;
         basicIconHeight = (int)iconExplored.rect.height;

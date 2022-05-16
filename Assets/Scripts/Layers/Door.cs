@@ -6,11 +6,15 @@ using UnityEngine.Events;
 
 public class Door : MonoBehaviour
 {
+    [HideInInspector]
+    public DoorPosition doorPosition;
+
     [SerializeField] private SpriteRenderer doorSprite;
     [SerializeField] private SpriteRenderer doorFrameSprite;
     [SerializeField] private SpriteRenderer doorLockSprite;
     [SerializeField] private DoorType doorType;
 
+    [SerializeField] private DoorPositionEventChannelSO onEnterDoorEvent;
     [SerializeField] private UnityAction<DoorStatus> onDoorStatusChanged;
 
     private Animation doorAnimation;
@@ -35,6 +39,12 @@ public class Door : MonoBehaviour
     {
         doorAnimation = GetComponent<Animation>();
         smokeAnimation = GetComponentInChildren<CustomFrameAnimation>();
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+            onEnterDoorEvent.RaiseEvent(doorPosition);
     }
 
     public static (Vector3 localPosition, Quaternion rotation) GetDoorTransform(DoorPosition type)

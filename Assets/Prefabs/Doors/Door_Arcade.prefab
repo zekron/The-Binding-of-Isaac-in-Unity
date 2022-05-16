@@ -475,10 +475,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de68b78f7be4d2544b99a8e04658a0a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorPosition: 0
   doorSprite: {fileID: 0}
   doorFrameSprite: {fileID: 168117180839299066}
   doorLockSprite: {fileID: 0}
   doorType: 7
+  onEnterDoorEvent: {fileID: 11400000, guid: 182307ebf234dc6418380dd23afcc1be, type: 2}
 --- !u!111 &71363716
 Animation:
   m_ObjectHideFlags: 0
