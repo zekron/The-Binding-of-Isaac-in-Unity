@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
@@ -30,18 +29,11 @@ public class Level : MonoBehaviour
     {
         CreateRooms(MapGenerator.CreateMap(ChapterType.Basement, currentLevel, currentCurse, isHardMode: false));
 
+        //EnterRoom(DoorPosition.Up, MapCoordinate.RoomOffsetPoint);
         onEnterRoomEvent.RaiseEvent(MapCoordinate.zero, MiniMapIconStatus.Current);
         currentRoom = roomArray[MapCoordinate.RoomOffsetPoint.x, MapCoordinate.RoomOffsetPoint.y];
+        currentRoom.EnterRoom(DoorPosition.Up);
         //CreateRooms(Random.Range(1, 5));
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Keypad1))
-        {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
     }
 
     private void CreateRooms(MapRoomInfo rootRoomInfo)

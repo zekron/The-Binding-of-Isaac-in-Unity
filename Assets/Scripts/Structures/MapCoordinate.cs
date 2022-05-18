@@ -26,7 +26,7 @@ public struct MapCoordinate : IEquatable<MapCoordinate>, IComparer<MapCoordinate
     public static MapCoordinate one => new MapCoordinate(1, 1);
     public static MapCoordinate zero => new MapCoordinate(0, 0);
 
-    public static readonly MapCoordinate RoomOffsetPoint = new MapCoordinate(5, 5);
+    public static readonly MapCoordinate RoomOffsetPoint = new MapCoordinate(5, 4);
 
     public static MapCoordinate operator -(MapCoordinate a) => new MapCoordinate(-a.x, -a.y);
     public static MapCoordinate operator -(MapCoordinate a, MapCoordinate b) => new MapCoordinate(a.x - b.x, a.y - b.y);

@@ -1,3 +1,4 @@
+using J2P;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,6 @@ public class Room : MonoBehaviour
     public MapRoomInfo RoomInfo;
 
     [SerializeField] private RoomLayoutSO roomLayout;//布局文件
-    [SerializeField] private DoorStatusEventChannelSO onDoorStatusChanged;
     [SerializeField] private TwoVector3EventChannelSO onEnterRoomEvent;
 
     public bool isArrived = false;//是否已到达
@@ -23,6 +23,7 @@ public class Room : MonoBehaviour
     [SerializeField] private SpriteRenderer[] leftRightWallSprite;
     [SerializeField] private SpriteRenderer floorSprite;
     [SerializeField] private Transform doorTransform;
+    [SerializeField] private JPlatform[] doorLocks;
     private List<Door> roomDoors;
     private int doorsCount => roomDoors.Count;
     #endregion
@@ -91,8 +92,15 @@ public class Room : MonoBehaviour
         }
         onEnterRoomEvent.RaiseEvent(transform.localPosition, playerPosition);
 
-        //if (isCleared)
-        //  onDoorStatusChanged.RaiseEvent(DoorStatus.Open);
+        isCleared = true;
+        if (isCleared)
+        {
+            foreach (var door in roomDoors)
+            {
+                doorLocks[(int)door.doorPosition].enabled = false;
+                door.RaiseEvent(DoorStatus.Open);
+            }
+        }
     }
 
     public void CreateDoor(MapCoordinate direction, RoomType roomType = RoomType.Normal)

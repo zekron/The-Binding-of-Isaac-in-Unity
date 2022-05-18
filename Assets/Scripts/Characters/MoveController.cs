@@ -1,7 +1,9 @@
+using J2P;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MoveController : MonoBehaviour
 {
@@ -26,10 +28,13 @@ public class MoveController : MonoBehaviour
     private float paddingY;
     private bool canMove = false;
 
+    private JRigidbody _jRigidbody;
     private void OnEnable()
     {
         onEnterRoomEvent.OnEventRaised += Refresh;
+        _jRigidbody = GetComponent<JRigidbody>();
     }
+
     private void OnDisable()
     {
         onEnterRoomEvent.OnEventRaised -= Refresh;
@@ -81,7 +86,8 @@ public class MoveController : MonoBehaviour
         else
             tempPlayerVelocity = finalMoveDirection;
 
-        transform.Translate(tempPlayerVelocity * GetMoveDeltaTime(), Space.World);
+        _jRigidbody.velocity = tempPlayerVelocity;
+        //transform.Translate(tempPlayerVelocity * GetMoveDeltaTime(), Space.World);
         //transform.position = Viewport.PlayerMoveablePosition(transform.position, paddingX, paddingY);
     }
 
@@ -118,7 +124,7 @@ public class MoveController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
-            CustomDebugger.Log(string.Format("Key {0} pressed.", KeyCode.R));
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
@@ -126,7 +132,7 @@ public class MoveController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            CustomDebugger.Log(string.Format("Key {0} pressed.", KeyCode.R));
+
         }
     }
 
