@@ -246,63 +246,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &6401803513487238924
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6875999696665652340}
-  - component: {fileID: 5039821264250092617}
-  m_Layer: 9
-  m_Name: Door_Lock
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6875999696665652340
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6401803513487238924}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2155928760650098594}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &5039821264250092617
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6401803513487238924}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.25}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 0.5}
-  m_EdgeRadius: 0
 --- !u!1 &6614918098685192907
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,8 +339,8 @@ GameObject:
   - component: {fileID: 2155928760650098594}
   - component: {fileID: 8506495531418449161}
   - component: {fileID: 71363716}
-  - component: {fileID: 2367287508775930750}
-  - component: {fileID: 1363296016786572588}
+  - component: {fileID: 8304161094915876314}
+  - component: {fileID: 7098078962003249263}
   m_Layer: 9
   m_Name: Door_Treasure
   m_TagString: Untagged
@@ -420,7 +363,6 @@ Transform:
   - {fileID: 4768952009922441862}
   - {fileID: 8859112628673699563}
   - {fileID: 9103597115412710020}
-  - {fileID: 6875999696665652340}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -459,33 +401,7 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
---- !u!61 &2367287508775930750
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7924570295946511335}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.1}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.5, y: 0.5}
-  m_EdgeRadius: 0
---- !u!114 &1363296016786572588
+--- !u!114 &8304161094915876314
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -494,13 +410,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 7924570295946511335}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a83022451a0e954d9d33b526997bf9d, type: 3}
+  m_Script: {fileID: 11500000, guid: f712e0715f57c724d96816de37e8f8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionMask: 0
+  isTrigger: 1
+  offset: {x: 0, y: 0.1}
+  size: {x: 1.5, y: 0.5}
+--- !u!114 &7098078962003249263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7924570295946511335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ce7bdfc6efed64eba72570b1f1fef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showDebugGizoms: 0
   horizontalRayCount: 4
   verticalRayCount: 4
-  showDebugGizoms: 0
 --- !u!1 &8698668411528459038
 GameObject:
   m_ObjectHideFlags: 0

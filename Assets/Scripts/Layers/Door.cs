@@ -1,4 +1,4 @@
-using J2P;
+using CustomPhysics2D;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -20,7 +20,7 @@ public class Door : MonoBehaviour
 
     private Animation doorAnimation;
     private CustomFrameAnimation smokeAnimation;
-    private JCollisionController collisionController;
+    private CustomCollisionController collisionController;
 
     private DoorStatus doorStatus;
 
@@ -41,16 +41,15 @@ public class Door : MonoBehaviour
 
     private void Awake()
     {
-        collisionController = GetComponent<JCollisionController>();
+        collisionController = GetComponent<CustomCollisionController>();
         doorAnimation = GetComponent<Animation>();
         smokeAnimation = GetComponentInChildren<CustomFrameAnimation>();
     }
 
-    private void TriggerEnter(CollisionInfo collisionInfo)
+    private void TriggerEnter(CollisionInfo2D collisionInfo)
     {
-        if (collisionInfo.collider.CompareTag("Player"))
+        if (collisionInfo.hitCollider.CompareTag("Player"))
             onEnterDoorEvent.RaiseEvent(doorPosition);
-        CustomDebugger.Log(collisionInfo.collider.name);
     }
 
     public static (Vector3 localPosition, Quaternion rotation) GetDoorTransform(DoorPosition type)

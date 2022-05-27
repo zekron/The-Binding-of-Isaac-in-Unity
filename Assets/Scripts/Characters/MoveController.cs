@@ -1,4 +1,4 @@
-using J2P;
+using CustomPhysics2D;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -28,11 +28,11 @@ public class MoveController : MonoBehaviour
     private float paddingY;
     private bool canMove = false;
 
-    private JRigidbody _jRigidbody;
+    private CustomRigidbody2D _jRigidbody;
     private void OnEnable()
     {
         onEnterRoomEvent.OnEventRaised += Refresh;
-        _jRigidbody = GetComponent<JRigidbody>();
+        _jRigidbody = GetComponent<CustomRigidbody2D>();
     }
 
     private void OnDisable()
