@@ -66,8 +66,8 @@ public class ObjectPool
     {
         GameObject preparedObject = GetAvailableObject();
 
-        preparedObject.SetActive(true);
         preparedObject.transform.position = position;
+        preparedObject.SetActive(true);
 
         return preparedObject;
     }
@@ -79,8 +79,8 @@ public class ObjectPool
         for (int i = 0; i < positions.Length; i++)
         {
             preparedObjects[i] = GetAvailableObject();
-            preparedObjects[i].SetActive(true);
             preparedObjects[i].transform.position = positions[i];
+            preparedObjects[i].SetActive(true);
         }
 
         return preparedObjects;
@@ -90,9 +90,9 @@ public class ObjectPool
     {
         GameObject preparedObject = GetAvailableObject();
 
-        preparedObject.SetActive(true);
         preparedObject.transform.position = position;
         preparedObject.transform.rotation = rotation;
+        preparedObject.SetActive(true);
 
         return preparedObject;
     }
@@ -101,10 +101,10 @@ public class ObjectPool
     {
         GameObject preparedObject = GetAvailableObject();
 
-        preparedObject.SetActive(true);
         preparedObject.transform.position = position;
         preparedObject.transform.rotation = rotation;
         preparedObject.transform.localScale = localScale;
+        preparedObject.SetActive(true);
 
         return preparedObject;
     }
@@ -113,10 +113,10 @@ public class ObjectPool
     {
         GameObject preparedObject = GetAvailableObject();
 
-        preparedObject.SetActive(true);
         preparedObject.transform.position = position;
         preparedObject.transform.rotation = rotation;
         preparedObject.transform.parent = parent;
+        preparedObject.SetActive(true);
 
         return preparedObject;
     }

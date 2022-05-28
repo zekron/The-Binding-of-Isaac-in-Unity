@@ -34,6 +34,7 @@ namespace CustomPhysics2D
 		void FixedUpdate()
 		{
 			rect.center = bounds.center = colliderTransform.position.ToVector2() + scaledOffset;
+			RotateRect(colliderTransform.eulerAngles);
 		}
 
 		private void OnDrawGizmosSelected()
@@ -57,7 +58,7 @@ namespace CustomPhysics2D
 
 			rect.size = bounds.size = scaledSize;
 			rect.center = bounds.center = colliderTransform.position.ToVector2() + scaledOffset;
-			RotateRect(transform.eulerAngles);
+			RotateRect(colliderTransform.eulerAngles);
 		}
 
 		private void RotateRect(Vector3 eulerAngles)

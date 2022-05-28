@@ -130,9 +130,8 @@ public class MoveController : MonoBehaviour
 
     private void UpdateGameControl()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
-
         }
     }
 

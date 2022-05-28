@@ -229,7 +229,7 @@ namespace CustomPhysics2D
 				{
 					collisionInfo.hitCollider = collisionInfo.collider;
 					collisionInfo.collider = hitCollider;
-					Debug.LogFormat("{0} hits platform {1}.", collisionInfo.hitCollider.name, collisionInfo.collider.name);
+					//Debug.LogFormat("{0} hits platform {1}.", collisionInfo.hitCollider.name, collisionInfo.collider.name);
 
 					RaiseEnterEvent(collisionInfo, isTriggerEvent, platform);
 				}
@@ -266,7 +266,7 @@ namespace CustomPhysics2D
 				{
 					collisionInfo.hitCollider = collisionInfo.collider;
 					collisionInfo.collider = hitCollider;
-					Debug.LogFormat("{0} leaves platform {1}.", collisionInfo.hitCollider.name, collisionInfo.collider.name);
+					//Debug.LogFormat("{0} leaves platform {1}.", collisionInfo.hitCollider.name, collisionInfo.collider.name);
 
 					RaiseExitEvent(collisionInfo, isTriggerEvent, platform);
 				}
@@ -286,7 +286,7 @@ namespace CustomPhysics2D
 
 		private static void RaiseEnterEvent(CollisionInfo2D collisionInfo, bool isTriggerEvent, CustomCollisionController controller)
 		{
-			Debug.LogFormat("Controller {0} raises {1} enter event.", controller.name, isTriggerEvent ? "trigger" : "collision");
+			//Debug.LogFormat("Controller {0} raises {1} enter event.", controller.name, isTriggerEvent ? "trigger" : "collision");
 			if (isTriggerEvent)
 			{
 				controller.onTriggerEnter?.Invoke(collisionInfo);
@@ -299,7 +299,7 @@ namespace CustomPhysics2D
 
 		private static void RaiseExitEvent(CollisionInfo2D collisionInfo, bool isTriggerEvent, CustomCollisionController controller)
 		{
-			Debug.LogFormat("Controller {0} raises {1} exit event.", controller.name, isTriggerEvent ? "trigger" : "collision");
+			//Debug.LogFormat("Controller {0} raises {1} exit event.", controller.name, isTriggerEvent ? "trigger" : "collision");
 			if (isTriggerEvent)
 			{
 				controller.onTriggerExit?.Invoke(collisionInfo);
