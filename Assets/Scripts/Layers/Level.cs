@@ -36,14 +36,6 @@ public class Level : MonoBehaviour
 		//CreateRooms(Random.Range(1, 5));
 	}
 
-	private void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Q))
-		{
-			ObjectPoolManager.Release(roomPrefab);
-		}
-	}
-
 	private void CreateRooms(MapRoomInfo rootRoomInfo)
 	{
 		Queue<MapRoomInfo> queue = new Queue<MapRoomInfo>();
