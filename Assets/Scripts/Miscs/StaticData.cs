@@ -17,7 +17,8 @@ public class StaticData
     //单位数量和大小
     public static readonly int RoomHorizontalUnit = 13;
     public static readonly int RoomVerticalUnit = 7;
-    public static readonly float RoomUnitSize = 0.28f;
+    public static readonly float RoomHorizontalUnitSize = 0.94f;
+    public static readonly float RoomVerticalUnitSize = 0.95f;
     #endregion
 
     #region AssetPath

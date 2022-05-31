@@ -50,6 +50,9 @@ TagManager:
   - name: Character
     uniqueID: 836492739
     locked: 0
+  - name: Obstacle
+    uniqueID: 4179486279
+    locked: 0
   - name: FX
     uniqueID: 4294459989
     locked: 0
