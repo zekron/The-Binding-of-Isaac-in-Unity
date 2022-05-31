@@ -16,7 +16,7 @@ public class CustomFrameAnimation : MonoBehaviour
 
     private int currentFrameIndex;
 
-    private void OnEnable()
+    private void Awake()
     {
         if (animationRenderer == null)
             animationRenderer = GetComponent<SpriteRenderer>();

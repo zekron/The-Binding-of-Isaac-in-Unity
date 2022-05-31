@@ -4,13 +4,13 @@ using UnityEngine;
 [System.Serializable]
 public class MapRoomInfo
 {
-    public MapCoordinate Coordinate;
+    public GameCoordinate Coordinate;
     public RoomType CurrentRoomType;
 
     private MapRoomInfo parent;
     private List<MapRoomInfo> children;
 
-    public MapRoomInfo(MapCoordinate coordinate, MapRoomInfo parent, RoomType currentRoomType = RoomType.Normal)
+    public MapRoomInfo(GameCoordinate coordinate, MapRoomInfo parent, RoomType currentRoomType = RoomType.Normal)
     {
         Coordinate = coordinate;
         this.parent = parent;

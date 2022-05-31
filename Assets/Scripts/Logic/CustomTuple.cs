@@ -20,7 +20,7 @@ public class TupleWithGameObjectInt : CustomTuple<GameObject, int>
 }
 
 [Serializable]
-public class TupleWithGameObjectVector2 : CustomTuple<GameObject, Vector2>
+public class TupleWithGameObjectCoordinate : CustomTuple<GameObject, GameCoordinate>
 {
-    public TupleWithGameObjectVector2(GameObject value1, Vector2 value2) : base(value1, value2) { }
+    public TupleWithGameObjectCoordinate(GameObject value1, GameCoordinate value2) : base(value1, value2) { }
 }

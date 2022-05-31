@@ -12,7 +12,7 @@ public class Level : MonoBehaviour
 	[SerializeField] private MapCoordinateStatusEventChannelSO onEnterRoomEvent;
 	[SerializeField] private DoorPositionEventChannelSO onEnterDoorEvent;
 
-	private Room[,] roomArray = new Room[MapCoordinate.RoomOffsetPoint.x << 1, MapCoordinate.RoomOffsetPoint.y << 1];
+	private Room[,] roomArray = new Room[GameCoordinate.RoomOffsetPoint.x << 1, GameCoordinate.RoomOffsetPoint.y << 1];
 	private Room currentRoom;
 
 	private void OnEnable()
@@ -30,8 +30,8 @@ public class Level : MonoBehaviour
 		CreateRooms(MapGenerator.CreateMap(ChapterType.Basement, currentLevel, currentCurse, isHardMode: false));
 
 		//EnterRoom(DoorPosition.Up, MapCoordinate.RoomOffsetPoint);
-		onEnterRoomEvent.RaiseEvent(MapCoordinate.zero, MiniMapIconStatus.Current);
-		currentRoom = roomArray[MapCoordinate.RoomOffsetPoint.x, MapCoordinate.RoomOffsetPoint.y];
+		onEnterRoomEvent.RaiseEvent(GameCoordinate.zero, MiniMapIconStatus.Current);
+		currentRoom = roomArray[GameCoordinate.RoomOffsetPoint.x, GameCoordinate.RoomOffsetPoint.y];
 		currentRoom.EnterRoom(DoorPosition.Up);
 		//CreateRooms(Random.Range(1, 5));
 	}
@@ -70,10 +70,10 @@ public class Level : MonoBehaviour
 		EnterRoom(doorPosition, doorPosition.ToMapCoordinate() + currentRoom.RoomInfo.Coordinate);
 	}
 
-	private void EnterRoom(DoorPosition doorPosition, MapCoordinate coordinate)
+	private void EnterRoom(DoorPosition doorPosition, GameCoordinate coordinate)
 	{
 		//MiniMap
-		onEnterRoomEvent.RaiseEvent(MapCoordinate.zero,
+		onEnterRoomEvent.RaiseEvent(GameCoordinate.zero,
 									currentRoom.isCleared ? MiniMapIconStatus.Explored : MiniMapIconStatus.Unexplored);
 		onEnterRoomEvent.RaiseEvent(doorPosition.ToMapCoordinate(),
 									MiniMapIconStatus.Current);
@@ -84,11 +84,10 @@ public class Level : MonoBehaviour
 
 	private Room CreateRoom(MapRoomInfo roomInfo)
 	{
-		var coordinate = roomInfo.Coordinate - MapCoordinate.RoomOffsetPoint;
+		var coordinate = roomInfo.Coordinate - GameCoordinate.RoomOffsetPoint;
 		var result = ObjectPoolManager.Release(roomPrefab,
-											   GameLogicUtility.LocalPointToWorldPoint(transform,
-																					   new Vector3(coordinate.x * StaticData.RoomWidth,
-																								   coordinate.y * StaticData.RoomHeight)),
+												new Vector3(coordinate.x * StaticData.RoomWidth,
+															coordinate.y * StaticData.RoomHeight).ToWorldPosition(transform),
 											   Quaternion.identity,
 											   transform).GetComponent<Room>();
 		result.RoomInfo = roomInfo;

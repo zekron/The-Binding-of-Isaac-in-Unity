@@ -11,7 +11,7 @@ public class GameMgr : PersistentSingleton<GameMgr>
         var assetBundle = ResourcesMgr.LoadAssetBundleAtPath(string.Format("{0}/AssetBundles/characterprofile.ab", Application.streamingAssetsPath));
         playerProfileAssets = assetBundle.LoadAsset<PlayerProfileTreeAsset>("PlayerProfile TreeAsset");
 
-        Viewport.Initialize();
+        //Viewport.Initialize();
     }
 
     void Update()

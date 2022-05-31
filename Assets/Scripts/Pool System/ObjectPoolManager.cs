@@ -11,6 +11,7 @@ public class ObjectPoolManager : MonoBehaviour
     [SerializeField] private ObjectPool[] playerModelPools;
     [SerializeField] private ObjectPool[] doorPools;
     [SerializeField] private ObjectPool[] roomPools;
+    [SerializeField] private ObjectPool[] obstaclePools;
 
     private static Dictionary<GameObject, ObjectPool> objectPoolDictionary;
 
@@ -26,6 +27,7 @@ public class ObjectPoolManager : MonoBehaviour
         Initialize(playerModelPools);
         Initialize(doorPools);
         Initialize(roomPools);
+        Initialize(obstaclePools);
     }
 
 #if UNITY_EDITOR
@@ -38,6 +40,7 @@ public class ObjectPoolManager : MonoBehaviour
         CheckPoolSize(itemPools);
         CheckPoolSize(doorPools);
         CheckPoolSize(roomPools);
+        CheckPoolSize(obstaclePools);
     }
 #endif
 

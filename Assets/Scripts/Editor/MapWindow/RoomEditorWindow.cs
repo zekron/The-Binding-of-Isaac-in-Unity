@@ -16,7 +16,7 @@ public class RoomEditorWindow : EditorWindow
     int toolBarNum;
     Vector2 scrollViewVector2;
 
-    Vector2 centerCoordinate = new Vector2(13, 7);
+    GameCoordinate centerCoordinate = new GameCoordinate(13, 7);
 
     string[] monsterPrefabPath = new[]
     {
@@ -187,7 +187,7 @@ public class RoomEditorWindow : EditorWindow
         GUILayout.Space(10);
         GUILayout.Label("Y");
         int y = EditorGUILayout.IntSlider((int)roomLayout.RewardPosition.y, 1, 13);
-        roomLayout.RewardPosition = new Vector2(x, y);
+        roomLayout.RewardPosition = new GameCoordinate(x, y);
         GUILayout.EndHorizontal();
     }
     private void EditObstacles()
@@ -256,7 +256,7 @@ public class RoomEditorWindow : EditorWindow
             //ªÊ÷∆Ω±¿¯Œª÷√
             if (IsDrawRewardPosition)
             {
-                Vector2 coordinate = roomLayout.RewardPosition;
+                GameCoordinate coordinate = roomLayout.RewardPosition;
                 DrawSprite(rewardSprite, coordinate);
             }
             //ªÊ÷∆∏®÷˙œﬂ
@@ -303,7 +303,7 @@ public class RoomEditorWindow : EditorWindow
     /// <param name="coordinates"></param>
     /// <param name="remove"></param>
     /// <param name="add"></param>
-    private void EditObjectList(List<TupleWithGameObjectVector2> prefabs)
+    private void EditObjectList(List<TupleWithGameObjectCoordinate> prefabs)
     {
         scrollViewVector2 = GUILayout.BeginScrollView(scrollViewVector2, GUILayout.Height(160));
         for (int i = 0; i < prefabs.Count; i++)
@@ -316,12 +316,12 @@ public class RoomEditorWindow : EditorWindow
             GUILayout.Space(10);
             GUILayout.Label("Y");
             int y = EditorGUILayout.IntSlider((int)prefabs[i].value2.y, 1, 13);
-            prefabs[i].value2 = new Vector2(x, y);
+            prefabs[i].value2 = new GameCoordinate(x, y);
             GUILayout.Space(10);
             if (GUILayout.Button("“∆≥˝")) { prefabs.RemoveAt(i); }
             GUILayout.EndHorizontal();
         }
-        if (GUILayout.Button("ÃÌº”", GUILayout.MaxWidth(75))) { prefabs.Add(new TupleWithGameObjectVector2(null, centerCoordinate)); }
+        if (GUILayout.Button("ÃÌº”", GUILayout.MaxWidth(75))) { prefabs.Add(new TupleWithGameObjectCoordinate(null, centerCoordinate)); }
         GUILayout.EndScrollView();
     }
 
@@ -350,14 +350,14 @@ public class RoomEditorWindow : EditorWindow
     /// </summary>
     /// <param name="prefabs"></param>
     /// <param name="coordinates"></param>
-    private void DrawObjectList(List<TupleWithGameObjectVector2> prefabs)
+    private void DrawObjectList(List<TupleWithGameObjectCoordinate> prefabs)
     {
         for (int i = 0; i < prefabs.Count; i++)
         {
             if (prefabs[i].value1 != null)
             {
                 Sprite sprite = prefabs[i].value1.GetComponent<SpriteRenderer>().sprite;
-                Vector2 coordinate = prefabs[i].value2;
+                GameCoordinate coordinate = prefabs[i].value2;
                 DrawSprite(sprite, coordinate);
             }
         }
@@ -368,7 +368,7 @@ public class RoomEditorWindow : EditorWindow
     /// </summary>
     /// <param name="sprite"></param>
     /// <param name="coordinate"></param>
-    private void DrawSprite(Sprite sprite, Vector2 coordinate)
+    private void DrawSprite(Sprite sprite, GameCoordinate coordinate)
     {
         if (sprite == null) { Debug.Log("Õº∆¨Œ™ø’"); return; }
 

@@ -47,11 +47,8 @@ TagManager:
   - name: Door
     uniqueID: 2224465001
     locked: 0
-  - name: Character
+  - name: AboveRoom
     uniqueID: 836492739
-    locked: 0
-  - name: Obstacle
-    uniqueID: 4179486279
     locked: 0
   - name: FX
     uniqueID: 4294459989

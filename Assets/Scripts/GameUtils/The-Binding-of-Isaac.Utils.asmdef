@@ -2,7 +2,8 @@
     "name": "The-Binding-of-Isaac.Utils",
     "rootNamespace": "",
     "references": [
-        "GUID:340100a61e001ed4594324b9bb19febe"
+        "GUID:340100a61e001ed4594324b9bb19febe",
+        "GUID:129bf8188cf75fa46b950994649d8a43"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

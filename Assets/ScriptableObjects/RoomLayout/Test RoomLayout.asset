@@ -17,7 +17,13 @@ MonoBehaviour:
   SpriteLeft: {fileID: 1590666082182623146, guid: c369cd1e3959140458d29815568bf395, type: 3}
   SpriteTip: {fileID: 0}
   IsGenerateReward: 0
-  RewardPosition: {x: 0, y: 0}
+  RewardPosition:
+    x: 0
+    y: 0
   monsterList: []
-  obstacleList: []
+  obstacleList:
+  - value1: {fileID: 4628544413203719168, guid: 11181828d7159364180fcef6a8dc4925, type: 3}
+    value2:
+      x: 1
+      y: 1
   propList: []

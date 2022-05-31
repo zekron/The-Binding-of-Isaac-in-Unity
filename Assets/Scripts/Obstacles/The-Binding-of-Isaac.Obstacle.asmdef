@@ -1,7 +1,8 @@
 {
-    "name": "The-Binding-of-Isaac.GameLogic",
+    "name": "The-Binding-of-Isaac.Obstacle",
     "rootNamespace": "",
     "references": [
+        "GUID:ea2ff860127c2fe4d81d4dd1ee77d43d",
         "GUID:340100a61e001ed4594324b9bb19febe"
     ],
     "includePlatforms": [],

@@ -453,6 +453,9 @@ MonoBehaviour:
   roomPools:
   - prefab: {fileID: 6994571110450151080, guid: d60cb5eb5597ca64d93f04d487f3fae7, type: 3}
     size: 0
+  obstaclePools:
+  - prefab: {fileID: 4628544413203719168, guid: 11181828d7159364180fcef6a8dc4925, type: 3}
+    size: 1
 --- !u!4 &328709322
 Transform:
   m_ObjectHideFlags: 0
@@ -692,6 +695,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410683448}
   m_CullTransparentMesh: 1
+--- !u!212 &495202010 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 7066929607912870652, guid: 3a972c59119c4b04b945470936374d60, type: 3}
+  m_PrefabInstance: {fileID: 7066929607896272719}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &512097519
 GameObject:
   m_ObjectHideFlags: 0
@@ -3596,6 +3604,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 529896454, guid: 3a972c59119c4b04b945470936374d60, type: 3}
+      propertyPath: headRenderer
+      value: 
+      objectReference: {fileID: 495202010}
     - target: {fileID: 1097604429764637521, guid: 3a972c59119c4b04b945470936374d60, type: 3}
       propertyPath: m_Name
       value: Isaac

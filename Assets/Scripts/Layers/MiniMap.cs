@@ -15,8 +15,8 @@ public class MiniMap : MonoBehaviour
     [SerializeField] private MapCoordinateEventChannelSO onCreateRoomEvent;
     [SerializeField] private MapCoordinateStatusEventChannelSO onEnterRoomEvent;
 
-    private Dictionary<MapCoordinate, MiniMapIconStatus> coordinateDict;
-    private MapCoordinate currentCellCoordinate;
+    private Dictionary<GameCoordinate, MiniMapIconStatus> coordinateDict;
+    private GameCoordinate currentCellCoordinate;
     private Texture2D emptyTexture;
     private Image mapImage;
     private int basicIconWidth;
@@ -39,9 +39,9 @@ public class MiniMap : MonoBehaviour
         basicIconWidth = (int)iconExplored.rect.width;
         basicIconHeight = (int)iconExplored.rect.height;
 
-        coordinateDict = new Dictionary<MapCoordinate, MiniMapIconStatus>();
+        coordinateDict = new Dictionary<GameCoordinate, MiniMapIconStatus>();
 
-        currentCellCoordinate = MapCoordinate.RoomOffsetPoint;
+        currentCellCoordinate = GameCoordinate.RoomOffsetPoint;
     }
 
     // Start is called before the first frame update
@@ -60,27 +60,27 @@ public class MiniMap : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Keypad8))
         {
-            OnMoving(MapCoordinate.zero, MiniMapIconStatus.Unexplored);
+            OnMoving(GameCoordinate.zero, MiniMapIconStatus.Unexplored);
 
-            OnMoving(MapCoordinate.up, MiniMapIconStatus.Current);
+            OnMoving(GameCoordinate.up, MiniMapIconStatus.Current);
         }
         if (Input.GetKeyDown(KeyCode.Keypad2))
         {
-            OnMoving(MapCoordinate.zero, MiniMapIconStatus.Unexplored);
+            OnMoving(GameCoordinate.zero, MiniMapIconStatus.Unexplored);
 
-            OnMoving(MapCoordinate.down, MiniMapIconStatus.Current);
+            OnMoving(GameCoordinate.down, MiniMapIconStatus.Current);
         }
         if (Input.GetKeyDown(KeyCode.Keypad4))
         {
-            OnMoving(MapCoordinate.zero, MiniMapIconStatus.Unexplored);
+            OnMoving(GameCoordinate.zero, MiniMapIconStatus.Unexplored);
 
-            OnMoving(MapCoordinate.left, MiniMapIconStatus.Current);
+            OnMoving(GameCoordinate.left, MiniMapIconStatus.Current);
         }
         if (Input.GetKeyDown(KeyCode.Keypad6))
         {
-            OnMoving(MapCoordinate.zero, MiniMapIconStatus.Unexplored);
+            OnMoving(GameCoordinate.zero, MiniMapIconStatus.Unexplored);
 
-            OnMoving(MapCoordinate.right, MiniMapIconStatus.Current);
+            OnMoving(GameCoordinate.right, MiniMapIconStatus.Current);
         }
     }
 
@@ -89,7 +89,7 @@ public class MiniMap : MonoBehaviour
     /// </summary>
     /// <param name="coordinate"></param>
     /// <param name="status"></param>
-    private void Activate(MapCoordinate coordinate, MiniMapIconStatus status)
+    private void Activate(GameCoordinate coordinate, MiniMapIconStatus status)
     {
         if (!coordinateDict.ContainsKey(coordinate))
         {
@@ -101,14 +101,14 @@ public class MiniMap : MonoBehaviour
         }
     }
 
-    private void OnCreateRoom(MapCoordinate mapCoordinate)
+    private void OnCreateRoom(GameCoordinate mapCoordinate)
     {
         Activate(mapCoordinate, MiniMapIconStatus.None);
     }
 
-    private void OnMoving(MapCoordinate direction, MiniMapIconStatus status)
+    private void OnMoving(GameCoordinate direction, MiniMapIconStatus status)
     {
-        MapCoordinate coordinate = currentCellCoordinate + direction;
+        GameCoordinate coordinate = currentCellCoordinate + direction;
         Activate(coordinate, status);
 
         switch (status)
@@ -127,9 +127,9 @@ public class MiniMap : MonoBehaviour
         }
     }
 
-    private MapCoordinate miniMapOriginalPoint = new MapCoordinate(int.MaxValue, int.MaxValue);
-    private MapCoordinate miniMapTopRightPoint = new MapCoordinate(0, 0);
-    private void RefreshMiniMapData(MapCoordinate coordinate)
+    private GameCoordinate miniMapOriginalPoint = new GameCoordinate(int.MaxValue, int.MaxValue);
+    private GameCoordinate miniMapTopRightPoint = new GameCoordinate(0, 0);
+    private void RefreshMiniMapData(GameCoordinate coordinate)
     {
         miniMapOriginalPoint.x = Mathf.Min(coordinate.x, miniMapOriginalPoint.x);
         miniMapOriginalPoint.y = Mathf.Min(coordinate.y, miniMapOriginalPoint.y);
@@ -140,16 +140,16 @@ public class MiniMap : MonoBehaviour
 
     Sprite miniMapSprite;
 
-    private void DrawCurrentCell(MapCoordinate mapCoordinate)
+    private void DrawCurrentCell(GameCoordinate mapCoordinate)
     {
         var direction = mapCoordinate - currentCellCoordinate;  //新坐标移动方向
 
-        var toBeDrawnList = new List<MapCoordinate>(5);
+        var toBeDrawnList = new List<GameCoordinate>(5);
         toBeDrawnList.Add(mapCoordinate);
 
-        for (int i = 0; i < MapCoordinate.directionArray.Length; i++)
+        for (int i = 0; i < GameCoordinate.directionArray.Length; i++)
         {
-            MapCoordinate neighbour = mapCoordinate + MapCoordinate.GetMoveDirectionPoint(MapCoordinate.directionArray[i]);
+            GameCoordinate neighbour = mapCoordinate + GameCoordinate.GetMoveDirectionPoint(GameCoordinate.directionArray[i]);
             if (coordinateDict.ContainsKey(neighbour))
             {
                 if (coordinateDict[neighbour] != MiniMapIconStatus.Explored
@@ -158,12 +158,12 @@ public class MiniMap : MonoBehaviour
                     Activate(neighbour, MiniMapIconStatus.Unexplored);//TODO: Test
                     toBeDrawnList.Add(neighbour);
                 }
-                switch (MapCoordinate.directionArray[i])
+                switch (GameCoordinate.directionArray[i])
                 {
                     //如果该方向上有房间而且旧小地图处于边缘，则需要往该方向平移平移
-                    case MapCoordinate.MoveDirection.Down when currentCellCoordinate.y == miniMapOriginalPoint.y:
-                    case MapCoordinate.MoveDirection.Left when currentCellCoordinate.x == miniMapOriginalPoint.x:
-                        direction += MapCoordinate.GetMoveDirectionPoint(MapCoordinate.directionArray[i]);
+                    case GameCoordinate.MoveDirection.Down when currentCellCoordinate.y == miniMapOriginalPoint.y:
+                    case GameCoordinate.MoveDirection.Left when currentCellCoordinate.x == miniMapOriginalPoint.x:
+                        direction += GameCoordinate.GetMoveDirectionPoint(GameCoordinate.directionArray[i]);
                         break;
                 }
             }
@@ -172,10 +172,10 @@ public class MiniMap : MonoBehaviour
         var texture = ResizeTexture(mapCoordinate);
         var oldTexture = miniMapSprite.texture;
         //如果方向为往下或者往左但是这个方向上没有房间，旧小地图则不用往这个方向（的反方向）平移
-        if (!toBeDrawnList.Contains(mapCoordinate + MapCoordinate.down) && direction.y == -1) direction.y = 0;
-        if (!toBeDrawnList.Contains(mapCoordinate + MapCoordinate.left) && direction.x == -1) direction.x = 0;
+        if (!toBeDrawnList.Contains(mapCoordinate + GameCoordinate.down) && direction.y == -1) direction.y = 0;
+        if (!toBeDrawnList.Contains(mapCoordinate + GameCoordinate.left) && direction.x == -1) direction.x = 0;
         //ShiftTexture
-        if (!currentCellCoordinate.Equals(MapCoordinate.zero))
+        if (!currentCellCoordinate.Equals(GameCoordinate.zero))
             if (oldTexture.width != texture.width || oldTexture.height != texture.height)
                 ShiftTexture(oldTexture, texture, direction);
             else
@@ -193,7 +193,7 @@ public class MiniMap : MonoBehaviour
         mapImage.SetNativeSize();
     }
 
-    private void DrawCell(MapCoordinate mapCoordinate)
+    private void DrawCell(GameCoordinate mapCoordinate)
     {
         var texture = miniMapSprite.texture;
         SetMiniMapCellPixels(texture, MapCoordinate2MiniMapCoordinate(mapCoordinate));
@@ -205,20 +205,20 @@ public class MiniMap : MonoBehaviour
         mapImage.SetNativeSize();
     }
 
-    private Texture2D ResizeTexture(MapCoordinate coordinate)
+    private Texture2D ResizeTexture(GameCoordinate coordinate)
     {
-        if (coordinateDict.ContainsKey(coordinate + MapCoordinate.up)) RefreshMiniMapData(coordinate + MapCoordinate.up);
-        if (coordinateDict.ContainsKey(coordinate + MapCoordinate.down)) RefreshMiniMapData(coordinate + MapCoordinate.down);
-        if (coordinateDict.ContainsKey(coordinate + MapCoordinate.left)) RefreshMiniMapData(coordinate + MapCoordinate.left);
-        if (coordinateDict.ContainsKey(coordinate + MapCoordinate.right)) RefreshMiniMapData(coordinate + MapCoordinate.right);
+        if (coordinateDict.ContainsKey(coordinate + GameCoordinate.up)) RefreshMiniMapData(coordinate + GameCoordinate.up);
+        if (coordinateDict.ContainsKey(coordinate + GameCoordinate.down)) RefreshMiniMapData(coordinate + GameCoordinate.down);
+        if (coordinateDict.ContainsKey(coordinate + GameCoordinate.left)) RefreshMiniMapData(coordinate + GameCoordinate.left);
+        if (coordinateDict.ContainsKey(coordinate + GameCoordinate.right)) RefreshMiniMapData(coordinate + GameCoordinate.right);
         if (coordinateDict.ContainsKey(coordinate)) RefreshMiniMapData(coordinate);
 
-        var topRight = MapCoordinate2MiniMapCoordinate(miniMapTopRightPoint + MapCoordinate.one);
+        var topRight = MapCoordinate2MiniMapCoordinate(miniMapTopRightPoint + GameCoordinate.one);
 
         return GameLogicUtility.GetEmptyTexture(topRight.x * basicIconWidth, topRight.y * basicIconHeight);
     }
 
-    private void ShiftTexture(Texture2D textureNeed2Shift, Texture2D baseTexture, MapCoordinate direction)
+    private void ShiftTexture(Texture2D textureNeed2Shift, Texture2D baseTexture, GameCoordinate direction)
     {
         baseTexture.SetPixels(direction.x > 0 ? 0 : direction.x * -basicIconWidth,
                               direction.y > 0 ? 0 : direction.y * -basicIconHeight,
@@ -233,9 +233,9 @@ public class MiniMap : MonoBehaviour
     /// </summary>
     /// <param name="texture"></param>
     /// <param name="miniMapCoordinate"></param>
-    private void SetMiniMapCellPixels(Texture2D texture, MapCoordinate miniMapCoordinate)
+    private void SetMiniMapCellPixels(Texture2D texture, GameCoordinate miniMapCoordinate)
     {
-        MapCoordinate mapCoordinate = MiniMapCoordinate2MapCoordinate(miniMapCoordinate);
+        GameCoordinate mapCoordinate = MiniMapCoordinate2MapCoordinate(miniMapCoordinate);
         texture.SetPixels(
             miniMapCoordinate.x * basicIconWidth,
             miniMapCoordinate.y * basicIconHeight,
@@ -251,7 +251,7 @@ public class MiniMap : MonoBehaviour
     /// <param name="y">MiniMapCoordinate.y</param>
     private void SetMiniMapCellPixels(Texture2D texture, int x, int y)
     {
-        MapCoordinate mapCoordinate = MiniMapCoordinate2MapCoordinate(x, y);
+        GameCoordinate mapCoordinate = MiniMapCoordinate2MapCoordinate(x, y);
         texture.SetPixels(
             x * basicIconWidth,
             y * basicIconHeight,
@@ -265,7 +265,7 @@ public class MiniMap : MonoBehaviour
     /// </summary>
     private void DrawTexture()
     {
-        var topRight = MapCoordinate2MiniMapCoordinate(miniMapTopRightPoint + MapCoordinate.one);
+        var topRight = MapCoordinate2MiniMapCoordinate(miniMapTopRightPoint + GameCoordinate.one);
         var texture = new Texture2D(topRight.x * basicIconWidth, topRight.y * basicIconHeight);
 
         for (int y = 0; y < topRight.y; y++)
@@ -301,20 +301,20 @@ public class MiniMap : MonoBehaviour
         }
     }
 
-    private MapCoordinate MapCoordinate2MiniMapCoordinate(MapCoordinate coordinate)
+    private GameCoordinate MapCoordinate2MiniMapCoordinate(GameCoordinate coordinate)
     {
-        return new MapCoordinate(coordinate - miniMapOriginalPoint);
+        return new GameCoordinate(coordinate - miniMapOriginalPoint);
     }
-    private MapCoordinate MapCoordinate2MiniMapCoordinate(int x, int y)
+    private GameCoordinate MapCoordinate2MiniMapCoordinate(int x, int y)
     {
-        return new MapCoordinate(x - miniMapOriginalPoint.x, y - miniMapOriginalPoint.y);
+        return new GameCoordinate(x - miniMapOriginalPoint.x, y - miniMapOriginalPoint.y);
     }
-    private MapCoordinate MiniMapCoordinate2MapCoordinate(MapCoordinate coordinate)
+    private GameCoordinate MiniMapCoordinate2MapCoordinate(GameCoordinate coordinate)
     {
-        return new MapCoordinate(coordinate + miniMapOriginalPoint);
+        return new GameCoordinate(coordinate + miniMapOriginalPoint);
     }
-    private MapCoordinate MiniMapCoordinate2MapCoordinate(int x, int y)
+    private GameCoordinate MiniMapCoordinate2MapCoordinate(int x, int y)
     {
-        return new MapCoordinate(x + miniMapOriginalPoint.x, y + miniMapOriginalPoint.y);
+        return new GameCoordinate(x + miniMapOriginalPoint.x, y + miniMapOriginalPoint.y);
     }
 }

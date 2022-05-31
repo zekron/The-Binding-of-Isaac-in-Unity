@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MapGenerator
 {
-    private static List<MapCoordinate> coordinateList = new List<MapCoordinate>();
+    private static List<GameCoordinate> coordinateList = new List<GameCoordinate>();
     private static List<MapRoomInfo> deadEndList = new List<MapRoomInfo>();
     private static Queue<MapRoomInfo> coordinateQueue = new Queue<MapRoomInfo>();
 
@@ -17,9 +17,9 @@ public class MapGenerator
         //生成初始房间地图
         var roomNumber = GetRoomNumberWithLevelFloorDepth(floorDepth, curseType, isHardMode);
         var deadEnds = GetMinDeadEndsWithFloorDepth(floorDepth, curseType);
-        var result = new MapRoomInfo(MapCoordinate.RoomOffsetPoint, null);
+        var result = new MapRoomInfo(GameCoordinate.RoomOffsetPoint, null);
         coordinateQueue.Enqueue(result);
-        coordinateList.Add(MapCoordinate.RoomOffsetPoint);
+        coordinateList.Add(GameCoordinate.RoomOffsetPoint);
         roomNumber--;
 
         GenerateMainPath(result, roomNumber - deadEnds);
@@ -111,12 +111,12 @@ public class MapGenerator
         int cnt = 0;
         while (roomNumber - cnt > 0)
         {
-            if (Random.value > 0.5f) MapCoordinate.directionArray.Shuffle();
-            for (int i = 0; i < MapCoordinate.directionArray.Length; i++)
+            if (Random.value > 0.5f) GameCoordinate.directionArray.Shuffle();
+            for (int i = 0; i < GameCoordinate.directionArray.Length; i++)
             {
-                if (CanGenerate(tempInfo.Coordinate, MapCoordinate.directionArray[i]))
+                if (CanGenerate(tempInfo.Coordinate, GameCoordinate.directionArray[i]))
                 {
-                    tempInfo = CreateCoordinate(tempInfo, MapCoordinate.directionArray[i]);
+                    tempInfo = CreateCoordinate(tempInfo, GameCoordinate.directionArray[i]);
                     coordinateQueue.Enqueue(tempInfo);
                     break;
                 }
@@ -132,11 +132,11 @@ public class MapGenerator
     private static bool InsertDeadEnd(MapRoomInfo curRoomInfo)
     {
         bool isSuccess = false;
-        for (int i = 0; i < MapCoordinate.directionArray.Length; i++)
+        for (int i = 0; i < GameCoordinate.directionArray.Length; i++)
         {
-            if (CanGenerate(curRoomInfo.Coordinate, MapCoordinate.directionArray[i]))
+            if (CanGenerate(curRoomInfo.Coordinate, GameCoordinate.directionArray[i]))
             {
-                deadEndList.Add(CreateCoordinate(curRoomInfo, MapCoordinate.directionArray[i]));
+                deadEndList.Add(CreateCoordinate(curRoomInfo, GameCoordinate.directionArray[i]));
                 isSuccess = true;
                 break;
             }
@@ -150,9 +150,9 @@ public class MapGenerator
         return isSuccess;
     }
 
-    private static MapRoomInfo CreateCoordinate(MapRoomInfo curRoomInfo, MapCoordinate.MoveDirection direction)
+    private static MapRoomInfo CreateCoordinate(MapRoomInfo curRoomInfo, GameCoordinate.MoveDirection direction)
     {
-        var newCoordinate = curRoomInfo.Coordinate + MapCoordinate.GetMoveDirectionPoint(direction);
+        var newCoordinate = curRoomInfo.Coordinate + GameCoordinate.GetMoveDirectionPoint(direction);
         coordinateList.Add(newCoordinate);
         var newPoint = new MapRoomInfo(newCoordinate, curRoomInfo);
         curRoomInfo.Children.Add(newPoint);
@@ -211,24 +211,24 @@ public class MapGenerator
         //throw new System.NotImplementedException();
     }
 
-    private static bool CanGenerate(MapCoordinate point, MapCoordinate.MoveDirection direction)
+    private static bool CanGenerate(GameCoordinate point, GameCoordinate.MoveDirection direction)
     {
-        MapCoordinate coordinate = point + MapCoordinate.GetMoveDirectionPoint(direction);
+        GameCoordinate coordinate = point + GameCoordinate.GetMoveDirectionPoint(direction);
         bool result = !IsOutOfBound(coordinate);
         if (result) result = !HasBeenOccupied(coordinate);
         if (result) result = !HasAnyNeighbours(coordinate);
         return result;
     }
 
-    private static bool IsOutOfBound(MapCoordinate coordinate)
+    private static bool IsOutOfBound(GameCoordinate coordinate)
     {
-        return coordinate.x >= MapCoordinate.RoomOffsetPoint.x * 2
+        return coordinate.x >= GameCoordinate.RoomOffsetPoint.x * 2
             || coordinate.x < 0
-            || coordinate.y >= MapCoordinate.RoomOffsetPoint.y * 2
+            || coordinate.y >= GameCoordinate.RoomOffsetPoint.y * 2
             || coordinate.y < 0;
     }
 
-    private static bool HasBeenOccupied(MapCoordinate coordinate)
+    private static bool HasBeenOccupied(GameCoordinate coordinate)
     {
         return coordinateList.Contains(coordinate);
     }
@@ -239,13 +239,13 @@ public class MapGenerator
     /// <param name="coordinate"></param>
     /// <param name="neighbourNum"></param>
     /// <returns></returns>
-    private static bool HasAnyNeighbours(MapCoordinate coordinate, int neighbourNum = 2)
+    private static bool HasAnyNeighbours(GameCoordinate coordinate, int neighbourNum = 2)
     {
         bool result = false;
         int count = 0;
-        for (int i = 0; i < MapCoordinate.directionArray.Length; i++)
+        for (int i = 0; i < GameCoordinate.directionArray.Length; i++)
         {
-            if (HasBeenOccupied(coordinate + MapCoordinate.GetMoveDirectionPoint(MapCoordinate.directionArray[i]))) count++;
+            if (HasBeenOccupied(coordinate + GameCoordinate.GetMoveDirectionPoint(GameCoordinate.directionArray[i]))) count++;
 
             if (count >= neighbourNum) return true;
         }

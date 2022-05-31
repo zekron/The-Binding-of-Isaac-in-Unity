@@ -15,18 +15,18 @@ public class RoomLayoutSO : ScriptableObject
     public Sprite SpriteTip;
 
     public bool IsGenerateReward;
-    public Vector2 RewardPosition;
+    public GameCoordinate RewardPosition;
 
     /// <summary>
     /// 敌人
     /// </summary>
-    public List<TupleWithGameObjectVector2> monsterList = new List<TupleWithGameObjectVector2>();
+    public List<TupleWithGameObjectCoordinate> monsterList = new List<TupleWithGameObjectCoordinate>();
     /// <summary>
     /// 障碍物
     /// </summary>
-    public List<TupleWithGameObjectVector2> obstacleList = new List<TupleWithGameObjectVector2>();
+    public List<TupleWithGameObjectCoordinate> obstacleList = new List<TupleWithGameObjectCoordinate>();
     /// <summary>
     /// 道具
     /// </summary>
-    public List<TupleWithGameObjectVector2> propList = new List<TupleWithGameObjectVector2>();
+    public List<TupleWithGameObjectCoordinate> propList = new List<TupleWithGameObjectCoordinate>();
 }

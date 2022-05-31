@@ -23,6 +23,7 @@ public class Room : MonoBehaviour
 	[SerializeField] private SpriteRenderer[] leftRightWallSprite;
 	[SerializeField] private SpriteRenderer floorSprite;
 	[SerializeField] private Transform doorTransform;
+	[SerializeField] private Transform layoutTransform;
 	[SerializeField] private GameObject[] doorLocks;
 	private List<Door> roomDoors;
 	private int doorsCount => roomDoors.Count;
@@ -68,6 +69,18 @@ public class Room : MonoBehaviour
 			topBottomWallSprite[i].sprite = roomLayout.SpriteTop;
 			leftRightWallSprite[i].sprite = roomLayout.SpriteLeft;
 		}
+
+		for (int i = 0; i < roomLayout.obstacleList.Count; i++)
+		{
+			var obstacle = ObjectPoolManager.Release(
+					roomLayout.obstacleList[i].value1,
+					roomLayout.obstacleList[i].value2.ToRoomPosition().ToWorldPosition(transform),
+					Quaternion.identity,
+					layoutTransform).GetComponent<IObjectInRoom>();
+
+			obstacle.Coordinate = roomLayout.obstacleList[i].value2;
+			obstacle.ChangeRendererOrder();
+		}
 	}
 
 	public void EnterRoom(DoorPosition doorPosition)
@@ -103,13 +116,12 @@ public class Room : MonoBehaviour
 		}
 	}
 
-	public void CreateDoor(MapCoordinate direction, RoomType roomType = RoomType.Normal)
+	public void CreateDoor(GameCoordinate direction, RoomType roomType = RoomType.Normal)
 	{
 		var tempTransform = Door.GetDoorTransform(direction.ToDoorPosition());
 
 		roomDoors.Add(ObjectPoolManager.Release(GetDoorPrefabWithRoomType(roomType),
-												GameLogicUtility.LocalPointToWorldPoint(transform,
-																						tempTransform.localPosition),
+												tempTransform.localPosition.ToWorldPosition(transform),
 												tempTransform.rotation,
 												doorTransform).GetComponent<Door>());
 		roomDoors[doorsCount - 1].doorPosition = direction.ToDoorPosition();

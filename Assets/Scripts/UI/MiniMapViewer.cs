@@ -38,9 +38,9 @@ public class MiniMapViewer : MonoBehaviour
     }
 
     #region Utilities
-    private MapCoordinate miniMapOriginalPoint = new MapCoordinate(int.MaxValue, int.MaxValue);
-    private MapCoordinate miniMapTopRightPoint = new MapCoordinate(0, 0);
-    private void RefreshMiniMapData(MapCoordinate coordinate)
+    private GameCoordinate miniMapOriginalPoint = new GameCoordinate(int.MaxValue, int.MaxValue);
+    private GameCoordinate miniMapTopRightPoint = new GameCoordinate(0, 0);
+    private void RefreshMiniMapData(GameCoordinate coordinate)
     {
         miniMapOriginalPoint.x = Mathf.Min(coordinate.x, miniMapOriginalPoint.x);
         miniMapOriginalPoint.y = Mathf.Min(coordinate.y, miniMapOriginalPoint.y);
@@ -66,21 +66,21 @@ public class MiniMapViewer : MonoBehaviour
         }
     }
 
-    private MapCoordinate MapCoordinate2MiniMapCoordinate(MapCoordinate coordinate)
+    private GameCoordinate MapCoordinate2MiniMapCoordinate(GameCoordinate coordinate)
     {
-        return new MapCoordinate(coordinate - miniMapOriginalPoint);
+        return new GameCoordinate(coordinate - miniMapOriginalPoint);
     }
-    private MapCoordinate MapCoordinate2MiniMapCoordinate(int x, int y)
+    private GameCoordinate MapCoordinate2MiniMapCoordinate(int x, int y)
     {
-        return new MapCoordinate(x - miniMapOriginalPoint.x, y - miniMapOriginalPoint.y);
+        return new GameCoordinate(x - miniMapOriginalPoint.x, y - miniMapOriginalPoint.y);
     }
-    private MapCoordinate MiniMapCoordinate2MapCoordinate(MapCoordinate coordinate)
+    private GameCoordinate MiniMapCoordinate2MapCoordinate(GameCoordinate coordinate)
     {
-        return new MapCoordinate(coordinate + miniMapOriginalPoint);
+        return new GameCoordinate(coordinate + miniMapOriginalPoint);
     }
-    private MapCoordinate MiniMapCoordinate2MapCoordinate(int x, int y)
+    private GameCoordinate MiniMapCoordinate2MapCoordinate(int x, int y)
     {
-        return new MapCoordinate(x + miniMapOriginalPoint.x, y + miniMapOriginalPoint.y);
+        return new GameCoordinate(x + miniMapOriginalPoint.x, y + miniMapOriginalPoint.y);
     }
     #endregion
 }
