@@ -1,47 +1,19 @@
-using CustomPhysics2D;
 using UnityEngine;
 
-public class TNT : MonoBehaviour, IObjectInRoom, IHealth
+public class TNT : RoomObject, IHealth
 {
     [SerializeField] private int maxHealth;
     [SerializeField] private CustomFrameAnimationClip objectClip;
 
-    private GameCoordinate coordinate;
-    private CustomPlatform2D platform;
-    private SpriteRenderer objectRenderer;
     private int currentHealth;
 
     public int Health => currentHealth;
-    public GameCoordinate Coordinate { get => coordinate; set => coordinate = value; }
-    public SpriteRenderer ObjectRenderer => objectRenderer;
 
-    void Awake()
+    protected override void Awake()
     {
-        platform = GetComponent<CustomPlatform2D>();
-        objectRenderer = GetComponent<SpriteRenderer>();
+        base.Awake();
+
         currentHealth = maxHealth;
-    }
-
-    void OnEnable()
-    {
-        ResetObject();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-    public void ChangeRendererOrder()
-    {
-        objectRenderer.sortingOrder = coordinate.y * -5;
     }
 
     public void DestroySelf()
@@ -55,7 +27,7 @@ public class TNT : MonoBehaviour, IObjectInRoom, IHealth
 
         currentHealth = Mathf.Max(0, currentHealth - damage);
         objectRenderer.sprite = objectClip.NextFrame();
-        
+
         if (currentHealth == 0) DestroySelf();
     }
 
@@ -67,7 +39,7 @@ public class TNT : MonoBehaviour, IObjectInRoom, IHealth
         currentHealth = Mathf.Min(maxHealth, currentHealth + healing);
     }
 
-    public void ResetObject()
+    public override void ResetObject()
     {
         currentHealth = maxHealth;
         objectClip.ResetClip();

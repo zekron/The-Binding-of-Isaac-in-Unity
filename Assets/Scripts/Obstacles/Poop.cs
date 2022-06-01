@@ -1,18 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Poop : MonoBehaviour
+public class Poop : RoomObject, IHealth
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private int maxHealth;
+    [SerializeField] private CustomFrameAnimationClip objectClip;
+
+    private int currentHealth;
+
+    public int Health => currentHealth;
+
+    protected override void Awake()
     {
-        
+        base.Awake();
+
+        currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void DestroySelf()
     {
-        
+        platform.SelfCollider.IsTrigger = true;
+    }
+
+    public void GetDamage(int damage)
+    {
+        if (currentHealth <= 0) return;
+
+        currentHealth = Mathf.Max(0, currentHealth - damage);
+        objectRenderer.sprite = objectClip.NextFrame();
+
+        if (currentHealth == 0) DestroySelf();
+    }
+
+    public void GetHealing(int healing)
+    {
+        return;
+    }
+
+    public override void ResetObject()
+    {
+        currentHealth = maxHealth;
+        objectClip.ResetClip();
+        objectRenderer.sprite = objectClip.CurrentFrame();
     }
 }

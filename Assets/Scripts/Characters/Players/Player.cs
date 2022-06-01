@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(MoveController))]
+[RequireComponent(typeof(PlayerController))]
 public class Player : MonoBehaviour
 {
     //[SerializeField] private int playerCharacter;
@@ -11,11 +11,11 @@ public class Player : MonoBehaviour
     [SerializeField] private SpriteRenderer bodyRenderer;
 
     private PlayerProfileTreeElement playerProfile;
-    private MoveController moveController;
+    private PlayerController moveController;
 
     private void OnEnable()
     {
-        moveController = GetComponent<MoveController>();
+        moveController = GetComponent<PlayerController>();
     }
 
     // Start is called before the first frame update

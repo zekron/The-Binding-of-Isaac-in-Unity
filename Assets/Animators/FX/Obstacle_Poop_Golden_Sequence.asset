@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325a56bd18e380943928d2fc92054b5f, type: 3}
+  m_Name: Obstacle_Poop_Golden_Sequence
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 21300000, guid: 7ae37aa4f23f5fe4d81ad74ed9fa0e9f, type: 3}
+  - {fileID: 21300000, guid: 0762f77585c0d42498e1e415c9b9cc27, type: 3}
+  - {fileID: 21300000, guid: 91149054044d0604b8f2b9e7f5ed2bf1, type: 3}
+  - {fileID: 21300000, guid: 09f2b4fe9339a5d499e87174e6fe8596, type: 3}
+  - {fileID: 21300000, guid: a05a83fca604e1f4eaa66029b1358cc0, type: 3}
+  fps: 0
+  needLoop: 0

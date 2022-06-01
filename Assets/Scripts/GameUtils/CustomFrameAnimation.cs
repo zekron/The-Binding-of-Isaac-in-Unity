@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(SpriteRenderer))]
 public class CustomFrameAnimation : MonoBehaviour
@@ -9,6 +10,7 @@ public class CustomFrameAnimation : MonoBehaviour
     [SerializeField] private CustomFrameAnimationClip currentClip;
     [SerializeField] private bool playAutomatically = false;
 
+    private UnityEvent onAnimationEnd = new UnityEvent();
     private SpriteRenderer animationRenderer;
     private float frameInterval;
     private float timer = 0f;
@@ -26,7 +28,7 @@ public class CustomFrameAnimation : MonoBehaviour
     void Start()
     {
         if (currentClip.fps != 0) frameInterval = 1f / currentClip.fps;
-
+        currentClip.ResetClip();
         isPlaying = playAutomatically;
     }
 
@@ -51,6 +53,8 @@ public class CustomFrameAnimation : MonoBehaviour
         if (animationRenderer.sprite == nextFrame)
         {
             isPlaying = false;
+            onAnimationEnd.Invoke();
+            onAnimationEnd.RemoveAllListeners();
             return;
         }
         animationRenderer.sprite = nextFrame;
@@ -64,6 +68,12 @@ public class CustomFrameAnimation : MonoBehaviour
     }
     public void PlayOnce()
     {
+        currentClip.needLoop = false;
+        Play();
+    }
+    public void PlayOnce(UnityAction action)
+    {
+        onAnimationEnd.AddListener(action);
         currentClip.needLoop = false;
         Play();
     }

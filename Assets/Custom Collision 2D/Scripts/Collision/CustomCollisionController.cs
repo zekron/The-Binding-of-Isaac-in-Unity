@@ -108,27 +108,27 @@ namespace CustomPhysics2D
 			_rect = new Rect(_collider2D.SelfBounds.min, _collider2D.SelfBounds.size);
 			Gizmos.DrawWireCube(_rect.center, _rect.size);
 
-			UpdateRaycastOrigins();
-			Gizmos.color = Color.green;
-			for (int i = 0; i < horizontalRayCount; i++)
-			{
-				Gizmos.DrawSphere(new Vector3(_raycastOrigins.bottomLeft.x,
-											  _raycastOrigins.bottomLeft.y + _horizontalRaySpace * i),
-								  0.05f);
-				Gizmos.DrawSphere(new Vector3(_raycastOrigins.bottomRight.x,
-											  _raycastOrigins.bottomRight.y + _horizontalRaySpace * i),
-								  0.05f);
-			}
-			Gizmos.color = Color.blue;
-			for (int i = 0; i < verticalRayCount; i++)
-			{
-				Gizmos.DrawSphere(new Vector3(_raycastOrigins.bottomLeft.x + _verticalRaySpace * i,
-											  _raycastOrigins.bottomLeft.y),
-								  0.05f);
-				Gizmos.DrawSphere(new Vector3(_raycastOrigins.topLeft.x + _verticalRaySpace * i,
-											  _raycastOrigins.topLeft.y),
-								  0.05f);
-			}
+			//UpdateRaycastOrigins();
+			//Gizmos.color = Color.green;
+			//for (int i = 0; i < horizontalRayCount; i++)
+			//{
+			//	Gizmos.DrawSphere(new Vector3(_raycastOrigins.bottomLeft.x,
+			//								  _raycastOrigins.bottomLeft.y + _horizontalRaySpace * i),
+			//					  0.05f);
+			//	Gizmos.DrawSphere(new Vector3(_raycastOrigins.bottomRight.x,
+			//								  _raycastOrigins.bottomRight.y + _horizontalRaySpace * i),
+			//					  0.05f);
+			//}
+			//Gizmos.color = Color.blue;
+			//for (int i = 0; i < verticalRayCount; i++)
+			//{
+			//	Gizmos.DrawSphere(new Vector3(_raycastOrigins.bottomLeft.x + _verticalRaySpace * i,
+			//								  _raycastOrigins.bottomLeft.y),
+			//					  0.05f);
+			//	Gizmos.DrawSphere(new Vector3(_raycastOrigins.topLeft.x + _verticalRaySpace * i,
+			//								  _raycastOrigins.topLeft.y),
+			//					  0.05f);
+			//}
 		}
 
 		public virtual void Simulate(float deltaTime) { }
