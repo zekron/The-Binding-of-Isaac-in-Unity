@@ -6,4 +6,5 @@ public interface IObjectInRoom
 	public SpriteRenderer ObjectRenderer { get; }
 
 	public void ChangeRendererOrder();
+	public void ResetObject();
 }

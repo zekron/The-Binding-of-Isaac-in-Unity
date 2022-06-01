@@ -155,4 +155,9 @@ public class MoveController : MonoBehaviour, IObjectInRoom
 		bodyRenderer.sortingOrder = (int)(transform.position.y * -5);
 		headRenderer.sortingOrder = bodyRenderer.sortingOrder + 1;
 	}
+
+    public void ResetObject()
+    {
+        
+    }
 }

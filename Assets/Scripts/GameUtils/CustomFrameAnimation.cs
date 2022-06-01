@@ -25,7 +25,7 @@ public class CustomFrameAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        frameInterval = 1f / currentClip.fps;
+        if (currentClip.fps != 0) frameInterval = 1f / currentClip.fps;
 
         isPlaying = playAutomatically;
     }
@@ -47,24 +47,13 @@ public class CustomFrameAnimation : MonoBehaviour
 
     private void NextFrame()
     {
-        currentFrameIndex++;
-        if (currentFrameIndex > currentClip.frames.Length - 1)
-        {
-            if (currentClip.needLoop)
-            {
-                currentFrameIndex = 0;
-            }
-            else
-            {
-                currentFrameIndex--;
-            }
-        }
-        else if (currentFrameIndex == currentClip.frames.Length - 1 && !currentClip.needLoop)
+        Sprite nextFrame = currentClip.NextFrame();
+        if (animationRenderer.sprite == nextFrame)
         {
             isPlaying = false;
+            return;
         }
-
-        animationRenderer.sprite = currentClip.frames[currentFrameIndex];
+        animationRenderer.sprite = nextFrame;
     }
 
     public void Play()
@@ -83,4 +72,9 @@ public class CustomFrameAnimation : MonoBehaviour
         currentClip.needLoop = true;
         Play();
     }
+    public void PlayNextFrame()
+    {
+        NextFrame();
+    }
+
 }

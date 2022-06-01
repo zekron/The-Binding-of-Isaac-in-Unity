@@ -17,7 +17,7 @@ namespace CustomPhysics2D
 
 		public Bounds SelfBounds => bounds;
 		public Rect SelfRect => rect;
-		public bool IsTrigger => isTrigger;
+		public bool IsTrigger { get => isTrigger; set => isTrigger = value; }
 
 		private void OnEnable()
 		{
