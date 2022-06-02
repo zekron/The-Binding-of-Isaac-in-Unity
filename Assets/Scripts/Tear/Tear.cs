@@ -27,6 +27,12 @@ public class Tear : MonoBehaviour
 
     private void HitCollision(CollisionInfo2D collisionInfo)
     {
+        if(collisionInfo.hitCollider.gameObject.TryGetComponent(out IHealth healthItem))
+        {
+            Debug.Log(collisionInfo.hitCollider.name);
+            healthItem.GetDamage(1);
+        }
+
         rigidbody2D.SelfCollider.IsTrigger = true;
         frameAnimation.PlayOnce(() => gameObject.SetActive(false));
     }
