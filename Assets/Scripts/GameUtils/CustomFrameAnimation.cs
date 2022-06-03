@@ -16,8 +16,6 @@ public class CustomFrameAnimation : MonoBehaviour
     private float timer = 0f;
     private bool isPlaying = false;
 
-    private int currentFrameIndex;
-
     private void Awake()
     {
         if (animationRenderer == null)
@@ -28,7 +26,7 @@ public class CustomFrameAnimation : MonoBehaviour
     void Start()
     {
         if (currentClip.fps != 0) frameInterval = 1f / currentClip.fps;
-        currentClip.ResetClip();
+        ResetAnimation();
         isPlaying = playAutomatically;
     }
 
@@ -62,29 +60,37 @@ public class CustomFrameAnimation : MonoBehaviour
 
     public void Play()
     {
-        timer = 0;
-        currentFrameIndex = 0;
+        ResetAnimation();
         isPlaying = true;
     }
-    public void PlayOnce()
+
+    public void ResetAnimation()
+    {
+        timer = 0;
+        animationRenderer.sprite = currentClip.ResetClip();
+        onAnimationEnd.RemoveAllListeners();
+    }
+
+    public CustomFrameAnimation PlayOnce()
     {
         currentClip.needLoop = false;
         Play();
+        return this;
     }
-    public void PlayOnce(UnityAction action)
-    {
-        onAnimationEnd.AddListener(action);
-        currentClip.needLoop = false;
-        Play();
-    }
-    public void PlayLoop()
+    public CustomFrameAnimation PlayLoop()
     {
         currentClip.needLoop = true;
         Play();
+        return this;
     }
     public void PlayNextFrame()
     {
         NextFrame();
     }
 
+    public CustomFrameAnimation OnAnimationFinished(UnityAction action)
+    {
+        onAnimationEnd.AddListener(action);
+        return this;
+    }
 }

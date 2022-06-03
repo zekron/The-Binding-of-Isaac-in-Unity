@@ -39,7 +39,6 @@ public class Poop : RoomObject, IHealth
     public override void ResetObject()
     {
         currentHealth = maxHealth;
-        objectClip.ResetClip();
-        objectRenderer.sprite = objectClip.CurrentFrame();
+        objectRenderer.sprite = objectClip.ResetClip();
     }
 }

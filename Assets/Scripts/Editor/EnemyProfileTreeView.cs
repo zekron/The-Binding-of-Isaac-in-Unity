@@ -62,7 +62,7 @@ public class EnemyProfileTreeView : CharacterProfileTreeView<EnemyProfileTreeEle
                     else
                         GUI.TextField(cellRect, item.data.BaseRange.ToString());
                     break;
-                case MyColumns.TearDelay:
+                case MyColumns.TearsMultiplier:
                     value = GUI.TextField(cellRect, item.data.TearDelay.ToString());
                     if (float.TryParse(value, out result))
                         item.data.TearDelay = result;
@@ -89,14 +89,14 @@ public class EnemyProfileTreeView : CharacterProfileTreeView<EnemyProfileTreeEle
                 case MyColumns.BaseMoveSpeed:
                 case MyColumns.BaseDamage:
                 case MyColumns.BaseRange:
-                case MyColumns.TearDelay:
+                case MyColumns.TearsMultiplier:
                     if (column == MyColumns.BaseMoveSpeed)
                         value = item.data.BaseMoveSpeed.ToString("f2");
                     else if (column == MyColumns.BaseDamage)
                         value = item.data.BaseDamage.ToString("f2");
                     else if (column == MyColumns.BaseRange)
                         value = item.data.BaseRange.ToString("f2");
-                    else if (column == MyColumns.TearDelay)
+                    else if (column == MyColumns.TearsMultiplier)
                         value = item.data.TearDelay.ToString("f2");
 
                     DefaultGUI.LabelRightAligned(cellRect, value, args.selected, args.focused);

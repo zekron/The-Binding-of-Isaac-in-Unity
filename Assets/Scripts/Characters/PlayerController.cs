@@ -8,6 +8,7 @@ using UnityEngine.SceneManagement;
 public class PlayerController : MonoBehaviour, IObjectInRoom
 {
     private const int MOVE_SPEED_MULTIPLIER = 5;
+    private float SHOT_SPEED_MULTIPLIER = 5;
 
     [SerializeField] private TwoVector3EventChannelSO onEnterRoomEvent;
     [SerializeField] private bool useFixedUpdate = false;
@@ -25,16 +26,19 @@ public class PlayerController : MonoBehaviour, IObjectInRoom
 
     [Header("Shooting")]
     [SerializeField] private GameObject tearPrefab;
-    [SerializeField, Range(0.1f, 3f)] private float tearInterval;
+    private float tearInterval;
+    private float shotSpeed;
+    private Vector2 tearDirection = Vector2.zero;
     private bool canShoot;
     private float shootTimer;
 
-    [Header("Miscs")]
+    [Header("Misc")]
     [SerializeField] private SpriteRenderer bodyRenderer;
     [SerializeField] private SpriteRenderer headRenderer;
     [SerializeField] private Animator bodyAnimator;
 
     private CustomRigidbody2D customRigidbody;
+    private Player player;
     private GameCoordinate coordinate;
 
     public GameCoordinate Coordinate { get => coordinate; set => coordinate = value; }
@@ -44,17 +48,24 @@ public class PlayerController : MonoBehaviour, IObjectInRoom
     private void OnEnable()
     {
         onEnterRoomEvent.OnEventRaised += Refresh;
-        customRigidbody = GetComponent<CustomRigidbody2D>();
     }
 
     private void OnDisable()
     {
         onEnterRoomEvent.OnEventRaised -= Refresh;
     }
-    // Start is called before the first frame update
+
+    void Awake()
+    {
+        customRigidbody = GetComponent<CustomRigidbody2D>();
+        player = GetComponent<Player>();
+    }
+
     void Start()
     {
-        moveSpeed *= MOVE_SPEED_MULTIPLIER;
+        moveSpeed *= player.MoveSpeed * MOVE_SPEED_MULTIPLIER;
+        tearInterval = 1f / player.Tears;
+        shotSpeed = player.ShotSpeed * SHOT_SPEED_MULTIPLIER;
     }
 
     private void Update()
@@ -144,18 +155,27 @@ public class PlayerController : MonoBehaviour, IObjectInRoom
         if (Input.GetKeyDown(KeyCode.Q))
         {
         }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+
+        //canShoot = true;
+        tearDirection = Input.GetAxis("Fire1") * Vector2.right;
+        if (tearDirection.x == 0) tearDirection += Input.GetAxis("Fire2") * Vector2.up;
+        canShoot = tearDirection == Vector2.zero ? false : true;
+        //StartCoroutine(nameof(FireCoroutine));
+
+        if (shootTimer <= 0f)
         {
-            canShoot = true;
             if (canShoot)
             {
-                shootTimer += Time.deltaTime;
-                if (shootTimer >= tearInterval) shootTimer = 0f;
+                shootTimer = tearInterval;
+                ObjectPoolManager.Release(tearPrefab,
+                                          headRenderer.transform.position,
+                                          Quaternion.identity).GetComponent<Tear>().MoveVelocity = tearDirection * shotSpeed;
             }
-            var tear = ObjectPoolManager.Release(tearPrefab,
-                                                 headRenderer.transform.position,
-                                                 Quaternion.identity).GetComponent<Tear>();
-            tear.MoveVelocity = Vector2.left;
+            else return;
+        }
+        else
+        {
+            shootTimer -= Time.deltaTime;
         }
     }
 

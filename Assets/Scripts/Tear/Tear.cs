@@ -23,6 +23,8 @@ public class Tear : MonoBehaviour
     private void OnDisable()
     {
         rigidbody2D.onCollisionEnter -= HitCollision;
+        frameAnimation.ResetAnimation();
+        rigidbody2D.SelfCollider.IsTrigger = false;
     }
 
     private void HitCollision(CollisionInfo2D collisionInfo)
@@ -34,6 +36,6 @@ public class Tear : MonoBehaviour
         }
 
         rigidbody2D.SelfCollider.IsTrigger = true;
-        frameAnimation.PlayOnce(() => gameObject.SetActive(false));
+        frameAnimation.PlayOnce().OnAnimationFinished(() => gameObject.SetActive(false));
     }
 }

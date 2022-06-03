@@ -17,8 +17,8 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
         BaseDamage,
         DamageMultiplier,
         BaseRange,
-        Tears,
-        TearDelay,
+        TearsAddition,
+        TearsMultiplier,
         ShotSpeed,
         Luck
     }
@@ -100,19 +100,19 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                     else
                         GUI.TextField(cellRect, item.data.BaseRange.ToString());
                     break;
-                case MyColumns.Tears:
-                    value = GUI.TextField(cellRect, item.data.Tears.ToString());
+                case MyColumns.TearsAddition:
+                    value = GUI.TextField(cellRect, item.data.PlayerTearsAddition.ToString());
                     if (float.TryParse(value, out result))
-                        item.data.Tears = result;
+                        item.data.PlayerTearsAddition = result;
                     else
-                        GUI.TextField(cellRect, item.data.Tears.ToString());
+                        GUI.TextField(cellRect, item.data.PlayerTearsAddition.ToString());
                     break;
-                case MyColumns.TearDelay:
-                    value = GUI.TextField(cellRect, item.data.TearDelay.ToString());
+                case MyColumns.TearsMultiplier:
+                    value = GUI.TextField(cellRect, item.data.PlayerTearsMultiplier.ToString());
                     if (float.TryParse(value, out result))
-                        item.data.TearDelay = result;
+                        item.data.PlayerTearsMultiplier = result;
                     else
-                        GUI.TextField(cellRect, item.data.TearDelay.ToString());
+                        GUI.TextField(cellRect, item.data.PlayerTearsMultiplier.ToString());
                     break;
                 case MyColumns.ShotSpeed:
                     value = GUI.TextField(cellRect, item.data.ShotSpeed.ToString());
@@ -183,8 +183,8 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                 case MyColumns.BaseDamage:
                 case MyColumns.DamageMultiplier:
                 case MyColumns.BaseRange:
-                case MyColumns.Tears:
-                case MyColumns.TearDelay:
+                case MyColumns.TearsAddition:
+                case MyColumns.TearsMultiplier:
                 case MyColumns.ShotSpeed:
                 case MyColumns.Luck:
                     if (column == MyColumns.BaseMoveSpeed)
@@ -195,10 +195,10 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                         value = item.data.DamageMultiplier.ToString("f2");
                     else if (column == MyColumns.BaseRange)
                         value = item.data.BaseRange.ToString("f2");
-                    else if (column == MyColumns.Tears)
-                        value = item.data.Tears.ToString("f2");
-                    else if (column == MyColumns.TearDelay)
-                        value = item.data.TearDelay.ToString("f2");
+                    else if (column == MyColumns.TearsAddition)
+                        value = item.data.PlayerTearsAddition.ToString("f2");
+                    else if (column == MyColumns.TearsMultiplier)
+                        value = item.data.PlayerTearsMultiplier.ToString("f2");
                     else if (column == MyColumns.ShotSpeed)
                         value = item.data.ShotSpeed.ToString("f2");
                     else
@@ -245,11 +245,11 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                 case SortOption.BaseRange:
                     orderedQuery = orderedQuery.ThenBy(l => l.data.BaseRange, ascending);
                     break;
-                case SortOption.Tears:
-                    orderedQuery = orderedQuery.ThenBy(l => l.data.Tears, ascending);
+                case SortOption.TearsAddition:
+                    orderedQuery = orderedQuery.ThenBy(l => l.data.PlayerTearsAddition, ascending);
                     break;
-                case SortOption.TearDelay:
-                    orderedQuery = orderedQuery.ThenBy(l => l.data.TearDelay, ascending);
+                case SortOption.TearsMultiplier:
+                    orderedQuery = orderedQuery.ThenBy(l => l.data.PlayerTearsMultiplier, ascending);
                     break;
                 case SortOption.ShotSpeed:
                     orderedQuery = orderedQuery.ThenBy(l => l.data.ShotSpeed, ascending);
@@ -285,10 +285,10 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                 return myTypes.Order(l => l.data.DamageMultiplier, ascending);
             case SortOption.BaseRange:
                 return myTypes.Order(l => l.data.BaseRange, ascending);
-            case SortOption.Tears:
-                return myTypes.Order(l => l.data.Tears, ascending);
-            case SortOption.TearDelay:
-                return myTypes.Order(l => l.data.TearDelay, ascending);
+            case SortOption.TearsAddition:
+                return myTypes.Order(l => l.data.PlayerTearsAddition, ascending);
+            case SortOption.TearsMultiplier:
+                return myTypes.Order(l => l.data.PlayerTearsMultiplier, ascending);
             case SortOption.ShotSpeed:
                 return myTypes.Order(l => l.data.ShotSpeed, ascending);
             case SortOption.Luck:

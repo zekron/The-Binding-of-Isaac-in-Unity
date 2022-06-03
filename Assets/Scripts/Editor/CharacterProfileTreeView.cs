@@ -24,8 +24,8 @@ public abstract class CharacterProfileTreeView<T> : TreeViewWithTreeModel<T> whe
         BaseDamage,
         DamageMultiplier,
         BaseRange,
-        Tears,
-        TearDelay,
+        TearsAddition,
+        TearsMultiplier,
         ShotSpeed,
         Luck,
         StartingPickup,
@@ -120,11 +120,11 @@ public abstract class CharacterProfileTreeView<T> : TreeViewWithTreeModel<T> whe
                 case MyColumns.BaseRange:
                     tempHeaderContent = new GUIContent("Base Range", "How far the tears go");
                     break;
-                case MyColumns.Tears:
-                    tempHeaderContent = new GUIContent("Tears", "How many tears spawn per second");
+                case MyColumns.TearsAddition:
+                    tempHeaderContent = new GUIContent("Tears Addition", "Modify tear after tears calculation");
                     break;
-                case MyColumns.TearDelay:
-                    tempHeaderContent = new GUIContent("Tears Delay", "Real mechanic about Tears, with formula");
+                case MyColumns.TearsMultiplier:
+                    tempHeaderContent = new GUIContent("Tears Multiplier", "Modify tear after tears calculation");
                     break;
                 case MyColumns.ShotSpeed:
                     tempHeaderContent = new GUIContent("Shot Speed", "Tear's speed");

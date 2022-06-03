@@ -48,6 +48,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 167f6da67c6402246b4c4c63326ef1d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerCharacter: 1
   headRenderer: {fileID: 7066929607912870652}
   bodyRenderer: {fileID: 7066929607256401029}
 --- !u!114 &529896454
@@ -65,7 +66,10 @@ MonoBehaviour:
   onEnterRoomEvent: {fileID: 11400000, guid: 7a200d5f8ec2ee24fa11345449ebfbc9, type: 2}
   useFixedUpdate: 0
   shiftFactor: 1.5
+  tearPrefab: {fileID: 5298458932158306964, guid: 7618b7511185cb54db4ba8229800f054, type: 3}
+  tearInterval: 0.53
   bodyRenderer: {fileID: 7066929607256401029}
+  headRenderer: {fileID: 7066929607912870652}
   bodyAnimator: {fileID: 7066929607256401028}
 --- !u!114 &7066929607896272721
 MonoBehaviour:

@@ -68,6 +68,6 @@ public class EnemyProfileWindow : ProfileWindow<EnemyProfileTreeElement>
             MyColumns.BaseMoveSpeed,
             MyColumns.BaseDamage,
             MyColumns.BaseRange,
-            MyColumns.TearDelay);
+            MyColumns.TearsMultiplier);
     }
 }

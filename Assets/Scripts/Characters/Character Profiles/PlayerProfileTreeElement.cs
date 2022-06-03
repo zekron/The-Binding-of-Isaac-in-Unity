@@ -1,3 +1,5 @@
+using UnityEngine;
+
 [System.Serializable]
 public class PlayerProfileTreeElement : CharacterProfileTreeElement
 {
@@ -15,9 +17,13 @@ public class PlayerProfileTreeElement : CharacterProfileTreeElement
     public float BaseRange;
     /// <summary>
     /// 攻击频率
+    /// <para>T = 30 / (d + 1)</para>
     /// </summary>
-    public float Tears;
-    public float TearDelay;
+    public float PlayerTearsAddition;
+    /// <summary>
+    /// 攻击间隔
+    /// </summary>
+    public float PlayerTearsMultiplier;
     /// <summary>
     /// 弹道速度
     /// </summary>
@@ -46,8 +52,8 @@ public class PlayerProfileTreeElement : CharacterProfileTreeElement
         BaseDamage = baseDamage;
         DamageMultiplier = damageMultiplier;
         BaseRange = baseRange;
-        Tears = tears;
-        TearDelay = tearDelay;
+        PlayerTearsAddition = tears;
+        PlayerTearsMultiplier = tearDelay;
         ShotSpeed = shotSpeed;
         Luck = luck;
         CoinCount = coinCount;
@@ -55,4 +61,31 @@ public class PlayerProfileTreeElement : CharacterProfileTreeElement
         KeyCount = keyCount;
     }
 
+    public static float GetTearDelay(float t)
+    {
+        float result;
+
+        if (t > 425f / 234) result = 5;
+        else if (t >= 0 && t < 425f / 234) result = 16 - 6 * Mathf.Sqrt(1.3f * t + 1);
+        else if (t < 0 && t > -10f / 13) result = 16 - 6 * Mathf.Sqrt(1.3f * t + 1) - 6 * t;
+        else result = 16 - 6 * t;
+
+        return Mathf.Round(result * 100) / 100;
+    }
+    public float GetTears(float tearDelay)
+    {
+        float result;
+
+        result = 30f / (tearDelay + 1);
+        result += PlayerTearsAddition;
+        result *= PlayerTearsMultiplier + 1;
+
+        return Mathf.Round(result * 100) / 100;
+    }
+}
+
+public struct TearsModification
+{
+    public float TearsAddition;
+    public float TearsMultiplier;
 }

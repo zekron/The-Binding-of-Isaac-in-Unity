@@ -25,8 +25,8 @@ MonoBehaviour:
     BaseDamage: 0
     DamageMultiplier: 0
     BaseRange: 0
-    Tears: 0
-    TearDelay: 0
+    PlayerTearsAddition: 0
+    PlayerTearsMultiplier: 0
     ShotSpeed: 0
     Luck: 0
     KnockBack: 0
@@ -45,8 +45,8 @@ MonoBehaviour:
     BaseDamage: 3.5
     DamageMultiplier: 1
     BaseRange: 6.5
-    Tears: 1
-    TearDelay: 0
+    PlayerTearsAddition: 0
+    PlayerTearsMultiplier: 0
     ShotSpeed: 1
     Luck: 0
     KnockBack: 0
@@ -65,8 +65,8 @@ MonoBehaviour:
     BaseDamage: 3.5
     DamageMultiplier: 0.75
     BaseRange: 6.5
-    Tears: 1
-    TearDelay: 0
+    PlayerTearsAddition: 0
+    PlayerTearsMultiplier: 0
     ShotSpeed: 1
     Luck: 0
     KnockBack: 0
@@ -85,8 +85,8 @@ MonoBehaviour:
     BaseDamage: 3.5
     DamageMultiplier: 1.35
     BaseRange: 6.5
-    Tears: 1
-    TearDelay: 0
+    PlayerTearsAddition: 0
+    PlayerTearsMultiplier: 0
     ShotSpeed: 1
     Luck: 0
     KnockBack: 0
@@ -105,8 +105,8 @@ MonoBehaviour:
     BaseDamage: 3.5
     DamageMultiplier: 1.05
     BaseRange: 6.5
-    Tears: 1
-    TearDelay: 0
+    PlayerTearsAddition: 0
+    PlayerTearsMultiplier: 0
     ShotSpeed: 1
     Luck: 0
     KnockBack: 0
@@ -125,8 +125,8 @@ MonoBehaviour:
     BaseDamage: 3.5
     DamageMultiplier: 0.75
     BaseRange: 6.5
-    Tears: 1
-    TearDelay: 0
+    PlayerTearsAddition: 0
+    PlayerTearsMultiplier: 0
     ShotSpeed: 1
     Luck: 0
     KnockBack: 0
@@ -145,9 +145,9 @@ MonoBehaviour:
     BaseDamage: 3.5
     DamageMultiplier: 1
     BaseRange: 5
-    Tears: 0.9
-    TearDelay: 0
-    ShotSpeed: 1
+    PlayerTearsAddition: -0.1
+    PlayerTearsMultiplier: 0
+    ShotSpeed: 1.31
     Luck: 0
     KnockBack: 0
     CoinCount: 0
@@ -165,8 +165,8 @@ MonoBehaviour:
     BaseDamage: 3.5
     DamageMultiplier: 1.2
     BaseRange: 4.5
-    Tears: 1
-    TearDelay: 0
+    PlayerTearsAddition: 0
+    PlayerTearsMultiplier: 0
     ShotSpeed: 1
     Luck: 0
     KnockBack: 0

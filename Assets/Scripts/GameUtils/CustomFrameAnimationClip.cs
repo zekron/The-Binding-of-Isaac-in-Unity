@@ -28,8 +28,8 @@ public class CustomFrameAnimationClip : ScriptableObject
         return frames[currentFrameIndex];
     }
 
-    public void ResetClip()
+    public Sprite ResetClip()
     {
-        currentFrameIndex = 0;
+        return frames[currentFrameIndex = 0];
     }
 }

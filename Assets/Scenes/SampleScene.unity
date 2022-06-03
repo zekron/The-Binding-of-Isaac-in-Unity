@@ -755,11 +755,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410683448}
   m_CullTransparentMesh: 1
---- !u!212 &495202010 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 7066929607912870652, guid: 3a972c59119c4b04b945470936374d60, type: 3}
-  m_PrefabInstance: {fileID: 7066929607896272719}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &512097519
 GameObject:
   m_ObjectHideFlags: 0
@@ -3954,20 +3949,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 529896454, guid: 3a972c59119c4b04b945470936374d60, type: 3}
-      propertyPath: tearPrefab
-      value: 
-      objectReference: {fileID: 5298458932158306964, guid: 7618b7511185cb54db4ba8229800f054, type: 3}
-    - target: {fileID: 529896454, guid: 3a972c59119c4b04b945470936374d60, type: 3}
-      propertyPath: headRenderer
-      value: 
-      objectReference: {fileID: 495202010}
+      propertyPath: multiplier
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1097604429764637521, guid: 3a972c59119c4b04b945470936374d60, type: 3}
       propertyPath: m_Name
       value: Isaac
-      objectReference: {fileID: 0}
-    - target: {fileID: 1097604429764637521, guid: 3a972c59119c4b04b945470936374d60, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6051179057829428333, guid: 3a972c59119c4b04b945470936374d60, type: 3}
       propertyPath: m_RootOrder
