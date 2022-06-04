@@ -63,13 +63,17 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                     var redHeartLabelCellRect = new Rect(cellRect.x + baseWidth - labelPadding / 2, cellRect.y, labelPadding, cellRect.height);
                     var soulHeartCellRect = new Rect(cellRect.x + baseWidth/* + labelPadding / 2*/, cellRect.y, baseWidth - labelPadding, cellRect.height);
                     var soulHeartLabelCellRect = new Rect(cellRect.x + 2 * baseWidth - labelPadding / 2, cellRect.y, labelPadding, cellRect.height);
+                    var redHeart = item.data.PlayerHealthData.RedHeart >> 1;
+                    var soulHeart = item.data.PlayerHealthData.SoulHeart >> 1;
 
-                    item.data.PlayerHealthData.RefreshData(item.data.PlayerHealthData.RedHeart,
-                                                           (int)GUI.HorizontalSlider(redHeartCellRect, item.data.PlayerHealthData.RedHeart, 0, 5),
-                                                           (int)GUI.HorizontalSlider(soulHeartCellRect, item.data.PlayerHealthData.SoulHeart, 0, 5));
+                    GUI.HorizontalSlider(redHeartCellRect, redHeart, 1, 5);
+                    GUI.HorizontalSlider(soulHeartCellRect, soulHeart, 1, 5);
+                    DefaultGUI.Label(redHeartLabelCellRect, redHeart.ToString("D"), args.selected, args.focused);
+                    DefaultGUI.Label(soulHeartLabelCellRect, soulHeart.ToString("D"), args.selected, args.focused);
 
-                    DefaultGUI.Label(redHeartLabelCellRect, item.data.PlayerHealthData.RedHeart.ToString("D"), args.selected, args.focused);
-                    DefaultGUI.Label(soulHeartLabelCellRect, item.data.PlayerHealthData.SoulHeart.ToString("D"), args.selected, args.focused);
+                    item.data.PlayerHealthData.RefreshData(redHeart * 2,
+                                                           redHeart * 2,
+                                                           soulHeart * 2);
                     break;
                 case MyColumns.BaseMoveSpeed:
                     //CustommathematicTextField(cellRect, ref item.data.BaseMoveSpeed);
@@ -159,8 +163,8 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
             {
                 case MyColumns.BaseHealth:
                     value = item.data.PlayerHealthData.RedHeart.ToString("D");
-                    GUI.DrawTexture(cellRect, GetHeartTexture(item.data.PlayerHealthData.RedHeart,
-                                                              item.data.PlayerHealthData.SoulHeart), ScaleMode.ScaleToFit);
+                    GUI.DrawTexture(cellRect, GetHeartTexture(item.data.PlayerHealthData.RedHeart >> 1,
+                                                              item.data.PlayerHealthData.SoulHeart >> 1), ScaleMode.ScaleToFit);
                     break;
                 case MyColumns.StartingPickup:
                     GUI.DrawTexture(cellRect, GetPickupTexture(item.data.PlayerPickupData.Coin,

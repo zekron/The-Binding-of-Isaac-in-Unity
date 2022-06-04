@@ -25,6 +25,8 @@ public class CustomFrameAnimation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (currentClip == null) return;
+
         if (currentClip.fps != 0) frameInterval = 1f / currentClip.fps;
         ResetAnimation();
         isPlaying = playAutomatically;
@@ -33,7 +35,7 @@ public class CustomFrameAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlaying)
+        if (isPlaying && animationRenderer.enabled)
         {
             timer += Time.deltaTime;
 

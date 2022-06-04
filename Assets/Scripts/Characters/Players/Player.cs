@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     private PlayerController moveController;
 
     #region Current player status
+    private HealthData currentHealth;
     private float tearAddition = 0;
     private float shotSpeedAddition = 0;
     private float moveSpeedAddition = 0;
@@ -26,6 +27,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         Initialize((int)playerCharacter);
+        currentHealth = playerProfile.PlayerHealthData;
     }
     private void OnEnable()
     {
