@@ -1,3 +1,4 @@
+using CustomPhysics2D;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class FirePlace : RoomObject, IHealth
 
     private int maxHealth;
     private int currentHealth;
+    private int attackValue = 1;
 
     public int Health => currentHealth;
 
@@ -20,6 +22,20 @@ public class FirePlace : RoomObject, IHealth
 
         currentHealth = maxHealth = fireSizes.Length - 1;
     }
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+
+        platform.onCollisionEnter += AttackCharacter;
+    }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+
+        platform.onCollisionEnter -= AttackCharacter;
+    }
+
     public override void ChangeRendererOrder()
     {
         base.ChangeRendererOrder();
@@ -60,6 +76,14 @@ public class FirePlace : RoomObject, IHealth
         fire.enabled = true;
         fire.transform.localScale = fireSizes[currentHealth];
         fire.GetComponent<CustomFrameAnimation>().ResetAnimation();
+    }
+
+    public void AttackCharacter(CollisionInfo2D collisionInfo)
+    {
+        if(collisionInfo.hitCollider.CompareTag("Player"))
+        {
+            collisionInfo.hitCollider.GetComponent<Player>().GetDamage(attackValue);
+        }
     }
 
     // Update is called once per frame

@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private PlayerCharacter playerCharacter;
     [SerializeField] private SpriteRenderer headRenderer;
     [SerializeField] private SpriteRenderer bodyRenderer;
+    [SerializeField] private HealthDataEventChannelSO onPlayerHealthDataChanged;
 
     private PlayerProfileTreeElement playerProfile;
     private PlayerController moveController;
@@ -28,10 +29,11 @@ public class Player : MonoBehaviour
     {
         Initialize((int)playerCharacter);
         currentHealth = playerProfile.PlayerHealthData;
+        moveController = GetComponent<PlayerController>();
     }
+
     private void OnEnable()
     {
-        moveController = GetComponent<PlayerController>();
     }
 
     // Start is called before the first frame update
@@ -48,5 +50,24 @@ public class Player : MonoBehaviour
     private void Initialize(int id)
     {
         playerProfile = GameMgr.Instance.GetPlayerProfileByID(id);
+    }
+
+    public void GetHealing(HealthData data)
+    {
+        currentHealth += data;
+        onPlayerHealthDataChanged.RaiseEvent(currentHealth);
+    }
+    public void GetDamage(int damage)
+    {
+        currentHealth -= damage;
+        onPlayerHealthDataChanged.RaiseEvent(currentHealth);
+    }
+    public void SacrificeHealth(HealthData data)
+    {
+        onPlayerHealthDataChanged.RaiseEvent(currentHealth);
+    }
+    public void GetDie()
+    {
+        CustomDebugger.Log("Die");
     }
 }

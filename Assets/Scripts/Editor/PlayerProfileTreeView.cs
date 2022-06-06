@@ -66,8 +66,8 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                     var redHeart = item.data.PlayerHealthData.RedHeart >> 1;
                     var soulHeart = item.data.PlayerHealthData.SoulHeart >> 1;
 
-                    GUI.HorizontalSlider(redHeartCellRect, redHeart, 1, 5);
-                    GUI.HorizontalSlider(soulHeartCellRect, soulHeart, 1, 5);
+                    redHeart= (int)GUI.HorizontalSlider(redHeartCellRect, redHeart, 0, 5);
+                    soulHeart = (int)GUI.HorizontalSlider(soulHeartCellRect, soulHeart, 0, 5);
                     DefaultGUI.Label(redHeartLabelCellRect, redHeart.ToString("D"), args.selected, args.focused);
                     DefaultGUI.Label(soulHeartLabelCellRect, soulHeart.ToString("D"), args.selected, args.focused);
 

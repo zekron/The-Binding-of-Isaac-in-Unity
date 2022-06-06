@@ -72,4 +72,35 @@ public struct HealthData : IComparable<HealthData>
         else
             return -1;
     }
+
+    public static HealthData operator -(HealthData a, int b)
+    {
+        a.SoulHeart -= b;
+        if (a.SoulHeart < 0)
+        {
+            b = -a.SoulHeart;
+            a.SoulHeart = 0;
+        }
+        a.WhiteHeart -= b;
+        if (a.WhiteHeart < 0)
+        {
+            b = -a.WhiteHeart;
+            a.WhiteHeart = 0;
+        }
+        a.RedHeart -= b;
+
+        return a;
+    }
+    public static HealthData operator +(HealthData a, HealthData b)
+    {
+        a.RedHeart = Math.Min(a.RedHeartContainers, a.RedHeart + b.RedHeart);
+        a.SoulHeart += b.SoulHeart;
+        a.WhiteHeart += b.WhiteHeart;
+        if ((a.WhiteHeart & 1) == 0)
+        {
+            a.RedHeartContainers = a.RedHeart += a.WhiteHeart >> 1;
+            a.WhiteHeart = 0;
+        }
+        return a;
+    }
 }

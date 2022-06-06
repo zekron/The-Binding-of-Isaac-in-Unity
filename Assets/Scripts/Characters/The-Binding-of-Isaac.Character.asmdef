@@ -1,15 +1,16 @@
 {
-    "name": "The-Binding-of-Isaac.Layer",
+    "name": "The-Binding-of-Isaac.Character",
     "rootNamespace": "",
     "references": [
-        "GUID:cb2e0a61e9801a243bc09e3392866cfc",
-        "GUID:b45ae0958457c00498474bcbb6e64ffe",
-        "GUID:d9433cb6cfd5ef744b31c9070f11e5f5",
-        "GUID:340100a61e001ed4594324b9bb19febe",
-        "GUID:17a47a08cae283f4a84d539eee00444a",
-        "GUID:129bf8188cf75fa46b950994649d8a43",
+        "GUID:ea2ff860127c2fe4d81d4dd1ee77d43d",
+        "GUID:f0107ec13533ddd4aaa14d2cd3a90f7c",
         "GUID:41b1777800c783e48bd321edade92860",
-        "GUID:ea2ff860127c2fe4d81d4dd1ee77d43d"
+        "GUID:d9433cb6cfd5ef744b31c9070f11e5f5",
+        "GUID:5ca24e56f38822046941e869b1db9736",
+        "GUID:340100a61e001ed4594324b9bb19febe",
+        "GUID:b45ae0958457c00498474bcbb6e64ffe",
+        "GUID:cb2e0a61e9801a243bc09e3392866cfc",
+        "GUID:8c1943eb4056f1c4388116574cc57eab"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
