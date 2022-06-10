@@ -697,7 +697,7 @@ SpriteRenderer:
   m_SortingLayerID: -161343995
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: -4720705644562703868, guid: 70500f8bc6b2a4b4f8d7013c8a1bc878, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 821e64e56d4404749b2386867de26691, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -779,7 +779,7 @@ SpriteRenderer:
   m_SortingLayerID: -161343995
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 8690788636566553409, guid: 46ae9f692c21ef945844c7cc0fbeaf36, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1a0f2821dda592a4391838bb067413fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -861,7 +861,7 @@ SpriteRenderer:
   m_SortingLayerID: -161343995
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 5491835045040419717, guid: c369cd1e3959140458d29815568bf395, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 14520ff2ab8635e4b97574e471f250a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -937,6 +937,7 @@ MonoBehaviour:
   - {fileID: 6994571110206444552}
   floorSprite: {fileID: 6994571109779623804}
   doorTransform: {fileID: 6994571111351574383}
+  layoutTransform: {fileID: 0}
   doorLocks:
   - {fileID: 6720746866336376527}
   - {fileID: 28390636263535436}
@@ -1058,7 +1059,7 @@ SpriteRenderer:
   m_SortingLayerID: -161343995
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: -4720705644562703868, guid: 70500f8bc6b2a4b4f8d7013c8a1bc878, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 821e64e56d4404749b2386867de26691, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1140,7 +1141,7 @@ SpriteRenderer:
   m_SortingLayerID: -161343995
   m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 195456562178908587, guid: c369cd1e3959140458d29815568bf395, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 14520ff2ab8635e4b97574e471f250a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

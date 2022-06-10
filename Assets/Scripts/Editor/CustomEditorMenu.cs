@@ -22,7 +22,7 @@ public class CustomEditorMenu : EditorWindow
     private static void CreateRoomWindow()
     {
         EditorWindow window = GetWindow<RoomEditorWindow>("Room Editor", true);
-        window.minSize = window.maxSize = new Vector2(800, 800);
+        //window.minSize = window.maxSize = new Vector2(800, 800);
     }
 
     [MenuItem("Custom Menu/Assets Bundle/Build AssetBundles")]

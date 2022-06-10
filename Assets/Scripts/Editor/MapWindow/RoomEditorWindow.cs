@@ -55,13 +55,6 @@ public class RoomEditorWindow : EditorWindow
         "Assets/Editor Default Resources/Auxiliary Line.png",
     };
 
-    //[MenuItem("Custom Menu/Window/Room Editor Window", false, 128)]
-    private static void ShowWindow()
-    {
-        EditorWindow window = GetWindow<RoomEditorWindow>("Room Editor", true);
-        window.minSize = window.maxSize = new Vector2(800, 800);
-    }
-
     private void OnEnable()
     {
         rewardSprite = AssetDatabase.LoadAssetAtPath<Sprite>(editorDefaultResourcesAssetPath[0]);
@@ -80,7 +73,6 @@ public class RoomEditorWindow : EditorWindow
         GUILayout.EndVertical();
 
         if (roomLayout != null) { DrawPreviewArea(); }
-        GUILayout.Box(emptyTexture);
     }
 
     private void DrawFileOperationArea()
@@ -236,7 +228,8 @@ public class RoomEditorWindow : EditorWindow
             if (floorSprite == null || floorSprite != roomLayout.SpriteFloor)
             {
                 floorSprite = roomLayout.SpriteFloor;
-                floorTexture = GetFloorTexture(roomLayout.SpriteFloor);
+                //floorTexture = GetFloorTexture(roomLayout.SpriteFloor);
+                floorTexture = floorSprite.texture;
             }
             GUILayout.Box(floorTexture);
         }
@@ -379,7 +372,9 @@ public class RoomEditorWindow : EditorWindow
         Vector2 center = outset + new Vector2(emptyTexture.width / 2, emptyTexture.height / 2);
         //绘制位置=中心点+偏移(坐标*像素大小)-精灵的一半大小(精灵绘制起点位于左上角，减去精灵大小的一半使得显示时：精灵的中心等于前面计算的位置)
         int UnitPixels = (int)(StaticData.RoomHorizontalUnitSize * 100 / 2);
-        Vector2 pos = center + new Vector2(-(StaticData.RoomHorizontalUnit - coordinate.x), -(StaticData.RoomVerticalUnit - coordinate.y)) * UnitPixels - new Vector2(sprite.rect.width / 2, sprite.rect.height / 2);
+        Vector2 pos = center + new Vector2(-(StaticData.RoomHorizontalUnit - coordinate.x),
+                                           -(StaticData.RoomVerticalUnit - coordinate.y)) * UnitPixels
+                             - new Vector2(sprite.rect.width / 2, sprite.rect.height / 2);
 
         //设置绘制的位置和大小
         Rect displayArea = sprite.rect;
@@ -397,6 +392,7 @@ public class RoomEditorWindow : EditorWindow
         //三个参数分别为:绘制的位置和大小,原贴图，原贴图截取的区域
         GUI.DrawTextureWithTexCoords(newRect, tex, displayArea);
     }
+
     /// <summary>
     /// 制作参数的3个翻转贴图，并合为一张贴图返回
     /// </summary>
