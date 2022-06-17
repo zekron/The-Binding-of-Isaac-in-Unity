@@ -228,8 +228,8 @@ public class RoomEditorWindow : EditorWindow
             if (floorSprite == null || floorSprite != roomLayout.SpriteFloor)
             {
                 floorSprite = roomLayout.SpriteFloor;
-                //floorTexture = GetFloorTexture(roomLayout.SpriteFloor);
-                floorTexture = floorSprite.texture;
+                floorTexture = GetFloorTexture(roomLayout.SpriteFloor, roomLayout.SpriteTop, roomLayout.SpriteLeft);
+                //floorTexture = floorSprite.texture;
             }
             GUILayout.Box(floorTexture);
         }
@@ -396,16 +396,50 @@ public class RoomEditorWindow : EditorWindow
     /// <summary>
     /// 制作参数的3个翻转贴图，并合为一张贴图返回
     /// </summary>
-    /// <param name="sprite"></param>
+    /// <param name="spriteFloor"></param>
     /// <returns></returns>
-    private Texture2D GetFloorTexture(Sprite sprite)
+    private Texture2D GetFloorTexture(Sprite spriteFloor, Sprite spriteTop, Sprite spriteLeft)
     {
+        var result = new Texture2D(StaticData.RoomWidthPixels, StaticData.RoomHeightPixels);
+        result.SetPixels((result.width - spriteFloor.texture.width) / 2,
+                         (result.height - spriteFloor.texture.height) / 2,
+                         spriteFloor.texture.width,
+                         spriteFloor.texture.height,
+                         spriteFloor.texture.GetPixels());
+
+        Texture2D topTexture = spriteTop.texture;
+        int topTextureWidth = topTexture.width;
+        int topTextureHeight = topTexture.height;
+        var bottomTexture = new Texture2D(topTextureWidth, topTextureHeight);
+        Texture2D leftTexture = spriteLeft.texture;
+        int leftTextureWidth = leftTexture.width;
+        int leftTextureHeight = leftTexture.height;
+        var rightTexture = new Texture2D(leftTextureWidth, leftTextureHeight);
+        for (int i = 0; i < topTextureHeight; i++)
+        {
+            bottomTexture.SetPixels(0, i, topTextureWidth, 1, topTexture.GetPixels(0, topTextureHeight - 1 - i, topTextureWidth, 1));
+        }
+        for (int i = 0; i < leftTextureWidth; i++)
+        {
+            rightTexture.SetPixels(i, 0, 1, leftTextureHeight, leftTexture.GetPixels(leftTextureWidth - 1 - i, 0, 1, topTextureHeight));
+        }
+        result.SetPixels(0, 0, leftTexture.width, leftTexture.height, leftTexture.GetPixels());
+        result.SetPixels(result.width - rightTexture.width,
+                         0,
+                         rightTexture.width,
+                         rightTexture.height,
+                         rightTexture.GetPixels());
+
+        result.Apply(true);
+        return result;
+
+
         //将传入的精灵制作为贴图，注意：需要精灵原贴图设置 高级：可读写
-        var rect = sprite.rect;
+        var rect = spriteFloor.rect;
         int width = (int)rect.width;
         int height = (int)rect.height;
         var texture = new Texture2D(width, height);
-        var data = sprite.texture.GetPixels((int)rect.x, (int)rect.y, width, height);
+        var data = spriteFloor.texture.GetPixels((int)rect.x, (int)rect.y, width, height);
         texture.SetPixels(data);
         texture.Apply(true);
 
