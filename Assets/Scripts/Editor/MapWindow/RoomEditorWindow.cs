@@ -421,54 +421,36 @@ public class RoomEditorWindow : EditorWindow
         }
         for (int i = 0; i < leftTextureWidth; i++)
         {
-            rightTexture.SetPixels(i, 0, 1, leftTextureHeight, leftTexture.GetPixels(leftTextureWidth - 1 - i, 0, 1, topTextureHeight));
+            rightTexture.SetPixels(i, 0, 1, leftTextureHeight, leftTexture.GetPixels(leftTextureWidth - 1 - i, 0, 1, leftTextureHeight));
         }
-        result.SetPixels(0, 0, leftTexture.width, leftTexture.height, leftTexture.GetPixels());
+
+        result.SetPixels(0, 0, leftTextureWidth, leftTextureHeight, leftTexture.GetPixels());
         result.SetPixels(result.width - rightTexture.width,
                          0,
                          rightTexture.width,
                          rightTexture.height,
                          rightTexture.GetPixels());
 
+        Color pixel;
+        for (int y = 0; y < topTextureHeight; y++)
+        {
+            for (int x = 0; x < topTextureWidth; x++)
+            {
+                pixel = bottomTexture.GetPixel(x, y);
+                if (pixel.a != 0f)
+                    result.SetPixel((result.width - topTextureWidth) / 2 + x,
+                                    y,
+                                    pixel);
+
+                pixel = topTexture.GetPixel(x, y);
+                if (pixel.a != 0f)
+                    result.SetPixel((result.width - topTextureWidth) / 2 + x,
+                                    result.height - topTextureHeight + y,
+                                    pixel);
+            }
+        }
+
         result.Apply(true);
         return result;
-
-
-        //将传入的精灵制作为贴图，注意：需要精灵原贴图设置 高级：可读写
-        var rect = spriteFloor.rect;
-        int width = (int)rect.width;
-        int height = (int)rect.height;
-        var texture = new Texture2D(width, height);
-        var data = spriteFloor.texture.GetPixels((int)rect.x, (int)rect.y, width, height);
-        texture.SetPixels(data);
-        texture.Apply(true);
-
-        //制作3张翻转贴图
-        var upRightTexture = new Texture2D(width, height);
-        for (int i = 0; i < width; i++)
-        {
-            upRightTexture.SetPixels(i, 0, 1, height, texture.GetPixels(width - i - 1, 0, 1, height));
-        }
-
-        var downLeftTexture = new Texture2D(width, height);
-        for (int i = 0; i < height; i++)
-        {
-            downLeftTexture.SetPixels(0, i, width, 1, texture.GetPixels(0, height - i - 1, width, 1));
-        }
-
-        var downRightTexture = new Texture2D(width, height);
-        for (int i = 0; i < width; i++)
-        {
-            downRightTexture.SetPixels(i, 0, 1, height, downLeftTexture.GetPixels(width - i - 1, 0, 1, height));
-        }
-
-        //制作4合1的贴图并返回
-        var newTexture = new Texture2D(width * 2, height * 2);
-        newTexture.SetPixels(0, height, width, height, texture.GetPixels());
-        newTexture.SetPixels(width, height, width, height, upRightTexture.GetPixels());
-        newTexture.SetPixels(0, 0, width, height, downLeftTexture.GetPixels());
-        newTexture.SetPixels(width, 0, width, height, downRightTexture.GetPixels());
-        newTexture.Apply();
-        return newTexture;
     }
 }
