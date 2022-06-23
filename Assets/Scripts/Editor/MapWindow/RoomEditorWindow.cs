@@ -235,18 +235,15 @@ public class RoomEditorWindow : EditorWindow
             {
                 floorSprite = roomLayout.SpriteFloor;
                 floorTexture = GetFloorTexture(roomLayout.SpriteFloor, roomLayout.SpriteTop, roomLayout.SpriteLeft);
-                //floorTexture = floorSprite.texture;
             }
-            //GUILayout.Box(floorTexture);
 
-            Vector2 outset = GUILayoutUtility.GetLastRect().position + new Vector2(3, GUILayoutUtility.GetLastRect().height + 10);
             GUILayout.BeginHorizontal();
             previewTextureSize.x = roomEditorWindow.position.width - 12;
             previewTextureSize.y = previewTextureSize.x / ((float)emptyTexture.width / emptyTexture.height);
-            previewRect.position = outset;
+            previewRect.position = GUILayoutUtility.GetLastRect().position + new Vector2(3, GUILayoutUtility.GetLastRect().height + 10);
             previewRect.size = previewTextureSize;
             GUI.DrawTexture(previewRect, floorTexture);
-            GUI.Label(new Rect(outset, new Vector2(100, 20)), "Last Rect");
+            //GUI.Label(new Rect(outset, new Vector2(100, 20)), "Last Rect");
             GUILayout.EndHorizontal();
         }
         else { GUILayout.Box(emptyTexture); }
@@ -387,7 +384,7 @@ public class RoomEditorWindow : EditorWindow
         //中心点=起点+地板贴图大小/2
         Vector2 center = outset + previewRect.size / 2;
         var scale = previewRect.width / emptyTexture.width;
-        GUI.Label(new Rect(center, new Vector2(150, 20)), string.Format("Draw center {0}", scale));
+        //GUI.Label(new Rect(center, new Vector2(150, 20)), string.Format("Draw center {0}", scale));
         //绘制位置=中心点+偏移(坐标*像素大小)-精灵的一半大小(精灵绘制起点位于左上角，减去精灵大小的一半使得显示时：精灵的中心等于前面计算的位置)
         int UnitPixels = (int)(StaticData.RoomHorizontalUnitSize * 100 / 2 * scale);
         Vector2 pos = center - new Vector2(StaticData.RoomHorizontalUnit - coordinate.x,
@@ -406,7 +403,7 @@ public class RoomEditorWindow : EditorWindow
 
         //三个参数分别为:绘制的位置和大小,原贴图，原贴图截取的区域
         GUI.DrawTextureWithTexCoords(newRect, tex, displayArea);
-        GUI.Label(new Rect(pos * scale, new Vector2(200, 20)), string.Format("Draw texture {0}", (pos * scale).ToString()));
+        //GUI.Label(new Rect(pos * scale, new Vector2(200, 20)), string.Format("Draw texture {0}", (pos * scale).ToString()));
     }
 
     /// <summary>
