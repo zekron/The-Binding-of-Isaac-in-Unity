@@ -385,20 +385,17 @@ public class RoomEditorWindow : EditorWindow
         //起点=当前Box的Rect(左上角,该Box的起点)+边缘留白
         Vector2 outset = GUILayoutUtility.GetLastRect().position + new Vector2(3, 3);
         //中心点=起点+地板贴图大小/2
-        //Vector2 center = outset + new Vector2(emptyTexture.width, emptyTexture.height) / 2;
         Vector2 center = outset + previewRect.size / 2;
         var scale = previewRect.width / emptyTexture.width;
-        GUI.Label(new Rect(center, new Vector2(150, 20)), string.Format("Draw texture {0}", scale));
+        GUI.Label(new Rect(center, new Vector2(150, 20)), string.Format("Draw center {0}", scale));
         //绘制位置=中心点+偏移(坐标*像素大小)-精灵的一半大小(精灵绘制起点位于左上角，减去精灵大小的一半使得显示时：精灵的中心等于前面计算的位置)
         int UnitPixels = (int)(StaticData.RoomHorizontalUnitSize * 100 / 2 * scale);
-        Vector2 pos = center + new Vector2(-(StaticData.RoomHorizontalUnit - coordinate.x),
-                                           -(StaticData.RoomVerticalUnit - coordinate.y)) * UnitPixels
+        Vector2 pos = center - new Vector2(StaticData.RoomHorizontalUnit - coordinate.x,
+                                           StaticData.RoomVerticalUnit - coordinate.y) * UnitPixels
                              - sprite.rect.size / 2 * scale;
         //设置绘制的位置和大小
         Rect displayArea = sprite.rect;
-        //Rect displayArea = previewRect;
         Rect newRect = new Rect(pos, displayArea.size * scale);
-        //Rect newRect = new Rect(pos / 2, new Vector2(spriteW, spriteH) / 2);
 
         //因为4个参数大小要求为0-1之间，所以除以原贴图，得到比例
         var tex = sprite.texture;
@@ -409,7 +406,7 @@ public class RoomEditorWindow : EditorWindow
 
         //三个参数分别为:绘制的位置和大小,原贴图，原贴图截取的区域
         GUI.DrawTextureWithTexCoords(newRect, tex, displayArea);
-        GUI.Label(new Rect(pos * scale, new Vector2(150, 20)), string.Format("Draw texture {0}", (pos * scale).ToString()));
+        GUI.Label(new Rect(pos * scale, new Vector2(200, 20)), string.Format("Draw texture {0}", (pos * scale).ToString()));
     }
 
     /// <summary>
