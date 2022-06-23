@@ -8,6 +8,8 @@ using UnityEngine;
 public class RoomEditorWindow : EditorWindow
 {
     RoomLayoutSO roomLayout;
+    RoomEditorWindow roomEditorWindow;
+
     string newFileName = "我是文件名";
 
     bool isExpandCreateButton = false;
@@ -42,6 +44,8 @@ public class RoomEditorWindow : EditorWindow
     //用于缓存地板精灵和贴图，因为绘制地板需要读写新文件，开销过大
     private Sprite floorSprite;
     private Texture2D floorTexture;
+    Rect previewRect = new Rect();
+    Vector2 previewTextureSize = new Vector2();
     //用于没有地板时绘制空白区域
     private Texture2D emptyTexture;
 
@@ -59,7 +63,9 @@ public class RoomEditorWindow : EditorWindow
     {
         rewardSprite = AssetDatabase.LoadAssetAtPath<Sprite>(editorDefaultResourcesAssetPath[0]);
         auxiliaryLineSprite = AssetDatabase.LoadAssetAtPath<Sprite>(editorDefaultResourcesAssetPath[1]);
-        emptyTexture = new Texture2D(StaticData.RoomWidthPixels / 2, StaticData.RoomHeightPixels / 2);
+        emptyTexture = new Texture2D(StaticData.RoomWidthPixels, StaticData.RoomHeightPixels);
+
+        roomEditorWindow = GetWindow<RoomEditorWindow>();
     }
 
     private void OnGUI()
@@ -231,7 +237,17 @@ public class RoomEditorWindow : EditorWindow
                 floorTexture = GetFloorTexture(roomLayout.SpriteFloor, roomLayout.SpriteTop, roomLayout.SpriteLeft);
                 //floorTexture = floorSprite.texture;
             }
-            GUILayout.Box(floorTexture);
+            //GUILayout.Box(floorTexture);
+
+            Vector2 outset = GUILayoutUtility.GetLastRect().position + new Vector2(3, GUILayoutUtility.GetLastRect().height + 10);
+            GUILayout.BeginHorizontal();
+            previewTextureSize.x = roomEditorWindow.position.width - 12;
+            previewTextureSize.y = previewTextureSize.x / ((float)emptyTexture.width / emptyTexture.height);
+            previewRect.position = outset;
+            previewRect.size = previewTextureSize;
+            GUI.DrawTexture(previewRect, floorTexture);
+            GUI.Label(new Rect(outset, new Vector2(100, 20)), "Last Rect");
+            GUILayout.EndHorizontal();
         }
         else { GUILayout.Box(emptyTexture); }
 
@@ -369,18 +385,20 @@ public class RoomEditorWindow : EditorWindow
         //起点=当前Box的Rect(左上角,该Box的起点)+边缘留白
         Vector2 outset = GUILayoutUtility.GetLastRect().position + new Vector2(3, 3);
         //中心点=起点+地板贴图大小/2
-        Vector2 center = outset + new Vector2(emptyTexture.width / 2, emptyTexture.height / 2);
+        //Vector2 center = outset + new Vector2(emptyTexture.width, emptyTexture.height) / 2;
+        Vector2 center = outset + previewRect.size / 2;
+        var scale = previewRect.width / emptyTexture.width;
+        GUI.Label(new Rect(center, new Vector2(150, 20)), string.Format("Draw texture {0}", scale));
         //绘制位置=中心点+偏移(坐标*像素大小)-精灵的一半大小(精灵绘制起点位于左上角，减去精灵大小的一半使得显示时：精灵的中心等于前面计算的位置)
-        int UnitPixels = (int)(StaticData.RoomHorizontalUnitSize * 100 / 2);
+        int UnitPixels = (int)(StaticData.RoomHorizontalUnitSize * 100 / 2 * scale);
         Vector2 pos = center + new Vector2(-(StaticData.RoomHorizontalUnit - coordinate.x),
                                            -(StaticData.RoomVerticalUnit - coordinate.y)) * UnitPixels
-                             - new Vector2(sprite.rect.width / 2, sprite.rect.height / 2);
-
+                             - sprite.rect.size / 2 * scale;
         //设置绘制的位置和大小
         Rect displayArea = sprite.rect;
-        float spriteW = displayArea.width;
-        float spriteH = displayArea.height;
-        Rect newRect = new Rect(pos, new Vector2(spriteW, spriteH));
+        //Rect displayArea = previewRect;
+        Rect newRect = new Rect(pos, displayArea.size * scale);
+        //Rect newRect = new Rect(pos / 2, new Vector2(spriteW, spriteH) / 2);
 
         //因为4个参数大小要求为0-1之间，所以除以原贴图，得到比例
         var tex = sprite.texture;
@@ -391,6 +409,7 @@ public class RoomEditorWindow : EditorWindow
 
         //三个参数分别为:绘制的位置和大小,原贴图，原贴图截取的区域
         GUI.DrawTextureWithTexCoords(newRect, tex, displayArea);
+        GUI.Label(new Rect(pos * scale, new Vector2(150, 20)), string.Format("Draw texture {0}", (pos * scale).ToString()));
     }
 
     /// <summary>
