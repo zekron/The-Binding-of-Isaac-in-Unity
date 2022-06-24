@@ -2,11 +2,13 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Text;
 using UnityEditor;
 using UnityEngine;
 
 public class RoomEditorWindow : EditorWindow
 {
+    private const string EXTENSION = ".asset";
     RoomLayoutSO roomLayout;
     RoomEditorWindow roomEditorWindow;
 
@@ -28,10 +30,11 @@ public class RoomEditorWindow : EditorWindow
     };
     string[] obstaclesPrefabPath = new[]
     {
-        "Assets/AssetsPackge/Prefabs/Obstacles/Rock/Rock.prefab",
-        "Assets/AssetsPackge/Prefabs/Obstacles/Spikes/Spikes.prefab",
-        "Assets/AssetsPackge/Prefabs/Obstacles/FirePlace/FirePlace.prefab",
-        "Assets/AssetsPackge/Prefabs/Obstacles/Poop/Poop.prefab",
+        "Assets/Prefabs/Obstacles/Rock/Rock.prefab",
+        "Assets/Prefabs/Obstacles/Spikes/Spikes.prefab",
+        "Assets/Prefabs/Obstacles/Fire Place/Fire Place.prefab",
+        "Assets/Prefabs/Obstacles/Poop/Poop_Normal.prefab",
+        "Assets/Prefabs/Obstacles/TNT.prefab",
     };
     string[] propPrefabPath = new[]
     {
@@ -42,8 +45,10 @@ public class RoomEditorWindow : EditorWindow
     };
 
     //用于缓存地板精灵和贴图，因为绘制地板需要读写新文件，开销过大
-    private Sprite floorSprite;
-    private Texture2D floorTexture;
+    private Sprite spriteFloor;
+    private Sprite spriteWallLfet;
+    private Sprite spriteWallTop;
+    private Texture2D roomTexture;
     Rect previewRect = new Rect();
     Vector2 previewTextureSize = new Vector2();
     //用于没有地板时绘制空白区域
@@ -172,6 +177,8 @@ public class RoomEditorWindow : EditorWindow
     {
         GUILayout.BeginHorizontal();
         roomLayout.SpriteFloor = (Sprite)EditorGUILayout.ObjectField("地板", roomLayout.SpriteFloor, typeof(Sprite), false);
+        roomLayout.SpriteTop = (Sprite)EditorGUILayout.ObjectField("上方墙", roomLayout.SpriteTop, typeof(Sprite), false);
+        roomLayout.SpriteLeft = (Sprite)EditorGUILayout.ObjectField("左侧墙", roomLayout.SpriteLeft, typeof(Sprite), false);
         roomLayout.SpriteTip = (Sprite)EditorGUILayout.ObjectField("Tip", roomLayout.SpriteTip, typeof(Sprite), false);
         GUILayout.EndHorizontal();
         GUILayout.Space(10);
@@ -231,18 +238,32 @@ public class RoomEditorWindow : EditorWindow
         //绘制地板，当地板精灵不一样或为空时制作新的地板贴图，为空时创建空白贴图
         if (roomLayout.SpriteFloor != null)
         {
-            if (floorSprite == null || floorSprite != roomLayout.SpriteFloor)
+            var isChanged = false;
+            if (spriteFloor != roomLayout.SpriteFloor)
             {
-                floorSprite = roomLayout.SpriteFloor;
-                floorTexture = GetFloorTexture(roomLayout.SpriteFloor, roomLayout.SpriteTop, roomLayout.SpriteLeft);
+                spriteFloor = roomLayout.SpriteFloor;
+                isChanged = true;
             }
+            if (spriteWallTop != roomLayout.SpriteTop)
+            {
+                spriteWallTop = roomLayout.SpriteTop;
+                isChanged = true;
+            }
+            if (spriteWallLfet != roomLayout.SpriteLeft)
+            {
+                spriteWallLfet = roomLayout.SpriteLeft;
+                isChanged = true;
+            }
+            if (isChanged)
+                roomTexture = GetRoomTexture(spriteFloor, roomLayout.SpriteTop, spriteWallLfet);
 
+            Vector2 outset = GUILayoutUtility.GetLastRect().position + new Vector2(3, GUILayoutUtility.GetLastRect().height + 10);
             GUILayout.BeginHorizontal();
             previewTextureSize.x = roomEditorWindow.position.width - 12;
             previewTextureSize.y = previewTextureSize.x / ((float)emptyTexture.width / emptyTexture.height);
-            previewRect.position = GUILayoutUtility.GetLastRect().position + new Vector2(3, GUILayoutUtility.GetLastRect().height + 10);
+            previewRect.position = outset;
             previewRect.size = previewTextureSize;
-            GUI.DrawTexture(previewRect, floorTexture);
+            GUI.DrawTexture(previewRect, roomTexture);
             //GUI.Label(new Rect(outset, new Vector2(100, 20)), "Last Rect");
             GUILayout.EndHorizontal();
         }
@@ -292,8 +313,22 @@ public class RoomEditorWindow : EditorWindow
     /// <param name="path"></param>
     private void CreateRoomLayoutFile(string path)
     {
-        RoomLayoutSO go = ScriptableObject.CreateInstance<RoomLayoutSO>();
-        string newPath = Path.Combine(path, newFileName + ".asset");
+        RoomLayoutSO go = CreateInstance<RoomLayoutSO>();
+        StringBuilder sb = new StringBuilder(newFileName + EXTENSION);
+        string newPath = Path.Combine(path, sb.ToString());
+        int cnt = 0;
+        if (File.Exists(newPath))
+        {
+            cnt++;
+            sb.Insert(newFileName.Length, string.Format(" ({0})", cnt));
+            newPath = Path.Combine(path, sb.ToString());
+        }
+        while (File.Exists(newPath))
+        {
+            //sb[sb.Length - (EXTENSION.Length - 1) - 1] = (char)cnt++;
+            sb.Replace((char)cnt, (char)++cnt, newFileName.Length + 2, 1);
+            newPath = Path.Combine(path, sb.ToString());
+        }
         AssetDatabase.CreateAsset(go, newPath);
         roomLayout = SelectObject(newPath) as RoomLayoutSO;
         roomLayout.IsGenerateReward = true;
@@ -327,7 +362,10 @@ public class RoomEditorWindow : EditorWindow
             if (GUILayout.Button("移除")) { prefabs.RemoveAt(i); }
             GUILayout.EndHorizontal();
         }
-        if (GUILayout.Button("添加", GUILayout.MaxWidth(75))) { prefabs.Add(new TupleWithGameObjectCoordinate(null, centerCoordinate)); }
+        if (GUILayout.Button("添加", GUILayout.MaxWidth(75)))
+        {
+            prefabs.Add(new TupleWithGameObjectCoordinate(prefabs.Count == 0? null : prefabs[prefabs.Count - 1].value1, centerCoordinate));
+        }
         GUILayout.EndScrollView();
     }
 
@@ -411,7 +449,7 @@ public class RoomEditorWindow : EditorWindow
     /// </summary>
     /// <param name="spriteFloor"></param>
     /// <returns></returns>
-    private Texture2D GetFloorTexture(Sprite spriteFloor, Sprite spriteTop, Sprite spriteLeft)
+    private Texture2D GetRoomTexture(Sprite spriteFloor, Sprite spriteTop, Sprite spriteLeft)
     {
         var result = new Texture2D(StaticData.RoomWidthPixels, StaticData.RoomHeightPixels);
         result.SetPixels((result.width - spriteFloor.texture.width) / 2,
@@ -420,46 +458,52 @@ public class RoomEditorWindow : EditorWindow
                          spriteFloor.texture.height,
                          spriteFloor.texture.GetPixels());
 
-        Texture2D topTexture = spriteTop.texture;
-        int topTextureWidth = topTexture.width;
-        int topTextureHeight = topTexture.height;
-        var bottomTexture = new Texture2D(topTextureWidth, topTextureHeight);
-        Texture2D leftTexture = spriteLeft.texture;
-        int leftTextureWidth = leftTexture.width;
-        int leftTextureHeight = leftTexture.height;
-        var rightTexture = new Texture2D(leftTextureWidth, leftTextureHeight);
-        for (int i = 0; i < topTextureHeight; i++)
+        if (spriteLeft != null)
         {
-            bottomTexture.SetPixels(0, i, topTextureWidth, 1, topTexture.GetPixels(0, topTextureHeight - 1 - i, topTextureWidth, 1));
-        }
-        for (int i = 0; i < leftTextureWidth; i++)
-        {
-            rightTexture.SetPixels(i, 0, 1, leftTextureHeight, leftTexture.GetPixels(leftTextureWidth - 1 - i, 0, 1, leftTextureHeight));
-        }
-
-        result.SetPixels(0, 0, leftTextureWidth, leftTextureHeight, leftTexture.GetPixels());
-        result.SetPixels(result.width - rightTexture.width,
-                         0,
-                         rightTexture.width,
-                         rightTexture.height,
-                         rightTexture.GetPixels());
-
-        Color pixel;
-        for (int y = 0; y < topTextureHeight; y++)
-        {
-            for (int x = 0; x < topTextureWidth; x++)
+            Texture2D leftTexture = spriteLeft.texture;
+            int leftTextureWidth = leftTexture.width;
+            int leftTextureHeight = leftTexture.height;
+            var rightTexture = new Texture2D(leftTextureWidth, leftTextureHeight);
+            for (int i = 0; i < leftTextureWidth; i++)
             {
-                pixel = bottomTexture.GetPixel(x, y);
-                if (pixel.a != 0f)
-                    result.SetPixel((result.width - topTextureWidth) / 2 + x,
-                                    y,
-                                    pixel);
+                rightTexture.SetPixels(i, 0, 1, leftTextureHeight, leftTexture.GetPixels(leftTextureWidth - 1 - i, 0, 1, leftTextureHeight));
+            }
+            result.SetPixels(0, 0, leftTextureWidth, leftTextureHeight, leftTexture.GetPixels());
 
-                pixel = topTexture.GetPixel(x, y);
-                if (pixel.a != 0f)
-                    result.SetPixel((result.width - topTextureWidth) / 2 + x,
-                                    result.height - topTextureHeight + y,
-                                    pixel);
+            result.SetPixels(result.width - rightTexture.width,
+                             0,
+                             rightTexture.width,
+                             rightTexture.height,
+                             rightTexture.GetPixels());
+        }
+        if (spriteTop != null)
+        {
+            Texture2D topTexture = spriteTop.texture;
+            int topTextureWidth = topTexture.width;
+            int topTextureHeight = topTexture.height;
+            var bottomTexture = new Texture2D(topTextureWidth, topTextureHeight);
+            for (int i = 0; i < topTextureHeight; i++)
+            {
+                bottomTexture.SetPixels(0, i, topTextureWidth, 1, topTexture.GetPixels(0, topTextureHeight - 1 - i, topTextureWidth, 1));
+            }
+
+            Color pixel;
+            for (int y = 0; y < topTextureHeight; y++)
+            {
+                for (int x = 0; x < topTextureWidth; x++)
+                {
+                    pixel = bottomTexture.GetPixel(x, y);
+                    if (pixel.a != 0f)
+                        result.SetPixel((result.width - topTextureWidth) / 2 + x,
+                                        y,
+                                        pixel);
+
+                    pixel = topTexture.GetPixel(x, y);
+                    if (pixel.a != 0f)
+                        result.SetPixel((result.width - topTextureWidth) / 2 + x,
+                                        result.height - topTextureHeight + y,
+                                        pixel);
+                }
             }
         }
 

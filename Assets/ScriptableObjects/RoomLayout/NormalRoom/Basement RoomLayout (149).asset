@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1967c1ef7080c4d91da24d9ad370ef, type: 3}
+  m_Name: Basement RoomLayout (149)
+  m_EditorClassIdentifier: 
+  SpriteFloor: {fileID: 21300000, guid: 183672785f3f4234f8290623f208320a, type: 3}
+  SpriteTop: {fileID: 21300000, guid: eb6aa76cb37ec2e45acd7e38ebc75ead, type: 3}
+  SpriteLeft: {fileID: 21300000, guid: 14520ff2ab8635e4b97574e471f250a6, type: 3}
+  SpriteTip: {fileID: 0}
+  IsGenerateReward: 0
+  RewardPosition:
+    x: 13
+    y: 7
+  monsterList: []
+  obstacleList:
+  - value1: {fileID: 6318295939826747529, guid: 0202966bb19caec4f8a4818b7c8d4e05, type: 3}
+    value2:
+      x: 13
+      y: 7
+  - value1: {fileID: 6318295939826747529, guid: 0202966bb19caec4f8a4818b7c8d4e05, type: 3}
+    value2:
+      x: 8
+      y: 5
+  - value1: {fileID: 6318295939826747529, guid: 0202966bb19caec4f8a4818b7c8d4e05, type: 3}
+    value2:
+      x: 8
+      y: 9
+  - value1: {fileID: 6318295939826747529, guid: 0202966bb19caec4f8a4818b7c8d4e05, type: 3}
+    value2:
+      x: 17
+      y: 5
+  - value1: {fileID: 6318295939826747529, guid: 0202966bb19caec4f8a4818b7c8d4e05, type: 3}
+    value2:
+      x: 17
+      y: 9
+  - value1: {fileID: 6318295939826747529, guid: 0202966bb19caec4f8a4818b7c8d4e05, type: 3}
+    value2:
+      x: 3
+      y: 3
+  - value1: {fileID: 6318295939826747529, guid: 0202966bb19caec4f8a4818b7c8d4e05, type: 3}
+    value2:
+      x: 3
+      y: 11
+  - value1: {fileID: 6318295939826747529, guid: 0202966bb19caec4f8a4818b7c8d4e05, type: 3}
+    value2:
+      x: 23
+      y: 3
+  - value1: {fileID: 6318295939826747529, guid: 0202966bb19caec4f8a4818b7c8d4e05, type: 3}
+    value2:
+      x: 23
+      y: 11
+  propList: []
