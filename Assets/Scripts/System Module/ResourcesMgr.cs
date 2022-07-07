@@ -12,7 +12,7 @@ public class ResourcesMgr
 #if UNITY_EDITOR
     private static readonly string[] roomLayoutAssetPath = new[]
     {
-        "Assets/ScriptableObjects/RoomLayout/NormalRoom/N-01-Dip4.asset",
+        "Assets/ScriptableObjects/RoomLayout/NormalRoom/Basement RoomLayout (56).asset",
         "Assets/ScriptableObjects/RoomLayout/BossRoom/B-01-DukeOfFlies.asset",
         "Assets/ScriptableObjects/RoomLayout/TreasureRoom/T-01-Fireplace.asset",
         "Assets/ScriptableObjects/RoomLayout/ShopRoom/S-01.asset",

@@ -364,7 +364,8 @@ public class RoomEditorWindow : EditorWindow
         }
         if (GUILayout.Button("Ìí¼Ó", GUILayout.MaxWidth(75)))
         {
-            prefabs.Add(new TupleWithGameObjectCoordinate(prefabs.Count == 0? null : prefabs[prefabs.Count - 1].value1, centerCoordinate));
+            if (prefabs.Count == 0) prefabs.Add(new TupleWithGameObjectCoordinate(null, centerCoordinate));
+            else prefabs.Add(new TupleWithGameObjectCoordinate(prefabs[prefabs.Count - 1].value1, prefabs[prefabs.Count - 1].value2));
         }
         GUILayout.EndScrollView();
     }
