@@ -1,5 +1,5 @@
 {
-    "name": "The-Binding-of-Isaac.Obstacle",
+    "name": "The-Binding-of-Isaac.ObjectInRoom.Obstacle",
     "rootNamespace": "",
     "references": [
         "GUID:ea2ff860127c2fe4d81d4dd1ee77d43d",

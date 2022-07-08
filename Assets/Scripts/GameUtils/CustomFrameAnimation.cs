@@ -15,6 +15,7 @@ public class CustomFrameAnimation : MonoBehaviour
     private float frameInterval;
     private float timer = 0f;
     private bool isPlaying = false;
+    private bool isPause = false;
 
     private void Awake()
     {
@@ -35,7 +36,7 @@ public class CustomFrameAnimation : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPlaying && animationRenderer.enabled)
+        if (!isPause && isPlaying && animationRenderer.enabled)
         {
             timer += Time.deltaTime;
 
@@ -50,7 +51,7 @@ public class CustomFrameAnimation : MonoBehaviour
     private void NextFrame()
     {
         Sprite nextFrame = currentClip.NextFrame();
-        if (animationRenderer.sprite == nextFrame)
+        if (nextFrame != null && animationRenderer.sprite == nextFrame)
         {
             isPlaying = false;
             onAnimationEnd.Invoke();
@@ -62,8 +63,18 @@ public class CustomFrameAnimation : MonoBehaviour
 
     public void Play()
     {
-        ResetAnimation();
+        if (!isPause) ResetAnimation();
+        isPause = false;
         isPlaying = true;
+    }
+
+    public void Pause()
+    {
+        isPause = true;
+    }
+    public void Stop()
+    {
+        isPlaying = false;
     }
 
     public void ResetAnimation()
