@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "CoinSO", menuName = "Scriptable Object/Pickups/Coin")]
@@ -18,6 +16,10 @@ public class CoinSO : ScriptableObject
 
     public CoinType GenerateType()
     {
-        return (CoinType)Random.Range(0, 3);
+        var rnd = Random.value;
+
+        if (rnd < 10f / 16) return CoinType.Penny;
+        else if (rnd < 15f / 16) return CoinType.Nickel;
+        else return CoinType.Dime;
     }
 }
