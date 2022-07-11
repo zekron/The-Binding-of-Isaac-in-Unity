@@ -27,7 +27,7 @@ public class PickupObject : RoomObject
 
     public override void ResetObject()
     {
-        pickupAnimation.Play("Pickup_Idle");
+        pickupAnimation.Play();
     }
 
     public virtual void Collect(CollisionInfo2D collisionInfo)

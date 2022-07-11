@@ -38,10 +38,10 @@ public class RoomEditorWindow : EditorWindow
     };
     string[] propPrefabPath = new[]
     {
-        "Assets/AssetsPackge/Prefabs/Prop/Pickup/Chest/BrownChest.prefab",
-        "Assets/AssetsPackge/Prefabs/Prop/Pickup/RandomPickup/RandomCoin.prefab",
-        "Assets/AssetsPackge/Prefabs/Prop/Item/RandomItem/TreasureRoom Item.prefab",
-        "Assets/AssetsPackge/Prefabs/Prop/Goods/ItemGoods.prefab",
+        "Assets/AssetsPackge/Prefabs/Props/Pickup/Chest/BrownChest.prefab",
+        "Assets/AssetsPackge/Prefabs/Props/Pickup/RandomPickup/RandomCoin.prefab",
+        "Assets/AssetsPackge/Prefabs/Props/Item/RandomItem/TreasureRoom Item.prefab",
+        "Assets/AssetsPackge/Prefabs/Props/Goods/ItemGoods.prefab",
     };
 
     //用于缓存地板精灵和贴图，因为绘制地板需要读写新文件，开销过大
@@ -402,6 +402,7 @@ public class RoomEditorWindow : EditorWindow
             if (prefabs[i].value1 != null)
             {
                 Sprite sprite = prefabs[i].value1.GetComponent<SpriteRenderer>().sprite;
+                if(sprite == null) sprite = prefabs[i].value1.GetComponentInChildren<SpriteRenderer>().sprite;
                 GameCoordinate coordinate = prefabs[i].value2;
                 DrawSprite(sprite, coordinate);
             }
