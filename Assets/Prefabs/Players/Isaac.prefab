@@ -52,6 +52,8 @@ MonoBehaviour:
   headRenderer: {fileID: 7066929607912870652}
   bodyRenderer: {fileID: 7066929607256401029}
   onPlayerHealthDataChanged: {fileID: 11400000, guid: d015d9cf188f7574b8173aa95812872b, type: 2}
+  onPlayerPickupDataChanged: {fileID: 11400000, guid: be8f7d2b99855934abbb887812fd9455, type: 2}
+  onPlayerGetGoldenKey: {fileID: 11400000, guid: 6c4184779a291bf4fa9528729f5aeebc, type: 2}
 --- !u!114 &529896454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,7 +104,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isTrigger: 0
   offset: {x: 0, y: 0}
-  size: {x: 0.5, y: 0.5}
+  size: {x: 0.5, y: 0.67}
 --- !u!1 &7066929607256401031
 GameObject:
   m_ObjectHideFlags: 0

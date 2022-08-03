@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 3740980536460566969}
   - component: {fileID: 4054583616946254358}
   - component: {fileID: 8635161865060966859}
-  - component: {fileID: 702219837403559425}
+  - component: {fileID: 4165519045186920963}
   m_Layer: 9
   m_Name: Bomb
   m_TagString: Untagged
@@ -159,10 +159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f712e0715f57c724d96816de37e8f8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTrigger: 1
+  isTrigger: 0
   offset: {x: 0, y: 0}
   size: {x: 0.72, y: 0.8}
---- !u!114 &702219837403559425
+--- !u!114 &4165519045186920963
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,9 +171,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 3740980536460566972}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ce7bdfc6efed64eba72570b1f1fef6, type: 3}
+  m_Script: {fileID: 11500000, guid: 74b3c366b8ee9744fbb85a58735fb0d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showDebugGizoms: 0
+  showDebugGizoms: 1
   horizontalRayCount: 4
   verticalRayCount: 4
+  gravityScale: 0
+  collisionDetectionMode: 1

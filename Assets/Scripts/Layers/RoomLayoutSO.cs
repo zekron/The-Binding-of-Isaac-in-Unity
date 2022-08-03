@@ -21,12 +21,15 @@ public class RoomLayoutSO : ScriptableObject
     /// 敌人
     /// </summary>
     public List<TupleWithGameObjectCoordinate> monsterList = new List<TupleWithGameObjectCoordinate>();
+    //public List<TupleWithRoomObjectCoordinate> monsterList = new List<TupleWithRoomObjectCoordinate>();
     /// <summary>
     /// 障碍物
     /// </summary>
     public List<TupleWithGameObjectCoordinate> obstacleList = new List<TupleWithGameObjectCoordinate>();
+    //public List<TupleWithRoomObjectCoordinate> obstacleList = new List<TupleWithRoomObjectCoordinate>();
     /// <summary>
     /// 道具
     /// </summary>
-    public List<TupleWithGameObjectCoordinate> propList = new List<TupleWithGameObjectCoordinate>();
+    //public List<TupleWithGameObjectCoordinate> propList = new List<TupleWithGameObjectCoordinate>();
+    public List<TupleWithRandomPickupCoordinate> propList = new List<TupleWithRandomPickupCoordinate>();
 }

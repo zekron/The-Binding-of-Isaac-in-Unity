@@ -126,4 +126,36 @@ MonoBehaviour:
     value2:
       x: 25
       y: 11
-  propList: []
+  propList:
+  - value1: {fileID: 11400000, guid: ffd5d204d063b8b42adfe319e5769468, type: 2}
+    value2:
+      x: 25
+      y: 1
+  - value1: {fileID: 11400000, guid: ffd5d204d063b8b42adfe319e5769468, type: 2}
+    value2:
+      x: 23
+      y: 1
+  - value1: {fileID: 11400000, guid: ffd5d204d063b8b42adfe319e5769468, type: 2}
+    value2:
+      x: 1
+      y: 1
+  - value1: {fileID: 11400000, guid: ffd5d204d063b8b42adfe319e5769468, type: 2}
+    value2:
+      x: 3
+      y: 1
+  - value1: {fileID: 11400000, guid: ffd5d204d063b8b42adfe319e5769468, type: 2}
+    value2:
+      x: 1
+      y: 13
+  - value1: {fileID: 11400000, guid: ffd5d204d063b8b42adfe319e5769468, type: 2}
+    value2:
+      x: 3
+      y: 13
+  - value1: {fileID: 11400000, guid: ffd5d204d063b8b42adfe319e5769468, type: 2}
+    value2:
+      x: 23
+      y: 13
+  - value1: {fileID: 11400000, guid: ffd5d204d063b8b42adfe319e5769468, type: 2}
+    value2:
+      x: 25
+      y: 13

@@ -1,0 +1,20 @@
+{
+    "name": "The-Binding-of-Isaac.UIViewer",
+    "rootNamespace": "",
+    "references": [
+        "GUID:b45ae0958457c00498474bcbb6e64ffe",
+        "GUID:e58482c22b6c140488fbae108abc0c1e",
+        "GUID:340100a61e001ed4594324b9bb19febe",
+        "GUID:6055be8ebefd69e48b49212b09b47b2f",
+        "GUID:d9433cb6cfd5ef744b31c9070f11e5f5"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

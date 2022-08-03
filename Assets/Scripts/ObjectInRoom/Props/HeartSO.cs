@@ -4,8 +4,15 @@ using UnityEngine;
 public class HeartSO : ScriptableObject
 {
     public Sprite[] HeartSprites;
+    public Sprite[] HeartSpritesInUI;
 
-    public readonly static int[] HeartWorths = new int[] { 1, 0 };
+    public readonly static HealthData[] HeartWorths = new HealthData[]
+    {
+        HealthData.RedHalf,
+        HealthData.RedOne,
+        HealthData.SoulOne,
+        HealthData.WhiteHalf,
+    };
 
     public enum HeartType
     {
@@ -13,7 +20,21 @@ public class HeartSO : ScriptableObject
         RedFull,
 
         SoulFull,
-        
+
+        WhiteHalf,
+    }
+
+    public enum HeartTypeInUI
+    {
+        NULL = -1,
+
+        RedEmpty,
+        RedHalf,
+        RedFull,
+
+        SoulHalf,
+        SoulFull,
+
         WhiteHalf,
     }
 

@@ -15,6 +15,8 @@ public class StaticData
     public static readonly int RoomHeightPixels = 944;
 
     //单位数量和大小
+    public const int ROOM_EDITOR_WINDOW_MAX_X = 25;
+    public const int ROOM_EDITOR_WINDOW_MAX_Y = 13;
     public static readonly int RoomHorizontalUnit = 13;
     public static readonly int RoomVerticalUnit = 7;
     public static readonly float RoomHorizontalUnitSize = 0.94f;

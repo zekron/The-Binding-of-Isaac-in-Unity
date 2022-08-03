@@ -6,7 +6,7 @@ public class CustomGameObjectCreater
     [MenuItem("GameObject/UI/Custom/MiniMap")]
     private static void CreateMiniMap(MenuCommand menuCommand)
     {
-        CreateGameObject<MiniMap>("Mini Map", menuCommand);
+        CreateGameObject<MiniMapViewer>("Mini Map", menuCommand);
     }
 
     #region Utilities

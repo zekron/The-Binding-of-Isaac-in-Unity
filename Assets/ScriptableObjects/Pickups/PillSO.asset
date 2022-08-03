@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4b827d75983add478bbfaf6e3f3c60b, type: 3}
+  m_Name: PillSO
+  m_EditorClassIdentifier: 
+  PillSprites:
+  - {fileID: 21300000, guid: f7f9b109c97e9024ebfcd48cd09372d4, type: 3}
+  - {fileID: 21300000, guid: a5a58301b56b89448aa513039b13b15f, type: 3}
+  - {fileID: 21300000, guid: 20e75bddc97aa694ea3a437014e42a26, type: 3}
+  - {fileID: 21300000, guid: 98e68d4b6b36d604fade4ce56ddb69e5, type: 3}
+  - {fileID: 21300000, guid: 68533204eee46f24d8294daa66372e42, type: 3}
+  - {fileID: 21300000, guid: 80c58df93acc7ef42aaa2066112966f3, type: 3}
+  - {fileID: 21300000, guid: f9eb132ce73ea614da04fe50ab556c22, type: 3}
+  - {fileID: 21300000, guid: f2e6cff7375d6fd4ca5618b719ab3fef, type: 3}
+  - {fileID: 21300000, guid: 4e510463c0fd16148bd3ecbe0a5231d1, type: 3}

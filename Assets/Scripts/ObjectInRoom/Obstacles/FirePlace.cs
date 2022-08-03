@@ -71,7 +71,7 @@ public class FirePlace : RoomObject, IHealth
     {
         currentHealth = maxHealth;
         fireShadow.enabled = true;
-        ObjectRenderer.sprite = firePlaceSprites[1];
+        objectRenderer.sprite = firePlaceSprites[1];
 
         fire.enabled = true;
         fire.transform.localScale = fireSizes[currentHealth];

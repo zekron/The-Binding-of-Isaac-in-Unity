@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class TNT : RoomObject, IHealth
 {
-    [SerializeField] private int maxHealth;
     [SerializeField] private CustomFrameAnimationClip objectClip;
 
+    private int maxHealth;
     private int currentHealth;
 
     public int Health => currentHealth;
@@ -13,7 +13,7 @@ public class TNT : RoomObject, IHealth
     {
         base.Awake();
 
-        currentHealth = maxHealth;
+        currentHealth = maxHealth = objectClip.FramesCount - 1;
     }
 
     public void DestroySelf()
@@ -25,8 +25,9 @@ public class TNT : RoomObject, IHealth
     {
         if (currentHealth <= 0) return;
 
+        var currentFrame = maxHealth - currentHealth;
+        objectRenderer.sprite = objectClip.NextFrame(ref currentFrame);
         currentHealth = Mathf.Max(0, currentHealth - damage);
-        objectRenderer.sprite = objectClip.NextFrame();
 
         if (currentHealth == 0) DestroySelf();
     }

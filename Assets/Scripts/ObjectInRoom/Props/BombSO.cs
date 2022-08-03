@@ -20,8 +20,8 @@ public class BombSO : ScriptableObject
         var rnd = Random.value;
 
         if (rnd < 7f / 10) return BombType.Single;
-        else if (rnd < 8f / 10) return BombType.Double;
-        else if (rnd < 9f / 10) return BombType.Troll;
+        else if (rnd < 9f / 10) return BombType.Double;
+        else if (rnd < 9.5f / 10) return BombType.Troll;
         else return BombType.MegaTroll;
     }
 }

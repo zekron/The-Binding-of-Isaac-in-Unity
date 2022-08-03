@@ -7,15 +7,14 @@ public class Bomb : PickupObject
 {
     [SerializeField] private BombSO bombSO;
 
-    private SpriteRenderer bombRenderer;
     private BombSO.BombType bombType;
     private int bombWorth;
 
-    protected override void Awake()
+    public void SetType(BombSO.BombType type)
     {
-        base.Awake();
-
-        bombRenderer = GetComponent<SpriteRenderer>();
+        bombType = type;
+        objectRenderer.sprite = bombSO.BombSprites[(int)bombType];
+        bombWorth = BombSO.BombWorth[(int)bombType];
     }
 
     public override void Collect(CollisionInfo2D collisionInfo)
@@ -28,8 +27,15 @@ public class Bomb : PickupObject
     {
         base.ResetObject();
 
-        bombType = bombSO.GenerateType();
-        bombRenderer.sprite = bombSO.BombSprites[(int)bombType];
-        bombWorth = BombSO.BombWorth[(int)bombType];
+        SetType(bombSO.GenerateType());
+    }
+
+    public override void OnPlayerCollect()
+    {
+        gamePlayer.GetBomb(bombWorth);
+        //else refresh context
+
+        platform.enabled = false;
+        //gameObject.SetActive(false);
     }
 }

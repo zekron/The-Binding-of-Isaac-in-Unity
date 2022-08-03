@@ -10,12 +10,15 @@ public struct HealthData : IComparable<HealthData>
 
     public static HealthData Zero { get; }
 
-    public static HealthData RedOne => new HealthData(1, 0);
-    public static HealthData SoulOne => new HealthData(0, 1);
+    public static HealthData RedHalf => new HealthData(1, 0);
+    public static HealthData RedOne => new HealthData(2, 0);
+    public static HealthData SoulOne => new HealthData(0, 2);
+    public static HealthData WhiteHalf => new HealthData(0, 0, 1);
 
     public HealthData(int redHeart, int soulHeart, int whiteHeart = 0)
     {
-        RedHeart = RedHeartContainers = redHeart;
+        RedHeart = redHeart;
+        RedHeartContainers = RedHeart / 2 + RedHeart % 2;
         SoulHeart = soulHeart;
         WhiteHeart = whiteHeart;
     }
@@ -96,9 +99,10 @@ public struct HealthData : IComparable<HealthData>
         a.RedHeart = Math.Min(a.RedHeartContainers, a.RedHeart + b.RedHeart);
         a.SoulHeart += b.SoulHeart;
         a.WhiteHeart += b.WhiteHeart;
-        if ((a.WhiteHeart & 1) == 0)
+        if (a.WhiteHeart != 0 && a.WhiteHeart % 2 == 0)
         {
-            a.RedHeartContainers = a.RedHeart += a.WhiteHeart >> 1;
+            a.RedHeartContainers += 1;
+            a.RedHeart += 2;
             a.WhiteHeart = 0;
         }
         return a;

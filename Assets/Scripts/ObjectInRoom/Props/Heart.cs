@@ -7,15 +7,14 @@ public class Heart : PickupObject
 {
     [SerializeField] private HeartSO heartSO;
 
-    private SpriteRenderer heartRenderer;
     private HeartSO.HeartType heartType;
-    private int bombWorth;
+    private HealthData heartWorth;
 
-    protected override void Awake()
+    public void SetType(HeartSO.HeartType type)
     {
-        base.Awake();
-
-        heartRenderer = GetComponent<SpriteRenderer>();
+        heartType = type;
+        objectRenderer.sprite = heartSO.HeartSprites[(int)heartType];
+        heartWorth = HeartSO.HeartWorths[(int)heartType];
     }
 
     public override void Collect(CollisionInfo2D collisionInfo)
@@ -28,8 +27,19 @@ public class Heart : PickupObject
     {
         base.ResetObject();
 
-        heartType = heartSO.GenerateType();
-        heartRenderer.sprite = heartSO.HeartSprites[(int)heartType];
-        bombWorth = BombSO.BombWorth[(int)heartType];
+        SetType(heartSO.GenerateType());
+    }
+
+    public override bool CanPickUp()
+    {
+        return !gamePlayer.IsFullHealth();
+    }
+
+    public override void OnPlayerCollect()
+    {
+        gamePlayer.GetHealing(heartWorth);
+
+        platform.enabled = false;
+        //gameObject.SetActive(false);
     }
 }

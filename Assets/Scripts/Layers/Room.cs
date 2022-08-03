@@ -74,12 +74,23 @@ public class Room : MonoBehaviour
 		{
 			var obstacle = ObjectPoolManager.Release(
 					roomLayout.obstacleList[i].value1,
-					roomLayout.obstacleList[i].value2.ToRoomPosition().ToWorldPosition(transform),
+					roomLayout.obstacleList[i].value2.ToRoomCoordinate().ToRoomPosition().ToWorldPosition(transform),
 					Quaternion.identity,
 					layoutTransform).GetComponent<IObjectInRoom>();
 
 			obstacle.Coordinate = roomLayout.obstacleList[i].value2;
 			obstacle.ChangeRendererOrder();
+		}
+        for (int i = 0; i < roomLayout.propList.Count; i++)
+        {
+			var prop = ObjectPoolManager.Release(
+					roomLayout.propList[i].value1.Generate(),
+					roomLayout.propList[i].value2.ToRoomCoordinate().ToRoomPosition().ToWorldPosition(transform),
+					Quaternion.identity,
+					layoutTransform).GetComponentInChildren<IObjectInRoom>();
+
+			prop.Coordinate = roomLayout.propList[i].value2;
+			prop.ChangeRendererOrder();
 		}
 	}
 

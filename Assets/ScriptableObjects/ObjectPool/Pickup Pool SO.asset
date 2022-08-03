@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1a82c061cf99c42a2c05d86d2c6337, type: 3}
+  m_Name: Pickup Pool SO
+  m_EditorClassIdentifier: 
+  Pools:
+  - prefab: {fileID: 1669999154954899773, guid: ec839ee66fb724347afb3794c52ce6a1, type: 3}
+    size: 1
+  - prefab: {fileID: 8906877276672113768, guid: 3904950645ee72c488bfe081ccc56637, type: 3}
+    size: 1
+  - prefab: {fileID: 2615099726379544788, guid: ca2003aab85ced2489bddf61dc6ff839, type: 3}
+    size: 1
+  - prefab: {fileID: 8756279464219628610, guid: 7089e5c016b00de41ba43945c7a061a6, type: 3}
+    size: 1
+  - prefab: {fileID: 7644212467973415800, guid: 43da263e06a7e134bbbc290f5d0fc9f7, type: 3}
+    size: 1
+  - prefab: {fileID: 611097245941683475, guid: 94725632a9c77f849896dba172276556, type: 3}
+    size: 1
+  - prefab: {fileID: 7699317618642006060, guid: e4a33c47b3810b24aa2ea3820d595adb, type: 3}
+    size: 1

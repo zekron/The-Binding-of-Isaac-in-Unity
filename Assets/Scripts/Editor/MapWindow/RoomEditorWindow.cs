@@ -188,10 +188,10 @@ public class RoomEditorWindow : EditorWindow
         IsDrawRewardPosition = GUILayout.Toggle(IsDrawRewardPosition, "»æÖÆ") && roomLayout.IsGenerateReward;
         GUILayout.Space(10);
         GUILayout.Label("X");
-        int x = EditorGUILayout.IntSlider((int)roomLayout.RewardPosition.x, 1, 25);
+        int x = EditorGUILayout.IntSlider((int)roomLayout.RewardPosition.x, 1, StaticData.ROOM_EDITOR_WINDOW_MAX_X);
         GUILayout.Space(10);
         GUILayout.Label("Y");
-        int y = EditorGUILayout.IntSlider((int)roomLayout.RewardPosition.y, 1, 13);
+        int y = EditorGUILayout.IntSlider((int)roomLayout.RewardPosition.y, 1, StaticData.ROOM_EDITOR_WINDOW_MAX_Y);
         roomLayout.RewardPosition = new GameCoordinate(x, y);
         GUILayout.EndHorizontal();
     }
@@ -353,10 +353,10 @@ public class RoomEditorWindow : EditorWindow
             prefabs[i].value1 = (GameObject)EditorGUILayout.ObjectField(prefabs[i].value1, typeof(GameObject), false);
             GUILayout.Space(30);
             GUILayout.Label("X");
-            int x = EditorGUILayout.IntSlider((int)prefabs[i].value2.x, 1, 25);
+            int x = EditorGUILayout.IntSlider((int)prefabs[i].value2.x, 1, StaticData.ROOM_EDITOR_WINDOW_MAX_X);
             GUILayout.Space(10);
             GUILayout.Label("Y");
-            int y = EditorGUILayout.IntSlider((int)prefabs[i].value2.y, 1, 13);
+            int y = EditorGUILayout.IntSlider((int)prefabs[i].value2.y, 1, StaticData.ROOM_EDITOR_WINDOW_MAX_Y);
             prefabs[i].value2 = new GameCoordinate(x, y);
             GUILayout.Space(10);
             if (GUILayout.Button("ÒÆ³ý")) { prefabs.RemoveAt(i); }
@@ -366,6 +366,31 @@ public class RoomEditorWindow : EditorWindow
         {
             if (prefabs.Count == 0) prefabs.Add(new TupleWithGameObjectCoordinate(null, centerCoordinate));
             else prefabs.Add(new TupleWithGameObjectCoordinate(prefabs[prefabs.Count - 1].value1, prefabs[prefabs.Count - 1].value2));
+        }
+        GUILayout.EndScrollView();
+    }
+    private void EditObjectList(List<TupleWithRandomPickupCoordinate> prefabs)
+    {
+        scrollViewVector2 = GUILayout.BeginScrollView(scrollViewVector2, GUILayout.Height(160));
+        for (int i = 0; i < prefabs.Count; i++)
+        {
+            GUILayout.BeginHorizontal();
+            prefabs[i].value1 = EditorGUILayout.ObjectField(prefabs[i].value1, typeof(RandomPickup), false) as RandomPickup;
+            GUILayout.Space(30);
+            GUILayout.Label("X");
+            int x = EditorGUILayout.IntSlider((int)prefabs[i].value2.x, 1, StaticData.ROOM_EDITOR_WINDOW_MAX_X);
+            GUILayout.Space(10);
+            GUILayout.Label("Y");
+            int y = EditorGUILayout.IntSlider((int)prefabs[i].value2.y, 1, StaticData.ROOM_EDITOR_WINDOW_MAX_Y);
+            prefabs[i].value2 = new GameCoordinate(x, y);
+            GUILayout.Space(10);
+            if (GUILayout.Button("ÒÆ³ý")) { prefabs.RemoveAt(i); }
+            GUILayout.EndHorizontal();
+        }
+        if (GUILayout.Button("Ìí¼Ó", GUILayout.MaxWidth(75)))
+        {
+            if (prefabs.Count == 0) prefabs.Add(new TupleWithRandomPickupCoordinate(null, centerCoordinate));
+            else prefabs.Add(new TupleWithRandomPickupCoordinate(prefabs[prefabs.Count - 1].value1, prefabs[prefabs.Count - 1].value2));
         }
         GUILayout.EndScrollView();
     }
@@ -401,8 +426,19 @@ public class RoomEditorWindow : EditorWindow
         {
             if (prefabs[i].value1 != null)
             {
-                Sprite sprite = prefabs[i].value1.GetComponent<SpriteRenderer>().sprite;
-                if(sprite == null) sprite = prefabs[i].value1.GetComponentInChildren<SpriteRenderer>().sprite;
+                Sprite sprite = prefabs[i].value1.GetComponent<IDisplayInEditorWindow>().SpriteInEditorWindow;
+                GameCoordinate coordinate = prefabs[i].value2;
+                DrawSprite(sprite, coordinate);
+            }
+        }
+    }
+    private void DrawObjectList(List<TupleWithRandomPickupCoordinate> prefabs)
+    {
+        for (int i = 0; i < prefabs.Count; i++)
+        {
+            if (prefabs[i].value1 != null)
+            {
+                Sprite sprite = (prefabs[i].value1 as IDisplayInEditorWindow).SpriteInEditorWindow;
                 GameCoordinate coordinate = prefabs[i].value2;
                 DrawSprite(sprite, coordinate);
             }

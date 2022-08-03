@@ -7,35 +7,37 @@ using UnityEngine;
 public class Tear : MonoBehaviour
 {
     private CustomFrameAnimation frameAnimation;
-    private CustomRigidbody2D rigidbody2D;
+    private CustomRigidbody2D tearRigidbody2D;
+    private IHealth healthItem;
 
-    public Vector2 MoveVelocity { set => rigidbody2D.velocity = value; }
+    public Vector2 MoveVelocity { set => tearRigidbody2D.velocity = value; }
     private void Awake()
     {
         frameAnimation = GetComponent<CustomFrameAnimation>();
-        rigidbody2D = GetComponent<CustomRigidbody2D>();
+        tearRigidbody2D = GetComponent<CustomRigidbody2D>();
     }
 
     private void OnEnable()
     {
-        rigidbody2D.onCollisionEnter += HitCollision;
+        tearRigidbody2D.onCollisionEnter += HitCollision;
     }
     private void OnDisable()
     {
-        rigidbody2D.onCollisionEnter -= HitCollision;
+        tearRigidbody2D.onCollisionEnter -= HitCollision;
         frameAnimation.ResetAnimation();
-        rigidbody2D.SelfCollider.IsTrigger = false;
+        tearRigidbody2D.SelfCollider.IsTrigger = false;
     }
 
     private void HitCollision(CollisionInfo2D collisionInfo)
     {
-        if(collisionInfo.hitCollider.gameObject.TryGetComponent(out IHealth healthItem))
+        if(collisionInfo.hitCollider.TryGetComponent(out healthItem))
         {
             Debug.Log(collisionInfo.hitCollider.name);
             healthItem.GetDamage(1);
         }
 
-        rigidbody2D.SelfCollider.IsTrigger = true;
+        tearRigidbody2D.velocity = Vector2.zero;
+        tearRigidbody2D.SelfCollider.IsTrigger = true;
         frameAnimation.PlayOnce().OnAnimationFinished(() => gameObject.SetActive(false));
     }
 }

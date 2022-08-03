@@ -66,14 +66,14 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                     var redHeart = item.data.PlayerHealthData.RedHeart >> 1;
                     var soulHeart = item.data.PlayerHealthData.SoulHeart >> 1;
 
-                    redHeart= (int)GUI.HorizontalSlider(redHeartCellRect, redHeart, 0, 5);
+                    redHeart = (int)GUI.HorizontalSlider(redHeartCellRect, redHeart, 0, 5);
                     soulHeart = (int)GUI.HorizontalSlider(soulHeartCellRect, soulHeart, 0, 5);
                     DefaultGUI.Label(redHeartLabelCellRect, redHeart.ToString("D"), args.selected, args.focused);
                     DefaultGUI.Label(soulHeartLabelCellRect, soulHeart.ToString("D"), args.selected, args.focused);
 
-                    item.data.PlayerHealthData.RefreshData(redHeart * 2,
-                                                           redHeart * 2,
-                                                           soulHeart * 2);
+                    item.data.PlayerHealthData.RefreshData(redHeart,
+                                                           redHeart << 1,
+                                                           soulHeart << 1);
                     break;
                 case MyColumns.BaseMoveSpeed:
                     //CustommathematicTextField(cellRect, ref item.data.BaseMoveSpeed);
@@ -141,13 +141,13 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                     var bombCellRect = new Rect(cellRect.x + 2 * baseWidth/* + labelPadding / 2*/, cellRect.y, baseWidth - labelPadding, cellRect.height);
                     var bombLabelCellRect = new Rect(cellRect.x + 3 * baseWidth - labelPadding / 2, cellRect.y, labelPadding, cellRect.height);
 
-                    item.data.PlayerPickupData.RefreshData((int)GUI.HorizontalSlider(coinCellRect, item.data.PlayerPickupData.Coin, 0, 5),
-                                                           (int)GUI.HorizontalSlider(keyCellRect, item.data.PlayerPickupData.Key, 0, 5),
-                                                           (int)GUI.HorizontalSlider(bombCellRect, item.data.PlayerPickupData.Bomb, 0, 5));
+                    item.data.PlayerPickupData.RefreshData((int)GUI.HorizontalSlider(coinCellRect, item.data.PlayerPickupData.coin, 0, 5),
+                                                           (int)GUI.HorizontalSlider(keyCellRect, item.data.PlayerPickupData.key, 0, 5),
+                                                           (int)GUI.HorizontalSlider(bombCellRect, item.data.PlayerPickupData.bomb, 0, 5));
 
-                    DefaultGUI.Label(coinLabelCellRect, item.data.PlayerPickupData.Coin.ToString("D"), args.selected, args.focused);
-                    DefaultGUI.Label(keyLabelCellRect, item.data.PlayerPickupData.Key.ToString("D"), args.selected, args.focused);
-                    DefaultGUI.Label(bombLabelCellRect, item.data.PlayerPickupData.Bomb.ToString("D"), args.selected, args.focused);
+                    DefaultGUI.Label(coinLabelCellRect, item.data.PlayerPickupData.coin.ToString("D"), args.selected, args.focused);
+                    DefaultGUI.Label(keyLabelCellRect, item.data.PlayerPickupData.key.ToString("D"), args.selected, args.focused);
+                    DefaultGUI.Label(bombLabelCellRect, item.data.PlayerPickupData.bomb.ToString("D"), args.selected, args.focused);
 
                     break;
                 case MyColumns.StartingItem:
@@ -167,9 +167,9 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                                                               item.data.PlayerHealthData.SoulHeart >> 1), ScaleMode.ScaleToFit);
                     break;
                 case MyColumns.StartingPickup:
-                    GUI.DrawTexture(cellRect, GetPickupTexture(item.data.PlayerPickupData.Coin,
-                                                               item.data.PlayerPickupData.Key,
-                                                               item.data.PlayerPickupData.Bomb), ScaleMode.ScaleToFit);
+                    GUI.DrawTexture(cellRect, GetPickupTexture(item.data.PlayerPickupData.coin,
+                                                               item.data.PlayerPickupData.key,
+                                                               item.data.PlayerPickupData.bomb), ScaleMode.ScaleToFit);
                     break;
                 case MyColumns.StartingItem:
                     if (item.data.PlayerItemData)

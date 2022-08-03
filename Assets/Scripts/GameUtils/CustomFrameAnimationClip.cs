@@ -6,17 +6,25 @@ using UnityEngine;
 public class CustomFrameAnimationClip : ScriptableObject
 {
     [SerializeField] private Sprite[] frames;
+
+    public int FramesCount => frames.Length;
     public int fps;
     public bool needLoop = false;
 
-    private int currentFrameIndex;
+    //private int currentFrameIndex;
 
-    public Sprite CurrentFrame()
+    public Sprite CurrentFrame(int currentFrameIndex)
     {
         return frames[currentFrameIndex];
     }
 
-    public Sprite NextFrame()
+    /// <summary>
+    /// 返回 <paramref name="currentFrameIndex"/> 的下一帧。
+    /// 如果该切片需要循环播放，且到达切片最后一帧时，返回第 0 帧；不需要则返回第 <paramref name="currentFrameIndex"/> 帧。
+    /// </summary>
+    /// <param name="currentFrameIndex"></param>
+    /// <returns></returns>
+    public Sprite NextFrame(ref int currentFrameIndex)
     {
         if (currentFrameIndex == frames.Length - 1)
         {
@@ -30,6 +38,6 @@ public class CustomFrameAnimationClip : ScriptableObject
 
     public Sprite ResetClip()
     {
-        return frames[currentFrameIndex = 0];
+        return frames[0];
     }
 }

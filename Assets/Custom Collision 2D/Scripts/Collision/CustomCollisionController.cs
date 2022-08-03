@@ -83,7 +83,7 @@ namespace CustomPhysics2D
 
 			_raycastHit2D = new RaycastHit2D[MAX_HIT_COLLIDER_COUNT];
 			_jraycastHitList = new CustomRaycastHitList(MAX_HIT_COLLIDER_COUNT);
-			_transform = transform;
+			_transform = _collider2D.ColliderTransform;
 		}
 
 		void Start()
@@ -101,11 +101,13 @@ namespace CustomPhysics2D
 
 		private void OnDrawGizmosSelected()
 		{
-			//if (!showDebugGizoms) return;
+			if (!showDebugGizoms) return;
 
 			Gizmos.color = Color.red;
 			_collider2D = GetComponent<CustomCollider2D>();
 			_rect = new Rect(_collider2D.SelfBounds.min, _collider2D.SelfBounds.size);
+			_transform = _collider2D.ColliderTransform;
+			UpdateRect();
 			Gizmos.DrawWireCube(_rect.center, _rect.size);
 
 			//UpdateRaycastOrigins();
@@ -141,7 +143,7 @@ namespace CustomPhysics2D
 
 		protected void UpdateRect()
 		{
-			_rect.center = _transform.position;
+			_rect.center = _collider2D.SelfRect.center;
 		}
 
 		protected void CalculateRaySpace(ref Bounds bounds)

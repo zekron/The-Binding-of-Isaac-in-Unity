@@ -1,8 +1,10 @@
 using CustomPhysics2D;
+using System;
 using UnityEngine;
 
-public class PickupObject : RoomObject
+public abstract class PickupObject : RoomObject
 {
+    protected Player gamePlayer;
     private Animation pickupAnimation;
 
     protected override void Awake()
@@ -15,23 +17,36 @@ public class PickupObject : RoomObject
     {
         base.OnEnable();
 
-        platform.onTriggerEnter += Collect;
+        platform.onCollisionEnter += Collect;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
 
-        platform.onTriggerEnter -= Collect;
+        platform.onCollisionEnter -= Collect;
     }
 
     public override void ResetObject()
     {
+        //gameObject.SetActive(true);
+        platform.enabled = true;
+
         pickupAnimation.Play();
     }
 
     public virtual void Collect(CollisionInfo2D collisionInfo)
     {
-        pickupAnimation.Play("Pickup_OnPicked");
+        if (collisionInfo.hitCollider.TryGetComponent(out gamePlayer))
+        {
+            if (!CanPickUp()) return;
+
+            pickupAnimation.Play("Pickup_OnPicked");
+
+            OnPlayerCollect();
+        }
     }
+
+    public virtual bool CanPickUp() => true;
+    public abstract void OnPlayerCollect();
 }

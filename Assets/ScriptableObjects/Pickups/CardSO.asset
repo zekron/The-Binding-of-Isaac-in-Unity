@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a14a3bec8c393245b828ffa3680e7f7, type: 3}
+  m_Name: CardSO
+  m_EditorClassIdentifier: 
+  CardSpritesInSlot:
+  - {fileID: 21300000, guid: e26eb2910fa8c954dab9ca6baa90f230, type: 3}
+  - {fileID: 21300000, guid: 18745a260f4daea4f874b6eff9ac3af3, type: 3}
+  - {fileID: 21300000, guid: c850e59d9efe9894b9e243f5b80cd465, type: 3}
+  - {fileID: 21300000, guid: 471c9d0e7e5aba04486ec0029999b2dc, type: 3}
+  - {fileID: 21300000, guid: b3fe29886839f144a969dd4ce1637e8a, type: 3}
+  - {fileID: 21300000, guid: b2bc6dfe1525f0f42a05aea2c1f70d6c, type: 3}
+  - {fileID: 21300000, guid: 6fddc30f451943346acc35e215543611, type: 3}
+  - {fileID: 21300000, guid: 4badf647c700b97408a5c58d4fe31c5b, type: 3}
+  - {fileID: 21300000, guid: e0ca82deba22d1948b28a72bd8fdfa58, type: 3}
+  - {fileID: 21300000, guid: 79b454a7bcb4ed648880e87292e22783, type: 3}
+  - {fileID: 21300000, guid: df5afe8a00565a44194df264470bfb4b, type: 3}
+  - {fileID: 21300000, guid: ee3b4d3d60902dc4b9a905db76e45a71, type: 3}
+  - {fileID: 21300000, guid: a49b81a8cdf396044810ec71569bf3cf, type: 3}
+  - {fileID: 21300000, guid: b1814447b434f7c4f8bd837742db1e59, type: 3}
+  - {fileID: 21300000, guid: a536a81acae9bea4d986b436ea6b9a35, type: 3}
+  - {fileID: 21300000, guid: 1fd2b360ed74cb24b8d8956593e89674, type: 3}
+  - {fileID: 21300000, guid: 27bbfb4925d86a940b676afaf53e2a4e, type: 3}
+  - {fileID: 21300000, guid: c6e86255fc0360f419810993f955a288, type: 3}
+  - {fileID: 21300000, guid: d6c311afd3e8f6b46a2691b04b327baf, type: 3}
+  - {fileID: 21300000, guid: e9235e86626aa7b44abc9259cd57b066, type: 3}
+  - {fileID: 21300000, guid: 5f1c3e6c51d1bd944a291f3db9957203, type: 3}
+  - {fileID: 21300000, guid: 39606f7ef62f029499e8cddd290dff52, type: 3}
+  - {fileID: 21300000, guid: 27c59017cdbca29408f3ea8838a82310, type: 3}
+  - {fileID: 21300000, guid: 6858577e642f9744ab631595875b2a11, type: 3}
+  - {fileID: 21300000, guid: 80d9272f98c72064e839f4a9ce365dec, type: 3}
+  - {fileID: 21300000, guid: e427bf16af44ffa4aba6af3dbad403f1, type: 3}
+  - {fileID: 21300000, guid: 7d7ce0f9bd4984449870d7874fe53cbf, type: 3}
+  CardSpritesInRoom:
+  - {fileID: 21300000, guid: 37b209830774ea440aed00ba43484883, type: 3}
+  - {fileID: 21300000, guid: 12731eb5d2671144fa3d8ddfebcdd316, type: 3}

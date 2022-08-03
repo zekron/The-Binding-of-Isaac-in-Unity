@@ -12,6 +12,8 @@ public class CustomFrameAnimation : MonoBehaviour
 
     private UnityEvent onAnimationEnd = new UnityEvent();
     private SpriteRenderer animationRenderer;
+
+    private int currentFrameIndex;
     private float frameInterval;
     private float timer = 0f;
     private bool isPlaying = false;
@@ -50,10 +52,10 @@ public class CustomFrameAnimation : MonoBehaviour
 
     private void NextFrame()
     {
-        Sprite nextFrame = currentClip.NextFrame();
-        if (nextFrame != null && animationRenderer.sprite == nextFrame)
+        Sprite nextFrame = currentClip.NextFrame(ref currentFrameIndex);
+        if (currentFrameIndex == currentClip.FramesCount - 1 && nextFrame == animationRenderer.sprite)
         {
-            isPlaying = false;
+            isPlaying = currentClip.needLoop;
             onAnimationEnd.Invoke();
             onAnimationEnd.RemoveAllListeners();
             return;
@@ -80,8 +82,14 @@ public class CustomFrameAnimation : MonoBehaviour
     public void ResetAnimation()
     {
         timer = 0;
+        currentFrameIndex = 0;
         animationRenderer.sprite = currentClip.ResetClip();
         onAnimationEnd.RemoveAllListeners();
+    }
+
+    public void ChangeClip(CustomFrameAnimationClip newClip)
+    {
+        currentClip = newClip;
     }
 
     public CustomFrameAnimation PlayOnce()

@@ -937,7 +937,7 @@ MonoBehaviour:
   - {fileID: 6994571110206444552}
   floorSprite: {fileID: 6994571109779623804}
   doorTransform: {fileID: 6994571111351574383}
-  layoutTransform: {fileID: 0}
+  layoutTransform: {fileID: 4060649008416173592}
   doorLocks:
   - {fileID: 6720746866336376527}
   - {fileID: 28390636263535436}

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325a56bd18e380943928d2fc92054b5f, type: 3}
+  m_Name: Pickup_Chest_Red_Sequence
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 21300000, guid: 88b9837f709154e408e007be59937827, type: 3}
+  - {fileID: 21300000, guid: 7ab50b08ced232b4c9f3b938a7bd34d5, type: 3}
+  - {fileID: 21300000, guid: 9f636f05a9fae0d4690cffa71765659d, type: 3}
+  - {fileID: 21300000, guid: 17dd8110b2e24b241a76a8748e9689d7, type: 3}
+  - {fileID: 21300000, guid: 3458c1760fdc5c24a8b7e3d81b9c8301, type: 3}
+  - {fileID: 21300000, guid: 5144434eca1ced34797e0a27d5a4a028, type: 3}
+  - {fileID: 21300000, guid: cc5311541fa9e49429c74db05c137683, type: 3}
+  fps: 20
+  needLoop: 0

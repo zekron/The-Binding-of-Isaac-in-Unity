@@ -17,3 +17,10 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9f035b43b07504a42a1b7defae2b6adf, type: 3}
   - {fileID: 21300000, guid: 9df28744f51296f4a92a9bdcc03518ac, type: 3}
   - {fileID: 21300000, guid: a964fbdb4ad3d0c4894febf177ecbc87, type: 3}
+  HeartSpritesInUI:
+  - {fileID: -4390673095631447188, guid: a9de29dfee1cc454180c38b6dbeba835, type: 3}
+  - {fileID: 2139837793675082937, guid: a9de29dfee1cc454180c38b6dbeba835, type: 3}
+  - {fileID: 8109154662235370213, guid: a9de29dfee1cc454180c38b6dbeba835, type: 3}
+  - {fileID: -5352117873722585766, guid: a9de29dfee1cc454180c38b6dbeba835, type: 3}
+  - {fileID: -934344646372905139, guid: a9de29dfee1cc454180c38b6dbeba835, type: 3}
+  - {fileID: 5500183946271907625, guid: a9de29dfee1cc454180c38b6dbeba835, type: 3}
