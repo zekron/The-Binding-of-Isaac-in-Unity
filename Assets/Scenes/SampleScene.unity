@@ -2144,14 +2144,14 @@ MonoBehaviour:
   keyText: {fileID: 261075102}
   goldenKeyImg: {fileID: 410683450}
   healthBarViewer: {fileID: 1249792622}
-  activeItemViewer: {fileID: 0}
-  miniMapViewer: {fileID: 0}
-  arrowViewer: {fileID: 0}
+  activeItemViewer: {fileID: 293637374}
+  miniMapViewer: {fileID: 921785831}
+  arrowViewer: {fileID: 880332328}
   onPlayerHealthDataChanged: {fileID: 11400000, guid: d015d9cf188f7574b8173aa95812872b, type: 2}
   onPlayerPickupDataChanged: {fileID: 11400000, guid: be8f7d2b99855934abbb887812fd9455, type: 2}
   onPlayerGetGoldenKey: {fileID: 11400000, guid: 6c4184779a291bf4fa9528729f5aeebc, type: 2}
-  onCreateRoomEvent: {fileID: 0}
-  onEnterRoomEvent: {fileID: 0}
+  onCreateRoomEvent: {fileID: 11400000, guid: 3e5eb646d67d24440ab6718cde4a3bad, type: 2}
+  onEnterRoomEvent: {fileID: 11400000, guid: 4f0fabdceb2c8c64dbb4f0e7b54ba0e4, type: 2}
 --- !u!223 &1228932153
 Canvas:
   m_ObjectHideFlags: 0

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3624181996
+CRC: 1926117836
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: f82deccbfbf4aa2124a7c91b95ccfe9f
+    Hash: 49c2e9907390884a3c3358caf0780faf
   TypeTreeHash:
     serializedVersion: 2
     Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
@@ -19,11 +19,10 @@ Assets:
 - Assets/Sprites/UI/Side Tip.png
 - Assets/Sprites/UI/Background.png
 - Assets/Sprites/UI/UI_Main.png
-- Assets/Sprites/UI/UI_Maze.png
-- Assets/Sprites/UI/Single/UI_SoulHeart.png
 - Assets/Sprites/UI/Top Tip 50A.png
+- Assets/Sprites/UI/Single/UI_SoulHeart.png
 - Assets/Sprites/UI/UI_Heart.png
-- Assets/Sprites/UI/Doors.png
+- Assets/Sprites/Maps/Doors.png
 - Assets/Sprites/UI/Top Tip Black.png
 - Assets/Sprites/UI/UI_GoldenKey.png
 - Assets/Sprites/UI/Skill Bar.png

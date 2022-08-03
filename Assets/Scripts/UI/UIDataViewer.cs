@@ -33,11 +33,6 @@ public class UIDataViewer : MonoBehaviour
         onEnterRoomEvent.OnEventRaised += MiniMapEnterRoom;
     }
 
-    private void RefreshGoldenKeyImg(bool boolean)
-    {
-        goldenKeyImg.enabled = boolean;
-    }
-
     private void OnDisable()
     {
         onPlayerHealthDataChanged.OnEventRaised -= RefreshHealthData;
@@ -59,6 +54,11 @@ public class UIDataViewer : MonoBehaviour
     private void RefreshHealthData(HealthData data)
     {
         healthBarViewer.SetHealthBar(data);
+    }
+
+    private void RefreshGoldenKeyImg(bool boolean)
+    {
+        goldenKeyImg.enabled = boolean;
     }
 
     private void MiniMapCreateRoom(GameCoordinate mapCoordinate)

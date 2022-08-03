@@ -27,7 +27,7 @@ public class HealthBarViewer : MonoBehaviour
             pivot = redHeartCount / 2 + redHeartCount % 2;
             for (int i = 0; i < pivot && i < MAX_HEART_ICON; i++)
             {
-                heartList[i].SetImage(i == pivot - 1 ? HeartSO.HeartTypeInUI.RedHalf : HeartSO.HeartTypeInUI.RedFull);
+                heartList[i].SetImage(i == pivot - 1 && redHeartCount % 2 == 1 ? HeartSO.HeartTypeInUI.RedHalf : HeartSO.HeartTypeInUI.RedFull);
             }
             if (pivot >= MAX_HEART_ICON) return;
 
@@ -75,6 +75,15 @@ public class HealthBarViewer : MonoBehaviour
             heartList[i].SetImage(HeartSO.HeartTypeInUI.NULL);
         }
     }
+
+    [ContextMenu("ResetHealthBar")]
+    private void ResetHeartBar()
+    {
+        heartList.Clear();
+        heartList.AddRange(GetComponentsInChildren<HeartIcon>(true));
+        SetHealthBar(new HealthData(12, 0, 0));
+    }
+
     #region Test
     //[SerializeField] private int testRed = 3;
     //[SerializeField] private int testSoul = 3;

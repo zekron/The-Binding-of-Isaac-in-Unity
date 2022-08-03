@@ -22,6 +22,11 @@ MonoBehaviour:
       RedHeart: 0
       SoulHeart: 0
       WhiteHeart: 0
+    PlayerPickupData:
+      coin: 0
+      key: 0
+      bomb: 0
+      getGoldenKey: 0
     PlayerItemData: {fileID: 0}
     BaseDamage: 0
     DamageMultiplier: 0
@@ -39,10 +44,15 @@ MonoBehaviour:
     m_Depth: 0
     BaseMoveSpeed: 1
     PlayerHealthData:
-      RedHeartContainers: 6
+      RedHeartContainers: 3
       RedHeart: 6
       SoulHeart: 0
       WhiteHeart: 0
+    PlayerPickupData:
+      coin: 0
+      key: 0
+      bomb: 0
+      getGoldenKey: 0
     PlayerItemData: {fileID: 11400000, guid: 16a9926d646e2c84aab157c1db90699b, type: 2}
     BaseDamage: 3.5
     DamageMultiplier: 1
@@ -60,10 +70,15 @@ MonoBehaviour:
     m_Depth: 0
     BaseMoveSpeed: 0.85
     PlayerHealthData:
-      RedHeartContainers: 8
+      RedHeartContainers: 4
       RedHeart: 8
       SoulHeart: 0
       WhiteHeart: 0
+    PlayerPickupData:
+      coin: 0
+      key: 0
+      bomb: 0
+      getGoldenKey: 0
     PlayerItemData: {fileID: 0}
     BaseDamage: 3.5
     DamageMultiplier: 0.75
@@ -81,10 +96,15 @@ MonoBehaviour:
     m_Depth: 0
     BaseMoveSpeed: 1
     PlayerHealthData:
-      RedHeartContainers: 2
+      RedHeartContainers: 1
       RedHeart: 2
       SoulHeart: 0
       WhiteHeart: 0
+    PlayerPickupData:
+      coin: 0
+      key: 0
+      bomb: 0
+      getGoldenKey: 0
     PlayerItemData: {fileID: 0}
     BaseDamage: 3.5
     DamageMultiplier: 1.35
@@ -106,6 +126,11 @@ MonoBehaviour:
       RedHeart: 0
       SoulHeart: 6
       WhiteHeart: 0
+    PlayerPickupData:
+      coin: 0
+      key: 0
+      bomb: 0
+      getGoldenKey: 0
     PlayerItemData: {fileID: 0}
     BaseDamage: 3.5
     DamageMultiplier: 1.05
@@ -123,10 +148,15 @@ MonoBehaviour:
     m_Depth: 0
     BaseMoveSpeed: 1.23
     PlayerHealthData:
-      RedHeartContainers: 4
+      RedHeartContainers: 2
       RedHeart: 4
       SoulHeart: 0
       WhiteHeart: 0
+    PlayerPickupData:
+      coin: 0
+      key: 0
+      bomb: 0
+      getGoldenKey: 0
     PlayerItemData: {fileID: 0}
     BaseDamage: 3.5
     DamageMultiplier: 0.75
@@ -144,10 +174,15 @@ MonoBehaviour:
     m_Depth: 0
     BaseMoveSpeed: 1.1
     PlayerHealthData:
-      RedHeartContainers: 6
+      RedHeartContainers: 3
       RedHeart: 6
       SoulHeart: 0
       WhiteHeart: 0
+    PlayerPickupData:
+      coin: 0
+      key: 0
+      bomb: 0
+      getGoldenKey: 0
     PlayerItemData: {fileID: 0}
     BaseDamage: 3.5
     DamageMultiplier: 1
@@ -165,10 +200,15 @@ MonoBehaviour:
     m_Depth: 0
     BaseMoveSpeed: 1.3
     PlayerHealthData:
-      RedHeartContainers: 4
+      RedHeartContainers: 2
       RedHeart: 4
       SoulHeart: 0
       WhiteHeart: 0
+    PlayerPickupData:
+      coin: 0
+      key: 0
+      bomb: 0
+      getGoldenKey: 0
     PlayerItemData: {fileID: 0}
     BaseDamage: 3.5
     DamageMultiplier: 1.2

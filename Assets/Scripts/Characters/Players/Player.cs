@@ -73,12 +73,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        onPlayerHealthDataChanged.RaiseEvent(currentHealth);
+        onPlayerPickupDataChanged.RaiseEvent(currentPickup);
     }
 
     private void Initialize(int id)
