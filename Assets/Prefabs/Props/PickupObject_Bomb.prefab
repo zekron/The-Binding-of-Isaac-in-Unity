@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6411226379389331841}
   - component: {fileID: 4148510666500047043}
+  - component: {fileID: 4195758246422002474}
   m_Layer: 9
   m_Name: PickupObject_Bomb
   m_TagString: Untagged
@@ -49,6 +50,19 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &4195758246422002474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669999154954899773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fa8d308f21c8834d83d6ac50314ee6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bombSO: {fileID: 11400000, guid: 67b61b5b965d89e4e966d5dab8334cf9, type: 2}
 --- !u!1 &3740980536460566972
 GameObject:
   m_ObjectHideFlags: 0
@@ -59,9 +73,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3740980536460566975}
   - component: {fileID: 3740980536460566969}
-  - component: {fileID: 4054583616946254358}
   - component: {fileID: 8635161865060966859}
-  - component: {fileID: 4165519045186920963}
+  - component: {fileID: 5739639768592238443}
   m_Layer: 9
   m_Name: Bomb
   m_TagString: Untagged
@@ -134,19 +147,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &4054583616946254358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3740980536460566972}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2fa8d308f21c8834d83d6ac50314ee6a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bombSO: {fileID: 11400000, guid: 67b61b5b965d89e4e966d5dab8334cf9, type: 2}
 --- !u!114 &8635161865060966859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,10 +159,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f712e0715f57c724d96816de37e8f8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTrigger: 0
+  isTrigger: 1
   offset: {x: 0, y: 0}
   size: {x: 0.72, y: 0.8}
---- !u!114 &4165519045186920963
+--- !u!114 &5739639768592238443
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -171,11 +171,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 3740980536460566972}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74b3c366b8ee9744fbb85a58735fb0d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ce7bdfc6efed64eba72570b1f1fef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   showDebugGizoms: 1
   horizontalRayCount: 4
   verticalRayCount: 4
-  gravityScale: 0
-  collisionDetectionMode: 1

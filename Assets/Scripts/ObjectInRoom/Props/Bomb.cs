@@ -35,7 +35,5 @@ public class Bomb : PickupObject
         gamePlayer.GetBomb(bombWorth);
         //else refresh context
 
-        platform.enabled = false;
-        //gameObject.SetActive(false);
     }
 }

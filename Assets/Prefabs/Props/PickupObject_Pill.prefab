@@ -10,10 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5629180730823917742}
   - component: {fileID: 5629180730823917736}
-  - component: {fileID: 2985884063679085652}
   - component: {fileID: 730214267473576154}
   - component: {fileID: 8379711053712447248}
-  - component: {fileID: 3632907259787269903}
   m_Layer: 9
   m_Name: Pill
   m_TagString: Untagged
@@ -86,19 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2985884063679085652
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5629180730823917741}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a937268db5fbfc045afcb69860c87a52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pillSO: {fileID: 11400000, guid: 840a3a09d22463b499f661e3f4a1936b, type: 2}
 --- !u!114 &730214267473576154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f712e0715f57c724d96816de37e8f8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTrigger: 0
+  isTrigger: 1
   offset: {x: 0, y: 0}
   size: {x: 0.63, y: 0.67}
 --- !u!114 &8379711053712447248
@@ -121,31 +106,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5629180730823917741}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ce7bdfc6efed64eba72570b1f1fef6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showDebugGizoms: 0
-  horizontalRayCount: 4
-  verticalRayCount: 4
---- !u!114 &3632907259787269903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5629180730823917741}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74b3c366b8ee9744fbb85a58735fb0d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ce7bdfc6efed64eba72570b1f1fef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   showDebugGizoms: 1
   horizontalRayCount: 4
   verticalRayCount: 4
-  gravityScale: 0
-  collisionDetectionMode: 1
 --- !u!1 &7699317618642006060
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,6 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2669860086776023184}
   - component: {fileID: 4928635150045913554}
+  - component: {fileID: 2703439529839418990}
   m_Layer: 9
   m_Name: PickupObject_Pill
   m_TagString: Untagged
@@ -195,3 +164,16 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &2703439529839418990
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7699317618642006060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a937268db5fbfc045afcb69860c87a52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pillSO: {fileID: 11400000, guid: 840a3a09d22463b499f661e3f4a1936b, type: 2}

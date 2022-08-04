@@ -32,7 +32,7 @@ public class Heart : PickupObject
 
     public override bool CanPickUp()
     {
-        return !gamePlayer.IsFullHealth();
+       return platform.SelfCollider.IsTrigger = !gamePlayer.IsFullHealth();
     }
 
     public override void OnPlayerCollect()

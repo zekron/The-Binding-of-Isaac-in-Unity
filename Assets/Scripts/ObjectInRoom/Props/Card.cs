@@ -106,7 +106,5 @@ public class Card : PickupObject, ICollectInSlot
     {
         CollectInSlot();
 
-        platform.enabled = false;
-        //gameObject.SetActive(false);
     }
 }

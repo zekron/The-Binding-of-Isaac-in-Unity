@@ -30,7 +30,5 @@ public class Coin : PickupObject
         gamePlayer.GetCoin(coinWorth);
 
         highLight.Stop();
-        platform.enabled = false;
-        //gameObject.SetActive(false);
     }
 }

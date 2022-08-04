@@ -22,7 +22,7 @@ public class HealthBarViewer : MonoBehaviour
 
         int pivot = 0;
         var redHeartCount = data.RedHeart;
-        if (redHeartCount != 0)
+        if (data.RedHeartContainers != 0)
         {
             pivot = redHeartCount / 2 + redHeartCount % 2;
             for (int i = 0; i < pivot && i < MAX_HEART_ICON; i++)

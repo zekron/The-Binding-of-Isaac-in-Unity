@@ -107,10 +107,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6720262759208985792}
   - component: {fileID: 6720262759208985798}
-  - component: {fileID: 6720262759208985793}
   - component: {fileID: 1837410728527832244}
   - component: {fileID: 7428480452869632894}
-  - component: {fileID: 4850820115638835029}
   m_Layer: 9
   m_Name: Coin
   m_TagString: Untagged
@@ -184,20 +182,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6720262759208985793
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6720262759208985795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fcf2adb0f11ae8b47b7d8116ab8f55f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  highLight: {fileID: 6720262758745354385}
-  coinSO: {fileID: 11400000, guid: 0b89cf5fba0e83945be617f39ae0cfbd, type: 2}
 --- !u!114 &1837410728527832244
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -210,7 +194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f712e0715f57c724d96816de37e8f8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTrigger: 0
+  isTrigger: 1
   offset: {x: 0, y: 0}
   size: {x: 0.58, y: 0.3}
 --- !u!114 &7428480452869632894
@@ -220,31 +204,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6720262759208985795}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ce7bdfc6efed64eba72570b1f1fef6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showDebugGizoms: 0
-  horizontalRayCount: 4
-  verticalRayCount: 4
---- !u!114 &4850820115638835029
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6720262759208985795}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74b3c366b8ee9744fbb85a58735fb0d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 40ce7bdfc6efed64eba72570b1f1fef6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   showDebugGizoms: 1
   horizontalRayCount: 4
   verticalRayCount: 4
-  gravityScale: 0
-  collisionDetectionMode: 1
 --- !u!1 &8756279464219628610
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,6 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3913851040999189758}
   - component: {fileID: 6285884736518112700}
+  - component: {fileID: 7222296729565372132}
   m_Layer: 9
   m_Name: PickupObject_Coin
   m_TagString: Untagged
@@ -294,3 +262,17 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &7222296729565372132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8756279464219628610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcf2adb0f11ae8b47b7d8116ab8f55f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highLight: {fileID: 6720262758745354385}
+  coinSO: {fileID: 11400000, guid: 0b89cf5fba0e83945be617f39ae0cfbd, type: 2}

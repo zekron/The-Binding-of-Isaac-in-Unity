@@ -112,6 +112,19 @@ namespace CustomPhysics2D
         private void OnDestroy()
         {
             needUpdateCollision = false;
+
+            CustomRigidbody2D[] rigidbodies = new CustomRigidbody2D[_rigidbodies.Values.Count];
+            CustomPlatform2D[] platforms = new CustomPlatform2D[_platforms.Values.Count];
+            _rigidbodies.Values.CopyTo(rigidbodies, 0);
+            _platforms.Values.CopyTo(platforms, 0);
+            for (int i = 0; i < rigidbodies.Length; i++)
+            {
+                rigidbodies[i].gameObject.SetActive(false);
+            }
+            for (int i = 0; i < platforms.Length; i++)
+            {
+                platforms[i].gameObject.SetActive(false);
+            }
         }
 
         public void PushCollision(CollisionInfo2D collisionInfo)

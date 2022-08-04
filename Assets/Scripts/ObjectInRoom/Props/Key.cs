@@ -29,7 +29,5 @@ public class Key : PickupObject
     {
         gamePlayer.GetKey(keyWorth);
 
-        platform.enabled = false;
-        //gameObject.SetActive(false);
     }
 }

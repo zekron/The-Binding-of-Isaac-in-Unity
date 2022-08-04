@@ -9,15 +9,17 @@ public abstract class PickupObject : RoomObject
 
     protected override void Awake()
     {
-        base.Awake();
+        platform = GetComponentInChildren<CustomCollisionController>();
+        objectRenderer = GetComponentInChildren<SpriteRenderer>();
 
-        pickupAnimation = GetComponentInParent<Animation>();
+        pickupAnimation = GetComponent<Animation>();
     }
     protected override void OnEnable()
     {
         base.OnEnable();
 
         platform.onCollisionEnter += Collect;
+        platform.onTriggerEnter += Collect;
     }
 
     protected override void OnDisable()
@@ -25,11 +27,12 @@ public abstract class PickupObject : RoomObject
         base.OnDisable();
 
         platform.onCollisionEnter -= Collect;
+        platform.onTriggerEnter -= Collect;
     }
 
     public override void ResetObject()
     {
-        //gameObject.SetActive(true);
+        gameObject.SetActive(true);
         platform.enabled = true;
 
         pickupAnimation.Play();
@@ -45,6 +48,11 @@ public abstract class PickupObject : RoomObject
 
             OnPlayerCollect();
         }
+    }
+
+    public void OnPickupAnimationFinished()
+    {
+        gameObject.SetActive(false);
     }
 
     public virtual bool CanPickUp() => true;

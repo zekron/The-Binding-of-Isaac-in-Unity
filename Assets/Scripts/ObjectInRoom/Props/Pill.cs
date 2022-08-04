@@ -106,7 +106,5 @@ public class Pill : PickupObject, ICollectInSlot
     {
         CollectInSlot();
 
-        platform.enabled = false;
-        //gameObject.SetActive(false);
     }
 }

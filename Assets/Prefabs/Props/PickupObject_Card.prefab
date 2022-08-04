@@ -10,10 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6871423384041934058}
   - component: {fileID: 6871423384041934060}
-  - component: {fileID: 282753174799853415}
   - component: {fileID: 1972808790385708190}
   - component: {fileID: 7280169866192739156}
-  - component: {fileID: 7901863878772243728}
   m_Layer: 9
   m_Name: Card
   m_TagString: Untagged
@@ -86,19 +84,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &282753174799853415
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6871423384041934057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1f03dcfd6b451ff41b489637fd697f0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cardSO: {fileID: 11400000, guid: 32a2d1b7c76d43b42bb9c3e184074108, type: 2}
 --- !u!114 &1972808790385708190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f712e0715f57c724d96816de37e8f8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTrigger: 0
+  isTrigger: 1
   offset: {x: 0, y: 0}
   size: {x: 0.75, y: 0.61}
 --- !u!114 &7280169866192739156
@@ -121,7 +106,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6871423384041934057}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40ce7bdfc6efed64eba72570b1f1fef6, type: 3}
   m_Name: 
@@ -129,23 +114,6 @@ MonoBehaviour:
   showDebugGizoms: 0
   horizontalRayCount: 4
   verticalRayCount: 4
---- !u!114 &7901863878772243728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6871423384041934057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74b3c366b8ee9744fbb85a58735fb0d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showDebugGizoms: 1
-  horizontalRayCount: 4
-  verticalRayCount: 4
-  gravityScale: 0
-  collisionDetectionMode: 1
 --- !u!1 &8906877276672113768
 GameObject:
   m_ObjectHideFlags: 0
@@ -156,6 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3769463134777853140}
   - component: {fileID: 6135286616033832342}
+  - component: {fileID: 1066312620023534234}
   m_Layer: 9
   m_Name: PickupObject_Card
   m_TagString: Untagged
@@ -195,3 +164,16 @@ Animation:
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &1066312620023534234
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8906877276672113768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f03dcfd6b451ff41b489637fd697f0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardSO: {fileID: 11400000, guid: 32a2d1b7c76d43b42bb9c3e184074108, type: 2}

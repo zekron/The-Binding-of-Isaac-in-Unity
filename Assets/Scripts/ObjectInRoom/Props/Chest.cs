@@ -12,6 +12,8 @@ public class Chest : RoomObject
     protected Player gamePlayer;
     private CustomFrameAnimation openAnimation;
 
+    private bool isOpen = false;
+
     public void SetType(ChestSO.ChestType type)
     {
         chestType = type;
@@ -45,6 +47,8 @@ public class Chest : RoomObject
     {
         if (collisionInfo.hitCollider.TryGetComponent(out gamePlayer))
         {
+            if (isOpen) return;
+
             if (chestType == ChestSO.ChestType.Locked)
             {
                 if (gamePlayer.KeyCount < 1) return;
@@ -54,12 +58,14 @@ public class Chest : RoomObject
             }
             openAnimation.Play();
             chestSO.SpawnReward(chestType, transform.position);
+            isOpen = true;
         }
     }
 
     public override void ResetObject()
     {
         openAnimation.ResetAnimation();
+        isOpen = false;
 
         SetType(chestSO.GenerateType());
     }

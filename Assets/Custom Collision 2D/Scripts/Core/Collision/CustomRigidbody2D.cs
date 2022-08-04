@@ -46,14 +46,21 @@ namespace CustomPhysics2D
 		{
 			base.Awake();
 			_physicsManager = CustomPhysicsManager.instance;
-			_physicsManager.PushRigidbody(this);
 			collisionMask = _physicsManager.setting.GetCollisionMask(gameObject.layer);
 
 			// Add this.collider to ignoredColliders list
 			_ignoredColliders.Add(_collider2D);
 		}
-
-		private void OnDestroy()
+        private void OnEnable()
+		{
+			_physicsManager.PushRigidbody(this);
+			UpdateRect();
+		}
+        private void OnDisable()
+        {
+			_physicsManager.RemoveRigidbody(this);
+        }
+        private void OnDestroy()
 		{
 			_physicsManager.RemoveRigidbody(this);
 		}

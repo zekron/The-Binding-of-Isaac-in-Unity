@@ -43,11 +43,11 @@ public struct HealthData : IComparable<HealthData>
     {
         if (redHeart > 0)
         {
-            if (RedHeart == RedHeartContainers)
+            if (RedHeart == RedHeartContainers * 2)
                 return false;
             else
             {
-                RedHeart = Math.Min(RedHeart + redHeart, RedHeartContainers);
+                RedHeart = Math.Min(RedHeart + redHeart, RedHeartContainers * 2);
             }
         }
         SoulHeart += soulHeart;
@@ -76,6 +76,14 @@ public struct HealthData : IComparable<HealthData>
             return -1;
     }
 
+    public static bool operator ==(HealthData a, HealthData b) => a.RedHeart == b.RedHeart
+            && a.SoulHeart == b.SoulHeart
+            && a.WhiteHeart == b.WhiteHeart;
+
+    public static bool operator !=(HealthData a, HealthData b) => a.RedHeart != b.RedHeart
+            || a.SoulHeart != b.SoulHeart
+            || a.WhiteHeart != b.WhiteHeart;
+
     public static HealthData operator -(HealthData a, int b)
     {
         a.SoulHeart -= b;
@@ -91,12 +99,14 @@ public struct HealthData : IComparable<HealthData>
             a.WhiteHeart = 0;
         }
         a.RedHeart -= b;
+        if (a.RedHeart <= 0)
+            a.RedHeart = 0;
 
         return a;
     }
     public static HealthData operator +(HealthData a, HealthData b)
     {
-        a.RedHeart = Math.Min(a.RedHeartContainers, a.RedHeart + b.RedHeart);
+        a.RedHeart = Math.Min(a.RedHeartContainers * 2, a.RedHeart + b.RedHeart);
         a.SoulHeart += b.SoulHeart;
         a.WhiteHeart += b.WhiteHeart;
         if (a.WhiteHeart != 0 && a.WhiteHeart % 2 == 0)

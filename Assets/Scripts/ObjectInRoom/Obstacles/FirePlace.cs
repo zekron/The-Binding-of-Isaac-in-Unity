@@ -10,6 +10,7 @@ public class FirePlace : RoomObject, IHealth
     [SerializeField] private SpriteRenderer fireShadow;
     [SerializeField] private Sprite[] firePlaceSprites;
 
+    private Player gameplayer;
     private int maxHealth;
     private int currentHealth;
     private int attackValue = 1;
@@ -80,15 +81,9 @@ public class FirePlace : RoomObject, IHealth
 
     public void AttackCharacter(CollisionInfo2D collisionInfo)
     {
-        if(collisionInfo.hitCollider.CompareTag("Player"))
+        if (collisionInfo.hitCollider.TryGetComponent(out gameplayer))
         {
-            collisionInfo.hitCollider.GetComponent<Player>().GetDamage(attackValue);
+            gameplayer.GetDamage(attackValue);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 }

@@ -112,6 +112,8 @@ public class Player : MonoBehaviour
     {
         currentHealth -= damage;
         onPlayerHealthDataChanged.RaiseEvent(currentHealth);
+
+        if (currentHealth == HealthData.Zero) GetDie();
     }
     public void SacrificeHealth(HealthData data)
     {

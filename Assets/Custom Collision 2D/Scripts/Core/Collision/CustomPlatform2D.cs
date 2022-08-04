@@ -21,7 +21,7 @@ namespace CustomPhysics2D
 		}
 		private void OnDestroy()
 		{
-			CustomPhysicsManager.instance.RemovePlatform(this);
+			//CustomPhysicsManager.instance.RemovePlatform(this);
 		}
 	}
 }
