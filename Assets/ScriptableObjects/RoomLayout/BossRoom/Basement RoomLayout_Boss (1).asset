@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf1967c1ef7080c4d91da24d9ad370ef, type: 3}
+  m_Name: Basement RoomLayout_Boss (1)
+  m_EditorClassIdentifier: 
+  SpriteFloor: {fileID: 21300000, guid: 1a0f2821dda592a4391838bb067413fa, type: 3}
+  SpriteTop: {fileID: 21300000, guid: 821e64e56d4404749b2386867de26691, type: 3}
+  SpriteLeft: {fileID: 21300000, guid: 14520ff2ab8635e4b97574e471f250a6, type: 3}
+  SpriteTip: {fileID: 0}
+  IsGenerateReward: 1
+  RewardPosition:
+    x: 13
+    y: 9
+  monsterList: []
+  obstacleList:
+  - value1: {fileID: 4628544413203719168, guid: 11181828d7159364180fcef6a8dc4925, type: 3}
+    value2:
+      x: 1
+      y: 1
+  - value1: {fileID: 4628544413203719168, guid: 11181828d7159364180fcef6a8dc4925, type: 3}
+    value2:
+      x: 3
+      y: 5
+  - value1: {fileID: 4628544413203719168, guid: 11181828d7159364180fcef6a8dc4925, type: 3}
+    value2:
+      x: 7
+      y: 3
+  - value1: {fileID: 4628544413203719168, guid: 11181828d7159364180fcef6a8dc4925, type: 3}
+    value2:
+      x: 25
+      y: 13
+  - value1: {fileID: 4628544413203719168, guid: 11181828d7159364180fcef6a8dc4925, type: 3}
+    value2:
+      x: 23
+      y: 9
+  - value1: {fileID: 4628544413203719168, guid: 11181828d7159364180fcef6a8dc4925, type: 3}
+    value2:
+      x: 19
+      y: 11
+  propList: []

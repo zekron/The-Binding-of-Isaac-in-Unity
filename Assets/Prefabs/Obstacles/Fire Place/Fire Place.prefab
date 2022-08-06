@@ -193,10 +193,10 @@ GameObject:
   m_Component:
   - component: {fileID: 8986368342049289184}
   - component: {fileID: 5873949945130664465}
-  - component: {fileID: 5079097602851723672}
   - component: {fileID: 5762145357626759115}
   - component: {fileID: 3396784278280305541}
   - component: {fileID: 1729373267198575273}
+  - component: {fileID: 6139902766781918889}
   m_Layer: 8
   m_Name: Fire
   m_TagString: Untagged
@@ -269,28 +269,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!114 &5079097602851723672
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8913555913112391795}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06ba56f493418ee41ba7bdfd79f14fc3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireSizes:
-  - {x: 0.8, y: 0.6, z: 1}
-  - {x: 0.9, y: 0.7, z: 1}
-  - {x: 0.9, y: 0.8, z: 1}
-  - {x: 1, y: 1, z: 1}
-  fire: {fileID: 5873949945130664465}
-  fireShadow: {fileID: 2742101274251410421}
-  firePlaceSprites:
-  - {fileID: 21300000, guid: 44e1cdce290cb894980278247b413d89, type: 3}
-  - {fileID: 21300000, guid: 948a4fb1697a6024ab898eccd4ca35a8, type: 3}
 --- !u!114 &5762145357626759115
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,3 +313,25 @@ MonoBehaviour:
   showDebugGizoms: 0
   horizontalRayCount: 4
   verticalRayCount: 4
+--- !u!114 &6139902766781918889
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8913555913112391795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06ba56f493418ee41ba7bdfd79f14fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireSizes:
+  - {x: 0.8, y: 0.6, z: 1}
+  - {x: 0.9, y: 0.7, z: 1}
+  - {x: 0.9, y: 0.8, z: 1}
+  - {x: 1, y: 1, z: 1}
+  fireRenderer: {fileID: 5873949945130664465}
+  fireShadow: {fileID: 2742101274251410421}
+  firePlaceSprites:
+  - {fileID: 21300000, guid: 44e1cdce290cb894980278247b413d89, type: 3}
+  - {fileID: 21300000, guid: 948a4fb1697a6024ab898eccd4ca35a8, type: 3}

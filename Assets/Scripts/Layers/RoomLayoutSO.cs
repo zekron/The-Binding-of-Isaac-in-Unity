@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="New RoomLayout",menuName ="Scriptable Object/Room Layout")]
+[CreateAssetMenu(fileName ="New RoomLayout",menuName ="Scriptable Object/Room Layout/Basic Room Layout")]
 public class RoomLayoutSO : ScriptableObject
 {
     public Sprite SpriteFloor;

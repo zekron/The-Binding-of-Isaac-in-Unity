@@ -426,7 +426,10 @@ public class RoomEditorWindow : EditorWindow
         {
             if (prefabs[i].value1 != null)
             {
-                Sprite sprite = prefabs[i].value1.GetComponent<IDisplayInEditorWindow>().SpriteInEditorWindow;
+                var prefab = prefabs[i].value1.GetComponent<IDisplayInEditorWindow>();
+                if (prefab == null)
+                    prefab = prefabs[i].value1.GetComponentInChildren<IDisplayInEditorWindow>();
+                var sprite = prefab.SpriteInEditorWindow;
                 GameCoordinate coordinate = prefabs[i].value2;
                 DrawSprite(sprite, coordinate);
             }

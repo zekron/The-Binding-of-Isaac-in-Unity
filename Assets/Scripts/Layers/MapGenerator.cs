@@ -17,7 +17,7 @@ public class MapGenerator
         //生成初始房间地图
         var roomNumber = GetRoomNumberWithLevelFloorDepth(floorDepth, curseType, isHardMode);
         var deadEnds = GetMinDeadEndsWithFloorDepth(floorDepth, curseType);
-        var result = new MapRoomInfo(GameCoordinate.RoomOffsetPoint, null);
+        var result = new MapRoomInfo(GameCoordinate.RoomOffsetPoint, null, RoomType.Starting);
         coordinateQueue.Enqueue(result);
         coordinateList.Add(GameCoordinate.RoomOffsetPoint);
         roomNumber--;
@@ -105,6 +105,11 @@ public class MapGenerator
         return minDeadEnds;
     }
 
+    /// <summary>
+    /// 返回以 <paramref name="curRoomInfo"/> 为根节点的， <paramref name="roomNumber"/>为个数的地图树
+    /// </summary>
+    /// <param name="curRoomInfo">树根节点</param>
+    /// <param name="roomNumber">节点个数</param>
     private static void GenerateMainPath(MapRoomInfo curRoomInfo, int roomNumber)
     {
         var tempInfo = curRoomInfo;

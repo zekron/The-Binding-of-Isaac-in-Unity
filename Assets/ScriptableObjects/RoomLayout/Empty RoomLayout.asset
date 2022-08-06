@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bf1967c1ef7080c4d91da24d9ad370ef, type: 3}
-  m_Name: Test RoomLayout
+  m_Name: Empty RoomLayout
   m_EditorClassIdentifier: 
   SpriteFloor: {fileID: 21300000, guid: 183672785f3f4234f8290623f208320a, type: 3}
   SpriteTop: {fileID: 21300000, guid: 821e64e56d4404749b2386867de26691, type: 3}
@@ -21,13 +21,5 @@ MonoBehaviour:
     x: 1
     y: 1
   monsterList: []
-  obstacleList:
-  - value1: {fileID: 4628544413203719168, guid: 11181828d7159364180fcef6a8dc4925, type: 3}
-    value2:
-      x: 1
-      y: 1
-  - value1: {fileID: 6074549703869552337, guid: 1687687fb32d8c04c9494237130eb874, type: 3}
-    value2:
-      x: 13
-      y: 7
+  obstacleList: []
   propList: []

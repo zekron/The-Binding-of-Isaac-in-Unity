@@ -8,6 +8,9 @@ public class Level : MonoBehaviour
     [SerializeField] private FloorCurseType currentCurse = FloorCurseType.None;
     [SerializeField] private int currentLevel = 1;
     [SerializeField] private GameObject roomPrefab;
+    [SerializeField] private RoomLayoutGroupSO roomLayoutGroup;
+
+    [Header("Events")]
     [SerializeField] private MapCoordinateEventChannelSO onCreateRoomEvent;
     [SerializeField] private MapCoordinateStatusEventChannelSO onEnterRoomEvent;
     [SerializeField] private DoorPositionEventChannelSO onEnterDoorEvent;
@@ -32,6 +35,7 @@ public class Level : MonoBehaviour
 
         //EnterRoom(DoorPosition.Up, MapCoordinate.RoomOffsetPoint);
         onEnterRoomEvent.RaiseEvent(GameCoordinate.zero, MiniMapIconStatus.Current);
+        roomArray[GameCoordinate.RoomOffsetPoint.x, GameCoordinate.RoomOffsetPoint.y].SetRoomLayout(roomLayoutGroup.GetRoomLayoutByType(RoomType.Starting));
         startingRoom = currentRoom = roomArray[GameCoordinate.RoomOffsetPoint.x, GameCoordinate.RoomOffsetPoint.y];
         currentRoom.EnterRoom(DoorPosition.Up);
         //CreateRooms(Random.Range(1, 5));
@@ -91,6 +95,8 @@ public class Level : MonoBehaviour
                                                             coordinate.y * StaticData.RoomHeight).ToWorldPosition(transform),
                                                Quaternion.identity,
                                                transform).GetComponent<Room>();
+
+        result.SetRoomLayout(roomLayoutGroup.GetRoomLayoutByType(roomInfo.CurrentRoomType));
         result.RoomInfo = roomInfo;
         onCreateRoomEvent.RaiseEvent(roomInfo.Coordinate);
 

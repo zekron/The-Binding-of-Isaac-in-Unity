@@ -1803,7 +1803,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979956692}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d3d86c307ec37f4393b14c8eee85733, type: 3}
   m_Name: 
@@ -1811,6 +1811,7 @@ MonoBehaviour:
   currentCurse: 0
   currentLevel: 1
   roomPrefab: {fileID: 6994571110450151080, guid: d60cb5eb5597ca64d93f04d487f3fae7, type: 3}
+  roomLayoutGroup: {fileID: 11400000, guid: f9d3cd8e24e7f694faaf2c5e3560202a, type: 2}
   onCreateRoomEvent: {fileID: 11400000, guid: 3e5eb646d67d24440ab6718cde4a3bad, type: 2}
   onEnterRoomEvent: {fileID: 11400000, guid: 4f0fabdceb2c8c64dbb4f0e7b54ba0e4, type: 2}
   onEnterDoorEvent: {fileID: 11400000, guid: 182307ebf234dc6418380dd23afcc1be, type: 2}
@@ -4774,7 +4775,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6994571110450151080, guid: d60cb5eb5597ca64d93f04d487f3fae7, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6994571110450151081, guid: d60cb5eb5597ca64d93f04d487f3fae7, type: 3}
       propertyPath: m_RootOrder

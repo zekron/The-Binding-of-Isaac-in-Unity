@@ -26,6 +26,8 @@ public class Door : MonoBehaviour
 
     private Bounds doorBound;
 
+    public DoorType DoorType { get => doorType; }
+
     private void OnEnable()
     {
         doorStatus = DoorStatus.Closed;
