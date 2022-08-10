@@ -7,9 +7,9 @@ public class ArrowViewer : MonoBehaviour
 {
     [SerializeField] private Image arrowImage;
 
-    public void ChangeArrow()
+    public void ChangeArrow(Sprite sprite)
     {
-
+        arrowImage.sprite = sprite;
     }
     // Start is called before the first frame update
     void Start()

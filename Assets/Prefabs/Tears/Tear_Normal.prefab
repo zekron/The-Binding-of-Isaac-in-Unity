@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5298458932158306971}
   - component: {fileID: 5298458932158306968}
   m_Layer: 10
-  m_Name: Tear
+  m_Name: Tear_Normal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
