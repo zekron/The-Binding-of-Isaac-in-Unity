@@ -154,3 +154,8 @@ public enum GameState
     Paused,
     GameOver,
 }
+
+public enum CollectableItemName
+{
+    The_Sad_Onion,
+}

@@ -11,7 +11,7 @@ public class PlayerProfileTreeAsset : CharacterProfileTreeAsset<PlayerProfileTre
             new PlayerProfileTreeElement("Root",
                                          HealthData.RedOne,
                                          PickupData.zero,
-                                         null,
+                                         CollectableItemData.Empty,
                                          depth: -1,
                                          id: m_MaxID),
         };
@@ -23,7 +23,7 @@ public class PlayerProfileTreeAsset : CharacterProfileTreeAsset<PlayerProfileTre
         PlayerProfileTreeElement result = new PlayerProfileTreeElement("Name here",
                                                                        HealthData.RedOne,
                                                                        PickupData.zero,
-                                                                       null,
+                                                                       CollectableItemData.Empty,
                                                                        depth: 0,
                                                                        id: GenerateUniqueID());
         m_TreeElements.Add(result);

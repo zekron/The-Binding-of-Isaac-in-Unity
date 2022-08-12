@@ -151,7 +151,8 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
 
                     break;
                 case MyColumns.StartingItem:
-                    item.data.PlayerItemData = EditorGUI.ObjectField(cellRect, item.data.PlayerItemData, typeof(Item), false) as Item;
+                    //item.data.PlayerItemData = EditorGUI.ObjectField(cellRect, item.data.PlayerItemData, typeof(ItemSO), false) as ItemSO;
+                    item.data.PlayerItemData.ID = (int)(CollectableItemName)EditorGUI.EnumPopup(cellRect, (CollectableItemName)item.data.PlayerItemData.ID);
                     break;
                 default:
                     break;
@@ -172,8 +173,8 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                                                                item.data.PlayerPickupData.bomb), ScaleMode.ScaleToFit);
                     break;
                 case MyColumns.StartingItem:
-                    if (item.data.PlayerItemData)
-                        GUI.DrawTexture(cellRect, item.data.PlayerItemData.itemSprite.texture, ScaleMode.ScaleToFit);
+                    if (item.data.PlayerItemData.ItemSprite != null)
+                        GUI.DrawTexture(cellRect, item.data.PlayerItemData.ItemSprite.texture, ScaleMode.ScaleToFit);
                     break;
                 case MyColumns.ID:
                     value = item.data.ElementID.ToString("D4");
