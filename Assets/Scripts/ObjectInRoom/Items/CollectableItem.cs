@@ -5,7 +5,7 @@ using UnityEngine;
 
 public abstract class CollectableItem : RoomObject
 {
-    private CollectableItemData temData;
+    private CollectableItemTreeElement temData;
 
     protected Player gamePlayer;
     private Animation pickupAnimation;

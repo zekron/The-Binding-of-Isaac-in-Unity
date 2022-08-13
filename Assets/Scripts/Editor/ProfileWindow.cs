@@ -143,7 +143,7 @@ public abstract class ProfileWindow<T> : EditorWindow where T : CharacterProfile
         string assetPath = Path.Combine(path, fileName);
         if (!File.Exists(assetPath))
         {
-            var data = ScriptableObject.CreateInstance(type);
+            var data = CreateInstance(type);
 
             AssetDatabase.CreateAsset(data, assetPath);
             Debug.LogWarning(string.Format("File not found. Create {0} success.", fileName));

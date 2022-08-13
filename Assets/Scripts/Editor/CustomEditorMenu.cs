@@ -26,6 +26,20 @@ public class CustomEditorMenu : EditorWindow
         //window.minSize = window.maxSize = new Vector2(800, 800);
     }
 
+    [MenuItem("Custom Menu/Window/Trinket Editor Window", false, 256)]
+    private static void CreateTrinketWindow()
+    {
+        EditorWindow window = GetWindow<TrinketItemEditorWindow>("Item Editor", true);
+        //window.minSize = window.maxSize = new Vector2(800, 800);
+    }
+
+    [MenuItem("Custom Menu/Window/Collectible Editor Window", false, 256)]
+    private static void CreateCollectibleWindow()
+    {
+        EditorWindow window = GetWindow<CollectibleItemEditorWindow>("Collectible Item Editor", true);
+        //window.minSize = window.maxSize = new Vector2(800, 800);
+    }
+
     [MenuItem("Custom Menu/Assets Bundle/Build AssetBundles")]
     static void BuildAllAssetBundles()
     {

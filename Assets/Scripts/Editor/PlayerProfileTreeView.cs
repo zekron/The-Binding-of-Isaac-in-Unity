@@ -40,7 +40,8 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
     //}
 
     protected override void CellGUI(Rect cellRect, TreeViewItem<PlayerProfileTreeElement> item, MyColumns column, ref RowGUIArgs args)
-    {// Center cell rect vertically (makes it easier to place controls, icons etc in the cells)
+    {
+        // Center cell rect vertically (makes it easier to place controls, icons etc in the cells)
         CenterRectUsingSingleLineHeight(ref cellRect);
 
         string value = "Missing";
@@ -152,7 +153,7 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                     break;
                 case MyColumns.StartingItem:
                     //item.data.PlayerItemData = EditorGUI.ObjectField(cellRect, item.data.PlayerItemData, typeof(ItemSO), false) as ItemSO;
-                    item.data.PlayerItemData.ID = (int)(CollectableItemName)EditorGUI.EnumPopup(cellRect, (CollectableItemName)item.data.PlayerItemData.ID);
+                    item.data.PlayerItemData.ElementID = (int)(CollectableItemName)EditorGUI.EnumPopup(cellRect, (CollectableItemName)item.data.PlayerItemData.ElementID);
                     break;
                 default:
                     break;

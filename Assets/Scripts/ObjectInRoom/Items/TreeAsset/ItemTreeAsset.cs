@@ -3,22 +3,22 @@ using UnityEngine;
 
 public abstract class ItemTreeAsset : ScriptableObject
 {
-    [SerializeField] protected List<CollectableItemData> m_TreeElements;
+    [SerializeField] protected List<ItemTreeElement> m_TreeElements;
 
-    public abstract CollectableItemData CreateProfile();
+    public abstract ItemTreeElement CreateProfile();
 
-    public virtual CollectableItemData GetProfileByID(int elementID)
+    public virtual ItemTreeElement GetProfileByID(int elementID)
     {
         for (int i = 0; i < m_TreeElements.Count; i++)
         {
-            if (m_TreeElements[i].ID == elementID)
+            if (m_TreeElements[i].ElementID == elementID)
                 return m_TreeElements[i];
         }
 #if UNITY_EDITOR
         CustomDebugger.ThrowException(string.Format("Failed to get profile by ID -> {0}", elementID));
-        return CollectableItemData.Empty;
+        return null;
 #else
-        return CollectableItemData.Empty;
+        return null;
 #endif
     }
 }
