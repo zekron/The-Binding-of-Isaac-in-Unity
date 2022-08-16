@@ -4,24 +4,26 @@ using System.Linq;
 using UnityEditor;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
+public enum ItemColumns
+{
+    ID,
+    ItemSprite,
+    Name,
 
+    Description,
+
+    CollectionSprite,
+}
 public abstract class ItemTreeView<T> : TreeViewWithTreeModel<T> where T : ItemTreeElement
 {
-    protected const float ROW_HEIGHT = 20F;
+    protected const float ROW_HEIGHT = 50F;
     protected const float TOGGLE_WIDTH = 18f;
 
     protected MultiColumnHeader m_MultiColumnHeader;
 
     internal bool InEditMode = false;
 
-    internal protected enum ItemColumns
-    {
-        ID,
-        Name,
-
-        Description,
-        ItemSprite,
-    }
+    //internal protected 
 
     public ItemTreeView(TreeViewState state, MultiColumnHeader multiColumnHeader, TreeModel<T> model) : base(state, multiColumnHeader, model)
     {

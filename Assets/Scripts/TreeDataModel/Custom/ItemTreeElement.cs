@@ -1,9 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class ItemTreeElement : TreeElement
 {
+    public static readonly int TreeViewColumnsLength = 4;
     public string Description;
     public Sprite ItemSprite;
 

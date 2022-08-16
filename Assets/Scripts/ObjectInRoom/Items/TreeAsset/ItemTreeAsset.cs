@@ -1,13 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class ItemTreeAsset : ScriptableObject
+public abstract class ItemTreeAsset<T> : ScriptableObject where T : ItemTreeElement
 {
-    [SerializeField] protected List<ItemTreeElement> m_TreeElements;
+    [SerializeField] protected List<T> m_TreeElements;
 
-    public abstract ItemTreeElement CreateProfile();
+    public List<T> TreeElements => m_TreeElements;
+    public T TreeRoot => m_TreeElements[0];
 
-    public virtual ItemTreeElement GetProfileByID(int elementID)
+    public abstract T CreateProfile();
+
+    public virtual T GetProfileByID(int elementID)
     {
         for (int i = 0; i < m_TreeElements.Count; i++)
         {

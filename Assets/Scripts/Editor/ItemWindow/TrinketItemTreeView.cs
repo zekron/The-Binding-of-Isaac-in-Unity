@@ -15,7 +15,8 @@ public class TrinketItemTreeView : ItemTreeView<ItemTreeElement>
 
     protected override void CellGUI(Rect cellRect, TreeViewItem<ItemTreeElement> item, ItemColumns column, ref RowGUIArgs args)
     {
-        CenterRectUsingSingleLineHeight(ref cellRect);
+        if (column == ItemColumns.ID || column == ItemColumns.Name)
+            CenterRectUsingSingleLineHeight(ref cellRect);
 
         if (InEditMode)
         {
@@ -31,6 +32,9 @@ public class TrinketItemTreeView : ItemTreeView<ItemTreeElement>
                     item.data.Description = GUI.TextArea(cellRect, item.data.Description);
                     break;
                 case ItemColumns.ItemSprite:
+                    var center = cellRect.center;
+                    cellRect.width = cellRect.height;
+                    cellRect.center = center;
                     item.data.ItemSprite = EditorGUI.ObjectField(cellRect, item.data.ItemSprite, typeof(Sprite), false) as Sprite;
                     break;
                 default:
@@ -42,16 +46,27 @@ public class TrinketItemTreeView : ItemTreeView<ItemTreeElement>
             switch (column)
             {
                 case ItemColumns.ID:
+                    var style = EditorStyles.label;
+                    style.fontStyle = FontStyle.Bold;
                     EditorGUI.LabelField(cellRect, item.data.ElementID.ToString("D3"));
                     break;
                 case ItemColumns.Name:
-                    EditorGUI.LabelField(cellRect, item.data.name.ToString());
+                    style = EditorStyles.label;
+                    style.fontStyle = FontStyle.BoldAndItalic;
+                    EditorGUI.LabelField(cellRect, item.data.name, style);
                     break;
                 case ItemColumns.Description:
-                    EditorGUI.LabelField(cellRect, item.data.Description.ToString());
+                    EditorGUI.LabelField(cellRect, item.data.Description, EditorStyles.wordWrappedLabel);
                     break;
                 case ItemColumns.ItemSprite:
-                    GUI.DrawTexture(cellRect, item.data.ItemSprite.texture);
+                    if (item.data.ItemSprite != null)
+                        GUI.DrawTexture(cellRect, item.data.ItemSprite.texture, ScaleMode.ScaleToFit);
+                    else
+                    {
+                        style = EditorStyles.label;
+                        style.richText = true;
+                        EditorGUI.LabelField(cellRect, "<color=red>Need texture here!</color>", style);
+                    }
                     break;
                 default:
                     break;

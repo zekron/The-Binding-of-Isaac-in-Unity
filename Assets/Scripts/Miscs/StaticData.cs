@@ -37,5 +37,7 @@ public class StaticData
     #region AssetName
     public static readonly string FILE_ENEMYPROFILE_SO = "EnemyProfile TreeAsset.asset";
     public static readonly string FILE_PLAYERPROFILE_SO = "PlayerProfile TreeAsset.asset";
+    public static readonly string FILE_TRINKETITEM_SO = "TrinketItem TreeAsset.asset";
+    public static readonly string FILE_COLLECTIBLEITEM_SO = "CollectibleItem TreeAsset.asset";
     #endregion
 }

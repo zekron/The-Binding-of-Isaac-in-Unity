@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 249fad01e7bf086449607f596e30afe7, type: 3}
+  m_Name: TrinketItem TreeAsset
+  m_EditorClassIdentifier: 
+  m_TreeElements:
+  - m_ID: -1
+    m_Name: Root
+    m_Depth: -1
+    Description: Null
+    ItemSprite: {fileID: 0}
+  - m_ID: 30
+    m_Name: Pinky Eye
+    m_Depth: 0
+    Description: Adds a 10% chance to shoot a poison tear, dealing damage over time
+      when inflicted.
+    ItemSprite: {fileID: 21300000, guid: e0c54e50f9a90c045a87ce914964cd95, type: 3}
+  - m_ID: 31
+    m_Name: Push Pin
+    m_Depth: 0
+    Description: Adds a 10% chance to shoot a piercing and spectral tear.
+    ItemSprite: {fileID: 21300000, guid: 417bff66d6a21d049990b3ee1119abae, type: 3}
+  - m_ID: 31
+    m_Name: Liberty Cap
+    m_Depth: 0
+    Description: Adds a chance when entering a room to gain Mini Mush, Odd Mushroom, 
+      Odd Mushroom, or The Compass for one room.
+    ItemSprite: {fileID: 21300000, guid: e90a69497f3223a41ad006e3ddd8dbe0, type: 3}
+  - m_ID: 29
+    m_Name: Fish Head
+    m_Depth: 0
+    Description: Spawns a Blue Fly every time Isaac takes damage.
+    ItemSprite: {fileID: 21300000, guid: 8f8b9b002b0c39f409f1185f45eff0a2, type: 3}
