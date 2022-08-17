@@ -114,6 +114,19 @@ public class TrinketItemEditorWindow : ItemEditorWindow<ItemTreeElement>
             autoResize = false,
             allowToggleVisibility = true
         };
+        columns[(int)ItemColumns.Quote] = new MultiColumnHeaderState.Column
+        {
+            headerContent = new GUIContent("Quote"),
+            contextMenuText = "Type",
+            headerTextAlignment = TextAlignment.Left,
+            sortedAscending = true,
+            sortingArrowAlignment = TextAlignment.Right,
+            width = 300,
+            minWidth = 200,
+            maxWidth = 400,
+            autoResize = false,
+            allowToggleVisibility = true
+        };
 
 
         var state = new MultiColumnHeaderState(columns);

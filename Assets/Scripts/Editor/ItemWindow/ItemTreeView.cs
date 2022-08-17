@@ -10,6 +10,7 @@ public enum ItemColumns
     ItemSprite,
     Name,
 
+    Quote,
     Description,
 
     CollectionSprite,

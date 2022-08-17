@@ -47,7 +47,6 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
         string value = "Missing";
         if (InEditMode)
         {
-            float result;
             switch (column)
             {
                 case MyColumns.ID:
@@ -77,61 +76,28 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
                                                            soulHeart << 1);
                     break;
                 case MyColumns.BaseMoveSpeed:
-                    //CustommathematicTextField(cellRect, ref item.data.BaseMoveSpeed);
-                    value = GUI.TextField(cellRect, item.data.BaseMoveSpeed.ToString());
-                    if (float.TryParse(value, out result))
-                        item.data.BaseMoveSpeed = result;
-                    else
-                        GUI.TextField(cellRect, item.data.BaseMoveSpeed.ToString());
+                    item.data.BaseMoveSpeed = EditorGUI.FloatField(cellRect, item.data.BaseMoveSpeed);
                     break;
                 case MyColumns.BaseDamage:
-                    value = GUI.TextField(cellRect, item.data.BaseDamage.ToString());
-                    if (float.TryParse(value, out result))
-                        item.data.BaseDamage = result;
-                    else
-                        GUI.TextField(cellRect, item.data.BaseDamage.ToString());
+                    item.data.BaseDamage = EditorGUI.FloatField(cellRect, item.data.BaseDamage);
                     break;
                 case MyColumns.DamageMultiplier:
-                    value = GUI.TextField(cellRect, item.data.DamageMultiplier.ToString());
-                    if (float.TryParse(value, out result))
-                        item.data.DamageMultiplier = result;
-                    else
-                        GUI.TextField(cellRect, item.data.DamageMultiplier.ToString());
+                    item.data.DamageMultiplier = EditorGUI.FloatField(cellRect, item.data.DamageMultiplier);
                     break;
                 case MyColumns.BaseRange:
-                    value = GUI.TextField(cellRect, item.data.BaseRange.ToString());
-                    if (float.TryParse(value, out result))
-                        item.data.BaseRange = result;
-                    else
-                        GUI.TextField(cellRect, item.data.BaseRange.ToString());
+                    item.data.BaseRange = EditorGUI.FloatField(cellRect, item.data.BaseRange);
                     break;
                 case MyColumns.TearsAddition:
-                    value = GUI.TextField(cellRect, item.data.PlayerTearsAddition.ToString());
-                    if (float.TryParse(value, out result))
-                        item.data.PlayerTearsAddition = result;
-                    else
-                        GUI.TextField(cellRect, item.data.PlayerTearsAddition.ToString());
+                    item.data.PlayerTearsAddition = EditorGUI.FloatField(cellRect, item.data.PlayerTearsAddition);
                     break;
                 case MyColumns.TearsMultiplier:
-                    value = GUI.TextField(cellRect, item.data.PlayerTearsMultiplier.ToString());
-                    if (float.TryParse(value, out result))
-                        item.data.PlayerTearsMultiplier = result;
-                    else
-                        GUI.TextField(cellRect, item.data.PlayerTearsMultiplier.ToString());
+                    item.data.PlayerTearsMultiplier = EditorGUI.FloatField(cellRect, item.data.PlayerTearsMultiplier);
                     break;
                 case MyColumns.ShotSpeed:
-                    value = GUI.TextField(cellRect, item.data.ShotSpeed.ToString());
-                    if (float.TryParse(value, out result))
-                        item.data.ShotSpeed = result;
-                    else
-                        GUI.TextField(cellRect, item.data.ShotSpeed.ToString());
+                    item.data.ShotSpeed = EditorGUI.FloatField(cellRect, item.data.ShotSpeed);
                     break;
                 case MyColumns.Luck:
-                    value = GUI.TextField(cellRect, item.data.Luck.ToString());
-                    if (float.TryParse(value, out result))
-                        item.data.Luck = result;
-                    else
-                        GUI.TextField(cellRect, item.data.Luck.ToString());
+                    item.data.Luck = EditorGUI.FloatField(cellRect, item.data.Luck);
                     break;
                 case MyColumns.StartingPickup:
                     baseWidth = cellRect.width / 3;

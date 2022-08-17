@@ -8,7 +8,7 @@ public class EnemyProfileTreeAsset : CharacterProfileTreeAsset<EnemyProfileTreeE
     {
         m_TreeElements = new List<EnemyProfileTreeElement>()
         {
-            new EnemyProfileTreeElement("Root", 0, depth: -1, id: m_MaxID),
+            new EnemyProfileTreeElement("Root", 0, depth: -1, id: -1),
         };
         CreateProfile();
     }

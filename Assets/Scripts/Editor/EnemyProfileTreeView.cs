@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEditor.IMGUI.Controls;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -29,7 +30,6 @@ public class EnemyProfileTreeView : CharacterProfileTreeView<EnemyProfileTreeEle
 
         if (InEditMode)
         {
-            float result;
             switch (column)
             {
                 case MyColumns.ID:
@@ -42,32 +42,16 @@ public class EnemyProfileTreeView : CharacterProfileTreeView<EnemyProfileTreeEle
                 case MyColumns.BaseHealth:
                     break;
                 case MyColumns.BaseMoveSpeed:
-                    value = GUI.TextField(cellRect, item.data.BaseMoveSpeed.ToString());
-                    if (float.TryParse(value, out result))
-                        item.data.BaseMoveSpeed = result;
-                    else
-                        GUI.TextField(cellRect, item.data.BaseMoveSpeed.ToString());
+                    item.data.BaseMoveSpeed = EditorGUI.FloatField(cellRect, item.data.BaseMoveSpeed);
                     break;
                 case MyColumns.BaseDamage:
-                    value = GUI.TextField(cellRect, item.data.BaseDamage.ToString());
-                    if (float.TryParse(value, out result))
-                        item.data.BaseDamage = result;
-                    else
-                        GUI.TextField(cellRect, item.data.BaseDamage.ToString());
+                    item.data.BaseDamage = EditorGUI.FloatField(cellRect, item.data.BaseDamage);
                     break;
                 case MyColumns.BaseRange:
-                    value = GUI.TextField(cellRect, item.data.BaseRange.ToString());
-                    if (float.TryParse(value, out result))
-                        item.data.BaseRange = result;
-                    else
-                        GUI.TextField(cellRect, item.data.BaseRange.ToString());
+                    item.data.BaseRange = EditorGUI.FloatField(cellRect, item.data.BaseRange);
                     break;
                 case MyColumns.TearsMultiplier:
-                    value = GUI.TextField(cellRect, item.data.TearDelay.ToString());
-                    if (float.TryParse(value, out result))
-                        item.data.TearDelay = result;
-                    else
-                        GUI.TextField(cellRect, item.data.TearDelay.ToString());
+                    item.data.TearDelay = EditorGUI.FloatField(cellRect, item.data.TearDelay);
                     break;
                 default:
                     break;

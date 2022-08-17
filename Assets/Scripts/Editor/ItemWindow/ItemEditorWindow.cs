@@ -134,7 +134,7 @@ public abstract class ItemEditorWindow<T> : EditorWindow where T : ItemTreeEleme
     protected void SetSorting()
     {
         var myColumnHeader = m_TreeView.multiColumnHeader;
-        myColumnHeader.SetSortingColumns(new int[] { 0, 1 }, new[] { true, true });
+        myColumnHeader.SetSortingColumns(new int[] { (int)ItemColumns.ID, (int)ItemColumns.Name }, new[] { true, true });
     }
 
     protected static void CheckFileExists(string path, string fileName, Type type)

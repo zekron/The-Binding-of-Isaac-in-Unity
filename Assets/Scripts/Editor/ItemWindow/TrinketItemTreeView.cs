@@ -15,7 +15,7 @@ public class TrinketItemTreeView : ItemTreeView<ItemTreeElement>
 
     protected override void CellGUI(Rect cellRect, TreeViewItem<ItemTreeElement> item, ItemColumns column, ref RowGUIArgs args)
     {
-        if (column == ItemColumns.ID || column == ItemColumns.Name)
+        if (column == ItemColumns.ID || column == ItemColumns.Name || column == ItemColumns.Quote)
             CenterRectUsingSingleLineHeight(ref cellRect);
 
         if (InEditMode)
@@ -28,14 +28,29 @@ public class TrinketItemTreeView : ItemTreeView<ItemTreeElement>
                 case ItemColumns.Name:
                     item.data.name = GUI.TextField(cellRect, item.data.name);
                     break;
+                case ItemColumns.Quote:
+                    item.data.ItemQuote = GUI.TextField(cellRect, item.data.ItemQuote);
+                    break;
                 case ItemColumns.Description:
-                    item.data.Description = GUI.TextArea(cellRect, item.data.Description);
+                    var center = cellRect.center;
+                    cellRect.height -= 6;
+                    cellRect.center = center;
+                    item.data.ItemDescription = GUI.TextArea(cellRect, item.data.ItemDescription);
                     break;
                 case ItemColumns.ItemSprite:
-                    var center = cellRect.center;
+                    center = cellRect.center;
+                    cellRect.height -= 4;
                     cellRect.width = cellRect.height;
                     cellRect.center = center;
-                    item.data.ItemSprite = EditorGUI.ObjectField(cellRect, item.data.ItemSprite, typeof(Sprite), false) as Sprite;
+                    item.data.ItemSprite = EditorGUI.ObjectField(cellRect,
+                                                                 item.data.ItemSprite,
+                                                                 typeof(Sprite),
+                                                                 false) as Sprite;
+                    if (item.data.ItemSprite != null)
+                    {
+                        item.data.ElementID = int.Parse(item.data.ItemSprite.name.Split('_')[0]);
+                        item.data.name = item.data.ItemSprite.name.Split('_')[1];
+                    }
                     break;
                 default:
                     break;
@@ -43,20 +58,22 @@ public class TrinketItemTreeView : ItemTreeView<ItemTreeElement>
         }
         else
         {
+            GUIStyle style;
             switch (column)
             {
                 case ItemColumns.ID:
-                    var style = EditorStyles.label;
-                    style.fontStyle = FontStyle.Bold;
-                    EditorGUI.LabelField(cellRect, item.data.ElementID.ToString("D3"));
+                    EditorGUI.LabelField(cellRect, item.data.ElementID.ToString("D3"), EditorStyles.boldLabel);
                     break;
                 case ItemColumns.Name:
                     style = EditorStyles.label;
                     style.fontStyle = FontStyle.BoldAndItalic;
                     EditorGUI.LabelField(cellRect, item.data.name, style);
                     break;
+                case ItemColumns.Quote:
+                    EditorGUI.LabelField(cellRect, item.data.ItemQuote, EditorStyles.wordWrappedLabel);
+                    break;
                 case ItemColumns.Description:
-                    EditorGUI.LabelField(cellRect, item.data.Description, EditorStyles.wordWrappedLabel);
+                    EditorGUI.LabelField(cellRect, item.data.ItemDescription, EditorStyles.wordWrappedLabel);
                     break;
                 case ItemColumns.ItemSprite:
                     if (item.data.ItemSprite != null)

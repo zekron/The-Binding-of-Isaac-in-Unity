@@ -1,6 +1,4 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class TrinketItemTreeAsset : ItemTreeAsset<ItemTreeElement>
 {
@@ -11,14 +9,14 @@ public class TrinketItemTreeAsset : ItemTreeAsset<ItemTreeElement>
             new ItemTreeElement(-1,
                                 "Root",
                                 depth: -1,
-                                "Null",
+                                "TreeRoot",
                                 null),
         };
         CreateProfile();
     }
     public override ItemTreeElement CreateProfile()
     {
-        ItemTreeElement result = new ItemTreeElement(id: 1,
+        ItemTreeElement result = new ItemTreeElement(id: GenerateUniqueID(),
                                                      "Name here",
                                                      depth: 0,
                                                      "Description here",

@@ -13,7 +13,7 @@ public class PlayerProfileTreeAsset : CharacterProfileTreeAsset<PlayerProfileTre
                                          PickupData.zero,
                                          null,
                                          depth: -1,
-                                         id: m_MaxID),
+                                         id: -1),
         };
         CreateProfile();
     }
