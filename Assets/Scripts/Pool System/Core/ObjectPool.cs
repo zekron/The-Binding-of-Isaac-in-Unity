@@ -15,6 +15,12 @@ public class ObjectPool
 
     private Transform poolParent;
 
+    public ObjectPool(GameObject prefab, int size = 1)
+    {
+        this.prefab = prefab;
+        this.size = size;
+    }
+
     public void Initialize(Transform parent)
     {
         queue = new Queue<GameObject>();

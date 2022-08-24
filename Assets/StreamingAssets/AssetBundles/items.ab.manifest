@@ -1,0 +1,66 @@
+ManifestFileVersion: 0
+CRC: 1640696843
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0099c165d08214b75a66c55cb23eb7e7
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5db8c5b35a1e3f30381d064230e7d569
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6de2252d89b31dc4dab1ba1ccc2eca8b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 249fad01e7bf086449607f596e30afe7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 325a56bd18e380943928d2fc92054b5f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bab452018160102418694ca6caf360ad, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 76906eb7d3c91a848b722d2010d5f4a3, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2e5a45511aa61014db55b65bd7428d15, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 40ce7bdfc6efed64eba72570b1f1fef6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f8080b31c48a41e4b967c09f2a088145, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f712e0715f57c724d96816de37e8f8e1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6673e9d0925210441bd6f65397cf5d8e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4910d3a433d623a4bb7fe2cdd8164942, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c976fb651fe610044a5c07e755f07bef, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 74b3c366b8ee9744fbb85a58735fb0d3, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7db87ed3461577543be4283f640bcf14, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ScriptableObjects/CollectibleItem TreeAsset.asset
+- Assets/ScriptableObjects/TrinketItem TreeAsset.asset
+- Assets/ScriptableObjects/Random Object/Random Item/ItemPedestal.asset
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/eventchannels.ab

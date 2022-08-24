@@ -18,7 +18,7 @@ public class Poop : RoomObject, IHealth
 
     public virtual void DestroySelf()
     {
-        platform.SelfCollider.IsTrigger = true;
+        collisionController.SelfCollider.IsTrigger = true;
     }
 
     public void GetDamage(int damage)

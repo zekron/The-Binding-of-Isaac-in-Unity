@@ -7,6 +7,8 @@ public class StaticData
     public static readonly Vector3 ViewportTopRight = new Vector3(0.92f, 0.765f);
     public static readonly Vector3 ViewportBottomLeft = new Vector3(0.08f, 0.155f);
 
+    public static readonly int MAX_NUMBER_OF_CHARGES = 6;
+
     #region Room
     //房间宽高，像素值/100
     public static readonly float RoomWidth = 15.06f;

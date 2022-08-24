@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" GroupingSetting="Alphabetical" MembersFormat="FullSignature">
+  <Class Name="ActiveItem" Collapsed="true">
+    <Position X="0.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ObjectInRoom\Items\ActiveItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CollectableItem" Collapsed="true">
+    <Position X="1.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgABAAABCAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ObjectInRoom\Items\CollectableItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemObject" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAAABAAAgAAAAAAAAAAAAAAAQAKIAAAAAAACEA=</HashCode>
+      <FileName>Assets\Scripts\ObjectInRoom\Items\ItemObject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PassiveItem" Collapsed="true">
+    <Position X="3" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ObjectInRoom\Items\PassiveItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CollectibleItemTreeAsset" Collapsed="true">
+    <Position X="2.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ObjectInRoom\Items\TreeAsset\CollectibleItemTreeAsset.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemTreeAsset&lt;T&gt;" Collapsed="true">
+    <Position X="1.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ObjectInRoom\Items\TreeAsset\ItemTreeAsset.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrinketItemTreeAsset" Collapsed="true">
+    <Position X="0.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ObjectInRoom\Items\TreeAsset\TrinketItemTreeAsset.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrinketItem" Collapsed="true">
+    <Position X="5.25" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ObjectInRoom\Items\TrinketItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

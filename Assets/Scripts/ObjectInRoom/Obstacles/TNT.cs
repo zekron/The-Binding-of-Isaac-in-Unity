@@ -18,7 +18,7 @@ public class TNT : RoomObject, IHealth
 
     public void DestroySelf()
     {
-        platform.SelfCollider.IsTrigger = true;
+        collisionController.SelfCollider.IsTrigger = true;
     }
 
     public void GetDamage(int damage)

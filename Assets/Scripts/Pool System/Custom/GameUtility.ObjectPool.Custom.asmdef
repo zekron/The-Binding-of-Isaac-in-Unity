@@ -1,0 +1,18 @@
+{
+    "name": "GameUtility.ObjectPool.Custom",
+    "rootNamespace": "",
+    "references": [
+        "GUID:cb2e0a61e9801a243bc09e3392866cfc",
+        "GUID:50c20fb1aa8c99d4990fc3930ffda312",
+        "GUID:75f60598fc8b4544b820460e02dc97a2"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

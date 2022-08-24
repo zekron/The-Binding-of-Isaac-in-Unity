@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(PlayerController))]
 public class Player : MonoBehaviour
@@ -25,6 +26,15 @@ public class Player : MonoBehaviour
     private float moveSpeedAddition = 0;
     private float luckAddition = 0;
     private float rangeAddition = 0;
+    /// <summary>
+    /// itemPackage[0]二进制最低位为缺省值
+    /// </summary>
+    private int[] itemPackage;
+    private Queue<int> trinketPackage;
+    private int trinketPackageCount = 1;
+
+    private CollectibleItemTreeElement activeItem;
+    private UnityEvent activeItemSkill;
     #endregion
 
     public int CoinCount => currentPickup.coin;
@@ -64,6 +74,8 @@ public class Player : MonoBehaviour
         currentHealth = playerProfile.PlayerHealthData;
         currentPickup = playerProfile.PlayerPickupData;
         moveController = GetComponent<PlayerController>();
+
+        activeItemSkill = new UnityEvent();
     }
 
     private void OnEnable()
@@ -80,6 +92,10 @@ public class Player : MonoBehaviour
     private void Initialize(int id)
     {
         playerProfile = GameMgr.Instance.GetPlayerProfileByID(id);
+
+        //int itemCount = GameMgr.Instance.GetCollectibleItemCount() + 1;
+        //var length = itemCount / 32 + itemCount % 32 == 0 ? 0 : 1;
+        itemPackage = new int[8];
     }
 
     #region Health
@@ -162,6 +178,34 @@ public class Player : MonoBehaviour
     }
     #endregion
 
+    #region Items
+    public void GetTrinket(int itemID)
+    {
+        trinketPackage.Enqueue(itemID);
+        if (trinketPackage.Count > trinketPackageCount)
+        {
+            trinketPackage.Dequeue();
+            //ObjectPoolManager.Release();
+        }
+    }
+    public void GetPassiveItem(int itemID)
+    {
+        itemPackage[itemID / 32] += itemID % 32 == 0 ? 0 : 1 << (itemID % 32);
+    }
+    public CollectibleItemTreeElement GetActiveItem(CollectibleItemTreeElement collectibleItem, UnityAction skill)
+    {
+        activeItemSkill.RemoveAllListeners();
+        activeItemSkill.AddListener(skill);
+
+        var oldItem = activeItem;
+        activeItem = collectibleItem;
+        return oldItem;
+    }
+    public void UseActiveItem()
+    {
+        activeItemSkill.Invoke();
+    }
+    #endregion
     public void GetDie()
     {
         CustomDebugger.Log("Die");

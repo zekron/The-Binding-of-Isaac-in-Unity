@@ -1,73 +1,52 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="MyExtensionMethods" Collapsed="true">
-    <Position X="12" Y="3.25" Width="2" />
+    <Position X="11.75" Y="3.25" Width="2" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA=</HashCode>
       <FileName>Assets\Scripts\Editor\MyExtensionMethods.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="PlayerProfileTreeAsset" Collapsed="true">
-    <Position X="3.5" Y="7.75" Width="3.25" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\Editor\PlayerProfileTreeAsset.cs</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="PlayerProfileTreeView" Collapsed="true">
     <Position X="3.5" Y="4.75" Width="3.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAgAAAAAgIAAAEAAAAAAAAARAAAAAAAAEAA=</HashCode>
-      <FileName>Assets\Scripts\Editor\PlayerProfileTreeView.cs</FileName>
+      <HashCode>AIAAAAAAAAgAAAAAgIEAAEAAAAAAAAABAAAAAARAEAE=</HashCode>
+      <FileName>Assets\Scripts\Editor\TreeDataModel\Custom\PlayerProfileTreeView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="PlayerProfileWindow" Collapsed="true">
-    <Position X="4" Y="10.75" Width="2.75" />
+    <Position X="3.5" Y="7.75" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>AAAIAAAAEAAQAAABAAAAAAAAAAAAAAAACAAASAAAACA=</HashCode>
-      <FileName>Assets\Scripts\Editor\PlayerProfileWindow.cs</FileName>
+      <HashCode>AAAAAAAAEAAQAAAAAAAAAAAAAAAAAAAACAAAQAAAACA=</HashCode>
+      <FileName>Assets\Scripts\Editor\CharacterWindow\PlayerProfileWindow.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ProfileWindow&lt;T&gt;" Collapsed="true">
-    <Position X="6.25" Y="9.25" Width="1.5" />
+    <Position X="5.75" Y="6.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>EIAAAAEEEAQQAAEAAgAAAAAIAACAAIEAKACEQAgBACA=</HashCode>
+      <HashCode>EIAAAAAEEAQRAAEAAgAAAAgIAACAAIUAKACAQAABACA=</HashCode>
       <FileName>Assets\Scripts\Editor\ProfileWindow.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="CharacterProfileTreeAsset&lt;T&gt;" Collapsed="true">
-    <Position X="6" Y="6.25" Width="2.25" />
-    <TypeIdentifier>
-      <HashCode>ACIAAAAAACAAAAEAAgBAAAAAgAABAAAAAAQQAAAgAAA=</HashCode>
-      <FileName>Assets\Scripts\Editor\CharacterProfileTreeAsset.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CharacterProfileTreeView&lt;T&gt;" Collapsed="true">
     <Position X="6" Y="3.25" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAgABAAgAAAAAAAAAgAAAEgAAAAAAAARAAIAAAAAFII=</HashCode>
-      <FileName>Assets\Scripts\Editor\CharacterProfileTreeView.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="EnemyProfileTreeAsset" Collapsed="true">
-    <Position X="7.5" Y="7.75" Width="3.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
-      <FileName>Assets\Scripts\Editor\EnemyProfileTreeAsset.cs</FileName>
+      <HashCode>AEgABAAgAAAAAAAAAgAAAEgAAAAAAAAZAAIAAAAAFII=</HashCode>
+      <FileName>Assets\Scripts\Editor\TreeDataModel\Custom\CharacterProfileTreeView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EnemyProfileTreeView" Collapsed="true">
     <Position X="7.5" Y="4.75" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAEAAAAAAAAARAAAAAAAAEAA=</HashCode>
-      <FileName>Assets\Scripts\Editor\EnemyProfileTreeView.cs</FileName>
+      <FileName>Assets\Scripts\Editor\TreeDataModel\Custom\EnemyProfileTreeView.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="EnemyProfileWindow" Collapsed="true">
-    <Position X="7.5" Y="10.75" Width="2.75" />
+    <Position X="7" Y="7.75" Width="2.75" />
     <TypeIdentifier>
-      <HashCode>ACAIAAAAEAAQAAAAAAAAAAAAAAAAAAAQCAAAQAAAACA=</HashCode>
-      <FileName>Assets\Scripts\Editor\EnemyProfileWindow.cs</FileName>
+      <HashCode>AAAAAAAAEAAQAAAAAAAAAAAAAAAAAAAACAAAQAAAACA=</HashCode>
+      <FileName>Assets\Scripts\Editor\CharacterWindow\EnemyProfileWindow.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Microsoft YaHei UI" Size="9" />

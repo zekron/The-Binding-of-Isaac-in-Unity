@@ -155,7 +155,9 @@ public enum GameState
     GameOver,
 }
 
-public enum CollectableItemName
+public enum CollectibleItemName
 {
-    The_Sad_Onion,
+    The_Sad_Onion = 1,
+    The_Poop = 41,
+    Yum_Heart = 51,
 }

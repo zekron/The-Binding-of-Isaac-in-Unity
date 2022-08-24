@@ -152,8 +152,14 @@ public class PlayerController : MonoBehaviour, IObjectInRoom
 
     private void UpdateGameControl()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.E))
         {
+            CustomDebugger.Log("Place bomb.");
+        }
+
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            player.UseActiveItem();
         }
 
         //canShoot = true;

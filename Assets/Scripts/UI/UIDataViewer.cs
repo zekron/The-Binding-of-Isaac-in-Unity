@@ -21,9 +21,14 @@ public class UIDataViewer : MonoBehaviour
     [SerializeField] private BooleanEventChannelSO onPlayerGetGoldenKey;
     [SerializeField] private MapCoordinateEventChannelSO onCreateRoomEvent;
     [SerializeField] private MapCoordinateStatusEventChannelSO onEnterRoomEvent;
+    [SerializeField] private ActiveItemEventChannelSO onActiveItemChanged;
 
     private void OnEnable()
     {
+        var eventchannels = ResourcesLoader.LoadAssetBundleAtPath(string.Format("{0}/AssetBundles/eventchannels.ab", Application.streamingAssetsPath));
+
+        onActiveItemChanged = eventchannels.LoadAsset<ActiveItemEventChannelSO>("OnActiveItemChanged Event SO");
+
         onPlayerHealthDataChanged.OnEventRaised += RefreshHealthData;
 
         onPlayerPickupDataChanged.OnEventRaised += RefreshPickupData;
@@ -31,6 +36,8 @@ public class UIDataViewer : MonoBehaviour
 
         onCreateRoomEvent.OnEventRaised += MiniMapCreateRoom;
         onEnterRoomEvent.OnEventRaised += MiniMapEnterRoom;
+
+        onActiveItemChanged.OnEventRaised += ChangeActiveItem;
     }
 
     private void OnDisable()
@@ -42,6 +49,8 @@ public class UIDataViewer : MonoBehaviour
 
         onCreateRoomEvent.OnEventRaised -= MiniMapCreateRoom;
         onEnterRoomEvent.OnEventRaised -= MiniMapEnterRoom;
+
+        onActiveItemChanged.OnEventRaised -= ChangeActiveItem;
     }
 
     private void RefreshPickupData(PickupData data)
@@ -69,5 +78,10 @@ public class UIDataViewer : MonoBehaviour
     private void MiniMapEnterRoom(GameCoordinate direction, MiniMapIconStatus status)
     {
         miniMapViewer.OnMoving(direction, status);
+    }
+
+    private void ChangeActiveItem(Sprite sprite,int charged)
+    {
+        activeItemViewer.ChangeItem(sprite, charged);
     }
 }

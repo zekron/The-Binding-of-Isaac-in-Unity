@@ -21,7 +21,7 @@ public class FirePlace : RoomObject, IHealth
     protected override void Awake()
     {
         objectRenderer = transform.parent.GetComponent<SpriteRenderer>();
-        platform = GetComponent<CustomCollisionController>();
+        collisionController = GetComponent<CustomCollisionController>();
         fireAnimation = GetComponent<CustomFrameAnimation>();
 
         currentHealth = maxHealth = fireSizes.Length - 1;
@@ -31,14 +31,14 @@ public class FirePlace : RoomObject, IHealth
     {
         base.OnEnable();
 
-        platform.onCollisionEnter += AttackCharacter;
+        collisionController.onCollisionEnter += AttackCharacter;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
 
-        platform.onCollisionEnter -= AttackCharacter;
+        collisionController.onCollisionEnter -= AttackCharacter;
     }
 
     public override void ChangeRendererOrder()
@@ -50,7 +50,7 @@ public class FirePlace : RoomObject, IHealth
     }
     public void DestroySelf()
     {
-        platform.SelfCollider.IsTrigger = true;
+        collisionController.SelfCollider.IsTrigger = true;
         fireRenderer.enabled = false;
         fireShadow.enabled = false;
         objectRenderer.sprite = firePlaceSprites[0];

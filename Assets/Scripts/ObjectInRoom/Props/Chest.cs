@@ -33,14 +33,14 @@ public class Chest : RoomObject
     {
         base.OnEnable();
 
-        platform.onCollisionEnter += Open;
+        collisionController.onCollisionEnter += Open;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
 
-        platform.onCollisionEnter -= Open;
+        collisionController.onCollisionEnter -= Open;
     }
 
     private void Open(CollisionInfo2D collisionInfo)

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class RoomObject : MonoBehaviour, IObjectInRoom, IDisplayInEditorWindow
 {
-    protected CustomCollisionController platform;
+    protected CustomCollisionController collisionController;
     protected SpriteRenderer objectRenderer;
     protected GameCoordinate coordinate;
 
@@ -14,7 +14,7 @@ public abstract class RoomObject : MonoBehaviour, IObjectInRoom, IDisplayInEdito
 
     protected virtual void Awake()
     {
-        platform = GetComponent<CustomCollisionController>();
+        collisionController = GetComponent<CustomCollisionController>();
         objectRenderer = GetComponent<SpriteRenderer>();
     }
 

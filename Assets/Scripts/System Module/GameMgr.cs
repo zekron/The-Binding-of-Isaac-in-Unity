@@ -4,23 +4,34 @@ using UnityEngine;
 
 public class GameMgr : PersistentSingleton<GameMgr>
 {
-    [SerializeField] private PlayerProfileTreeAsset playerProfileAssets;
+    [SerializeField] private PlayerProfileTreeAsset playerProfileAsset;
 
-    void OnEnable()
+    private AssetBundle characterProfileBundle;
+
+    protected override void Awake()
     {
-        var assetBundle = ResourcesMgr.LoadAssetBundleAtPath(string.Format("{0}/AssetBundles/characterprofile.ab", Application.streamingAssetsPath));
-        playerProfileAssets = assetBundle.LoadAsset<PlayerProfileTreeAsset>("PlayerProfile TreeAsset");
+        base.Awake();
 
+        characterProfileBundle = ResourcesLoader.LoadAssetBundleAtPath(string.Format("{0}/AssetBundles/characterprofile.ab", Application.streamingAssetsPath));
+        playerProfileAsset = characterProfileBundle.LoadAsset<PlayerProfileTreeAsset>("PlayerProfile TreeAsset");
         //Viewport.Initialize();
     }
 
-    void Update()
+    private void OnEnable()
     {
-
     }
 
-    public PlayerProfileTreeElement GetPlayerProfileByID(int ID)
+    private ObjectPool[] InstantiatePools<T>(ItemTreeAsset<T> itemTreeAsset) where T : ItemTreeElement
     {
-        return playerProfileAssets.GetProfileByID(ID);
+        List<ObjectPool> pools = new List<ObjectPool>();
+        for (int i = 0; i < itemTreeAsset.TreeElements.Count; i++)
+        {
+            if (itemTreeAsset.TreeElements[i].ItemPrefab != null)
+                pools.Add(new ObjectPool(itemTreeAsset.TreeElements[i].ItemPrefab));
+        }
+
+        return pools.ToArray();
     }
+
+    public PlayerProfileTreeElement GetPlayerProfileByID(int ID) => playerProfileAsset.GetProfileByID(ID);
 }

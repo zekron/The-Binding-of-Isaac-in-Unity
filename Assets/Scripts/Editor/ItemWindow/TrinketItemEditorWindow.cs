@@ -64,7 +64,7 @@ public class TrinketItemEditorWindow : ItemEditorWindow<ItemTreeElement>
 
         columns[(int)ItemColumns.ID] = new MultiColumnHeaderState.Column
         {
-            headerContent = new GUIContent("Character ID", "ID of character"),
+            headerContent = new GUIContent("Trinket ID", "ID of trinket"),
             contextMenuText = "Type",
             headerTextAlignment = TextAlignment.Left,
             sortedAscending = true,
@@ -79,7 +79,7 @@ public class TrinketItemEditorWindow : ItemEditorWindow<ItemTreeElement>
         {
             headerContent = new GUIContent("Trinket Sprite"),
             contextMenuText = "Type",
-            headerTextAlignment = TextAlignment.Right,
+            headerTextAlignment = TextAlignment.Left,
             sortedAscending = true,
             sortingArrowAlignment = TextAlignment.Right,
             width = 100,
@@ -121,9 +121,22 @@ public class TrinketItemEditorWindow : ItemEditorWindow<ItemTreeElement>
             headerTextAlignment = TextAlignment.Left,
             sortedAscending = true,
             sortingArrowAlignment = TextAlignment.Right,
-            width = 300,
+            width = 200,
             minWidth = 200,
             maxWidth = 400,
+            autoResize = false,
+            allowToggleVisibility = true
+        };
+        columns[(int)ItemColumns.ItemPrefab] = new MultiColumnHeaderState.Column
+        {
+            headerContent = new GUIContent("Item Prefab"),
+            contextMenuText = "Type",
+            headerTextAlignment = TextAlignment.Left,
+            sortedAscending = true,
+            sortingArrowAlignment = TextAlignment.Right,
+            width = 100,
+            minWidth = 100,
+            maxWidth = 200,
             autoResize = false,
             allowToggleVisibility = true
         };

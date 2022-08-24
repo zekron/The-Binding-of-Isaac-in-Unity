@@ -3,46 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class CollectableItem : RoomObject
+public abstract class CollectableItem : ItemObject
 {
-    private CollectibleItemTreeElement temData;
-
-    protected Player gamePlayer;
-    private Animation pickupAnimation;
-
-    protected override void Awake()
+    protected virtual void OnEnable()
     {
-        base.Awake();
-
-        pickupAnimation = GetComponent<Animation>();
+        if (itemData == null)
+            itemData = ItemManager.Instance.GetCollectibleItemProfileByID(itemID);
     }
-
-    protected override void OnEnable()
+    protected override void OnPlayerCollect() 
     {
-        base.OnEnable();
+        CollectInCollection();
     }
-
-    protected override void OnDisable()
-    {
-        base.OnDisable();
-    }
-
-    public override void ResetObject()
-    {
-        objectRenderer.sprite = temData.ItemSprite;
-    }
-
-    private void Collect(CollisionInfo2D collisionInfo)
-    {
-        if (collisionInfo.hitCollider.TryGetComponent(out gamePlayer))
-        {
-
-            pickupAnimation.Play("Pickup_OnPicked");
-
-            OnPlayerCollect();
-        }
-    }
-    public abstract void OnPlayerCollect();
 
     public void CollectInCollection()
     {

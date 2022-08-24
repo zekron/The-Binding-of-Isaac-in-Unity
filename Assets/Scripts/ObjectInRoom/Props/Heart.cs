@@ -32,14 +32,14 @@ public class Heart : PickupObject
 
     public override bool CanPickUp()
     {
-       return platform.SelfCollider.IsTrigger = !gamePlayer.IsFullHealth();
+       return collisionController.SelfCollider.IsTrigger = !gamePlayer.IsFullHealth();
     }
 
     public override void OnPlayerCollect()
     {
         gamePlayer.GetHealing(heartWorth);
 
-        platform.enabled = false;
+        collisionController.enabled = false;
         //gameObject.SetActive(false);
     }
 }

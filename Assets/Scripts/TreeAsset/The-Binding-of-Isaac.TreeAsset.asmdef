@@ -1,0 +1,17 @@
+{
+    "name": "The-Binding-of-Isaac.TreeAsset",
+    "rootNamespace": "",
+    "references": [
+        "GUID:75f60598fc8b4544b820460e02dc97a2",
+        "GUID:340100a61e001ed4594324b9bb19febe"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

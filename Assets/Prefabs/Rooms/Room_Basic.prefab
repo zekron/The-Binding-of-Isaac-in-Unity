@@ -705,7 +705,7 @@ SpriteRenderer:
   m_Size: {x: 14.54, y: 1.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6994571109779623802
@@ -787,7 +787,7 @@ SpriteRenderer:
   m_Size: {x: 12.52, y: 6.9517126}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6994571110206445046
@@ -869,7 +869,7 @@ SpriteRenderer:
   m_Size: {x: 1.43, y: 9.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6994571110450151080
@@ -926,7 +926,6 @@ MonoBehaviour:
     CurrentRoomType: 1
     Depth: 0
   roomLayout: {fileID: 11400000, guid: b9f3d0ebcd313434d8da07390ec74669, type: 2}
-  onEnterRoomEvent: {fileID: 11400000, guid: 7a200d5f8ec2ee24fa11345449ebfbc9, type: 2}
   isArrived: 0
   isCleared: 0
   topBottomWallSprite:
@@ -937,11 +936,14 @@ MonoBehaviour:
   - {fileID: 6994571110206444552}
   floorSprite: {fileID: 6994571109779623804}
   doorTransform: {fileID: 6994571111351574383}
+  layoutTransform: {fileID: 0}
   doorLocks:
   - {fileID: 6720746866336376527}
   - {fileID: 28390636263535436}
   - {fileID: 8354379390821741930}
   - {fileID: 6258391092298987573}
+  onEnterRoomEvent: {fileID: 11400000, guid: 7a200d5f8ec2ee24fa11345449ebfbc9, type: 2}
+  onClearRoomEvent: {fileID: 11400000, guid: 888118dd1188f1748993ee0e91cb9bb6, type: 2}
   normalDoor: {fileID: 7924570295946511335, guid: 7908b15f137f36e418db83c7cfdd7fc9, type: 3}
   bossDoor: {fileID: 7924570295946511335, guid: d17a04163eaa22848b3884a7debe85fe, type: 3}
   treasureDoor: {fileID: 7924570295946511335, guid: dbf612341784bd34fb0b3f211a5d5aa9, type: 3}
@@ -1066,7 +1068,7 @@ SpriteRenderer:
   m_Size: {x: 14.54, y: 1.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6994571111230928166
@@ -1148,7 +1150,7 @@ SpriteRenderer:
   m_Size: {x: 1.43, y: 9.44}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &6994571111351574382

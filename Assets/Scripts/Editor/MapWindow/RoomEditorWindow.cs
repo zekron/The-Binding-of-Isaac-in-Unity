@@ -31,16 +31,16 @@ public class RoomEditorWindow : EditorWindow
     string[] obstaclesPrefabPath = new[]
     {
         "Assets/Prefabs/Obstacles/Rock/Rock.prefab",
-        "Assets/Prefabs/Obstacles/Spikes/Spikes.prefab",
+        "Assets/Prefabs/Obstacles/Spike/Spike.prefab",
         "Assets/Prefabs/Obstacles/Fire Place/Fire Place.prefab",
-        "Assets/Prefabs/Obstacles/Poop/Poop_Normal.prefab",
+        "Assets/Prefabs/Obstacles/Poop/Obstacle_Poop_Normal.prefab",
         "Assets/Prefabs/Obstacles/TNT.prefab",
     };
     string[] propPrefabPath = new[]
     {
-        "Assets/AssetsPackge/Prefabs/Props/Pickup/Chest/BrownChest.prefab",
-        "Assets/AssetsPackge/Prefabs/Props/Pickup/RandomPickup/RandomCoin.prefab",
-        "Assets/AssetsPackge/Prefabs/Props/Item/RandomItem/TreasureRoom Item.prefab",
+        "Assets/ScriptableObjects/Random Object/RandomChest.asset",
+        "Assets/ScriptableObjects/Random Object/RandomPickup.asset",
+        "Assets/ScriptableObjects/Random Object/Random Item/ItemPedestal.asset",
         "Assets/AssetsPackge/Prefabs/Props/Goods/ItemGoods.prefab",
     };
 
@@ -113,11 +113,11 @@ public class RoomEditorWindow : EditorWindow
         if (isExpandLoadButton)
         {
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("普通")) { roomLayout = SelectObject(ResourcesMgr.GetNormalRoomAsset()) as RoomLayoutSO; isExpandLoadButton = false; }
-            if (GUILayout.Button("BOSS")) { roomLayout = SelectObject(ResourcesMgr.GetBossRoomAsset()) as RoomLayoutSO; isExpandLoadButton = false; }
-            if (GUILayout.Button("宝藏")) { roomLayout = SelectObject(ResourcesMgr.GetTreasureRoomAsset()) as RoomLayoutSO; isExpandLoadButton = false; }
-            if (GUILayout.Button("商店")) { roomLayout = SelectObject(ResourcesMgr.GetShopRoomAsset()) as RoomLayoutSO; isExpandLoadButton = false; }
-            if (GUILayout.Button("测试")) { roomLayout = SelectObject(ResourcesMgr.GetTestRoomAsset()) as RoomLayoutSO; isExpandLoadButton = false; }
+            if (GUILayout.Button("普通")) { roomLayout = SelectObject(ResourcesLoader.GetNormalRoomAsset()) as RoomLayoutSO; isExpandLoadButton = false; }
+            if (GUILayout.Button("BOSS")) { roomLayout = SelectObject(ResourcesLoader.GetBossRoomAsset()) as RoomLayoutSO; isExpandLoadButton = false; }
+            if (GUILayout.Button("宝藏")) { roomLayout = SelectObject(ResourcesLoader.GetTreasureRoomAsset()) as RoomLayoutSO; isExpandLoadButton = false; }
+            if (GUILayout.Button("商店")) { roomLayout = SelectObject(ResourcesLoader.GetShopRoomAsset()) as RoomLayoutSO; isExpandLoadButton = false; }
+            if (GUILayout.Button("测试")) { roomLayout = SelectObject(ResourcesLoader.GetTestRoomAsset()) as RoomLayoutSO; isExpandLoadButton = false; }
             GUILayout.EndHorizontal();
         }
         if (isExpandCreateButton)
@@ -126,10 +126,10 @@ public class RoomEditorWindow : EditorWindow
             newFileName = EditorGUILayout.TextField(newFileName);
             GUILayout.EndVertical();
             GUILayout.BeginHorizontal();
-            if (GUILayout.Button("普通")) { CreateRoomLayoutFile(ResourcesMgr.GetNormalRoomPath()); isExpandCreateButton = false; }
-            if (GUILayout.Button("BOSS")) { CreateRoomLayoutFile(ResourcesMgr.GetBossRoomPath()); isExpandCreateButton = false; }
-            if (GUILayout.Button("宝藏")) { CreateRoomLayoutFile(ResourcesMgr.GetTreasureRoomPath()); isExpandCreateButton = false; }
-            if (GUILayout.Button("商店")) { CreateRoomLayoutFile(ResourcesMgr.GetShopRoomPath()); isExpandCreateButton = false; }
+            if (GUILayout.Button("普通")) { CreateRoomLayoutFile(ResourcesLoader.GetNormalRoomPath()); isExpandCreateButton = false; }
+            if (GUILayout.Button("BOSS")) { CreateRoomLayoutFile(ResourcesLoader.GetBossRoomPath()); isExpandCreateButton = false; }
+            if (GUILayout.Button("宝藏")) { CreateRoomLayoutFile(ResourcesLoader.GetTreasureRoomPath()); isExpandCreateButton = false; }
+            if (GUILayout.Button("商店")) { CreateRoomLayoutFile(ResourcesLoader.GetShopRoomPath()); isExpandCreateButton = false; }
             GUILayout.EndHorizontal();
         }
         GUILayout.EndVertical();
@@ -199,22 +199,24 @@ public class RoomEditorWindow : EditorWindow
     {
         //快速选择文件夹
         GUILayout.BeginHorizontal();
-        if (GUILayout.Button("岩石")) { SelectObject(obstaclesPrefabPath[0]); }
-        if (GUILayout.Button("尖刺")) { SelectObject(obstaclesPrefabPath[1]); }
-        if (GUILayout.Button("火堆")) { SelectObject(obstaclesPrefabPath[2]); }
-        if (GUILayout.Button("屎堆")) { SelectObject(obstaclesPrefabPath[3]); }
+        if (GUILayout.Button("岩石")) { SelectAndAddObject(roomLayout.obstacleList, obstaclesPrefabPath[0]); }
+        if (GUILayout.Button("尖刺")) { SelectAndAddObject(roomLayout.obstacleList, obstaclesPrefabPath[1]); }
+        if (GUILayout.Button("火堆")) { SelectAndAddObject(roomLayout.obstacleList, obstaclesPrefabPath[2]); }
+        if (GUILayout.Button("屎堆")) { SelectAndAddObject(roomLayout.obstacleList, obstaclesPrefabPath[3]); }
+        if (GUILayout.Button("TNT")) { SelectAndAddObject(roomLayout.obstacleList, obstaclesPrefabPath[4]); }
         GUILayout.EndHorizontal();
         GUILayout.Space(5);
 
         //根据文件绘制怪物和怪物坐标的编辑区域
         EditObjectList(roomLayout.obstacleList);
     }
+
     private void EditMonster()
     {
         GUILayout.BeginHorizontal();
-        if (GUILayout.Button("普通")) { SelectObject(monsterPrefabPath[0]); }
-        if (GUILayout.Button("精英")) { SelectObject(monsterPrefabPath[1]); }
-        if (GUILayout.Button("Boss")) { SelectObject(monsterPrefabPath[2]); }
+        if (GUILayout.Button("普通")) { SelectAndAddObject(roomLayout.obstacleList, monsterPrefabPath[0]); }
+        if (GUILayout.Button("精英")) { SelectAndAddObject(roomLayout.obstacleList, monsterPrefabPath[1]); }
+        if (GUILayout.Button("Boss")) { SelectAndAddObject(roomLayout.obstacleList, monsterPrefabPath[2]); }
         GUILayout.EndHorizontal();
         GUILayout.Space(5);
 
@@ -223,10 +225,10 @@ public class RoomEditorWindow : EditorWindow
     private void EditorProp()
     {
         GUILayout.BeginHorizontal();
-        if (GUILayout.Button("箱子")) { SelectObject(propPrefabPath[0]); }
-        if (GUILayout.Button("随机拾取物")) { SelectObject(propPrefabPath[1]); }
-        if (GUILayout.Button("随机道具")) { SelectObject(propPrefabPath[2]); }
-        if (GUILayout.Button("随机商品")) { SelectObject(propPrefabPath[3]); }
+        if (GUILayout.Button("箱子")) { SelectAndAddObject(roomLayout.propList, propPrefabPath[0]); }
+        if (GUILayout.Button("随机拾取物")) { SelectAndAddObject(roomLayout.propList, propPrefabPath[1]); }
+        if (GUILayout.Button("随机道具")) { SelectAndAddObject(roomLayout.propList, propPrefabPath[2]); }
+        if (GUILayout.Button("随机商品")) { SelectAndAddObject(roomLayout.propList, propPrefabPath[3]); }
         GUILayout.EndHorizontal();
         GUILayout.Space(5);
 
@@ -294,6 +296,30 @@ public class RoomEditorWindow : EditorWindow
         }
     }
 
+    private void SelectAndAddObject(List<TupleWithGameObjectCoordinate> list, string path)
+    {
+        var @object = SelectObject(path) as GameObject;
+        if (@object != null)
+            AddPrefab(list, @object, centerCoordinate);
+    }
+
+    private void SelectAndAddObject(List<TupleWithRandomPickupCoordinate> list, string path)
+    {
+        var randomPickup = SelectObject(path) as RandomObjectSO;
+        if (randomPickup != null)
+            AddPrefab(list, randomPickup, centerCoordinate);
+    }
+
+    private void AddPrefab(List<TupleWithGameObjectCoordinate> list, GameObject prefab, GameCoordinate coordinate)
+    {
+        list.Add(new TupleWithGameObjectCoordinate(prefab, coordinate));
+    }
+
+    private void AddPrefab(List<TupleWithRandomPickupCoordinate> list, RandomObjectSO prefab, GameCoordinate coordinate)
+    {
+        list.Add(new TupleWithRandomPickupCoordinate(prefab, coordinate));
+    }
+
     /// <summary>
     /// 根据路径选择Asset下的文件或文件夹
     /// </summary>
@@ -330,7 +356,8 @@ public class RoomEditorWindow : EditorWindow
             newPath = Path.Combine(path, sb.ToString());
         }
         AssetDatabase.CreateAsset(go, newPath);
-        roomLayout = SelectObject(newPath) as RoomLayoutSO;
+        //roomLayout = SelectObject(newPath) as RoomLayoutSO;
+        Selection.activeObject = roomLayout = go;
         roomLayout.IsGenerateReward = true;
         roomLayout.RewardPosition = centerCoordinate;
         ResetEditInstallWhenCreate();
@@ -364,18 +391,20 @@ public class RoomEditorWindow : EditorWindow
         }
         if (GUILayout.Button("添加", GUILayout.MaxWidth(75)))
         {
-            if (prefabs.Count == 0) prefabs.Add(new TupleWithGameObjectCoordinate(null, centerCoordinate));
-            else prefabs.Add(new TupleWithGameObjectCoordinate(prefabs[prefabs.Count - 1].value1, prefabs[prefabs.Count - 1].value2));
+            if (prefabs.Count == 0) AddPrefab(prefabs, null, centerCoordinate);
+            else AddPrefab(prefabs, prefabs[prefabs.Count - 1].value1, prefabs[prefabs.Count - 1].value2);
+            //else prefabs.Add(new TupleWithGameObjectCoordinate(prefabs[prefabs.Count - 1].value1, prefabs[prefabs.Count - 1].value2));
         }
         GUILayout.EndScrollView();
     }
+
     private void EditObjectList(List<TupleWithRandomPickupCoordinate> prefabs)
     {
         scrollViewVector2 = GUILayout.BeginScrollView(scrollViewVector2, GUILayout.Height(160));
         for (int i = 0; i < prefabs.Count; i++)
         {
             GUILayout.BeginHorizontal();
-            prefabs[i].value1 = EditorGUILayout.ObjectField(prefabs[i].value1, typeof(RandomPickup), false) as RandomPickup;
+            prefabs[i].value1 = EditorGUILayout.ObjectField(prefabs[i].value1, typeof(RandomObjectSO), false) as RandomObjectSO;
             GUILayout.Space(30);
             GUILayout.Label("X");
             int x = EditorGUILayout.IntSlider((int)prefabs[i].value2.x, 1, StaticData.ROOM_EDITOR_WINDOW_MAX_X);
@@ -389,8 +418,8 @@ public class RoomEditorWindow : EditorWindow
         }
         if (GUILayout.Button("添加", GUILayout.MaxWidth(75)))
         {
-            if (prefabs.Count == 0) prefabs.Add(new TupleWithRandomPickupCoordinate(null, centerCoordinate));
-            else prefabs.Add(new TupleWithRandomPickupCoordinate(prefabs[prefabs.Count - 1].value1, prefabs[prefabs.Count - 1].value2));
+            if (prefabs.Count == 0) AddPrefab(prefabs, null, centerCoordinate);
+            else AddPrefab(prefabs, prefabs[prefabs.Count - 1].value1, prefabs[prefabs.Count - 1].value2);
         }
         GUILayout.EndScrollView();
     }

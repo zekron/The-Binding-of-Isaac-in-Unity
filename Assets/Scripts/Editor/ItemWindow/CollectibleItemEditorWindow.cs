@@ -64,7 +64,7 @@ public class CollectibleItemEditorWindow : ItemEditorWindow<CollectibleItemTreeE
 
         columns[(int)ItemColumns.ID] = new MultiColumnHeaderState.Column
         {
-            headerContent = new GUIContent("Character ID", "ID of character"),
+            headerContent = new GUIContent("Item ID", "ID of item"),
             contextMenuText = "Type",
             headerTextAlignment = TextAlignment.Left,
             sortedAscending = true,
@@ -77,9 +77,9 @@ public class CollectibleItemEditorWindow : ItemEditorWindow<CollectibleItemTreeE
         };
         columns[(int)ItemColumns.ItemSprite] = new MultiColumnHeaderState.Column
         {
-            headerContent = new GUIContent("Trinket Sprite"),
+            headerContent = new GUIContent("Item Sprite"),
             contextMenuText = "Type",
-            headerTextAlignment = TextAlignment.Right,
+            headerTextAlignment = TextAlignment.Left,
             sortedAscending = true,
             sortingArrowAlignment = TextAlignment.Right,
             width = 100,
@@ -92,7 +92,7 @@ public class CollectibleItemEditorWindow : ItemEditorWindow<CollectibleItemTreeE
         {
             headerContent = new GUIContent("Collection Sprite"),
             contextMenuText = "Type",
-            headerTextAlignment = TextAlignment.Right,
+            headerTextAlignment = TextAlignment.Left,
             sortedAscending = true,
             sortingArrowAlignment = TextAlignment.Right,
             width = 100,
@@ -134,9 +134,22 @@ public class CollectibleItemEditorWindow : ItemEditorWindow<CollectibleItemTreeE
             headerTextAlignment = TextAlignment.Left,
             sortedAscending = true,
             sortingArrowAlignment = TextAlignment.Right,
-            width = 300,
+            width = 200,
             minWidth = 200,
             maxWidth = 400,
+            autoResize = false,
+            allowToggleVisibility = true
+        };
+        columns[(int)ItemColumns.ItemPrefab] = new MultiColumnHeaderState.Column
+        {
+            headerContent = new GUIContent("Item Prefab"),
+            contextMenuText = "Type",
+            headerTextAlignment = TextAlignment.Left,
+            sortedAscending = true,
+            sortingArrowAlignment = TextAlignment.Right,
+            width = 100,
+            minWidth = 100,
+            maxWidth = 200,
             autoResize = false,
             allowToggleVisibility = true
         };

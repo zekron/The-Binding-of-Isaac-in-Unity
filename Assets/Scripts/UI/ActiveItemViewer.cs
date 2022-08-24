@@ -5,17 +5,20 @@ using UnityEngine.UI;
 
 public class ActiveItemViewer : MonoBehaviour
 {
-    private const int MAX_NUMBER_OF_CHARGES = 6;
-
     [SerializeField] private Image itemImage;
     [SerializeField] private Image skillBarImage;
 
-    public void ChangeItem()
+    private void Awake()
+    {
+        ResetViewer();
+    }
+
+    public void ChangeItem(Sprite sprite, int charged)
     {
         if (!itemImage.enabled) itemImage.enabled = true;
 
-        //itemImage = newItemData.itemImage;
-        //skillBarImage.fillAmount = newItemData.charged / MAX_NUMBER_OF_CHARGES;
+        itemImage.sprite = sprite;
+        skillBarImage.fillAmount = (float)charged / StaticData.MAX_NUMBER_OF_CHARGES;
     }
 
     public void ResetViewer()

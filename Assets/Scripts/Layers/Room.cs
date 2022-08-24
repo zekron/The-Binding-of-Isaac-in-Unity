@@ -12,7 +12,6 @@ public class Room : MonoBehaviour
     public MapRoomInfo RoomInfo;
 
     [SerializeField] private RoomLayoutSO roomLayout;//布局文件
-    [SerializeField] private TwoVector3EventChannelSO onEnterRoomEvent;
 
     public bool isArrived = false;//是否已到达
     public bool isCleared = false;//是否已清理过
@@ -28,6 +27,10 @@ public class Room : MonoBehaviour
     private List<Door> roomDoors;
     private int doorsCount => roomDoors.Count;
     #endregion
+
+    [Header("Events")]
+    [SerializeField] private TwoVector3EventChannelSO onEnterRoomEvent;
+    [SerializeField] private VoidEventChannelSO onClearRoomEvent;
 
     #region Test
     [Header("Test Part")]
@@ -85,7 +88,7 @@ public class Room : MonoBehaviour
         for (int i = 0; i < roomLayout.propList.Count; i++)
         {
             var prop = ObjectPoolManager.Release(
-                    roomLayout.propList[i].value1.Generate(),
+                    roomLayout.propList[i].value1.GenerateObject(),
                     roomLayout.propList[i].value2.ToRoomCoordinate().ToRoomPosition().ToWorldPosition(transform),
                     Quaternion.identity,
                     layoutTransform).GetComponentInChildren<IObjectInRoom>();

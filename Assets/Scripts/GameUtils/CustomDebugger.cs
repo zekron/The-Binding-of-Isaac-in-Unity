@@ -1,6 +1,8 @@
 using System;
+using System.ComponentModel;
 using UnityEngine;
 
+[EditorBrowsable(EditorBrowsableState.Never)]
 public class CustomDebugger
 {
     public static bool CanLog = true;

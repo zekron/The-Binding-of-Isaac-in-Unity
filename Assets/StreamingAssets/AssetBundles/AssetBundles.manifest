@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 836265507
+CRC: 3450323801
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -10,4 +10,17 @@ AssetBundleManifest:
       Dependencies: {}
     Info_2:
       Name: prefab_door.ab
+      Dependencies:
+        Dependency_0: eventchannels.ab
+    Info_3:
+      Name: items.ab
+      Dependencies:
+        Dependency_0: eventchannels.ab
+    Info_4:
+      Name: objectpools.ab
+      Dependencies:
+        Dependency_0: gameui.ab
+        Dependency_1: items.ab
+    Info_5:
+      Name: eventchannels.ab
       Dependencies: {}

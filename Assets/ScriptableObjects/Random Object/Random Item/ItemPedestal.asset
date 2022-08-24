@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8080b31c48a41e4b967c09f2a088145, type: 3}
+  m_Name: ItemPedestal
+  m_EditorClassIdentifier: 
+  RandomObjectArray:
+  - RandomObject: {fileID: 2853977731027570761, guid: 0766b5c49abf2c94d8c4492695764a88, type: 3}
+    ratio: 100
+  spriteInEditorWindow: {fileID: 21300000, guid: d8ce82363dfe49f40a32b902bdeb6c67, type: 3}

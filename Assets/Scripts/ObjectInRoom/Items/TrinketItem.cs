@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrinketItem : CollectableItem
+public class TrinketItem : ItemObject
 {
-    public override void OnPlayerCollect()
+    protected override void OnPlayerCollect()
     {
-        throw new System.NotImplementedException();
+        gamePlayer.GetTrinket(itemData.ElementID);
     }
 }
