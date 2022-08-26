@@ -13,22 +13,22 @@ namespace AssetBundleFramework
 #if UNITY_EDITOR
         public static string GetABPackPath(string abName = null)
         {
-            return Path.Combine(Application.streamingAssetsPath, "PC", abName ?? "PC");
+            return Path.Combine(Application.streamingAssetsPath, "AssetBundles/PC", abName ?? "PC");
         }
 #elif UNITY_STANDALONE
         public static string GetABPackPath(string abName=null)
         {
-            return Path.Combine(Application.persistentDataPath,"PC",abName??"PC");
+            return Path.Combine(Application.persistentDataPath,"AssetBundles/PC",abName??"PC");
         }
 #elif UNITY_ANDROID
         public static string GetABPackPath(string abName=null)
         {
-            return Path.Combine(Application.persistentDataPath,"Android",abName??"Android");
+            return Path.Combine(Application.persistentDataPath,"AssetBundles/PC",abName??"Android");
         }
 #elif UNITY_IPHONE
         public static string GetABPackPath(string abName=null)
         {
-            return Path.Combine(Application.persistentDataPath,"IOS",abName??"IOS");
+            return Path.Combine(Application.persistentDataPath,"AssetBundles/PC",abName??"IOS");
         }
 #endif
         /// <summary>
@@ -38,22 +38,22 @@ namespace AssetBundleFramework
 #if UNITY_EDITOR
         public static string GetIniPath()
         {
-            return Path.Combine(Application.streamingAssetsPath, "PC", "配置文件/ABIni.json");
+            return Path.Combine(Application.streamingAssetsPath, "AssetBundles", "配置文件/ABIni.json");
         }
 #elif UNITY_STANDALONE
         public static string GetIniPath()
         {
-            return Path.Combine(Application.persistentDataPath, "PC", "配置文件/ABIni.json");
+            return Path.Combine(Application.persistentDataPath, "AssetBundles", "配置文件/ABIni.json");
         }
 #elif UNITY_ANDROID
         public static string GetIniPath()
         {
-            return Path.Combine(Application.persistentDataPath, "PC", "配置文件/ABIni.json");
+            return Path.Combine(Application.persistentDataPath, "AssetBundles", "配置文件/ABIni.json");
         }
 #elif UNITY_IPHONE
         public static string GetIniPath()
         {
-            return Path.Combine(Application.persistentDataPath, "PC", "配置文件/ABIni.json");
+            return Path.Combine(Application.persistentDataPath, "AssetBundles", "配置文件/ABIni.json");
         }
 #endif
     }

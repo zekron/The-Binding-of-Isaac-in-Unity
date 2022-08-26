@@ -43,7 +43,10 @@ public class CustomEditorMenu : EditorWindow
     [MenuItem("Custom Menu/Assets Bundle/Build AssetBundles")]
     static void BuildAllAssetBundles()
     {
-        string dir = string.Format("{0}/AssetBundles", Application.streamingAssetsPath);
+#if UNITY_EDITOR
+        var platform = "PC";
+#endif
+        string dir = string.Format("{0}/AssetBundles/{1}", Application.streamingAssetsPath, platform);
         //判断该目录是否存在
         if (Directory.Exists(dir) == false)
         {

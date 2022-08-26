@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 3450323801
+CRC: 125494998
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -23,4 +23,11 @@ AssetBundleManifest:
         Dependency_1: items.ab
     Info_5:
       Name: eventchannels.ab
+      Dependencies: {}
+    Info_6:
+      Name: prefabs.ab
+      Dependencies:
+        Dependency_0: materials.ab
+    Info_7:
+      Name: materials.ab
       Dependencies: {}

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.IO;
+using UnityEngine;
 
 namespace AssetBundleFramework
 {
@@ -14,10 +15,17 @@ namespace AssetBundleFramework
             //在PersistentDataPath里面看看有没有对应的AssetBundle,配置文件信息
             AssetBundle ab;
             string manifestPath = ABDefine.GetABPackPath();
-            Debug.Log(manifestPath);
             ab = AssetBundle.LoadFromFile(manifestPath);
-            //初始化Manifest
-            _ABManifestLoader = new ABManifestLoader(ab);
+            var abManifest = ab.LoadAsset<AssetBundleManifest>("PC");
+            //string[] dependencies = abManifest.GetAllAssetBundles();
+            foreach (string dependency in ab.GetAllAssetNames())
+            {
+                //AssetBundle.LoadFromFile(Path);
+                Debug.Log(dependency);
+            }
+
+                //初始化Manifest
+                _ABManifestLoader = new ABManifestLoader(ab);
             //初始化图
             _Graph = new ABGraphWithOrthogonalList();
         }

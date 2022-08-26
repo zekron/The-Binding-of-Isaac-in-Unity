@@ -1,0 +1,34 @@
+ManifestFileVersion: 0
+CRC: 2831018765
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 84f656a8b916f1a7fa87c260600933bf
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ab5c3ac6690a67c394a7bbb596bfcfed
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 61
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3afa797654a6ec84faac661d259a6877, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/Prefabs/Square.prefab
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/materials.ab
