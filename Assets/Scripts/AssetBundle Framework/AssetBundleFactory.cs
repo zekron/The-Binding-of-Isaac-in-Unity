@@ -10,25 +10,28 @@ namespace AssetBundleFramework
     {
         public ABGraphWithOrthogonalList _Graph;
         private ABManifestLoader _ABManifestLoader; //会放在游戏结束
+
         public AssetBundleFactory()
         {
             //在PersistentDataPath里面看看有没有对应的AssetBundle,配置文件信息
             AssetBundle ab;
             string manifestPath = ABDefine.GetABPackPath();
+            Debug.Log(manifestPath);
             ab = AssetBundle.LoadFromFile(manifestPath);
-            var abManifest = ab.LoadAsset<AssetBundleManifest>("PC");
-            //string[] dependencies = abManifest.GetAllAssetBundles();
-            foreach (string dependency in ab.GetAllAssetNames())
+            var abManifest = ab.LoadAsset<AssetBundleManifest>("assetbundlemanifest");
+
+            //初始化Manifest
+            _ABManifestLoader = new ABManifestLoader(ab);
+            string[] abs = abManifest.GetAllAssetBundles();
+            foreach (string subAssetBundle in abs)
             {
                 //AssetBundle.LoadFromFile(Path);
-                Debug.Log(dependency);
+                _ABManifestLoader.GetDependences(subAssetBundle);
             }
-
-                //初始化Manifest
-                _ABManifestLoader = new ABManifestLoader(ab);
             //初始化图
             _Graph = new ABGraphWithOrthogonalList();
         }
+
         /// <summary>
         /// 无依赖AssetBundle包的加载方式
         /// </summary>
