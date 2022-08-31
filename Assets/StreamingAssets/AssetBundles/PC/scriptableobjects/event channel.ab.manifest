@@ -1,0 +1,48 @@
+ManifestFileVersion: 0
+CRC: 2897716860
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3a306df9d4bd969af533045754b67af1
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 14b9fd245e4c66d411cb0fdaa6d68f7b
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 3244e16a4938b014e858c62096149173, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6de2252d89b31dc4dab1ba1ccc2eca8b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 091a8ca66a12ddb4b8d89fc71b3c8047, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 13303d5127917ee4c9e00dba69fec7bb, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6ed7fe78cb52596409576b432b60ec93, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a43d3432379f9434ca78249ee42b973e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 79d55c229c430914193a0b96d54c4af9, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c976fb651fe610044a5c07e755f07bef, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 03cf1a6f9feeef444a373b9c2811c71f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: fce33b3cfc4a6a14da71888d5f3a7db8, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/ScriptableObjects/Event Channel/OnClearRoom Event SO.asset
+- Assets/ABRes/ScriptableObjects/Event Channel/OnEnterRoom Event SO.asset
+- Assets/ABRes/ScriptableObjects/Event Channel/OnCreateRoom Event SO.asset
+- Assets/ABRes/ScriptableObjects/Event Channel/Vector3OnEnterRoom Event SO.asset
+- Assets/ABRes/ScriptableObjects/Event Channel/OnPlayerPickupDataChanged Evnet SO.asset
+- Assets/ABRes/ScriptableObjects/Event Channel/Enum Event SO/OnDoorStatusChanged
+  Event SO.asset
+- Assets/ABRes/ScriptableObjects/Event Channel/Enum Event SO/OnEnterDoor Event SO.asset
+- Assets/ABRes/ScriptableObjects/Event Channel/OnPlayerHealthDataChanged Event SO.asset
+- Assets/ABRes/ScriptableObjects/Event Channel/OnPlayerRefreshGetGoldenKey Event
+  SO.asset
+- Assets/ABRes/ScriptableObjects/Event Channel/OnActiveItemChanged Event SO.asset
+Dependencies: []

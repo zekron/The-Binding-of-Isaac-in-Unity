@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 517709001
+CRC: 2988645306
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b8dcf7d520d1ed45183fcd487447f67f
+    Hash: 53f92c27b026a603ab88cf9595f3780b
   TypeTreeHash:
     serializedVersion: 2
     Hash: d65de355710053f9ac69d32d5c5c4f15
@@ -89,5 +89,5 @@ Assets:
 - Assets/ScriptableObjects/ObjectPool/Pickup Pool SO.asset
 - Assets/ScriptableObjects/ObjectPool/ActiveItem Pool SO.asset
 Dependencies:
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/gameui.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/items.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/gameui.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/items.ab

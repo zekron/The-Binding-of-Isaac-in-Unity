@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 1640696843
+CRC: 3971037180
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 0099c165d08214b75a66c55cb23eb7e7
+    Hash: 94387d8be0a6236d537c4b8e8a103ef2
   TypeTreeHash:
     serializedVersion: 2
     Hash: 5db8c5b35a1e3f30381d064230e7d569
@@ -63,4 +63,5 @@ Assets:
 - Assets/ScriptableObjects/TrinketItem TreeAsset.asset
 - Assets/ScriptableObjects/Random Object/Random Item/ItemPedestal.asset
 Dependencies:
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/eventchannels.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/event
+  channel.ab

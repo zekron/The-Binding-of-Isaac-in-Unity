@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3536856904
+CRC: 3659992429
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: fcf8d0f6e5b853a943dd77a65efe69d4
+    Hash: 238d0f5cfddc43d3025a976574f19058
   TypeTreeHash:
     serializedVersion: 2
     Hash: 525a815c6e9c896486727241c5a5306b
@@ -59,4 +59,5 @@ Assets:
 - Assets/Prefabs/Doors/Door_Arcade.prefab
 - Assets/Prefabs/Doors/Door_Curse.prefab
 Dependencies:
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/eventchannels.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/event
+  channel.ab

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2831018765
+CRC: 1275739342
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 84f656a8b916f1a7fa87c260600933bf
+    Hash: 7d4a6cb6e048005cf87d4813f2c4597a
   TypeTreeHash:
     serializedVersion: 2
     Hash: ab5c3ac6690a67c394a7bbb596bfcfed
@@ -29,6 +29,7 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
-- Assets/Prefabs/Square.prefab
+- Assets/ABRes/Prefabs/Circle.prefab
+- Assets/ABRes/Prefabs/Square.prefab
 Dependencies:
 - C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/materials.ab

@@ -106,6 +106,7 @@ public class RoomEditorWindow : EditorWindow
             {
                 EditorUtility.SetDirty(roomLayout);
                 AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
             }
         }
         GUILayout.EndHorizontal();

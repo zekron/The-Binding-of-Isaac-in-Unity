@@ -54,6 +54,8 @@ public class CustomEditorMenu : EditorWindow
         }
         //参数一为打包到哪个路径，参数二压缩选项  参数三 平台的目标
         BuildPipeline.BuildAssetBundles(dir, BuildAssetBundleOptions.None, BuildTarget.StandaloneWindows64);
+        AssetDatabase.SaveAssets();
+        AssetDatabase.Refresh();
     }
 
     private static string _settingsPath = "Assets/Custom Collision 2D/Resources/Custom Physics Settings.asset";
