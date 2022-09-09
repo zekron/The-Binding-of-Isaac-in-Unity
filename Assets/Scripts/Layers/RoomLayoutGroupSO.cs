@@ -17,43 +17,43 @@ public class RoomLayoutGroupSO : ScriptableObject
     [SerializeField] private RoomLayoutSO DevilRoomLayout;
     [SerializeField] private RoomLayoutSO AngelRoomLayout;
 
-    public RoomLayoutSO GetRoomLayoutByType(RoomType type)
+    public RoomLayoutSO GetRoomLayoutByType(RoomObjectType type)
     {
         switch (type)
         {
-            case RoomType.Starting:
-                return EmptyRoomLayout;
-            case RoomType.Normal:
+            case RoomObjectType.Starting:
+                return StartingRoomLayout;
+            case RoomObjectType.Normal:
                 return NormalRoomLayout[Random.Range(0, NormalRoomLayout.Length)];
-            case RoomType.Boss:
+            case RoomObjectType.Boss:
                 return BossRoomLayout[Random.Range(0, BossRoomLayout.Length)];
-            case RoomType.MiniBoss:
+            case RoomObjectType.MiniBoss:
                 break;
-            case RoomType.Devil:
+            case RoomObjectType.Devil:
                 break;
-            case RoomType.Angel:
+            case RoomObjectType.Angel:
                 break;
-            case RoomType.Treasure:
+            case RoomObjectType.Treasure:
                 return TreasureRoomLayout[Random.Range(0, TreasureRoomLayout.Length)];
-            case RoomType.Shop:
+            case RoomObjectType.Shop:
                 return ShopRoomLayout[Random.Range(0, ShopRoomLayout.Length)];
-            case RoomType.Library:
+            case RoomObjectType.Library:
                 break;
-            case RoomType.Arcade:
+            case RoomObjectType.Arcade:
                 break;
-            case RoomType.Challenge:
+            case RoomObjectType.Challenge:
                 break;
-            case RoomType.BossChallenge:
+            case RoomObjectType.BossChallenge:
                 break;
-            case RoomType.Curse:
+            case RoomObjectType.Curse:
                 break;
-            case RoomType.Sacrifice:
+            case RoomObjectType.Sacrifice:
                 break;
-            case RoomType.Secret:
-                break;
-            case RoomType.SuperSecret:
-                break;
-            case RoomType.Error:
+            case RoomObjectType.Secret:
+                return SecretRoomLayout[Random.Range(0, SecretRoomLayout.Length)];
+            case RoomObjectType.SuperSecret:
+                return SuperSecretRoomLayout[Random.Range(0, SuperSecretRoomLayout.Length)];
+            case RoomObjectType.Error:
                 break;
             default:
                 break;

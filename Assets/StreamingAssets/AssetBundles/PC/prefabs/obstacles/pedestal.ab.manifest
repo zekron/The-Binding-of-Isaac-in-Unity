@@ -1,0 +1,40 @@
+ManifestFileVersion: 0
+CRC: 1984310726
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9fc4ac172da090e0d261e3cbd95084c3
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 68d85732940e55f6ace19644560a79f3
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2e5a45511aa61014db55b65bd7428d15, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f712e0715f57c724d96816de37e8f8e1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 4910d3a433d623a4bb7fe2cdd8164942, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 74b3c366b8ee9744fbb85a58735fb0d3, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Prefabs/Obstacles/Pedestal/Pedestal.prefab
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/random
+  object/random item.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/active.ab

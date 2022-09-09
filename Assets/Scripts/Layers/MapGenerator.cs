@@ -17,7 +17,7 @@ public class MapGenerator
         //生成初始房间地图
         var roomNumber = GetRoomNumberWithLevelFloorDepth(floorDepth, curseType, isHardMode);
         var deadEnds = GetMinDeadEndsWithFloorDepth(floorDepth, curseType);
-        var result = new MapRoomInfo(GameCoordinate.RoomOffsetPoint, null, RoomType.Starting);
+        var result = new MapRoomInfo(GameCoordinate.RoomOffsetPoint, null, RoomObjectType.Starting);
         coordinateQueue.Enqueue(result);
         coordinateList.Add(GameCoordinate.RoomOffsetPoint);
         roomNumber--;
@@ -44,15 +44,15 @@ public class MapGenerator
         //TODO: 获得死路房间坐标，设置特殊房间
         deadEndList.Sort((x, y) => y.Depth - x.Depth);
 
-        PlaceRoom(RoomType.Boss);
-        PlaceRoom(RoomType.SuperSecret);
+        PlaceRoom(RoomObjectType.Boss);
+        PlaceRoom(RoomObjectType.SuperSecret);
         if (CanPlaceShopRoom(floorDepth))
         {
-            PlaceRoom(RoomType.Shop);
+            PlaceRoom(RoomObjectType.Shop);
         }
         if (CanPlaceTreasureRoom(floorDepth))
         {
-            PlaceRoom(RoomType.Treasure);
+            PlaceRoom(RoomObjectType.Treasure);
         }
         TryPlacingSecret();
 
@@ -165,46 +165,46 @@ public class MapGenerator
         return newPoint;
     }
 
-    private static void PlaceRoom(RoomType roomType)
+    private static void PlaceRoom(RoomObjectType roomType)
     {
         if (deadEndList.Count <= 0) return;
 
         MapRoomInfo roomInfo = deadEndList[0];
         switch (roomType)
         {
-            case RoomType.Boss:
-                deadEndList[0].CurrentRoomType = RoomType.Boss;
+            case RoomObjectType.Boss:
+                deadEndList[0].CurrentRoomType = RoomObjectType.Boss;
                 deadEndList.RemoveAt(0);
                 break;
-            case RoomType.SuperSecret:
-                deadEndList[0].CurrentRoomType = RoomType.SuperSecret;
+            case RoomObjectType.SuperSecret:
+                deadEndList[0].CurrentRoomType = RoomObjectType.SuperSecret;
                 deadEndList.RemoveAt(0);
                 break;
-            case RoomType.Shop:
-                deadEndList[0].CurrentRoomType = RoomType.Shop;
+            case RoomObjectType.Shop:
+                deadEndList[0].CurrentRoomType = RoomObjectType.Shop;
                 deadEndList.RemoveAt(0);
                 break;
-            case RoomType.Treasure:
-                deadEndList[0].CurrentRoomType = RoomType.Treasure;
+            case RoomObjectType.Treasure:
+                deadEndList[0].CurrentRoomType = RoomObjectType.Treasure;
                 deadEndList.RemoveAt(0);
                 break;
-            case RoomType.Sacrifice:
+            case RoomObjectType.Sacrifice:
                 break;
-            case RoomType.Library:
+            case RoomObjectType.Library:
                 break;
-            case RoomType.Curse:
+            case RoomObjectType.Curse:
                 break;
-            case RoomType.MiniBoss:
+            case RoomObjectType.MiniBoss:
                 break;
-            case RoomType.Challenge:
+            case RoomObjectType.Challenge:
                 break;
-            case RoomType.BossChallenge:
+            case RoomObjectType.BossChallenge:
                 break;
-            case RoomType.Arcade:
+            case RoomObjectType.Arcade:
                 break;
-            case RoomType.Secret:
+            case RoomObjectType.Secret:
                 break;
-            case RoomType.Starting:
+            case RoomObjectType.Starting:
                 break;
             default:
                 break;

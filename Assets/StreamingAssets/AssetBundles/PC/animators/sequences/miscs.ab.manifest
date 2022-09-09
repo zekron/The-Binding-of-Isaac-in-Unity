@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 4273157321
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8a176ce55b28a086521b232e1866d569
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ef406d63fb068107fe048827844e7ae7
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 325a56bd18e380943928d2fc92054b5f, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Animators/Sequences/Miscs/Tear_Normal.asset
+- Assets/ABRes/Animators/Sequences/Miscs/FX_Smoke.asset
+- Assets/ABRes/Animators/Sequences/Miscs/FX_Arcade.asset
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/fx/arcade.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/fx/smoke.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/tears/tear_normal.ab

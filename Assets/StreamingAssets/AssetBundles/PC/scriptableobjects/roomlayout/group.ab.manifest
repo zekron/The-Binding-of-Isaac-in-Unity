@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 746432443
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 0eaa9be1f8324c5b08c7bfa7fea29417
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 640f70c5438d0e888678e91cc5705cd7
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 2936d85f86a06e749a0e4c58436a84c7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bf1967c1ef7080c4d91da24d9ad370ef, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/ScriptableObjects/RoomLayout/Group/Basement RoomLayoutGroup.asset
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/roomlayout/bossroom.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/roomlayout/normalroom.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/roomlayout/secretroom.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/roomlayout/shoproom.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/roomlayout/startingroom.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/roomlayout/treasureroom.ab

@@ -1,0 +1,36 @@
+ManifestFileVersion: 0
+CRC: 1938679637
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 3ee0ed14ddabe46edd26161b5aa95301
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2e3882bbf227577821f7d844ed0f9767
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 40ce7bdfc6efed64eba72570b1f1fef6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3259d1d2888ecae4f86415b9f4229643, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f712e0715f57c724d96816de37e8f8e1, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Prefabs/Obstacles/Rock/Rock.prefab
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/obstacles/rocks.ab

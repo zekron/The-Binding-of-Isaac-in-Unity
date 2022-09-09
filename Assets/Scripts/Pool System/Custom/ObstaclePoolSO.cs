@@ -2,13 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Obstacle Pool SO", menuName = "Scriptable Object/Object Prefab Pool/Obstacle Pool")]
-public class ObstaclePoolSO : ObjectPoolPrefabSO
+public enum ObstacleObjectType
 {
-    public GameObject RockPrefab => Pools[0].Prefab;
-    public GameObject PrefabPoopNormal => Pools[1].Prefab;
-    public GameObject PrefabPoopCorny => Pools[2].Prefab;
-    public GameObject PrefabPoopGold => Pools[3].Prefab;
-    public GameObject PrefabPoopRed => Pools[4].Prefab;
-    public GameObject PrefabFirePlace => Pools[5].Prefab;
+    Rock,
+
+    Poop_Normal,
+    Poop_Corny,
+    Poop_Gold,
+    Poop_Red,
+
+    FIrePlace,
+
+    Pedestal,
+}
+
+[CreateAssetMenu(fileName = "Obstacle Pool SO", menuName = "Scriptable Object/Object Prefab Pool/Obstacle Pool")]
+public class ObstaclePoolSO : ScriptableObject, IPools
+{
+    public Dictionary<ObstacleObjectType, GameObject> ObstacleObjectDic;
+    [SerializeField] private ObstacleObjectPool[] obstaclePools;
+
+    public ObjectPool[] Pools => obstaclePools;
+
+    public void Initialize()
+    {
+        ObstacleObjectDic = new Dictionary<ObstacleObjectType, GameObject>();
+
+        foreach (var pool in obstaclePools)
+        {
+#if UNITY_EDITOR
+            if (ObstacleObjectDic.ContainsKey(pool.ObjectType))
+            {
+                Debug.LogError("Same prefab type in multiple pools! Prefab type: " + pool.ObjectType);
+
+                continue;
+            }
+#endif
+            ObstacleObjectDic.Add(pool.ObjectType, pool.Prefab);
+        }
+    }
 }

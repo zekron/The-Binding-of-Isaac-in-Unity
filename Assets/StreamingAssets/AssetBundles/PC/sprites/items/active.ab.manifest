@@ -1,0 +1,71 @@
+ManifestFileVersion: 0
+CRC: 2077230005
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 21c4b7c4501e5a85dedc07c5f3fdd788
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Items/Active/Active_40.png
+- Assets/ABRes/Sprites/Items/Active/Active_33.png
+- Assets/ABRes/Sprites/Items/Active/Active_22.png
+- Assets/ABRes/Sprites/Items/Active/Active_09.png
+- Assets/ABRes/Sprites/Items/Active/Active_30.png
+- Assets/ABRes/Sprites/Items/Active/Active_18.png
+- Assets/ABRes/Sprites/Items/Active/Active_44.png
+- Assets/ABRes/Sprites/Items/Active/Active_05.png
+- Assets/ABRes/Sprites/Items/Active/Active_15.png
+- Assets/ABRes/Sprites/Items/Active/Active_03.png
+- Assets/ABRes/Sprites/Items/Active/Active_37.png
+- Assets/ABRes/Sprites/Items/Active/Active_23.png
+- Assets/ABRes/Sprites/Items/Active/Active_06.png
+- Assets/ABRes/Sprites/Items/Active/Active_43.png
+- Assets/ABRes/Sprites/Items/Active/Active_26.png
+- Assets/ABRes/Sprites/Items/Active/Active_52.png
+- Assets/ABRes/Sprites/Items/Active/Active_10.png
+- Assets/ABRes/Sprites/Items/Active/Active_034_The Book of Belial.png
+- Assets/ABRes/Sprites/Items/Active/Active_34.png
+- Assets/ABRes/Sprites/Items/Active/Active_035_The Necronomicon.png
+- Assets/ABRes/Sprites/Items/Active/Active_14.png
+- Assets/ABRes/Sprites/Items/Active/Active_01.png
+- Assets/ABRes/Sprites/Items/Active/Active_19.png
+- Assets/ABRes/Sprites/Items/Active/Active_07.png
+- Assets/ABRes/Sprites/Items/Active/Active_105_The D6.png
+- Assets/ABRes/Sprites/Items/Active/Active_11.png
+- Assets/ABRes/Sprites/Items/Active/Active_08.png
+- Assets/ABRes/Sprites/Items/Active/Active_32.png
+- Assets/ABRes/Sprites/Items/Active/Active_20.png
+- Assets/ABRes/Sprites/Items/Active/Active_28.png
+- Assets/ABRes/Sprites/Items/Active/Active_51.png
+- Assets/ABRes/Sprites/Items/Active/Active_036_The Poop.png
+- Assets/ABRes/Sprites/Items/Active/Active_Pedestal.png
+- Assets/ABRes/Sprites/Items/Active/Active_53.png
+- Assets/ABRes/Sprites/Items/Active/Active_46.png
+- Assets/ABRes/Sprites/Items/Active/Active_29.png
+- Assets/ABRes/Sprites/Items/Active/Active_12.png
+- Assets/ABRes/Sprites/Items/Active/Active_47.png
+- Assets/ABRes/Sprites/Items/Active/Active_24.png
+- Assets/ABRes/Sprites/Items/Active/Active_21.png
+- Assets/ABRes/Sprites/Items/Active/Active_16.png
+- Assets/ABRes/Sprites/Items/Active/Active_033_The Bible.png
+- Assets/ABRes/Sprites/Items/Active/Active_36.png
+- Assets/ABRes/Sprites/Items/Active/Active_39.png
+- Assets/ABRes/Sprites/Items/Active/Active_41.png
+- Assets/ABRes/Sprites/Items/Active/Active_02.png
+- Assets/ABRes/Sprites/Items/Active/Active_04.png
+- Assets/ABRes/Sprites/Items/Active/Active_27.png
+- Assets/ABRes/Sprites/Items/Active/Active_38.png
+- Assets/ABRes/Sprites/Items/Active/Active_31.png
+- Assets/ABRes/Sprites/Items/Active/Active_45.png
+- Assets/ABRes/Sprites/Items/Active/Active_13.png
+- Assets/ABRes/Sprites/Items/Active/Active_17.png
+Dependencies: []

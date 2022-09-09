@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 2258111044
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 38e8306a33c20e42846666a2a03dd903
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 22134e527991f300df5e4312d912d2b1
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 2e5a45511aa61014db55b65bd7428d15, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/ScriptableObjects/Random Object/Random Item/Random Item.asset
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/active.ab

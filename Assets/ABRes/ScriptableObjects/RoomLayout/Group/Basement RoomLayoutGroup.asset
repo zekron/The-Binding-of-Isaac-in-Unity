@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2936d85f86a06e749a0e4c58436a84c7, type: 3}
+  m_Name: Basement RoomLayoutGroup
+  m_EditorClassIdentifier: 
+  NormalRoomLayout:
+  - {fileID: 11400000, guid: dd911e8f924732d4eaf6ad31b3637ee7, type: 2}
+  - {fileID: 11400000, guid: 1a08351b3232d0147a336db74cb279d0, type: 2}
+  - {fileID: 11400000, guid: 5f2009bdd47a6be448810d6492d73c42, type: 2}
+  - {fileID: 11400000, guid: affed3328dde9e04a890ea0298a9e87f, type: 2}
+  - {fileID: 11400000, guid: bd6a72c87d011b04e9080b6a528d5de2, type: 2}
+  - {fileID: 11400000, guid: 3d011caa9173def4cac095a319595ae4, type: 2}
+  BossRoomLayout:
+  - {fileID: 11400000, guid: 7bdd6b2b443a78c4baeb260e5ca942cf, type: 2}
+  TreasureRoomLayout:
+  - {fileID: 11400000, guid: 6f91d5a22644640499cbb48d78b1deae, type: 2}
+  ShopRoomLayout:
+  - {fileID: 11400000, guid: 2f533e949e1c92749be9eb1030550f43, type: 2}
+  SecretRoomLayout:
+  - {fileID: 11400000, guid: ab0318772c0780c41b9871cf98202ca4, type: 2}
+  SuperSecretRoomLayout:
+  - {fileID: 11400000, guid: ab0318772c0780c41b9871cf98202ca4, type: 2}
+  EmptyRoomLayout: {fileID: 0}
+  StartingRoomLayout: {fileID: 11400000, guid: b9f3d0ebcd313434d8da07390ec74669, type: 2}
+  DevilRoomLayout: {fileID: 0}
+  AngelRoomLayout: {fileID: 0}

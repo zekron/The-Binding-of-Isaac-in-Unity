@@ -23,7 +23,10 @@ namespace AssetBundleFramework
                 return _Instance;
             }
         }
-        private Dictionary<string, string> _ResPath; //key - 资源名称 ， value - assetbundle 名称
+        /// <summary>
+        /// key - 资源名称 ， value - assetbundle 名称
+        /// </summary>
+        private Dictionary<string, string> _ResPath;
         public AssetBundleFactory Factory;
         public AssetBundleManager()
         {
@@ -32,13 +35,20 @@ namespace AssetBundleFramework
             //初始化AB资源集合
             _ResPath = new Dictionary<string, string>();
             ABIni ini = JsonConvert.DeserializeObject<ABIni>(File.ReadAllText(ABDefine.GetIniPath()));
-            Debug.Log("配置文件读取成功！");
-            Debug.Log("资源与AB包对应关系如下：");
+            if (ini != null) Debug.Log("配置文件读取成功！");
+            //Debug.Log("资源与AB包对应关系如下：");
             for (int i = 0; i < ini.Datas.Count; i++)
             {
                 _ResPath.Add(ini.Datas[i].ResName, ini.Datas[i].ABName);
-                Debug.Log($"{ini.Datas[i].ResName} -> {ini.Datas[i].ABName}");
+                //Debug.Log($"{ini.Datas[i].ResName} -> {ini.Datas[i].ABName}");
             }
+        }
+
+        public void LoadAssetBundle(string abName)
+        {
+            if (!_ResPath.ContainsValue(abName)) Debug.LogError($"配置表中并没有登记该资产包: {abName}");
+
+            Factory.GetABLoader(abName);
         }
 
         /// <summary>
@@ -47,13 +57,15 @@ namespace AssetBundleFramework
         /// <typeparam name="T"></typeparam>
         /// <param name="resName"></param>
         /// <returns></returns>
-        public T LoadAsset<T>(string resName) where T : UnityEngine.Object
+        public T LoadAsset<T>(string resName) where T : Object
         {
             T t;
             if (!_ResPath.ContainsKey(resName))
             {
                 //从Resouces下加载
                 t = Resources.Load<T>(resName);
+                Debug.Log($"<color=yellow>无法在已登记的Asset Bundles配置表中加载对应资源文件： {resName}</color>");
+                Debug.Log($"现从Resources加载文件 -> {t.name}");
                 return t;
             }
             //从AB中加载
@@ -67,9 +79,10 @@ namespace AssetBundleFramework
             t = loader.LoadAsset<T>(resName);
             if (!t)
             {
-                Debug.LogError($"找不到这样的资源文件！ {resName}");
+                Debug.LogError($"找不到 type = {typeof(T)}, name = {resName} 的资源文件！ ");
                 return null;
             }
+            Debug.Log($"<color=green>成功从Asset Bundles加载对应资源文件： {resName}</color>");
             return t;
         }
         /// <summary>

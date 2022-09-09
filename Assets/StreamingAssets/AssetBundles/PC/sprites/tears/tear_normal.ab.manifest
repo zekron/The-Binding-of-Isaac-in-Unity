@@ -1,0 +1,35 @@
+ManifestFileVersion: 0
+CRC: 3493596487
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9582854b3f386bcf2019717cc51cda3b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Tears/Tear_Normal/Tear_Normal (13).png
+- Assets/ABRes/Sprites/Tears/Tear_Normal/Tear_Normal (14).png
+- Assets/ABRes/Sprites/Tears/Tear_Normal/Tear_Normal (9).png
+- Assets/ABRes/Sprites/Tears/Tear_Normal/Tear_Normal (5).png
+- Assets/ABRes/Sprites/Tears/Tear_Normal/Tear_Normal (4).png
+- Assets/ABRes/Sprites/Tears/Tear_Normal/Tear_Normal (8).png
+- Assets/ABRes/Sprites/Tears/Tear_Normal/Tear_Normal (7).png
+- Assets/ABRes/Sprites/Tears/Tear_Normal/Tear_Normal (15).png
+- Assets/ABRes/Sprites/Tears/Tear_Normal/Tear_Normal (11).png
+- Assets/ABRes/Sprites/Tears/Tear_Normal/Tear_Normal (16).png
+- Assets/ABRes/Sprites/Tears/Tear_Normal/Tear_Normal (3).png
+- Assets/ABRes/Sprites/Tears/Tear_Normal/Tear_Normal (6).png
+- Assets/ABRes/Sprites/Tears/Tear_Normal/Tear_Normal (2).png
+- Assets/ABRes/Sprites/Tears/Tear_Normal/Tear_Normal (17).png
+- Assets/ABRes/Sprites/Tears/Tear_Normal/Tear_Normal (10).png
+- Assets/ABRes/Sprites/Tears/Tear_Normal/Tear_Normal (12).png
+- Assets/ABRes/Sprites/Tears/Tear_Normal/Tear_Normal (1).png
+Dependencies: []

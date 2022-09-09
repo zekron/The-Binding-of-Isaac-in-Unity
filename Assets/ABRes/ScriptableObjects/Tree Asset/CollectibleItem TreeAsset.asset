@@ -1,0 +1,177 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76906eb7d3c91a848b722d2010d5f4a3, type: 3}
+  m_Name: CollectibleItem TreeAsset
+  m_EditorClassIdentifier: 
+  m_TreeElements:
+  - m_ID: -1
+    m_Name: Root
+    m_Depth: -1
+    ItemQuote: 
+    ItemDescription: Null
+    ItemSprite: {fileID: 0}
+    ItemPrefab: {fileID: 0}
+    CollectionSprite: {fileID: 0}
+  - m_ID: 1
+    m_Name: The Sad Onion
+    m_Depth: 0
+    ItemQuote: Tears Up
+    ItemDescription: Increases tears by 0.7.
+    ItemSprite: {fileID: 21300000, guid: 98b7df34cee0f1c48b1158db977d99b4, type: 3}
+    ItemPrefab: {fileID: 0}
+    CollectionSprite: {fileID: 21300000, guid: 390a8ee37ee63fc45b3a671a356c8e18, type: 3}
+  - m_ID: 2
+    m_Name: The Inner Eye
+    m_Depth: 0
+    ItemQuote: Triple Shot
+    ItemDescription: Grants triple shot but decreases tears.
+    ItemSprite: {fileID: 21300000, guid: 4f747440b48ba494b838eb5d2ea7d39a, type: 3}
+    ItemPrefab: {fileID: 0}
+    CollectionSprite: {fileID: 21300000, guid: d97d788b66eb2524689c328db9011f6f, type: 3}
+  - m_ID: 3
+    m_Name: Spoon Bender
+    m_Depth: 0
+    ItemQuote: Homing shots
+    ItemDescription: Grants Isaac homing tears.
+    ItemSprite: {fileID: 21300000, guid: 2166883d3346b2c439d25ab1f566c8a4, type: 3}
+    ItemPrefab: {fileID: 0}
+    CollectionSprite: {fileID: 21300000, guid: 74c37643a7e9540469d51eeb249506c0, type: 3}
+  - m_ID: 4
+    m_Name: Max's Head
+    m_Depth: 0
+    ItemQuote: DMG up
+    ItemDescription: Increases Damage by 0.5, and increases damage multiplier by
+      x1.5.
+    ItemSprite: {fileID: 21300000, guid: d78e8e72c3a915b488722b4d05d6703f, type: 3}
+    ItemPrefab: {fileID: 0}
+    CollectionSprite: {fileID: 21300000, guid: f4482cf81766b364eb87ff313523a2b6, type: 3}
+  - m_ID: 5
+    m_Name: My Reflection
+    m_Depth: 0
+    ItemQuote: Boomerang tears
+    ItemDescription: Gives Isaac's tears a boomerang effect.
+    ItemSprite: {fileID: 21300000, guid: 9e7e6c40dcf7df04781e6d42027bc36d, type: 3}
+    ItemPrefab: {fileID: 0}
+    CollectionSprite: {fileID: 21300000, guid: af65fdd19e726e54086d50dc325e3431, type: 3}
+  - m_ID: 7
+    m_Name: Blood Of The Martyr
+    m_Depth: 0
+    ItemQuote: DMG up
+    ItemDescription: Increases damage by 1, and turns Isaac's tears into blood tears.
+    ItemSprite: {fileID: 21300000, guid: 3660cb4120f9bf14aa03bc80bd069de1, type: 3}
+    ItemPrefab: {fileID: 0}
+    CollectionSprite: {fileID: 21300000, guid: 0890fd51a20333d459f1de2453f219c3, type: 3}
+  - m_ID: 8
+    m_Name: Brother Bobby
+    m_Depth: 0
+    ItemQuote: Friends 'till the end
+    ItemDescription: Spawns a familiar that follows Isaac around shooting tears that
+      deal 3.5 damage.
+    ItemSprite: {fileID: 21300000, guid: bb52b0265b4056d4eaf060441d27e216, type: 3}
+    ItemPrefab: {fileID: 0}
+    CollectionSprite: {fileID: 21300000, guid: b2f2b55db8eafcd438fea187cbc898ab, type: 3}
+  - m_ID: 9
+    m_Name: Skatole
+    m_Depth: 0
+    ItemQuote: Fly love
+    ItemDescription: Flies become harmless or less dangerous depending on the type.
+    ItemSprite: {fileID: 21300000, guid: 8cf304b09eff1ac4897cc04020466268, type: 3}
+    ItemPrefab: {fileID: 0}
+    CollectionSprite: {fileID: 21300000, guid: 7fe9e012d0127144396aef81501e751e, type: 3}
+  - m_ID: 11
+    m_Name: Halo Of Flies
+    m_Depth: 0
+    ItemQuote: Projectile protection
+    ItemDescription: Spawns two Pretty Flies that block enemy shots and deal contact
+      damage to flies.
+    ItemSprite: {fileID: 21300000, guid: cde642e675b92de48a2ceb4455d8b975, type: 3}
+    ItemPrefab: {fileID: 0}
+    CollectionSprite: {fileID: 21300000, guid: ceecf39b3d779454fa4bea7693abdac6, type: 3}
+  - m_ID: 10
+    m_Name: Cube Of Meat
+    m_Depth: 0
+    ItemQuote: Gotta meat 'em all!
+    ItemDescription: Creates an orbital familiar. Collecting additional copies gives
+      it the ability to shoot tears, then chase enemies to deal contact damage, then
+      deal even more contact damage.
+    ItemSprite: {fileID: 21300000, guid: 0c2016c97658c454cb2cbed90dd13679, type: 3}
+    ItemPrefab: {fileID: 0}
+    CollectionSprite: {fileID: 21300000, guid: f2fcbabd990b7c34b8fb82cd725d8073, type: 3}
+  - m_ID: 12
+    m_Name: 1UP
+    m_Depth: 0
+    ItemQuote: Extra life
+    ItemDescription: Gives Isaac an extra life. Upon death, he will respawn in the
+      most recent non-hostile room with full health, after which 1up! will disappear.
+    ItemSprite: {fileID: 21300000, guid: a01d7227d14726844b7a98360e85ce90, type: 3}
+    ItemPrefab: {fileID: 0}
+    CollectionSprite: {fileID: 21300000, guid: 734b1dc6672032e47860346c0f9127cc, type: 3}
+  - m_ID: 37
+    m_Name: The Bible
+    m_Depth: 0
+    ItemQuote: Temporary flight
+    ItemDescription: On use, Isaac gains flight for the current room. Instantly kills
+      "Mom", "Mom's Heart", and "It Lives" when activated, but kills Isaac when used
+      on Satan.
+    ItemSprite: {fileID: 21300000, guid: bd5c2849a2e3aa84a8982566c01edbbe, type: 3}
+    ItemPrefab: {fileID: 0}
+    CollectionSprite: {fileID: 21300000, guid: edc9e959f552a264897457b7c806564a, type: 3}
+  - m_ID: 38
+    m_Name: The Book Of Belial
+    m_Depth: 0
+    ItemQuote: Temporary DMG up
+    ItemDescription: +2 damage for the current room.Passively guarantees a Devil
+      Room or Angel Room will appear while held.
+    ItemSprite: {fileID: 21300000, guid: d9d7e7bb14cfd024e8e3797713466680, type: 3}
+    ItemPrefab: {fileID: 0}
+    CollectionSprite: {fileID: 21300000, guid: a292a6a441f3e6c4ab2f22b389af51c6, type: 3}
+  - m_ID: 39
+    m_Name: The Necronomicon
+    m_Depth: 0
+    ItemQuote: Mass room damage
+    ItemDescription: Deals 40 damage to every enemy in the room.
+    ItemSprite: {fileID: 21300000, guid: 98275bc3cdb995e49b26e27fb23ee25b, type: 3}
+    ItemPrefab: {fileID: 0}
+    CollectionSprite: {fileID: 21300000, guid: 0ecbaf6a4811dea478e5f7db6e2dd4a5, type: 3}
+  - m_ID: 41
+    m_Name: The Poop
+    m_Depth: 0
+    ItemQuote: Plop!
+    ItemDescription: Spawns a pile of Poop where Isaac is standing and knocks back
+      nearby enemies. May yield pickups like regular poop.
+    ItemSprite: {fileID: 21300000, guid: f15e86a6a2de0304cb4a5463df1810ba, type: 3}
+    ItemPrefab: {fileID: 6492125780564562283, guid: 10623dde64978714b8e53a7c8cd4ee1f, type: 3}
+    CollectionSprite: {fileID: 21300000, guid: 99d5b9dc7c076b3438277eaf705bfe52, type: 3}
+  - m_ID: 42
+    m_Name: Mr. Boom
+    m_Depth: 0
+    ItemQuote: Reusable bomb buddy
+    ItemDescription: Places a Mr. Mega Bomb that deals 110 damage.
+    ItemSprite: {fileID: 21300000, guid: ac1c98a2a1b2f2c419d0ca9fc05cd162, type: 3}
+    ItemPrefab: {fileID: 0}
+    CollectionSprite: {fileID: 21300000, guid: ae6523f801372a048a0258c8a0593491, type: 3}
+  - m_ID: 51
+    m_Name: Yum Heart
+    m_Depth: 0
+    ItemQuote: Reusable regeneration
+    ItemDescription: Restores one full Red Heart.
+    ItemSprite: {fileID: 21300000, guid: 643d43ad640e868419bd6cbceb6f2d88, type: 3}
+    ItemPrefab: {fileID: 1515449957661044298, guid: a48ab1b5c3f012742bd1a1025b633372, type: 3}
+    CollectionSprite: {fileID: 21300000, guid: d701d74c75de110428afbe46ebc49063, type: 3}
+  - m_ID: 6
+    m_Name: Number One
+    m_Depth: 0
+    ItemQuote: Tears up + range down
+    ItemDescription: Grants +1.5 tears, but severely reduces range.
+    ItemSprite: {fileID: 21300000, guid: c7dbc43bc66c8514cab1177ff5e70936, type: 3}
+    ItemPrefab: {fileID: 0}
+    CollectionSprite: {fileID: 21300000, guid: 56cccdaf72f3a1c48a8fd195d7c0fcfb, type: 3}

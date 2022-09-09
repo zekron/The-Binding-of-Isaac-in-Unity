@@ -8,6 +8,7 @@ namespace AssetBundleFramework
     public static class ABEditor
     {
         static ABIni Ini = new ABIni();
+
         /// <summary>
         /// 自动设置AB包标签
         /// 同时生成对应的配置文件
@@ -18,12 +19,18 @@ namespace AssetBundleFramework
             //移除无用标签
             AssetDatabase.RemoveUnusedAssetBundleNames();
             //自动设置标签
-            AutoSetABLabel(ABEditorTools.Instance.ABResPath, 0);
-            //生成配置文件
-            File.WriteAllText(ABEditorTools.Instance.IniFilePath, JsonConvert.SerializeObject(Ini));
-            //清除记录
-            Ini.Clear();
+            if (AutoSetABLabel(ABEditorTools.Instance.ABResPath, 0))
+            {
+                Debug.Log("Successfully auto set labels.");
+                //生成配置文件
+                File.WriteAllText(ABEditorTools.Instance.IniFilePath, JsonConvert.SerializeObject(Ini));
+                //清除记录
+                Ini.Clear();
+            }
+            else
+                Debug.LogError("Failed to auto set labels.");
         }
+
         [MenuItem("Assets/Custom Menu/Build AssetBundle(Experimental)/Windows")]
         static void SetABLabelWithSelectedFolder()
         {
@@ -36,11 +43,77 @@ namespace AssetBundleFramework
 
             //恢复已有数据
             Ini = JsonConvert.DeserializeObject<ABIni>(File.ReadAllText(ABEditorTools.Instance.IniFilePath));
-            AutoSetABLabel(AssetDatabase.GUIDToAssetPath(assetGUIDs[0]).Replace('/', '\\'), 1);
-            //生成配置文件
-            File.WriteAllText(ABEditorTools.Instance.IniFilePath, JsonConvert.SerializeObject(Ini));
-            //清除记录
+            if (AutoSetABLabel(AssetDatabase.GUIDToAssetPath(assetGUIDs[0]).Replace('/', '\\'), 1))
+            {
+                Debug.Log("Successfully auto set labels.");
+                //生成配置文件
+                File.WriteAllText(ABEditorTools.Instance.IniFilePath, JsonConvert.SerializeObject(Ini));
+                //清除记录
+            }
+            else
+                Debug.LogError("Failed to auto set labels.");
             Ini.Clear();
+        }
+
+        [MenuItem("Assets/Custom Menu/Rename File(s)", validate = false)]
+        public static void RenameFiles()
+        {
+            string[] assetGUIDs = Selection.assetGUIDs;
+            for (int i = 0; i < assetGUIDs.Length; i++)
+            {
+                //单一文件夹GUID转路径：Assets/Sprites/...
+                var directory = AssetDatabase.GUIDToAssetPath(assetGUIDs[i]);
+                if (Directory.Exists(directory))
+                {
+                    DirectoryInfo di = new DirectoryInfo(directory);
+                    FileSystemInfo[] fsInfos = di.GetFileSystemInfos(); // Assets\\Sprites\\...
+                    var suffix = directory.Substring(directory.LastIndexOf('/') + 1);
+                    for (int j = 0; j < fsInfos.Length; j++)
+                    {
+                        RenameFiles(fsInfos[j].FullName, suffix);
+                    }
+                }
+            }
+            AssetDatabase.Refresh();
+        }
+        [MenuItem("Assets/Custom Menu/Rename File(s)", validate = true)]
+        static bool CanRenameFiles()
+        {
+            string[] assetGUIDs = Selection.assetGUIDs;
+            //if (assetGUIDs.Length > 1) return false;
+            for (int i = 0; i < assetGUIDs.Length; i++)
+            {
+                if (File.Exists(AssetDatabase.GUIDToAssetPath(assetGUIDs[i]))) return false;
+            }
+            return true;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filePath">Full path: C:\\ ... \\Assets\\Sprites\\...</param>
+        /// <param name="suffix"></param>
+        static void RenameFiles(string filePath, string suffix)
+        {
+            if (File.Exists(filePath))
+            {
+                string directory = Path.GetDirectoryName(filePath);
+                string fileName = Path.GetFileName(filePath);
+                if (fileName.Contains(suffix)) return;
+                if (fileName.Contains(".meta") && !fileName.Remove(fileName.IndexOf(".meta")).Contains(".")) return;
+                File.Move(filePath, $"{directory}\\{suffix}_{Path.GetFileName(filePath)}");
+            }
+            else if (Directory.Exists(filePath))
+            {
+                Debug.Log(filePath);
+                DirectoryInfo di = new DirectoryInfo(filePath);
+                FileSystemInfo[] fsInfos = di.GetFileSystemInfos(); // Assets\\Sprites\\...
+                suffix = filePath.Substring(filePath.LastIndexOf('\\') + 1);
+                for (int j = 0; j < fsInfos.Length; j++)
+                {
+                    RenameFiles(fsInfos[j].FullName, suffix);
+                }
+            }
         }
 
         [MenuItem("AssetBundle Framework/创建AB包")]
@@ -61,12 +134,13 @@ namespace AssetBundleFramework
                 AssetDatabase.Refresh();
             }
         }
-        private static void AutoSetABLabel(string filePath, int index, string abPrefix = null, string abSuffix = null)
+        private static bool AutoSetABLabel(string filePath, int index, string abPrefix = null, string abSuffix = null)
         {
             if (File.Exists(filePath))
             {
                 FileInfo fi = new FileInfo(filePath);
-                if (fi.Extension == ".meta") return;
+                if (fi.Name[0] == '.') return false;
+                if (fi.Extension == ".meta") return false;
 
                 string resName; //配置文件内资源的名称
                 filePath = filePath.Substring(filePath.LastIndexOf("Assets"));
@@ -85,6 +159,7 @@ namespace AssetBundleFramework
                 }
                 //添加配置文件
                 Ini.AddData(resName, ai.assetBundleName + "." + ai.assetBundleVariant);
+                return true;
             }
             else if (Directory.Exists(filePath))
             {
@@ -96,6 +171,11 @@ namespace AssetBundleFramework
                 {
                     abSuffix = filePath.Substring(filePath.LastIndexOf('\\') + 1);
                 }
+                else if (index == 3)
+                {
+                    abPrefix = Path.Combine(abPrefix, abSuffix);
+                    abSuffix = filePath.Substring(filePath.LastIndexOf('\\') + 1);
+                }
 
                 DirectoryInfo di = new DirectoryInfo(filePath);
                 FileSystemInfo[] fsInfos = di.GetFileSystemInfos();
@@ -103,6 +183,7 @@ namespace AssetBundleFramework
                 {
                     AutoSetABLabel(fsInfos[i].FullName, index + 1, abPrefix, abSuffix);
                 }
+                return true;
             }
             else
             {
@@ -110,6 +191,7 @@ namespace AssetBundleFramework
                 Directory.CreateDirectory(filePath);
                 AssetDatabase.SaveAssets();
                 AssetDatabase.Refresh();
+                return false;
             }
         }
     }

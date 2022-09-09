@@ -15,7 +15,7 @@ public class TrinketItemTreeView : ItemTreeView<ItemTreeElement>
 
     protected override void CellGUI(Rect cellRect, TreeViewItem<ItemTreeElement> item, ItemColumns column, ref RowGUIArgs args)
     {
-        if (column == ItemColumns.ID || column == ItemColumns.Name || column == ItemColumns.Quote)
+        if (column == ItemColumns.ID || column == ItemColumns.Name || column == ItemColumns.Quote || column == ItemColumns.ItemPrefab)
             CenterRectUsingSingleLineHeight(ref cellRect);
 
         if (InEditMode)
@@ -48,13 +48,19 @@ public class TrinketItemTreeView : ItemTreeView<ItemTreeElement>
                                                                  false) as Sprite;
                     if (item.data.ItemSprite != null && item.data.name == "Name here")
                     {
-                       var strs = item.data.ItemSprite.name.Split('_');
+                        var strs = item.data.ItemSprite.name.Split('_');
                         if (strs.Length == 2)
                         {
                             item.data.ElementID = int.Parse(strs[0]);
                             item.data.name = strs[1];
                         }
                     }
+                    break;
+                case ItemColumns.ItemPrefab:
+                    item.data.ItemPrefab = EditorGUI.ObjectField(cellRect,
+                                                                 item.data.ItemPrefab,
+                                                                 typeof(GameObject),
+                                                                 false) as GameObject;
                     break;
                 default:
                     break;
@@ -88,6 +94,12 @@ public class TrinketItemTreeView : ItemTreeView<ItemTreeElement>
                         style.richText = true;
                         EditorGUI.LabelField(cellRect, "<color=red>Need texture here!</color>", style);
                     }
+                    break;
+                case ItemColumns.ItemPrefab:
+                    item.data.ItemPrefab = EditorGUI.ObjectField(cellRect,
+                                                                 item.data.ItemPrefab,
+                                                                 typeof(GameObject),
+                                                                 false) as GameObject;
                     break;
                 default:
                     break;

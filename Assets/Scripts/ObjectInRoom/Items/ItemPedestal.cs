@@ -4,8 +4,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Item spawner, spawning different items with different RandomItemSO
+/// </summary>
 public class ItemPedestal : RoomObject
 {
+    /// <summary>
+    /// Specific random items pool
+    /// </summary>
     [SerializeField] private RandomItemSO randomObjectPool;
     private ItemObject item;
 
@@ -25,29 +31,32 @@ public class ItemPedestal : RoomObject
 
     private void CollectItem(CollisionInfo2D collisionInfo)
     {
-        if (item == null) item = GetComponentInChildren<ItemObject>();
+        //if (item == null) item = GetComponentInChildren<ItemObject>();
+        if (item == null) return;
 
         item.Collect(collisionInfo);
-
 
         if (item is ActiveItem)
         {
             var activeItem = item as ActiveItem;
             if (activeItem.OldActiveItemData != null)
+            {
+                activeItem.OldActiveItemData.ItemPrefab.SetActive(false);
                 item = ObjectPoolManager.Release(activeItem.OldActiveItemData.ItemPrefab,
-                                            transform.position,
-                                            Quaternion.identity,
-                                            transform).GetComponent<ItemObject>();
+                                                 transform.position).GetComponent<ItemObject>();
+            }
+            else
+            {
+                item = null;
+            }
         }
     }
 
     private void InstantiateRandomRoomObject()
     {
-        randomObjectPool.InitializePrefab();
+        randomObjectPool.InitializePrefabPool();
         item = ObjectPoolManager.Release(randomObjectPool.GenerateObject(),
-                                            transform.position,
-                                            Quaternion.identity,
-                                            transform).GetComponent<ItemObject>();
+                                         transform.position).GetComponent<ItemObject>();
         ChangeRendererOrder();
     }
 

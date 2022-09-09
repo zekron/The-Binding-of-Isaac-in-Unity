@@ -31,7 +31,7 @@ public enum FloorCurseType
 /// <summary>
 /// 当前房间类型
 /// </summary>
-public enum RoomType
+public enum RoomObjectType
 {
     Starting,
 
@@ -64,7 +64,7 @@ public enum RoomType
 /// <summary>
 /// 当前门类型
 /// </summary>
-public enum DoorType
+public enum DoorObjectType
 {
     Normal,
 

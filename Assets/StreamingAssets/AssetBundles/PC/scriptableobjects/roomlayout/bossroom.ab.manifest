@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+CRC: 1699837072
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b313f9d55798365ff7849072f0300ab8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7a94e83c792bb8d8c0d56e7d3617bdc8
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: bf1967c1ef7080c4d91da24d9ad370ef, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/ScriptableObjects/RoomLayout/BossRoom/Basement RoomLayout_Boss (1).asset
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/obstacles/rock.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/maps/basement.ab

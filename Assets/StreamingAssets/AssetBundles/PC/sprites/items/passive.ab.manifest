@@ -1,0 +1,163 @@
+ManifestFileVersion: 0
+CRC: 3254200563
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 629656fb58e1dbfc0dae93dbcad2c4bc
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Items/Passive/Passive_83.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_15.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_23.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_121.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_30.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_36.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_134.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_18.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_91.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_102.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_27.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_75.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_115.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_116.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_61.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_98.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_26.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_20.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_14.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_104.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_65.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_97.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_42.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_127.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_132.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_07.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_002_The Inner Eye.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_58.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_45.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_141.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_46.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_84.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_32.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_119.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_117.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_47.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_90.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_53.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_123.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_129.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_21.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_105.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_111.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_138.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_24.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_135.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_52.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_66.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_80.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_85.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_33.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_82.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_60.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_25.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_128.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_13.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_74.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_39.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_120.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_71.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_38.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_139.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_16.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_100.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_125.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_31.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_113.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_004_Cricket's Head.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_87.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_101.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_51.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_37.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_41.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_09.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_94.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_77.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_142.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_137.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_57.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_34.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_22.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_73.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_56.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_29.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_81.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_99.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_72.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_78.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_110.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_145.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_63.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_86.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_55.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_144.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_43.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_69.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_17.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_126.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_107.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_79.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_006_Number One.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_50.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_70.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_122.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_114.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_11.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_001_The Sad Onion.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_124.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_136.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_131.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_003_Spoon Bender.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_93.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_12.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_68.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_49.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_130.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_140.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_48.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_106.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_62.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_40.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_19.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_08.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_109.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_64.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_92.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_59.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_005_My Reflection.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_108.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_76.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_88.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_95.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_133.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_44.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_89.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_10_Cube of Meat.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_112.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_35.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_28.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_10.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_96.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_143.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_67.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_118.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_103.png
+Dependencies: []

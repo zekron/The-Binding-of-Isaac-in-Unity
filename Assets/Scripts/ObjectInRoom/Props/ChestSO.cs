@@ -6,7 +6,6 @@ public class ChestSO : ScriptableObject
 {
     public Sprite[] ChestSprites;
     public CustomFrameAnimationClip[] OpenChestClips;
-    public PickupPoolSO PickupPool;
     public enum ChestType
     {
         Normal,
@@ -38,12 +37,14 @@ public class ChestSO : ScriptableObject
                 else if (rate < 0.98f)
                 {
                     //spawn pill
-                    ObjectPoolManager.Release(PickupPool.PrefabPill, position);
+                    CustomObjectPoolManager.Release(PickupObjectType.Pill, position);
+                    //ObjectPoolManager.Release(PickupPool.PrefabPill, position);
                 }
                 else
                 {
                     //spawn smaller chest
-                    var chest = ObjectPoolManager.Release(PickupPool.PrefabChest, position, Quaternion.identity, new Vector3(0.7f, 0.7f, 0.7f)).GetComponent<Chest>();
+                    //var chest = ObjectPoolManager.Release(PickupPool.PrefabChest, position, Quaternion.identity, new Vector3(0.7f, 0.7f, 0.7f)).GetComponent<Chest>();
+                    var chest = CustomObjectPoolManager.Release(PickupObjectType.Chest, position, new Vector3(0.7f, 0.7f, 0.7f)).GetComponent<Chest>();
                     chest.SetType(ChestType.Normal);
                 }
                 break;
@@ -74,19 +75,19 @@ public class ChestSO : ScriptableObject
                 else if (rate < 0.89f)
                 {
                     //spawn normal chest
-                    var chest = ObjectPoolManager.Release(PickupPool.PrefabChest, position, Quaternion.identity, new Vector3(0.7f, 0.7f, 0.7f)).GetComponent<Chest>();
+                    var chest = CustomObjectPoolManager.Release(PickupObjectType.Chest, position, new Vector3(0.7f, 0.7f, 0.7f)).GetComponent<Chest>();
                     chest.SetType(ChestType.Normal);
                 }
                 else if (rate < 0.9f)
                 {
                     //spawn golden chest
-                    var chest = ObjectPoolManager.Release(PickupPool.PrefabChest, position, Quaternion.identity, new Vector3(0.7f, 0.7f, 0.7f)).GetComponent<Chest>();
+                    var chest = CustomObjectPoolManager.Release(PickupObjectType.Chest, position, new Vector3(0.7f, 0.7f, 0.7f)).GetComponent<Chest>();
                     chest.SetType(ChestType.Locked);
                 }
                 else
                 {
                     //spawn card
-                    ObjectPoolManager.Release(PickupPool.PrefabCard, position);
+                    CustomObjectPoolManager.Release(PickupObjectType.Card, position);
                 }
                 break;
             case ChestType.Red:
@@ -108,7 +109,7 @@ public class ChestSO : ScriptableObject
                 else if (rate < 0.41f)
                 {
                     //spawn 2 mega troll bombs
-                    var bomb = ObjectPoolManager.Release(PickupPool.PrefabBomb, position).GetComponent<Bomb>();
+                    var bomb = CustomObjectPoolManager.Release(PickupObjectType.Bomb, position).GetComponent<Bomb>();
                     bomb.SetType(BombSO.BombType.MegaTroll);
                     ObjectPoolManager.Release(bomb.gameObject, position);
                 }
@@ -120,21 +121,21 @@ public class ChestSO : ScriptableObject
                 else if (rate < 0.625f)
                 {
                     //spawn 1 blue heart
-                    var heart = ObjectPoolManager.Release(PickupPool.PrefabHeart, position).GetComponent<Heart>();
+                    var heart = CustomObjectPoolManager.Release(PickupObjectType.Heart, position).GetComponent<Heart>();
                     heart.SetType(HeartSO.HeartType.SoulFull);
                 }
                 else if (rate < 0.7f)
                 {
                     //spawn 2 troll bombs
-                    var bomb = ObjectPoolManager.Release(PickupPool.PrefabBomb, position).GetComponent<Bomb>();
+                    var bomb = CustomObjectPoolManager.Release(PickupObjectType.Bomb, position).GetComponent<Bomb>();
                     bomb.SetType(BombSO.BombType.Troll);
                     ObjectPoolManager.Release(bomb.gameObject, position);
                 }
                 else
                 {
                     //spawn 2 pills
-                    ObjectPoolManager.Release(PickupPool.PrefabPill, position);
-                    ObjectPoolManager.Release(PickupPool.PrefabPill, position);
+                    CustomObjectPoolManager.Release(PickupObjectType.Pill, position);
+                    CustomObjectPoolManager.Release(PickupObjectType.Pill, position);
                 }
                 break;
             default:
@@ -147,8 +148,8 @@ public class ChestSO : ScriptableObject
         while (pickupCount > 0)
         {
             pickupCount--;
-            var gameObject = SelectPickup();
-            if (gameObject == PickupPool.PrefabCoin)
+            var type = SelectPickup();
+            if (type == PickupObjectType.Coin)
             {
                 var rnd = UnityEngine.Random.value;
                 var cnt = 0;
@@ -158,21 +159,21 @@ public class ChestSO : ScriptableObject
                 while (cnt > 0)
                 {
                     cnt--;
-                    ObjectPoolManager.Release(gameObject, position);
+                    CustomObjectPoolManager.Release(type, position);
                 }
             }
             else
-                ObjectPoolManager.Release(gameObject, position);
+                CustomObjectPoolManager.Release(type, position);
         }
     }
-    private GameObject SelectPickup()
+    private PickupObjectType SelectPickup()
     {
         var rnd = UnityEngine.Random.value;
 
-        if (rnd < 0.35f) return PickupPool.PrefabCoin;
-        else if (rnd < 0.55f) return PickupPool.PrefabHeart;
-        else if (rnd < 0.7f) return PickupPool.PrefabKey;
-        else return PickupPool.PrefabBomb;
+        if (rnd < 0.35f) return PickupObjectType.Coin;
+        else if (rnd < 0.55f) return PickupObjectType.Heart;
+        else if (rnd < 0.7f) return PickupObjectType.Key;
+        else return PickupObjectType.Bomb;
     }
     public ChestType GenerateType()
     {

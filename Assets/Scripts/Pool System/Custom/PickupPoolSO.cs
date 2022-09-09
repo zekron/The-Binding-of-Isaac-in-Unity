@@ -2,14 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName ="Pickup Pool SO",menuName = "Scriptable Object/Object Prefab Pool/Pickup Pool")]
-public class PickupPoolSO : ObjectPoolPrefabSO
+[CreateAssetMenu(fileName = "Pickup Pool SO", menuName = "Scriptable Object/Object Prefab Pool/Pickup Pool")]
+public class PickupPoolSO : ScriptableObject, IPools
 {
-    public GameObject PrefabBomb => Pools[0].Prefab;
-    public GameObject PrefabCard => Pools[1].Prefab;
-    public GameObject PrefabChest => Pools[2].Prefab;
-    public GameObject PrefabCoin => Pools[3].Prefab;
-    public GameObject PrefabHeart => Pools[4].Prefab;
-    public GameObject PrefabKey => Pools[5].Prefab;
-    public GameObject PrefabPill => Pools[6].Prefab;
+    public Dictionary<PickupObjectType, GameObject> PickupObjectDic;
+    [SerializeField] private PickupObjectPool[] pickupPools;
+
+    public ObjectPool[] Pools => pickupPools;
+
+    public void Initialize()
+    {
+        PickupObjectDic = new Dictionary<PickupObjectType, GameObject>();
+
+        foreach (var pool in pickupPools)
+        {
+#if UNITY_EDITOR
+            if (PickupObjectDic.ContainsKey(pool.ObjectType))
+            {
+                Debug.LogError("Same prefab type in multiple pools! Prefab type: " + pool.ObjectType);
+
+                continue;
+            }
+#endif
+            PickupObjectDic.Add(pool.ObjectType, pool.Prefab);
+        }
+    }
 }

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2897716860
+CRC: 942338801
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 3a306df9d4bd969af533045754b67af1
+    Hash: 52badc58a45ce850cab77cbaa2e14235
   TypeTreeHash:
     serializedVersion: 2
     Hash: 14b9fd245e4c66d411cb0fdaa6d68f7b
@@ -38,9 +38,8 @@ Assets:
 - Assets/ABRes/ScriptableObjects/Event Channel/OnCreateRoom Event SO.asset
 - Assets/ABRes/ScriptableObjects/Event Channel/Vector3OnEnterRoom Event SO.asset
 - Assets/ABRes/ScriptableObjects/Event Channel/OnPlayerPickupDataChanged Evnet SO.asset
-- Assets/ABRes/ScriptableObjects/Event Channel/Enum Event SO/OnDoorStatusChanged
-  Event SO.asset
-- Assets/ABRes/ScriptableObjects/Event Channel/Enum Event SO/OnEnterDoor Event SO.asset
+- Assets/ABRes/ScriptableObjects/Event Channel/OnDoorStatusChanged Event SO.asset
+- Assets/ABRes/ScriptableObjects/Event Channel/OnEnterDoor Event SO.asset
 - Assets/ABRes/ScriptableObjects/Event Channel/OnPlayerHealthDataChanged Event SO.asset
 - Assets/ABRes/ScriptableObjects/Event Channel/OnPlayerRefreshGetGoldenKey Event
   SO.asset

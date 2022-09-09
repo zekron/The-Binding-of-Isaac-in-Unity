@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 1495902900
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 74bf2053dac0652910090b5b76b9300e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/FX/Arcade/Arcade (2).png
+- Assets/ABRes/Sprites/FX/Arcade/Arcade (3).png
+- Assets/ABRes/Sprites/FX/Arcade/Arcade (4).png
+- Assets/ABRes/Sprites/FX/Arcade/Arcade (0).png
+- Assets/ABRes/Sprites/FX/Arcade/Arcade (1).png
+- Assets/ABRes/Sprites/FX/Arcade/Arcade (5).png
+Dependencies: []

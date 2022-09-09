@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 2758244436
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a017a50a1233f31803aaed8c79c94e2b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Pickups/Hearts/Heart (4).png
+- Assets/ABRes/Sprites/Pickups/Hearts/Heart (1).png
+- Assets/ABRes/Sprites/Pickups/Hearts/Heart (3).png
+- Assets/ABRes/Sprites/Pickups/Hearts/Heart (2).png
+Dependencies: []

@@ -1,0 +1,36 @@
+ManifestFileVersion: 0
+CRC: 1490303074
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 36dc33b7dc6d06816e6af24115aeeb56
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Maps/Basement/Wall_Top (1).png
+- Assets/ABRes/Sprites/Maps/Basement/Wall_Left (4).png
+- Assets/ABRes/Sprites/Maps/Basement/Floor_Basement (4).png
+- Assets/ABRes/Sprites/Maps/Basement/Floor_Basement (3).png
+- Assets/ABRes/Sprites/Maps/Basement/Wall_Top (2).png
+- Assets/ABRes/Sprites/Maps/Basement/Wall_Top (4).png
+- Assets/ABRes/Sprites/Maps/Basement/Floor_Basement (2).png
+- Assets/ABRes/Sprites/Maps/Basement/Wall_Left (1).png
+- Assets/ABRes/Sprites/Maps/Basement/Wall_Left (5).png
+- Assets/ABRes/Sprites/Maps/Basement/Wall_Top (6).png
+- Assets/ABRes/Sprites/Maps/Basement/Floor_Basement (6).png
+- Assets/ABRes/Sprites/Maps/Basement/Wall_Left (6).png
+- Assets/ABRes/Sprites/Maps/Basement/Wall_Left (3).png
+- Assets/ABRes/Sprites/Maps/Basement/Floor_Basement (1).png
+- Assets/ABRes/Sprites/Maps/Basement/Floor_Basement (5).png
+- Assets/ABRes/Sprites/Maps/Basement/Wall_Top (3).png
+- Assets/ABRes/Sprites/Maps/Basement/Wall_Left (2).png
+- Assets/ABRes/Sprites/Maps/Basement/Wall_Top (5).png
+Dependencies: []

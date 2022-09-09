@@ -1,7 +1,5 @@
+using AssetBundleFramework;
 using CustomPhysics2D;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Chest : RoomObject
@@ -26,6 +24,7 @@ public class Chest : RoomObject
     {
         base.Awake();
 
+        chestSO = AssetBundleManager.Instance.LoadAsset<ChestSO>("ChestSO.asset");
         openAnimation = GetComponent<CustomFrameAnimation>();
     }
 

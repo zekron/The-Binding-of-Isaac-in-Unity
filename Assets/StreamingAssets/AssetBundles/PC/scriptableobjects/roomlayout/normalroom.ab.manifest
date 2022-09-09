@@ -1,0 +1,37 @@
+ManifestFileVersion: 0
+CRC: 2222895260
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 42316de2aeed71b33e00083fc732ec16
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d32512e6582a19c1e9553b087fcdb6c1
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: f8080b31c48a41e4b967c09f2a088145, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bf1967c1ef7080c4d91da24d9ad370ef, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/ScriptableObjects/RoomLayout/NormalRoom/Basement RoomLayout (38).asset
+- Assets/ABRes/ScriptableObjects/RoomLayout/NormalRoom/Basement RoomLayout (56).asset
+- Assets/ABRes/ScriptableObjects/RoomLayout/NormalRoom/Basement RoomLayout (149).asset
+- Assets/ABRes/ScriptableObjects/RoomLayout/NormalRoom/Basement RoomLayout (152).asset
+- Assets/ABRes/ScriptableObjects/RoomLayout/NormalRoom/Basement RoomLayout (66).asset
+- Assets/ABRes/ScriptableObjects/RoomLayout/NormalRoom/Basement RoomLayout (101).asset
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/obstacles/fire
+  place.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/obstacles/poop.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/obstacles/rock.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/random
+  object/random pickup.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/maps/basement.ab

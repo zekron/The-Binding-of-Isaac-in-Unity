@@ -26,13 +26,13 @@ public class StaticData
     #endregion
 
     #region AssetPath
-    public static readonly string ScriptableObjectFolderPath = "Assets/ScriptableObjects/";
+    public static readonly string ScriptableObjectFolderPath = "Assets/ABRes/ScriptableObjects/Tree Asset";
     public static readonly string[] RoomLayoutFolderPath = new[]
     {
-        "Assets/ScriptableObjects/RoomLayout/NormalRoom",
-        "Assets/ScriptableObjects/RoomLayout/BossRoom",
-        "Assets/ScriptableObjects/RoomLayout/TreasureRoom",
-        "Assets/ScriptableObjects/RoomLayout/ShopRoom",
+        "Assets/ABRes/ScriptableObjects/RoomLayout/NormalRoom",
+        "Assets/ABRes/ScriptableObjects/RoomLayout/BossRoom",
+        "Assets/ABRes/ScriptableObjects/RoomLayout/TreasureRoom",
+        "Assets/ABRes/ScriptableObjects/RoomLayout/ShopRoom",
     };
     #endregion
 

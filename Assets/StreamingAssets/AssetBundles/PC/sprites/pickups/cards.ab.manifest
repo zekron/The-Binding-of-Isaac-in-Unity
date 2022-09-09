@@ -1,0 +1,47 @@
+ManifestFileVersion: 0
+CRC: 4121485398
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 13672fb06580970bf575abd77383fdcf
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2165 - The Lovers.png"
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2169\u2165 - The Tower.png"
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2163 - The Emperor.png"
+- Assets/ABRes/Sprites/Pickups/Cards/2 of Spades.png
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2169 - Wheel of Fortune.png"
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2169\u2168 - The Sun.png"
+- Assets/ABRes/Sprites/Pickups/Cards/Joker.png
+- Assets/ABRes/Sprites/Pickups/Cards/0 - The Fool.png
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2169\u2160 - Strength.png"
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2169\u2161 - The Hanged Man.png"
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2169\u2162 - Death.png"
+- Assets/ABRes/Sprites/Pickups/Cards/2 of Diamonds.png
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2164 - The Hierophant.png"
+- Assets/ABRes/Sprites/Pickups/Cards/Card in Ground (1).png
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2169\u2169 - Judgement.png"
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2169\u2164 - The Devil.png"
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2167 - Justice.png"
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2169\u2166 - The Stars.png"
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2169\u2163 - Temperance.png"
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2168 - The Hermit.png"
+- Assets/ABRes/Sprites/Pickups/Cards/2 of Hearts.png
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2160 - The Magician.png"
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2166 - THe Chariot.png"
+- Assets/ABRes/Sprites/Pickups/Cards/Card in Ground (2).png
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2161 - The High Priestess.png"
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2169\u2169\u2160 - The World.png"
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2162 - The Empress.png"
+- Assets/ABRes/Sprites/Pickups/Cards/2 of Clubs.png
+- "Assets/ABRes/Sprites/Pickups/Cards/\u2169\u2167 - The Moon.png"
+Dependencies: []

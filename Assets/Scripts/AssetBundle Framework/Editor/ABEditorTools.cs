@@ -23,7 +23,6 @@ namespace AssetBundleFramework
         private ABEditorTools()
         {
             BudTar = EditorUserBuildSettings.activeBuildTarget;
-            Debug.Log(BudTar);
             ABResPath = "Assets/ABRes";
         }
         public BuildTarget BudTar;
@@ -48,9 +47,9 @@ namespace AssetBundleFramework
             get
             {
                 if (_IniFilePath == null)
-                {
                     _IniFilePath = GetIniPath();
-                }
+                if (!Directory.Exists(_IniFilePath))
+                    GetIniPath();
                 return _IniFilePath;
             }
         }

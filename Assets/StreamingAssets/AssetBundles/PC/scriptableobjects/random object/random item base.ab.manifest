@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+CRC: 2709278571
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 44068bdb4d4af16da9d86b7e21f57033
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: e0eedc1b955ea88b82abfc4fddb931f7
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: f8080b31c48a41e4b967c09f2a088145, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/ScriptableObjects/Random Object/Random Item Base/ItemPedestal.asset
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/obstacles/pedestal.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/active.ab

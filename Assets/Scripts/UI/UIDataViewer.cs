@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using AssetBundleFramework;
 
 public class UIDataViewer : MonoBehaviour
 {
@@ -25,9 +26,10 @@ public class UIDataViewer : MonoBehaviour
 
     private void OnEnable()
     {
-        var eventchannels = ResourcesLoader.LoadAssetBundleAtPath(string.Format("{0}/AssetBundles/eventchannels.ab", Application.streamingAssetsPath));
+        //var eventchannels = ResourcesLoader.LoadAssetBundleAtPath(string.Format("{0}/AssetBundles/eventchannels.ab", Application.streamingAssetsPath));
 
-        onActiveItemChanged = eventchannels.LoadAsset<ActiveItemEventChannelSO>("OnActiveItemChanged Event SO");
+        //onActiveItemChanged = eventchannels.LoadAsset<ActiveItemEventChannelSO>("OnActiveItemChanged Event SO");
+        onActiveItemChanged = AssetBundleManager.Instance.LoadAsset<ActiveItemEventChannelSO>("OnActiveItemChanged Event SO.asset");
 
         onPlayerHealthDataChanged.OnEventRaised += RefreshHealthData;
 

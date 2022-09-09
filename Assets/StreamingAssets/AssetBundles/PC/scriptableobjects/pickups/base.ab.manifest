@@ -1,0 +1,43 @@
+ManifestFileVersion: 0
+CRC: 277309503
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5489596cdf88be29ae9ef9ba807a44e8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2031937cddef673e67c0372478eec9dc
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: e4b827d75983add478bbfaf6e3f3c60b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bb3d182006bce5246be2d79a94b84755, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 60d06b5d040f7084d9e3313d13307c0f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 7a14a3bec8c393245b828ffa3680e7f7, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a152f8289fe8ce54e8b9bc39bbeced6d, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: afa2c26afc12c1a4fb9aa97444fc912f, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/ScriptableObjects/Pickups/Base/CoinSO.asset
+- Assets/ABRes/ScriptableObjects/Pickups/Base/CardSO.asset
+- Assets/ABRes/ScriptableObjects/Pickups/Base/PillSO.asset
+- Assets/ABRes/ScriptableObjects/Pickups/Base/BombSO.asset
+- Assets/ABRes/ScriptableObjects/Pickups/Base/HeartSO.asset
+- Assets/ABRes/ScriptableObjects/Pickups/Base/KeySO.asset
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/pickups/bombs.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/pickups/cards.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/pickups/coins.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/pickups/hearts.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/pickups/keys.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/pickups/pills.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/ui/miscs.ab

@@ -1,0 +1,40 @@
+ManifestFileVersion: 0
+CRC: 886037257
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c0448e5c53b4b52a7a7589019f176cea
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7c2540343e88b2e84dfdbf2d12e7f16d
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+- Class: 687078895
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (19).png
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (18).png
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (3).png
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (1).png
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (10).png
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (12).png
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (5).png
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (14).png
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (8).png
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (17).png
+- Assets/ABRes/Sprites/FX/Smoke/FX_Smoke.spriteatlasv2
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (4).png
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (13).png
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (6).png
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (11).png
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (9).png
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (16).png
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (15).png
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (2).png
+- Assets/ABRes/Sprites/FX/Smoke/Smoke (7).png
+Dependencies: []

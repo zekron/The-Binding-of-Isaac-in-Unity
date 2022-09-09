@@ -1,0 +1,39 @@
+ManifestFileVersion: 0
+CRC: 3967958780
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ff880f24a119529ef41d762ee817f687
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ccae37adf284620b62daec3a072538cc
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1bbf5d154c2f25d44b0422c7d9974f00, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 325a56bd18e380943928d2fc92054b5f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 40ce7bdfc6efed64eba72570b1f1fef6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f712e0715f57c724d96816de37e8f8e1, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Prefabs/Obstacles/TNT/TNT.prefab
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/animators/sequences/obstacles.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/obstacles/tnt.ab

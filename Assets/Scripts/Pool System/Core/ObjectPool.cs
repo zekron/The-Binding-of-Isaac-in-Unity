@@ -34,7 +34,7 @@ public class ObjectPool
 
     private GameObject InstantiateObject()
     {
-        var copy = GameObject.Instantiate(prefab, poolParent);
+        var copy = Object.Instantiate(prefab, poolParent);
 
         copy.SetActive(false);
 

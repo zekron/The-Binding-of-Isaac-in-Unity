@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Random Item SO", menuName = "Scriptable Object/Random Object/Random Item")]
 public class RandomItemSO : RandomObjectBaseSO<RandomItemData>
 {
-    public void InitializePrefab()
+    public void InitializePrefabPool()
     {
         for (int i = 0; i < RandomObjectArray.Length; i++)
         {

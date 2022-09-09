@@ -1,0 +1,30 @@
+ManifestFileVersion: 0
+CRC: 1248311489
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ea6655a2d9f2f097f57856e184bfc08e
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ef406d63fb068107fe048827844e7ae7
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 325a56bd18e380943928d2fc92054b5f, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Animators/Sequences/Obstacles/Obstacle_TNT_Sequence.asset
+- Assets/ABRes/Animators/Sequences/Obstacles/Obstacle_Poop_Normal_Sequence.asset
+- Assets/ABRes/Animators/Sequences/Obstacles/Obstacle_Poop_Golden_Sequence.asset
+- Assets/ABRes/Animators/Sequences/Obstacles/Obstacle_Poop_Corny_Sequence.asset
+- Assets/ABRes/Animators/Sequences/Obstacles/Obstacle_Poop_Red_Sequence.asset
+- Assets/ABRes/Animators/Sequences/Obstacles/Obstacle_FirePlace_Sequence.asset
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/obstacles/fire
+  places.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/obstacles/poops.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/obstacles/tnt.ab

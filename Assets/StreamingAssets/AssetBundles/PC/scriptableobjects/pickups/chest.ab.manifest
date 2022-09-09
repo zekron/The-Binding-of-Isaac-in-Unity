@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+CRC: 810065701
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 11e4d3edb4dc21f4b16c73bc89d229af
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 207b2235929c6b16cc5c58fd54f9e8b0
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 325a56bd18e380943928d2fc92054b5f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bca477bd2c6906a42bfe607744556182, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/ScriptableObjects/Pickups/Chest/ChestSO.asset
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/animators/sequences/pickup.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/pickups/chests.ab

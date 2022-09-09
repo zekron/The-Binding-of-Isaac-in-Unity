@@ -13,7 +13,7 @@ public class Door : MonoBehaviour
     [SerializeField] private SpriteRenderer doorSprite;
     [SerializeField] private SpriteRenderer doorFrameSprite;
     [SerializeField] private SpriteRenderer doorLockSprite;
-    [SerializeField] private DoorType doorType;
+    [SerializeField] private DoorObjectType doorType;
 
     [SerializeField] private DoorPositionEventChannelSO onEnterDoorEvent;
     [SerializeField] private UnityAction<DoorStatus> onDoorStatusChanged;
@@ -26,7 +26,7 @@ public class Door : MonoBehaviour
 
     private Bounds doorBound;
 
-    public DoorType DoorType { get => doorType; }
+    public DoorObjectType DoorType { get => doorType; }
 
     private void OnEnable()
     {
@@ -78,10 +78,10 @@ public class Door : MonoBehaviour
         doorAnimation.Play(string.Format("Door_{0}_{1}", doorType, doorStatus));
         switch (doorType)
         {
-            case DoorType.BossChallenge:
-            case DoorType.Challenge:
-            case DoorType.Devil:
-            case DoorType.Angel:
+            case DoorObjectType.BossChallenge:
+            case DoorObjectType.Challenge:
+            case DoorObjectType.Devil:
+            case DoorObjectType.Angel:
                 smokeAnimation?.PlayOnce();
                 break;
         }

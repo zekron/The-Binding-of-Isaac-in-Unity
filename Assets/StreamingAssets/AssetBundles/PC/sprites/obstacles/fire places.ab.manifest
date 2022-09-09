@@ -1,0 +1,28 @@
+ManifestFileVersion: 0
+CRC: 988030975
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 93e6d225154777faad34ce3472df36f8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Obstacles/Fire Places/Fire (5).png
+- Assets/ABRes/Sprites/Obstacles/Fire Places/Fire Place (1).png
+- Assets/ABRes/Sprites/Obstacles/Fire Places/Fire (6).png
+- Assets/ABRes/Sprites/Obstacles/Fire Places/Fire (1).png
+- Assets/ABRes/Sprites/Obstacles/Fire Places/Fire (7).png
+- Assets/ABRes/Sprites/Obstacles/Fire Places/Fire Shadow.png
+- Assets/ABRes/Sprites/Obstacles/Fire Places/Fire Place (2).png
+- Assets/ABRes/Sprites/Obstacles/Fire Places/Fire (4).png
+- Assets/ABRes/Sprites/Obstacles/Fire Places/Fire (2).png
+- Assets/ABRes/Sprites/Obstacles/Fire Places/Fire (3).png
+Dependencies: []

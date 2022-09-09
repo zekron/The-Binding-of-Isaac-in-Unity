@@ -1,0 +1,38 @@
+ManifestFileVersion: 0
+CRC: 105996740
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d2c7360892f8ac186980422c3057c15f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Red (3).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Corny (3).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Corny (1).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Normal (2).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Golden (4).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Corny (5).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Normal (5).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Normal (3).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Red (1).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Golden (2).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Normal (1).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Corny (2).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Red (5).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Golden (3).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Normal (4).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Corny (4).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Golden (5).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Red (2).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Red (4).png
+- Assets/ABRes/Sprites/Obstacles/Poops/Poop_Golden (1).png
+Dependencies: []

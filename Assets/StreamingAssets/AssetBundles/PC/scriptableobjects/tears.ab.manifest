@@ -1,0 +1,25 @@
+ManifestFileVersion: 0
+CRC: 3153992647
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c1ead4bd47a1b44498acbb51315346f1
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 75ead34d1ee85309b4a762820e2b1a99
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 32fed984e20a53b458dc70c4e6a45a4c, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/ScriptableObjects/Tears/Tear_Normal SO.asset
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/tears.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/ui/tearui.ab

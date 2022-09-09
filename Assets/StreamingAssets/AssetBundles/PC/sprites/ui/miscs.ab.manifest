@@ -1,0 +1,32 @@
+ManifestFileVersion: 0
+CRC: 1542492326
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 06f86bdd34e06c13cb3b08c14a02cc92
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/UI/Miscs/UI_MiniMap (2).png
+- Assets/ABRes/Sprites/UI/Miscs/Trinket Slot.png
+- Assets/ABRes/Sprites/UI/Miscs/Side Tip.png
+- Assets/ABRes/Sprites/UI/Miscs/Background.png
+- Assets/ABRes/Sprites/UI/Miscs/UI_Main.png
+- Assets/ABRes/Sprites/UI/Miscs/Top Tip 50A.png
+- Assets/ABRes/Sprites/UI/Miscs/UI_Heart.png
+- Assets/ABRes/Sprites/UI/Miscs/UI_MiniMap (1).png
+- Assets/ABRes/Sprites/UI/Miscs/Top Tip Black.png
+- Assets/ABRes/Sprites/UI/Miscs/UI_GoldenKey.png
+- Assets/ABRes/Sprites/UI/Miscs/Skill Bar.png
+- Assets/ABRes/Sprites/UI/Miscs/UI_MiniMap (3).png
+- Assets/ABRes/Sprites/UI/Miscs/Arrows & Space.png
+- Assets/ABRes/Sprites/UI/Miscs/Comsumable slot.png
+Dependencies: []

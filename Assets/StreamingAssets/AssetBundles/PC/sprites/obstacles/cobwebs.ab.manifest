@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 1213360620
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 87d69d5e2ba8ba89fccbc4925dd60457
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Obstacles/Cobwebs/Cobweb (3).png
+- Assets/ABRes/Sprites/Obstacles/Cobwebs/Cobweb (2).png
+- Assets/ABRes/Sprites/Obstacles/Cobwebs/Cobweb (1).png
+- Assets/ABRes/Sprites/Obstacles/Cobwebs/Cobweb (4).png
+- Assets/ABRes/Sprites/Obstacles/Cobwebs/Cobweb (5).png
+- Assets/ABRes/Sprites/Obstacles/Cobwebs/Cobweb (6).png
+Dependencies: []

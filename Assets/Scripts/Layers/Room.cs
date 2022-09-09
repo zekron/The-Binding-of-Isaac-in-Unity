@@ -1,3 +1,4 @@
+using AssetBundleFramework;
 using CustomPhysics2D;
 using System.Collections;
 using System.Collections.Generic;
@@ -32,21 +33,9 @@ public class Room : MonoBehaviour
     [SerializeField] private TwoVector3EventChannelSO onEnterRoomEvent;
     [SerializeField] private VoidEventChannelSO onClearRoomEvent;
 
-    #region Test
-    [Header("Test Part")]
-    [SerializeField] private GameObject normalDoor;
-    [SerializeField] private GameObject bossDoor;
-    [SerializeField] private GameObject treasureDoor;
-    [SerializeField] private GameObject shopDoor;
-    [SerializeField] private GameObject secretDoor;
-    [SerializeField] private GameObject arcadeDoor;
-    [SerializeField] private GameObject bossChallengeDoor;
-    [SerializeField] private GameObject challengeDoor;
-    [SerializeField] private GameObject curseDoor;
-    #endregion
-
     private void OnEnable()
     {
+        roomLayout = AssetBundleManager.Instance.LoadAsset<RoomLayoutSO>("Basement RoomLayout (101).asset");
         RoomLayoutInitialize();
         if (roomDoors == null)
         {
@@ -132,8 +121,8 @@ public class Room : MonoBehaviour
         {
             foreach (var door in roomDoors)
             {
-                if (door.DoorType == DoorType.Secret &&
-                    (RoomInfo.CurrentRoomType != RoomType.Secret || RoomInfo.CurrentRoomType != RoomType.SuperSecret)) continue;
+                if (door.DoorType == DoorObjectType.Secret &&
+                    (RoomInfo.CurrentRoomType != RoomObjectType.Secret || RoomInfo.CurrentRoomType != RoomObjectType.SuperSecret)) continue;
 
                 doorLocks[(int)door.doorPosition].SetActive(false);
                 door.RaiseEvent(DoorStatus.Open);
@@ -141,55 +130,55 @@ public class Room : MonoBehaviour
         }
     }
 
-    public void CreateDoor(GameCoordinate direction, RoomType roomType = RoomType.Normal)
+    public void CreateDoor(GameCoordinate direction, RoomObjectType roomType = RoomObjectType.Normal)
     {
         var tempTransform = Door.GetDoorTransform(direction.ToDoorPosition());
 
-        roomDoors.Add(ObjectPoolManager.Release(GetDoorPrefabWithRoomType(roomType),
+        roomDoors.Add(CustomObjectPoolManager.Release(GetDoorTypeWithRoomType(roomType),
                                                 tempTransform.localPosition.ToWorldPosition(transform),
                                                 tempTransform.rotation,
                                                 doorTransform).GetComponent<Door>());
 
-        if (roomType == RoomType.Secret || roomType == RoomType.SuperSecret) roomDoors[roomDoors.Count - 1].gameObject.SetActive(false);
+        if (roomType == RoomObjectType.Secret || roomType == RoomObjectType.SuperSecret) roomDoors[roomDoors.Count - 1].gameObject.SetActive(false);
         roomDoors[doorsCount - 1].doorPosition = direction.ToDoorPosition();
         //test
         //roomDoors[doorsCount - 1].RaiseEvent(DoorStatus.Open);
         //onDoorStatusChanged.RaiseEvent(DoorStatus.Open);
     }
 
-    private GameObject GetDoorPrefabWithRoomType(RoomType type)
+    private DoorObjectType GetDoorTypeWithRoomType(RoomObjectType type)
     {
         switch (type)
         {
-            case RoomType.Starting:
-            case RoomType.Normal:
-            case RoomType.MiniBoss:
-            case RoomType.Error:
-            case RoomType.Library:
-            case RoomType.Sacrifice:
-                return normalDoor;
-            case RoomType.Boss:
-                return bossDoor;
-            case RoomType.Devil:
-                break;
-            case RoomType.Angel:
-                break;
-            case RoomType.Treasure:
-                return treasureDoor;
-            case RoomType.Shop:
-                return shopDoor;
-            case RoomType.Arcade:
-                return arcadeDoor;
-            case RoomType.Challenge:
-                return challengeDoor;
-            case RoomType.BossChallenge:
-                return bossChallengeDoor;
-            case RoomType.Curse:
-                return curseDoor;
-            case RoomType.Secret:
-            case RoomType.SuperSecret:
-                return secretDoor;
+            case RoomObjectType.Starting:
+            case RoomObjectType.Normal:
+            case RoomObjectType.MiniBoss:
+            case RoomObjectType.Error:
+            case RoomObjectType.Library:
+            case RoomObjectType.Sacrifice:
+                return DoorObjectType.Normal;
+            case RoomObjectType.Boss:
+                return DoorObjectType.Boss;
+            case RoomObjectType.Devil:
+                return DoorObjectType.Devil;
+            case RoomObjectType.Angel:
+                return DoorObjectType.Angel;
+            case RoomObjectType.Treasure:
+                return DoorObjectType.Treasure;
+            case RoomObjectType.Shop:
+                return DoorObjectType.Shop;
+            case RoomObjectType.Arcade:
+                return DoorObjectType.Arcade;
+            case RoomObjectType.Challenge:
+                return DoorObjectType.Challenge;
+            case RoomObjectType.BossChallenge:
+                return DoorObjectType.BossChallenge;
+            case RoomObjectType.Curse:
+                return DoorObjectType.Curse;
+            case RoomObjectType.Secret:
+            case RoomObjectType.SuperSecret:
+                return DoorObjectType.Secret;
         }
-        return normalDoor;
+        return DoorObjectType.Normal;
     }
 }

@@ -1,0 +1,21 @@
+ManifestFileVersion: 0
+CRC: 1305670099
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ab186ac1a554aa873478610d01dd2014
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Pickups/Keys/Key_HighLight.png
+- Assets/ABRes/Sprites/Pickups/Keys/Key (2).png
+- Assets/ABRes/Sprites/Pickups/Keys/Key (1).png
+Dependencies: []

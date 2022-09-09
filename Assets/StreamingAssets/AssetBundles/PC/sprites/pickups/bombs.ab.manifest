@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 1377944466
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 40beedc2721172e8b0cf8a447dd8bc59
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Pickups/Bombs/Bomb (1).png
+- Assets/ABRes/Sprites/Pickups/Bombs/Bomb (6).png
+- Assets/ABRes/Sprites/Pickups/Bombs/Bomb (4).png
+- Assets/ABRes/Sprites/Pickups/Bombs/Bomb (3).png
+- Assets/ABRes/Sprites/Pickups/Bombs/Bomb (5).png
+- Assets/ABRes/Sprites/Pickups/Bombs/Bomb (2).png
+Dependencies: []

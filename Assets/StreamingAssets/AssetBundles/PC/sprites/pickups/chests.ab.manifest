@@ -1,0 +1,39 @@
+ManifestFileVersion: 0
+CRC: 993843765
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: ce1ee56ba58cc3bac169430e9f2c336b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Pickups/Chests/Locked Chest (7).png
+- Assets/ABRes/Sprites/Pickups/Chests/Red Chest (7).png
+- Assets/ABRes/Sprites/Pickups/Chests/Red Chest (1).png
+- Assets/ABRes/Sprites/Pickups/Chests/Chest (1).png
+- Assets/ABRes/Sprites/Pickups/Chests/Chest (3).png
+- Assets/ABRes/Sprites/Pickups/Chests/Locked Chest (4).png
+- Assets/ABRes/Sprites/Pickups/Chests/Locked Chest (5).png
+- Assets/ABRes/Sprites/Pickups/Chests/Locked Chest (2).png
+- Assets/ABRes/Sprites/Pickups/Chests/Red Chest (6).png
+- Assets/ABRes/Sprites/Pickups/Chests/Chest (2).png
+- Assets/ABRes/Sprites/Pickups/Chests/Locked Chest (3).png
+- Assets/ABRes/Sprites/Pickups/Chests/Red Chest (3).png
+- Assets/ABRes/Sprites/Pickups/Chests/Red Chest (5).png
+- Assets/ABRes/Sprites/Pickups/Chests/Chest (6).png
+- Assets/ABRes/Sprites/Pickups/Chests/Chest (4).png
+- Assets/ABRes/Sprites/Pickups/Chests/Locked Chest (6).png
+- Assets/ABRes/Sprites/Pickups/Chests/Red Chest (4).png
+- Assets/ABRes/Sprites/Pickups/Chests/Chest (5).png
+- Assets/ABRes/Sprites/Pickups/Chests/Locked Chest (1).png
+- Assets/ABRes/Sprites/Pickups/Chests/Red Chest (2).png
+- Assets/ABRes/Sprites/Pickups/Chests/Chest (7).png
+Dependencies: []

@@ -9,16 +9,20 @@ namespace AssetBundleFramework
     public class AssetBundleFactory
     {
         public ABGraphWithOrthogonalList _Graph;
-        private ABManifestLoader _ABManifestLoader; //会放在游戏结束
+        /// <summary>
+        /// Main AssetBundle Manifest, 用于检索所有ab包的依赖关系
+        /// 会放在游戏结束
+        /// </summary>
+        private ABManifestLoader _ABManifestLoader;
 
         public AssetBundleFactory()
         {
             //在PersistentDataPath里面看看有没有对应的AssetBundle,配置文件信息
             AssetBundle ab;
             string manifestPath = ABDefine.GetABPackPath();
-            Debug.Log(manifestPath);
+            //Debug.Log(manifestPath);
             ab = AssetBundle.LoadFromFile(manifestPath);
-            var abManifest = ab.LoadAsset<AssetBundleManifest>("assetbundlemanifest");
+            var abManifest = ab.LoadAsset<AssetBundleManifest>("AssetBundleManifest");
 
             //初始化Manifest
             _ABManifestLoader = new ABManifestLoader(ab);
@@ -65,7 +69,7 @@ namespace AssetBundleFramework
             string[] dependences = _ABManifestLoader.GetDependences(abName);
             for (int i = 0; i < dependences.Length; i++)
             {
-                Debug.Log($"{abName} 的依赖 -> {dependences[i]}");
+                //Debug.Log($"{abName} 的依赖 -> {dependences[i]}");
                 GetABLoader(dependences[i]);
             }
             //加载abName Loader

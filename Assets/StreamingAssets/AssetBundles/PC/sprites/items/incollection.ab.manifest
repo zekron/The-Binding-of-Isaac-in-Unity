@@ -1,0 +1,215 @@
+ManifestFileVersion: 0
+CRC: 2958736368
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8b9e896372dce12668a0a8cf3f252a0c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_059_Magneto.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_050_My Little Unicorn.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_136_Best Friendr.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_044_Mom's Bra.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_033_Mom's Heels.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_154_Chemical Peel.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_056_Steven.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_139_Mom's Purse.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_003_Spoon Bender.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_122_Whore Of Babylon.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_149_IPECAC.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_138_Stigmata.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_166_D20.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_011_Halo Of Flies.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_096_Little CHAD.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_053_Doctor's Remote.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_093_The Gamekid.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_125_Bobby-Bomb.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_144_Bum Friend.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_114_Mom's Knife.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_062_Mom's Eye.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_009_Skatole.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_073_Anarchist Cookbook.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_084_We Need To Go Deeper!.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_196_Squeezy.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_158_Crystal Ball.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_005_My Reflection.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_165_Cat-O-Nine-Tails.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_106_Mr. Mega.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_184_Holy Grail.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_092_Super Bandage.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_048_Pills.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_157_Bloody Lust.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_126_Razor Blade.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_038_The Book Of Belial.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_094_Sack Of Pennies.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_153_Mutant Spider.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_091_Spelunker Hat.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_162_Celtic Cross.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_014_The Virus.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_080_The Pact.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_168_Epic Fetus.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_193_MEAT!.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_054_Cupid's Arrow.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_068_Tarot Card.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_029_Wooden Spoon.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_176_Stem Cells.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_021_Boom!.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_163_Ghost Baby.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_130_A Pony.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_148_Infestation.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_131_Bomb Bag.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_160_Crack The Sky.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_002_The Inner Eye.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_159_Spirit Of The Night.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_127_Forget Me Now.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_051_Yum Heart.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_197_Jesus Juice.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_004_Max's Head.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_081_Dead Cat.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_189_SMB Super Fan!.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_118_Brinstone.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_171_Spider Butt.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_030_PHD.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_032_Mom's Underwear.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_150_Tough Love.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_103_The Common Cold.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_015_Roid Rage.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_174_Rainbow Baby.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_141_Pageant Boy.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_066_Wiggle Worm.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_115_Oujia Board.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_067_The Ladder.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_075_Sister Maggy.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_194_Magic 8 Ball.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_076_Technology.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_112_Guardian Angel.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_155_The Peeper.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_043_Tammy's Head.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_142_Scapular.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_187_Guppy's Hairball.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_090_The Small Rock.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_111_The Bean.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_019_A Dollar.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_123_Monster Manuel.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_036_Rosary.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_164_The Candle.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_008_Brother Bobby.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_007_Blood Of The Martyr.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_058_Dr. Fetus.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_109_Money = Power.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_108_The Wafer.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_095_Robo-Baby.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_020_A Quarter.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_198_Box.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_113_Demon Baby.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_128_Forever Alone.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_063_Lemon Mishap.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_077_Chocolate Milk.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_179_Fate.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_121_Odd Mushroom (Thick).png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_087_Loki's Horns.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_046_Mom's Pad.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_049_Teleport!.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_110_Mom's Contacts.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_069_Charm Of THe Vampire.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_088_Lil' Chubby.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_180_The Black Bean.png
+- "Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_170_Daddy\u2018s Love.png"
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_172_Sacrificial Dagger.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_186_Blood Rights.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_143_Speed Ball.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_182_Sacred Heart.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_034_Mom's Lipstick.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_047_Bob's Rotten Head.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_097_The Book Of Sin.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_086_Monstro's Tooth.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_000_Unknown.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_100_Little Steve.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_037_The Bible.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_035_Wire Coat Hanger.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_135_IV Bagr.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_119_Blood Bag.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_137_Remote Detonator.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_099_Little Gish.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_000_The Lock.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_191_3 Dollor Bill.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_052_Lucky Foot.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_070_The Mark.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_107_The Pinking Shears.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_195_Mom's Coin Purse.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_057_Pentagram.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_012_1UP.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_071_The Battery.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_013_Magic Mushroom.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_116_9 Volt.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_185_Dead Dove.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_145_Guppy's Head.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_146_Prayer Card.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_104_The Parasite.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_102_Mom's Bottle Of
+  Pills.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_061_Treasure Map.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_156_Habit.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_161_Ankh.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_147_Notched Axe.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_101_The Halo.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_132_A Lump Of Coal.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_060_Book Of Revelations.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_192_Telepaty For Dummies.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_082_Lord Of The Pit.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_177_Portable Slot.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_045_Kamikaze!.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_178_Holy Wate.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_010_Cube Of Meat.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_039_The Necronomicon.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_098_The Relic.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_022_Transcendence.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_134_Guppy's Tail.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_190_Pyro.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_083_The Nail.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_064_Distant Admiration.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_181_White Pony.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_151_The Mulligan.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_001_The Sad Onion.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_124_Dead Sea Scrolls.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_031_The Belt.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_079_Little Mush.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_120_Odd Mushroom(Thin).png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_017_Raw Liver.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_078_Growth Hormones.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_016_Heart.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_024_Food.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_167_Harlequin Baby.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_188_Abel.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_140_Bob's Curse.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_175_Dad's Key.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_152_Technology 2.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_018_Skeleton Key.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_041_The Poop.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_089_Spider's Bite.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_040_X-Ray Vision.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_169_Polyphemus.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_105_The Dice.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_055_Shoop Da Whoop!.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_133_Guppy's Paw.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_085_Deck Of Cards.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_023_The Compass.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_183_Toothpicks.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_006_Number One.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_074_The Hourglass.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_072_Steam Sale.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_065_Book Of Shadows.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_042_Mr. Boom.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_129_Bucket Of Lard.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_117_Dead Bird.png
+- Assets/ABRes/Sprites/Items/InCollection/CollectionSpriteUI_173_Mitre.png
+Dependencies: []

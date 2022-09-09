@@ -1,0 +1,41 @@
+ManifestFileVersion: 0
+CRC: 358213766
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 227ee2b2455076f51edb503c7cb46bb8
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/UI/TearUI/22_My Reflection.png
+- Assets/ABRes/Sprites/UI/TearUI/05_Spider Bite.png
+- Assets/ABRes/Sprites/UI/TearUI/11.png
+- Assets/ABRes/Sprites/UI/TearUI/12_The Parasite.png
+- Assets/ABRes/Sprites/UI/TearUI/04_Magician.png
+- Assets/ABRes/Sprites/UI/TearUI/21_Number One.png
+- Assets/ABRes/Sprites/UI/TearUI/03_Inner Eye.png
+- Assets/ABRes/Sprites/UI/TearUI/04.png
+- Assets/ABRes/Sprites/UI/TearUI/17_Wiggle Worn.png
+- Assets/ABRes/Sprites/UI/TearUI/20_Blood of the Martyr.png
+- Assets/ABRes/Sprites/UI/TearUI/09_Mulligan.png
+- Assets/ABRes/Sprites/UI/TearUI/01_Normal.png
+- Assets/ABRes/Sprites/UI/TearUI/02_Ouija Board.png
+- Assets/ABRes/Sprites/UI/TearUI/07.png
+- Assets/ABRes/Sprites/UI/TearUI/23_Polyphemus.png
+- Assets/ABRes/Sprites/UI/TearUI/16_Technology.png
+- Assets/ABRes/Sprites/UI/TearUI/15_Chocolate Milk.png
+- Assets/ABRes/Sprites/UI/TearUI/03_Cupid's Arrow.png
+- Assets/ABRes/Sprites/UI/TearUI/07_Mutant Spider.png
+- Assets/ABRes/Sprites/UI/TearUI/19.png
+- Assets/ABRes/Sprites/UI/TearUI/06_The Common Cold.png
+- Assets/ABRes/Sprites/UI/TearUI/10_Brimstone.png
+- Assets/ABRes/Sprites/UI/TearUI/08_Tough Love.png
+Dependencies: []

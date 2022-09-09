@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b82aefebf701b714b9c614717dfaa8b9, type: 3}
+  m_Name: Door Pool SO
+  m_EditorClassIdentifier: 
+  doorPools:
+  - prefab: {fileID: 7924570295946511335, guid: 4ea7f4a7e2e76f04888c78f98d374064, type: 3}
+    size: 1
+    objectType: 3
+  - prefab: {fileID: 7924570295946511335, guid: 98d02f867b8c44e4c8766683b1b499e2, type: 3}
+    size: 1
+    objectType: 7
+  - prefab: {fileID: 7924570295946511335, guid: d17a04163eaa22848b3884a7debe85fe, type: 3}
+    size: 1
+    objectType: 1
+  - prefab: {fileID: 7924570295946511335, guid: 923e4dc3ae4006a4593bf6aae7cb0a9f, type: 3}
+    size: 1
+    objectType: 9
+  - prefab: {fileID: 7924570295946511335, guid: 10cabd365572e864da1b9b54f1abc91c, type: 3}
+    size: 1
+    objectType: 8
+  - prefab: {fileID: 7924570295946511335, guid: dc0f52eea11579849a7d344d53a9b48b, type: 3}
+    size: 1
+    objectType: 10
+  - prefab: {fileID: 7924570295946511335, guid: cdbfee48140fe7c44ae7683032951e10, type: 3}
+    size: 1
+    objectType: 2
+  - prefab: {fileID: 7924570295946511335, guid: 7908b15f137f36e418db83c7cfdd7fc9, type: 3}
+    size: 1
+    objectType: 0
+  - prefab: {fileID: 7924570295946511335, guid: 065e81a646b2b8e44a6cd19766941f30, type: 3}
+    size: 1
+    objectType: 11
+  - prefab: {fileID: 7924570295946511335, guid: 19a330c8f5769714c8f733bc7ff9c18d, type: 3}
+    size: 1
+    objectType: 4
+  - prefab: {fileID: 7924570295946511335, guid: dbf612341784bd34fb0b3f211a5d5aa9, type: 3}
+    size: 1
+    objectType: 5

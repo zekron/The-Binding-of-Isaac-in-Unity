@@ -1,0 +1,52 @@
+ManifestFileVersion: 0
+CRC: 3687296224
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: a1a7feaf048055e009a29150c73d54cb
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Items/TrinketUI/037_Goat Hoof.png
+- Assets/ABRes/Sprites/Items/TrinketUI/038_Mom's Pearl.png
+- Assets/ABRes/Sprites/Items/TrinketUI/058_Samson's Lock.png
+- Assets/ABRes/Sprites/Items/TrinketUI/040_Red Patch.png
+- Assets/ABRes/Sprites/Items/TrinketUI/029_Fish Head.png
+- Assets/ABRes/Sprites/Items/TrinketUI/053_Tick.png
+- Assets/ABRes/Sprites/Items/TrinketUI/035_Curved Horn.png
+- Assets/ABRes/Sprites/Items/TrinketUI/045_Ace of Spades.png
+- Assets/ABRes/Sprites/Items/TrinketUI/049_Bloody Penny.png
+- Assets/ABRes/Sprites/Items/TrinketUI/039_Cancer.png
+- Assets/ABRes/Sprites/Items/TrinketUI/060_Eve's Bird Foot.png
+- Assets/ABRes/Sprites/Items/TrinketUI/032_Liberty Cap.png
+- Assets/ABRes/Sprites/Items/TrinketUI/051_Flat Penny.png
+- Assets/ABRes/Sprites/Items/TrinketUI/043_Cursed Skull.png
+- Assets/ABRes/Sprites/Items/TrinketUI/050_Burnt Penny.png
+- Assets/ABRes/Sprites/Items/TrinketUI/036_Rusted Key.png
+- Assets/ABRes/Sprites/Items/TrinketUI/056_Judas' Tongue.png
+- Assets/ABRes/Sprites/Items/TrinketUI/041_Match Stick.png
+- Assets/ABRes/Sprites/Items/TrinketUI/048_A Missing Page.png
+- Assets/ABRes/Sprites/Items/TrinketUI/054_Isaac's Head.png
+- Assets/ABRes/Sprites/Items/TrinketUI/046_Isaac's Fork.png
+- Assets/ABRes/Sprites/Items/TrinketUI/052_Counterfeit Penny.png
+- Assets/ABRes/Sprites/Items/TrinketUI/061_The Left Hand.png
+- "Assets/ABRes/Sprites/Items/TrinketUI/057_ \uFF1F\uFF1F\uFF1F's Soul.png"
+- Assets/ABRes/Sprites/Items/TrinketUI/033_Umbilical Cord.png
+- Assets/ABRes/Sprites/Items/TrinketUI/034_The Game Squid.png
+- Assets/ABRes/Sprites/Items/TrinketUI/034_Child's Heart.png
+- Assets/ABRes/Sprites/Items/TrinketUI/059_Cain's Eye.png
+- Assets/ABRes/Sprites/Items/TrinketUI/044_Safety Cap.png
+- Assets/ABRes/Sprites/Items/TrinketUI/042_Lucky Toe.png
+- Assets/ABRes/Sprites/Items/TrinketUI/030_Pinky Eye.png
+- Assets/ABRes/Sprites/Items/TrinketUI/031_Push Pin.png
+- Assets/ABRes/Sprites/Items/TrinketUI/047_The Polaroid.png
+- Assets/ABRes/Sprites/Items/TrinketUI/055_Maggy's Faith.png
+Dependencies: []

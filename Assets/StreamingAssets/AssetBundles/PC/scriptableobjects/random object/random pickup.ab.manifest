@@ -1,0 +1,32 @@
+ManifestFileVersion: 0
+CRC: 3963987940
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e054152c491392af705d424218b11661
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 87c828aa9520ce15334ebb7fd74cfb39
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: f8080b31c48a41e4b967c09f2a088145, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/ScriptableObjects/Random Object/Random Pickup/RandomHeart.asset
+- Assets/ABRes/ScriptableObjects/Random Object/Random Pickup/RandomPickup.asset
+- Assets/ABRes/ScriptableObjects/Random Object/Random Pickup/RandomCoin.asset
+- Assets/ABRes/ScriptableObjects/Random Object/Random Pickup/RandomChest.asset
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/props.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/pickups/chests.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/pickups/coins.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/pickups/hearts.ab

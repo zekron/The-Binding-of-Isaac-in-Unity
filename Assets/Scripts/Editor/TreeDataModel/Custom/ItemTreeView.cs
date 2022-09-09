@@ -13,8 +13,8 @@ public enum ItemColumns
     Quote,
     Description,
 
-    CollectionSprite,
     ItemPrefab,
+    CollectionSprite,
 }
 public abstract class ItemTreeView<T> : TreeViewWithTreeModel<T> where T : ItemTreeElement
 {

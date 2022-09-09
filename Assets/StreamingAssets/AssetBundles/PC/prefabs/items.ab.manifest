@@ -1,0 +1,47 @@
+ManifestFileVersion: 0
+CRC: 1655423102
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d7f35fcdcdad8ccd4b835b50c5c33f68
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: dc3cdcd9c06b85a900a159e142bc50e9
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6de2252d89b31dc4dab1ba1ccc2eca8b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bab452018160102418694ca6caf360ad, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 6673e9d0925210441bd6f65397cf5d8e, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c976fb651fe610044a5c07e755f07bef, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Prefabs/Items/051_Yum Heart.prefab
+- Assets/ABRes/Prefabs/Items/041_The Poop.prefab
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/animators/fx.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/obstacles/poop.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/event
+  channel.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/active.ab

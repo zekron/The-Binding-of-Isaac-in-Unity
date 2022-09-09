@@ -1,0 +1,38 @@
+ManifestFileVersion: 0
+CRC: 1053338675
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 4e94fd6e89215142411b67dab4a2ab52
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Maps/Doors/DoorLock_Challenge.png
+- Assets/ABRes/Sprites/Maps/Doors/Door_Treasure.png
+- Assets/ABRes/Sprites/Maps/Doors/path24759.png
+- Assets/ABRes/Sprites/Maps/Doors/DoorLock_Coin.png
+- Assets/ABRes/Sprites/Maps/Doors/Door_Normal.png
+- Assets/ABRes/Sprites/Maps/Doors/Door_BossChallenge.png
+- Assets/ABRes/Sprites/Maps/Doors/Door_Cave.png
+- Assets/ABRes/Sprites/Maps/Doors/Door_Devil.png
+- Assets/ABRes/Sprites/Maps/Doors/path24877.png
+- Assets/ABRes/Sprites/Maps/Doors/DoorLock_Normal.png
+- Assets/ABRes/Sprites/Maps/Doors/Door_Curse.png
+- Assets/ABRes/Sprites/Maps/Doors/Door_Right.png
+- Assets/ABRes/Sprites/Maps/Doors/Door_Background.png
+- Assets/ABRes/Sprites/Maps/Doors/Door_Challenge.png
+- Assets/ABRes/Sprites/Maps/Doors/Door_Angel.png
+- Assets/ABRes/Sprites/Maps/Doors/Door_Secret.png
+- Assets/ABRes/Sprites/Maps/Doors/Door_Left.png
+- Assets/ABRes/Sprites/Maps/Doors/Door_Arcade.png
+- Assets/ABRes/Sprites/Maps/Doors/Door_Boss.png
+- Assets/ABRes/Sprites/Maps/Doors/DoorLock_Treasure.png
+Dependencies: []

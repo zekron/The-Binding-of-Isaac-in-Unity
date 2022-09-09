@@ -1,0 +1,20 @@
+ManifestFileVersion: 0
+CRC: 3814531867
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 8ff5f884faba1cf033089731ffe0303b
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Characters/Isaac/Character Head_Basic.png
+- Assets/ABRes/Sprites/Characters/Isaac/Character Body_Basic.png
+Dependencies: []

@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3cb28a3938f28648b344e04c6606e01, type: 3}
   m_Name: Room Pool SO
   m_EditorClassIdentifier: 
-  Pools:
-  - prefab: {fileID: 0}
+  roomPools:
+  - prefab: {fileID: 6994571110450151080, guid: 9e409c50c5a86f44f9139dbc84e61180, type: 3}
     size: 0
+    objectType: 1

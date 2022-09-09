@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 3335408619
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: b84f3e54168c7ebacb04e01286a05b79
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/UI/Single/UI_SoulHeart.png
+- Assets/ABRes/Sprites/UI/Single/UI_Coin.png
+- Assets/ABRes/Sprites/UI/Single/UI_Bomb.png
+- Assets/ABRes/Sprites/UI/Single/UI_Key.png
+- Assets/ABRes/Sprites/UI/Single/UI_Empty.png
+- Assets/ABRes/Sprites/UI/Single/UI_RedHeart.png
+Dependencies: []

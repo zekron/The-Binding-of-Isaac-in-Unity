@@ -15,7 +15,7 @@ public class CollectibleItemTreeView : ItemTreeView<CollectibleItemTreeElement>
 
     protected override void CellGUI(Rect cellRect, TreeViewItem<CollectibleItemTreeElement> item, ItemColumns column, ref RowGUIArgs args)
     {
-        if (column == ItemColumns.ID || column == ItemColumns.Name || column == ItemColumns.Quote|| column == ItemColumns.ItemPrefab)
+        if (column == ItemColumns.ID || column == ItemColumns.Name || column == ItemColumns.Quote || column == ItemColumns.ItemPrefab)
             CenterRectUsingSingleLineHeight(ref cellRect);
 
         if (InEditMode)

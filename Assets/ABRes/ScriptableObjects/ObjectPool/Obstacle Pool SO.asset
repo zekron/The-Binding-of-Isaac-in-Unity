@@ -12,16 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00381b8e0bf842144b5aa618264aeabe, type: 3}
   m_Name: Obstacle Pool SO
   m_EditorClassIdentifier: 
-  Pools:
+  obstaclePools:
   - prefab: {fileID: 4628544413203719168, guid: 11181828d7159364180fcef6a8dc4925, type: 3}
     size: 1
+    objectType: 0
   - prefab: {fileID: 6074549703869552337, guid: 1687687fb32d8c04c9494237130eb874, type: 3}
     size: 1
+    objectType: 1
   - prefab: {fileID: 3651684740395308067, guid: 60e80c8d5b5c916428e2cf0d06897943, type: 3}
     size: 1
+    objectType: 2
   - prefab: {fileID: 884316737703082349, guid: 0cab4a63df8200d48af7ce34431952bb, type: 3}
     size: 1
+    objectType: 3
   - prefab: {fileID: 6353629424394953638, guid: 51e3842147bbf224b9ef0e334b2f63f2, type: 3}
     size: 1
+    objectType: 4
   - prefab: {fileID: 6318295939826747529, guid: 0202966bb19caec4f8a4818b7c8d4e05, type: 3}
     size: 1
+    objectType: 5
+  - prefab: {fileID: 2853977731027570761, guid: 0766b5c49abf2c94d8c4492695764a88, type: 3}
+    size: 1
+    objectType: 6

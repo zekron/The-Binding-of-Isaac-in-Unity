@@ -5,12 +5,12 @@ using UnityEngine;
 public class MapRoomInfo
 {
     public GameCoordinate Coordinate;
-    public RoomType CurrentRoomType;
+    public RoomObjectType CurrentRoomType;
 
     private MapRoomInfo parent;
     private List<MapRoomInfo> children;
 
-    public MapRoomInfo(GameCoordinate coordinate, MapRoomInfo parent, RoomType currentRoomType = RoomType.Normal)
+    public MapRoomInfo(GameCoordinate coordinate, MapRoomInfo parent, RoomObjectType currentRoomType = RoomObjectType.Normal)
     {
         Coordinate = coordinate;
         this.parent = parent;

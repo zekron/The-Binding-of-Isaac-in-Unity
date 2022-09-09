@@ -1,7 +1,9 @@
 {
     "name": "GameUtility.ObjectPool",
     "rootNamespace": "",
-    "references": [],
+    "references": [
+        "GUID:5aab67ae70f91994c912c23826be533c"
+    ],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,

@@ -30,17 +30,17 @@ public class RoomEditorWindow : EditorWindow
     };
     string[] obstaclesPrefabPath = new[]
     {
-        "Assets/Prefabs/Obstacles/Rock/Rock.prefab",
+        "Assets/ABRes/Prefabs/Obstacles/Rock/Rock.prefab",
         "Assets/Prefabs/Obstacles/Spike/Spike.prefab",
-        "Assets/Prefabs/Obstacles/Fire Place/Fire Place.prefab",
-        "Assets/Prefabs/Obstacles/Poop/Obstacle_Poop_Normal.prefab",
-        "Assets/Prefabs/Obstacles/TNT.prefab",
+        "Assets/ABRes/Prefabs/Obstacles/Fire Place/Fire Place.prefab",
+        "Assets/ABRes/Prefabs/Obstacles/Poop/Obstacle_Poop_Normal.prefab",
+        "Assets/ABRes/Prefabs/Obstacles/TNT/TNT.prefab",
     };
     string[] propPrefabPath = new[]
     {
-        "Assets/ScriptableObjects/Random Object/RandomChest.asset",
-        "Assets/ScriptableObjects/Random Object/RandomPickup.asset",
-        "Assets/ScriptableObjects/Random Object/Random Item/ItemPedestal.asset",
+        "Assets/ABRes/ScriptableObjects/Random Object/Random Pickup/RandomChest.asset",
+        "Assets/ABRes/ScriptableObjects/Random Object/Random Pickup/RandomPickup.asset",
+        "Assets/ABRes/ScriptableObjects/Random Object/Random Item Base/ItemPedestal.asset",
         "Assets/AssetsPackge/Prefabs/Props/Goods/ItemGoods.prefab",
     };
 
@@ -532,8 +532,8 @@ public class RoomEditorWindow : EditorWindow
         if (spriteLeft != null)
         {
             Texture2D leftTexture = spriteLeft.texture;
-            int leftTextureWidth = leftTexture.width;
-            int leftTextureHeight = leftTexture.height;
+            int leftTextureWidth = Mathf.Min(leftTexture.width, StaticData.RoomWidthPixels);
+            int leftTextureHeight = Mathf.Min(leftTexture.height, StaticData.RoomHeightPixels);
             var rightTexture = new Texture2D(leftTextureWidth, leftTextureHeight);
             for (int i = 0; i < leftTextureWidth; i++)
             {

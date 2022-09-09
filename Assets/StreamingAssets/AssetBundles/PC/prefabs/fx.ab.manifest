@@ -1,0 +1,32 @@
+ManifestFileVersion: 0
+CRC: 399997470
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 2ed685446feb349d7d98bf707b94d60c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 5070cae15b5fd04d4617523a8b851585
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 325a56bd18e380943928d2fc92054b5f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c946e33512c9fbc4bac0f3256a0dd6ec, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Prefabs/FX/FX_Smoke.prefab
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/animators/sequences/miscs.ab

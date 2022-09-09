@@ -15,16 +15,21 @@ namespace AssetBundleFramework
             _Dependences = new Dictionary<string, string[]>();
         }
 
-        public string[] GetDependences(string abName)
+        /// <summary>
+        /// AssetBundleManifest.GetAllDependencies(string assetBundleName)
+        /// </summary>
+        /// <param name="assetBundleName">Name of the asset bundle</param>
+        /// <returns></returns>
+        public string[] GetDependences(string assetBundleName)
         {
             string[] res;
-            if (_Dependences.TryGetValue(abName, out res))
+            if (_Dependences.TryGetValue(assetBundleName, out res))
             {
                 return res;
             }
-            res = _Dependences[abName] = _ABManifest.GetAllDependencies(abName);
-            Debug.Log($"在这里获得所有的依赖关系: <color=green>{abName}</color> 的数量大概为: {res.Length} ");
-            if (res.Length > 0) Debug.Log($"\t<color=green>{abName}</color> depends on <color=#00ff5eff>{string.Join(", ", res)}</color>");
+            res = _Dependences[assetBundleName] = _ABManifest.GetAllDependencies(assetBundleName);
+            //Debug.Log($"在这里获得所有的依赖关系: <color=green>{abName}</color> 的数量大概为: {res.Length} ");
+            //if (res.Length > 0) Debug.Log($"\t<color=green>{abName}</color> depends on <color=#00ff5eff>{string.Join(", ", res)}</color>");
             return res;
         }
         public void Release()

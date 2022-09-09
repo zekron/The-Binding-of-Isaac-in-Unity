@@ -1,0 +1,27 @@
+ManifestFileVersion: 0
+CRC: 3318592726
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 5de7a7a1697cab7434c3274a6add0e53
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Pickups/Pills/Pill (7).png
+- Assets/ABRes/Sprites/Pickups/Pills/Pill (9).png
+- Assets/ABRes/Sprites/Pickups/Pills/Pill (6).png
+- Assets/ABRes/Sprites/Pickups/Pills/Pill (8).png
+- Assets/ABRes/Sprites/Pickups/Pills/Pill (1).png
+- Assets/ABRes/Sprites/Pickups/Pills/Pill (3).png
+- Assets/ABRes/Sprites/Pickups/Pills/Pill (4).png
+- Assets/ABRes/Sprites/Pickups/Pills/Pill (2).png
+- Assets/ABRes/Sprites/Pickups/Pills/Pill (5).png
+Dependencies: []

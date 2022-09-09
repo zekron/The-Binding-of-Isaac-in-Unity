@@ -1,0 +1,33 @@
+ManifestFileVersion: 0
+CRC: 1833125091
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 231df90cf59a125ccf5dfd23388e46ca
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Obstacles/Rocks/Rock_Normal (3).png
+- Assets/ABRes/Sprites/Obstacles/Rocks/Rock_Normal (6).png
+- Assets/ABRes/Sprites/Obstacles/Rocks/Rock_Normal (12).png
+- Assets/ABRes/Sprites/Obstacles/Rocks/Rock_Normal (1).png
+- Assets/ABRes/Sprites/Obstacles/Rocks/Rock_Tinted.png
+- Assets/ABRes/Sprites/Obstacles/Rocks/Rock_Normal (9).png
+- Assets/ABRes/Sprites/Obstacles/Rocks/Rock_Normal (2).png
+- Assets/ABRes/Sprites/Obstacles/Rocks/Rock_Normal (14).png
+- Assets/ABRes/Sprites/Obstacles/Rocks/Rock_Normal (5).png
+- Assets/ABRes/Sprites/Obstacles/Rocks/Rock_Normal (10).png
+- Assets/ABRes/Sprites/Obstacles/Rocks/Rock_Normal (11).png
+- Assets/ABRes/Sprites/Obstacles/Rocks/Rock_Normal (4).png
+- Assets/ABRes/Sprites/Obstacles/Rocks/Rock_Normal (7).png
+- Assets/ABRes/Sprites/Obstacles/Rocks/Rock_Normal (13).png
+- Assets/ABRes/Sprites/Obstacles/Rocks/Rock_Normal (8).png
+Dependencies: []

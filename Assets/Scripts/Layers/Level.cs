@@ -1,5 +1,4 @@
-using System;
-using System.Collections;
+using AssetBundleFramework;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,6 +18,10 @@ public class Level : MonoBehaviour
     private Room startingRoom;
     private Room currentRoom;
 
+    private void Awake()
+    {
+        roomLayoutGroup = AssetBundleManager.Instance.LoadAsset<RoomLayoutGroupSO>("Basement RoomLayoutGroup.asset");
+    }
     private void OnEnable()
     {
         onEnterDoorEvent.OnEventRaised += PrepareEnterRoom;
@@ -35,7 +38,7 @@ public class Level : MonoBehaviour
 
         //EnterRoom(DoorPosition.Up, MapCoordinate.RoomOffsetPoint);
         onEnterRoomEvent.RaiseEvent(GameCoordinate.zero, MiniMapIconStatus.Current);
-        roomArray[GameCoordinate.RoomOffsetPoint.x, GameCoordinate.RoomOffsetPoint.y].SetRoomLayout(roomLayoutGroup.GetRoomLayoutByType(RoomType.Starting));
+        roomArray[GameCoordinate.RoomOffsetPoint.x, GameCoordinate.RoomOffsetPoint.y].SetRoomLayout(roomLayoutGroup.GetRoomLayoutByType(RoomObjectType.Starting));
         startingRoom = currentRoom = roomArray[GameCoordinate.RoomOffsetPoint.x, GameCoordinate.RoomOffsetPoint.y];
         currentRoom.EnterRoom(DoorPosition.Up);
         //CreateRooms(Random.Range(1, 5));

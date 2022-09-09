@@ -15,8 +15,8 @@ MonoBehaviour:
   RandomObjectArray:
   - RandomObject: {fileID: 0}
     ratio: 50
-    itemName: 41
+    itemName: 51
   - RandomObject: {fileID: 0}
     ratio: 50
-    itemName: 51
+    itemName: 41
   spriteInEditorWindow: {fileID: 21300000, guid: d8ce82363dfe49f40a32b902bdeb6c67, type: 3}

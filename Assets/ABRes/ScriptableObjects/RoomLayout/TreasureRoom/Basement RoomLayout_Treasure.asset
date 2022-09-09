@@ -46,4 +46,8 @@ MonoBehaviour:
     value2:
       x: 17
       y: 7
-  propList: []
+  propList:
+  - value1: {fileID: 11400000, guid: 939fa1e43b5be534ca0c8f25c25e5084, type: 2}
+    value2:
+      x: 13
+      y: 7

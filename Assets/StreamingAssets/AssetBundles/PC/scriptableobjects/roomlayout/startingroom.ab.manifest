@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 68407960
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c6774f57c316eae73eb5cc333aac9bfa
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 3dc0a38f93a4dbe16e3e6588e36faa35
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: bf1967c1ef7080c4d91da24d9ad370ef, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/ScriptableObjects/RoomLayout/StartingRoom/Starting RoomLayout.asset
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/maps/basement.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/maps/miscs.ab

@@ -1,0 +1,47 @@
+ManifestFileVersion: 0
+CRC: 4231832850
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: e1e81290ac31f9134f02ebd4d033f304
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 7b0e5e5d95747c6dcf56d7c33545d64d
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
+- Class: 111
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 325a56bd18e380943928d2fc92054b5f, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 06ba56f493418ee41ba7bdfd79f14fc3, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 40ce7bdfc6efed64eba72570b1f1fef6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c946e33512c9fbc4bac0f3256a0dd6ec, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f712e0715f57c724d96816de37e8f8e1, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Prefabs/Obstacles/Fire Place/Fire Place.prefab
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/animators/fx.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/animators/sequences/obstacles.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/obstacles/fire
+  places.ab

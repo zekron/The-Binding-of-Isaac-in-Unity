@@ -1,0 +1,48 @@
+ManifestFileVersion: 0
+CRC: 4053099558
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: c9226e73849e9779f67c4d49de727142
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2a9178bd92adf3a5f43711b39dea5180
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 21
+  Script: {instanceID: 0}
+- Class: 48
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 3244e16a4938b014e858c62096149173, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 40ce7bdfc6efed64eba72570b1f1fef6, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: f712e0715f57c724d96816de37e8f8e1, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c976fb651fe610044a5c07e755f07bef, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: bf1967c1ef7080c4d91da24d9ad370ef, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 2833a0201b8c8824592ad1cae668fa46, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 212
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Prefabs/Rooms/Room_Test.prefab
+- Assets/ABRes/Prefabs/Rooms/Room_Basic.prefab
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/doors.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/event
+  channel.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/roomlayout/startingroom.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/maps/basement.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/maps/miscs.ab

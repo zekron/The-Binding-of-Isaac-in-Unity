@@ -1,0 +1,26 @@
+ManifestFileVersion: 0
+CRC: 2671632370
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d0efc3c7c44dba6d4a8d9c130c9c6773
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: ef406d63fb068107fe048827844e7ae7
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 325a56bd18e380943928d2fc92054b5f, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Animators/Sequences/Pickup/Pickup_Chest_Red_Sequence.asset
+- Assets/ABRes/Animators/Sequences/Pickup/Pickup_Chest_Locked_Sequence.asset
+- Assets/ABRes/Animators/Sequences/Pickup/Pickup_Coin_HighLight_Sequence.asset
+- Assets/ABRes/Animators/Sequences/Pickup/Pickup_Chest_Sequence.asset
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/fx/coin_highlight.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/pickups/chests.ab

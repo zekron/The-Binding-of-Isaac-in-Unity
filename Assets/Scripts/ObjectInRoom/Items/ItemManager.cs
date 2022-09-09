@@ -1,31 +1,35 @@
-using System.Collections;
+using AssetBundleFramework;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class ItemManager : PersistentSingleton<ItemManager>
+public class ItemManager
 {
-    [SerializeField] private CollectibleItemTreeAsset collectibleItemAsset;
-    [SerializeField] private TrinketItemTreeAsset trinketItemAsset;
+    private static ItemManager _Instance;
 
-    private AssetBundle characterProfileBundle;
-    private AssetBundle itemsBundle;
+    private static CollectibleItemTreeAsset collectibleItemAsset;
+    private static TrinketItemTreeAsset trinketItemAsset;
 
-    protected override void Awake()
+    private ItemManager()
     {
-        base.Awake();
-
-        itemsBundle = ResourcesLoader.LoadAssetBundleAtPath(string.Format("{0}/AssetBundles/items.ab", Application.streamingAssetsPath));
-        collectibleItemAsset = itemsBundle.LoadAsset<CollectibleItemTreeAsset>(StaticData.FILE_COLLECTIBLEITEM_SO);
-        trinketItemAsset = itemsBundle.LoadAsset<TrinketItemTreeAsset>(StaticData.FILE_TRINKETITEM_SO);
+        collectibleItemAsset = AssetBundleManager.Instance.LoadAsset<CollectibleItemTreeAsset>(StaticData.FILE_COLLECTIBLEITEM_SO);
+        trinketItemAsset = AssetBundleManager.Instance.LoadAsset<TrinketItemTreeAsset>(StaticData.FILE_TRINKETITEM_SO);
     }
 
-    private void OnEnable()
+    public static ItemManager Instance
     {
-        ObjectPoolManager.Initialize(InstantiatePools(collectibleItemAsset));
-        ObjectPoolManager.Initialize(InstantiatePools(trinketItemAsset));
+        get
+        {
+            if (_Instance == null)
+            {
+                _Instance = new ItemManager();
+
+                ObjectPoolManager.Initialize(InstantiatePools(collectibleItemAsset));
+                ObjectPoolManager.Initialize(InstantiatePools(trinketItemAsset));
+            }
+            return _Instance;
+        }
     }
 
-    private ObjectPool[] InstantiatePools<T>(ItemTreeAsset<T> itemTreeAsset) where T : ItemTreeElement
+    private static ObjectPool[] InstantiatePools<T>(ItemTreeAsset<T> itemTreeAsset) where T : ItemTreeElement
     {
         List<ObjectPool> pools = new List<ObjectPool>();
         for (int i = 0; i < itemTreeAsset.TreeElements.Count; i++)

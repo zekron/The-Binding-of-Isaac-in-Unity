@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 325a56bd18e380943928d2fc92054b5f, type: 3}
+  m_Name: FX_Smoke
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 21300000, guid: 55b502ecea7b98f46a1687e52e729db4, type: 3}
+  - {fileID: 21300000, guid: 54c7c6992f4302d4ea9b8f4c88c72e38, type: 3}
+  - {fileID: 21300000, guid: 2be65a0db7583394990290f05f4e2830, type: 3}
+  - {fileID: 21300000, guid: 3923260cc9dba1a48ae96f91f4fb7d44, type: 3}
+  - {fileID: 21300000, guid: 57635e025fd89d0409e467366d0cfa4a, type: 3}
+  - {fileID: 21300000, guid: cab0317059ebc874c84734f6cb2d880e, type: 3}
+  - {fileID: 21300000, guid: b4b24bb2333603740922646131fd3bef, type: 3}
+  - {fileID: 21300000, guid: c1be6b8b0542b0947b17935cfcec4087, type: 3}
+  - {fileID: 21300000, guid: d899b1a5d3124014898573f75e99ceb5, type: 3}
+  - {fileID: 21300000, guid: 3ef51ebfcc885b545bf626f7fc670f52, type: 3}
+  - {fileID: 21300000, guid: d6faf9d13b303e24eb31f05211f4e5a6, type: 3}
+  - {fileID: 21300000, guid: 8db0b5eff5b1f0c47bf3a3777503e7c7, type: 3}
+  - {fileID: 21300000, guid: 8851ae53e273fe347a3e320a8fe4b798, type: 3}
+  - {fileID: 21300000, guid: c69fa653acb555e458da27c5c9e3bc1c, type: 3}
+  - {fileID: 21300000, guid: 880b45bd1fd31314388791fcb2ece023, type: 3}
+  - {fileID: 21300000, guid: 9c93591727eeddd479270c19b9091906, type: 3}
+  - {fileID: 21300000, guid: d92d411c541a55c4494475e1db3ff092, type: 3}
+  - {fileID: 21300000, guid: 419b9fb5883f77949b634604d49f19da, type: 3}
+  - {fileID: 21300000, guid: c49249be4e1c4164eac4d995d988e4e9, type: 3}
+  fps: 30
+  needLoop: 0

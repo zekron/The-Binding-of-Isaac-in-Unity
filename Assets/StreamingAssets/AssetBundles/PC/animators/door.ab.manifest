@@ -1,0 +1,39 @@
+ManifestFileVersion: 0
+CRC: 381516249
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 37c7c6ea15a7f67a9ae0cb1881e93516
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: c33d3594fb840798e3bd468c6c9d34d3
+HashAppended: 0
+ClassTypes:
+- Class: 74
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Animators/Door/Door_Arcade_Open.anim
+- Assets/ABRes/Animators/Door/Door_Secret_Idle.anim
+- Assets/ABRes/Animators/Door/Door_Angel_Open.anim
+- Assets/ABRes/Animators/Door/Door_Devil_Idle.anim
+- Assets/ABRes/Animators/Door/Door_Normal_Idle.anim
+- Assets/ABRes/Animators/Door/Door_Curse_Open.anim
+- Assets/ABRes/Animators/Door/Door_Angel_Idle.anim
+- Assets/ABRes/Animators/Door/Door_Shop_Open.anim
+- Assets/ABRes/Animators/Door/Door_Boss_Idle.anim
+- Assets/ABRes/Animators/Door/Door_Treasure_Idle.anim
+- Assets/ABRes/Animators/Door/Door_Normal_Open.anim
+- Assets/ABRes/Animators/Door/Door_Arcade_Idle.anim
+- Assets/ABRes/Animators/Door/Door_BossChallenge_Idle.anim
+- Assets/ABRes/Animators/Door/Door_Treasure_Open.anim
+- Assets/ABRes/Animators/Door/Door_Challenge_Open.anim
+- Assets/ABRes/Animators/Door/Door_Secret_Open.anim
+- Assets/ABRes/Animators/Door/Door_Devil_Open.anim
+- Assets/ABRes/Animators/Door/Door_Boss_Open.anim
+- Assets/ABRes/Animators/Door/Door_BossChallenge_Open.anim
+- Assets/ABRes/Animators/Door/Door_Normal_Close.anim
+- Assets/ABRes/Animators/Door/Door_Curse_Idle.anim
+- Assets/ABRes/Animators/Door/Door_Shop_Idle.anim
+- Assets/ABRes/Animators/Door/Door_Challenge_Idle.anim
+Dependencies: []

@@ -1,3 +1,4 @@
+using AssetBundleFramework;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,19 +10,12 @@ public class ObjectPoolManager : MonoBehaviour
     [SerializeField] private ObjectPool[] vFXPools;
     [SerializeField] private ObjectPool[] itemPools;
     [SerializeField] private ObjectPool[] playerModelPools;
-    [SerializeField] private ObjectPool[] doorPools;
-    [SerializeField] private ObjectPool[] roomPools;
     [SerializeField] private ObjectPool[] tearPools;
-    //[SerializeField] private ObjectPool[] obstaclePools;
-    [SerializeField] private ObjectPoolPrefabSO obstaclePools;
-    //[SerializeField] private ObjectPool[] pickupPools;
-    [SerializeField] private ObjectPoolPrefabSO pickupPools;
-    [SerializeField] private ObjectPoolPrefabSO activeItemPools;
 
     private static Dictionary<GameObject, ObjectPool> objectPoolDictionary;
     private static Transform selfTransform;
 
-    private void Awake()
+    protected virtual void Awake()
     {
         objectPoolDictionary = new Dictionary<GameObject, ObjectPool>();
         selfTransform = transform;
@@ -32,12 +26,7 @@ public class ObjectPoolManager : MonoBehaviour
         Initialize(vFXPools);
         Initialize(itemPools);
         Initialize(playerModelPools);
-        Initialize(doorPools);
-        Initialize(roomPools);
         Initialize(tearPools);
-        Initialize(obstaclePools.Pools);
-        Initialize(pickupPools.Pools);
-        //Initialize(activeItemPools.Pools);
     }
 
 #if UNITY_EDITOR
@@ -48,11 +37,7 @@ public class ObjectPoolManager : MonoBehaviour
         CheckPoolSize(enemyProjectilePools);
         CheckPoolSize(vFXPools);
         CheckPoolSize(itemPools);
-        CheckPoolSize(doorPools);
-        CheckPoolSize(roomPools);
         CheckPoolSize(tearPools);
-        CheckPoolSize(obstaclePools.Pools);
-        CheckPoolSize(pickupPools.Pools);
         //CheckPoolSize(activeItemPools.Pools);
     }
 #endif
@@ -110,7 +95,7 @@ public class ObjectPoolManager : MonoBehaviour
 #if UNITY_EDITOR
         if (!objectPoolDictionary.ContainsKey(prefab))
         {
-            Debug.LogError("Pool Manager could NOT find prefab: " + prefab.name);
+            Debug.LogError($"Pool Manager could NOT find prefab: {prefab.name}");
 
             return null;
         }
@@ -136,7 +121,7 @@ public class ObjectPoolManager : MonoBehaviour
 #if UNITY_EDITOR
         if (!objectPoolDictionary.ContainsKey(prefab))
         {
-            Debug.LogError("Pool Manager could NOT find prefab: " + prefab.name);
+            Debug.LogError($"Pool Manager could NOT find prefab: {prefab.name}");
 
             return null;
         }
@@ -149,7 +134,7 @@ public class ObjectPoolManager : MonoBehaviour
 #if UNITY_EDITOR
         if (!objectPoolDictionary.ContainsKey(prefab))
         {
-            Debug.LogError("Pool Manager could NOT find prefab: " + prefab.name);
+            Debug.LogError($"Pool Manager could NOT find prefab: {prefab.name}");
 
             return null;
         }
@@ -179,7 +164,7 @@ public class ObjectPoolManager : MonoBehaviour
 #if UNITY_EDITOR
         if (!objectPoolDictionary.ContainsKey(prefab))
         {
-            Debug.LogError("Pool Manager could NOT find prefab: " + prefab.name);
+            Debug.LogError($"Pool Manager could NOT find prefab: {prefab.name}");
 
             return null;
         }
@@ -213,7 +198,7 @@ public class ObjectPoolManager : MonoBehaviour
 #if UNITY_EDITOR
         if (!objectPoolDictionary.ContainsKey(prefab))
         {
-            Debug.LogError("Pool Manager could NOT find prefab: " + prefab.name);
+            Debug.LogError($"Pool Manager could NOT find prefab: {prefab.name}");
 
             return null;
         }
@@ -226,7 +211,7 @@ public class ObjectPoolManager : MonoBehaviour
 #if UNITY_EDITOR
         if (!objectPoolDictionary.ContainsKey(prefab))
         {
-            Debug.LogError("Pool Manager could NOT find prefab: " + prefab.name);
+            Debug.LogError($"Pool Manager could NOT find prefab: {prefab.name} {prefab.GetInstanceID()}");
 
             return null;
         }

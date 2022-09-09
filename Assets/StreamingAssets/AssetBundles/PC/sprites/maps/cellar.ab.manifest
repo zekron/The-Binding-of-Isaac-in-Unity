@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 722774638
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: aad3da0fdcef5c94a28fcea866b2d76c
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Maps/Cellar/Floor_Cellar (3).png
+- Assets/ABRes/Sprites/Maps/Cellar/Floor_Cellar (4).png
+- Assets/ABRes/Sprites/Maps/Cellar/Floor_Cellar (1).png
+- Assets/ABRes/Sprites/Maps/Cellar/Floor_Cellar (2).png
+Dependencies: []

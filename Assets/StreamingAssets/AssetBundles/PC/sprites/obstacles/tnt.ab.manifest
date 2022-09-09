@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 4225910519
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9f03841c0772a217e16c63b146174a9a
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/Obstacles/TNT/TNT (2).png
+- Assets/ABRes/Sprites/Obstacles/TNT/TNT (3).png
+- Assets/ABRes/Sprites/Obstacles/TNT/TNT (4).png
+- Assets/ABRes/Sprites/Obstacles/TNT/TNT (1).png
+Dependencies: []

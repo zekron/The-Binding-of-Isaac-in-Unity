@@ -1,0 +1,277 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 249fad01e7bf086449607f596e30afe7, type: 3}
+  m_Name: TrinketItem TreeAsset
+  m_EditorClassIdentifier: 
+  m_TreeElements:
+  - m_ID: -1
+    m_Name: Root
+    m_Depth: -1
+    ItemQuote: 
+    ItemDescription: 
+    ItemSprite: {fileID: 0}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 30
+    m_Name: Pinky Eye
+    m_Depth: 0
+    ItemQuote: Poison shots
+    ItemDescription: Adds a 10% chance to shoot a poison tear, dealing damage over
+      time when inflicted.
+    ItemSprite: {fileID: 21300000, guid: e0c54e50f9a90c045a87ce914964cd95, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 31
+    m_Name: Push Pin
+    m_Depth: 0
+    ItemQuote: Piercing shots
+    ItemDescription: Adds a 10% chance to shoot a piercing and spectral tear.
+    ItemSprite: {fileID: 21300000, guid: 417bff66d6a21d049990b3ee1119abae, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 32
+    m_Name: Liberty Cap
+    m_Depth: 0
+    ItemQuote: Touch Fuzzy, Get Dizzy
+    ItemDescription: Adds a chance when entering a room to gain Mini Mush, Odd Mushroom,
+      or The Compass for one room.
+    ItemSprite: {fileID: 21300000, guid: e90a69497f3223a41ad006e3ddd8dbe0, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 33
+    m_Name: Umbilical Cord
+    m_Depth: 0
+    ItemQuote: Fetal Protection
+    ItemDescription: When brought down to only a Half Red Heart, spawns a Little
+      Steven familiar for the current room.
+    ItemSprite: {fileID: 21300000, guid: 4fe8c3b055e8ad94091547447c73ebf2, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 34
+    m_Name: Child's Heart
+    m_Depth: 0
+    ItemQuote: It calls out to its brothers
+    ItemDescription: Increases the chance of a Red Heart dropping after clearing
+      a room, and the chance of finding a heart when opening a Chest.
+    ItemSprite: {fileID: 21300000, guid: 4af29e815e6013f469ecfa6fcbe7ae4b, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 35
+    m_Name: Curved Horn
+    m_Depth: 0
+    ItemQuote: DMG up
+    ItemDescription: Increases damage by 2.
+    ItemSprite: {fileID: 21300000, guid: bf985e00ab7f6c84ca786e8f98a80b53, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 36
+    m_Name: Rusted Key
+    m_Depth: 0
+    ItemQuote: It feels lucky?
+    ItemDescription: Increases the chance of Keys dropping after clearing a room,
+      and the chance of finding keys when opening a Chest.
+    ItemSprite: {fileID: 21300000, guid: 2a3da789ea0bff2438843a3528d021c4, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 37
+    m_Name: Goat Hoof
+    m_Depth: 0
+    ItemQuote: Speed up
+    ItemDescription: +0.15 speed.
+    ItemSprite: {fileID: 21300000, guid: d8559019609d5fc46b681c51b39618fb, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 38
+    m_Name: Mom's Pearl
+    m_Depth: 0
+    ItemQuote: It emanates purity
+    ItemDescription: Grants a secondary 10% chance of any non-specific heart drop
+      turning into a Soul Heart.
+    ItemSprite: {fileID: 21300000, guid: f6a34cfb836a8e147b9c0609c4748d5c, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 39
+    m_Name: Cancer
+    m_Depth: 0
+    ItemQuote: Yay, cancer!
+    ItemDescription: -2 tear delay (effectively increases fire rate of tears).
+    ItemSprite: {fileID: 21300000, guid: 7878cd09f7c989d448209b9404829241, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 40
+    m_Name: Red Patch
+    m_Depth: 0
+    ItemQuote: Your rage grows
+    ItemDescription: Grants a chance of increasing damage by 1.8 for the current
+      room upon taking damage.
+    ItemSprite: {fileID: 21300000, guid: 8220fc65ef259a8429885bd299a52ca7, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 41
+    m_Name: Match Stick
+    m_Depth: 0
+    ItemQuote: Tastes like burning
+    ItemDescription: Increases the chance of Bombs dropping after clearing a room,
+      and the chance of finding Bombs when opening a Chest.
+    ItemSprite: {fileID: 21300000, guid: d887e3716e3696e4ba2d792af38fd73d, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 42
+    m_Name: Lucky Toe
+    m_Depth: 0
+    ItemQuote: Luck up!
+    ItemDescription: +1 Luck. Adds a chance to drop an extra pickup when opening
+      a Chest, destroying a machine, or blowing up a tinted rock.
+    ItemSprite: {fileID: 21300000, guid: f80203893f71b5649803f0cc0a64854b, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 43
+    m_Name: Cursed Skull
+    m_Depth: 0
+    ItemQuote: Cursed?
+    ItemDescription: If Isaac has less than one full Red Heart after taking damage,
+      he will be immediately teleported to the last cleared room he was in.
+    ItemSprite: {fileID: 21300000, guid: caa06c139647eb049b558aaf92140294, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 44
+    m_Name: Safety Cap
+    m_Depth: 0
+    ItemQuote: Don't swallow it
+    ItemDescription: Increases the chance of pills dropping after clearing a room,
+      and the chance of finding a pill when opening a Chest.
+    ItemSprite: {fileID: 21300000, guid: e6528d0d82d7c4043bb4543d8cb8414c, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 45
+    m_Name: Ace of Spades
+    m_Depth: 0
+    ItemQuote: Luck of the draw
+    ItemDescription: Increases the chance of tarot cards or playing cards dropping
+      after clearing a room, and the chance of finding cards when opening a Chest.
+    ItemSprite: {fileID: 21300000, guid: 8664d5d26dd4bee4da9af45283b5d075, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 46
+    m_Name: Isaac's Fork
+    m_Depth: 0
+    ItemQuote: Consume thy enemy
+    ItemDescription: Isaac has a chance to heal for a Half Red Heart upon clearing
+      a room.
+    ItemSprite: {fileID: 21300000, guid: a27edc3b4a19e474186d498e3a0fda14, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 47
+    m_Name: The Polaroid
+    m_Depth: 0
+    ItemQuote: Fate chosen
+    ItemDescription: If Isaac has half a red heart or no red hearts after taking
+      damage, he gains a shield that nullifies all types of damage for 5 seconds.
+    ItemSprite: {fileID: 21300000, guid: a551e2fa974268f4da54e4558471d3b0, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 48
+    m_Name: A Missing Page
+    m_Depth: 0
+    ItemQuote: It glows with power
+    ItemDescription: 5% chance to induce The Necronomicon The Necronomicon's effect
+      upon taking damage.
+    ItemSprite: {fileID: 21300000, guid: d2f006879799b854c94138efd6453c69, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 49
+    m_Name: Bloody Penny
+    m_Depth: 0
+    ItemQuote: Wealth of health
+    ItemDescription: Gives a chance to drop a Half Red Heart when a coin is collected.
+    ItemSprite: {fileID: 21300000, guid: 3828f9d0260263c4ba53661b418270eb, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 50
+    m_Name: Burnt Penny
+    m_Depth: 0
+    ItemQuote: Wealth of chaos
+    ItemDescription: Gives a chance to drop a Bomb when a coin is collected.
+    ItemSprite: {fileID: 21300000, guid: 0a3a9bc183dab7e4dab0e1ad1d550cd5, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 51
+    m_Name: Flat Penny
+    m_Depth: 0
+    ItemQuote: Wealth of answers
+    ItemDescription: Gives a chance to drop a Key when a coin is collected.
+    ItemSprite: {fileID: 21300000, guid: b81ca2c5b1dea7e4f9a959a34f1a84fe, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 52
+    m_Name: Counterfeit Penny
+    m_Depth: 0
+    ItemQuote: Wealth of wealth
+    ItemDescription: Gives a 50% chance of increasing the value of every coin pickup
+      by one.
+    ItemSprite: {fileID: 21300000, guid: 4d88864e5a75c8f438e8146fcb0944e0, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 53
+    m_Name: Tick
+    m_Depth: 0
+    ItemQuote: Well, that's not coming off
+    ItemDescription: Drains 15% health from enemies with more than 60 HP. Restores
+      one Red Heart when entering an uncleared Boss Room. The Tick cannot be dropped
+      or swapped for another trinket.
+    ItemSprite: {fileID: 21300000, guid: 63e4f0e6e97f32d4c9947ceca7ada3d5, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 54
+    m_Name: Isaac's Head
+    m_Depth: 0
+    ItemQuote: Dead friend
+    ItemDescription: Spawns Isaac's severed head as a tear-firing familiar. Fires
+      piercing tears.
+    ItemSprite: {fileID: 21300000, guid: 273b7c77102bdb842b06c63377d47f9f, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 55
+    m_Name: Maggy's Faith
+    m_Depth: 0
+    ItemQuote: Faith's reward
+    ItemDescription: Gives an Eternal Heart at the start of every floor.
+    ItemSprite: {fileID: 21300000, guid: 59f28f27dc12c3a4dbcbc2d4405f9955, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 56
+    m_Name: Judas' Tongue
+    m_Depth: 0
+    ItemQuote: Payment Received
+    ItemDescription: Items in the Devil Room only cost 1 heart. Soul Heart trades
+      still cost 3 soul hearts.
+    ItemSprite: {fileID: 21300000, guid: 64cb21a06aad9a4429e5977df466c16c, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 57
+    m_Name: " \uFF1F\uFF1F\uFF1F's Soul"
+    m_Depth: 0
+    ItemQuote: Imaginary Friend
+    ItemDescription: Spawns a familiar that floats slowly around the room on a zig-zag
+      pattern similar to The Peeper and fires spectral and homing tears.
+    ItemSprite: {fileID: 21300000, guid: 7e975f7740ce6ec40ab1b0f942a362f7, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 58
+    m_Name: Samson's Lock
+    m_Depth: 0
+    ItemQuote: Your rage grows
+    ItemDescription: 1/15 chance to increase damage by 0.5 for the current room each
+      time an enemy dies.
+    ItemSprite: {fileID: 21300000, guid: e3698fc26945ceb419417ba584aba09b, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 59
+    m_Name: Cain's Eye
+    m_Depth: 0
+    ItemQuote: May you see your destination
+    ItemDescription: When starting a floor, 25% chance to gain the effect of The
+      Compass for the duration of the floor.
+    ItemSprite: {fileID: 21300000, guid: 4fc57767930ecf0459e5ff97adf92507, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 60
+    m_Name: Eve's Bird Foot
+    m_Depth: 0
+    ItemQuote: Revenge from beyond
+    ItemDescription: 5% chance to spawn a Dead Bird familiar for the current room
+      each time an enemy dies.
+    ItemSprite: {fileID: 21300000, guid: e76f2591dfe58014aa75ffd7ac8b8677, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 61
+    m_Name: The Left Hand
+    m_Depth: 0
+    ItemQuote: The left-hand path reaps dark rewards
+    ItemDescription: Replaces all types of Chests with Red Chest.
+    ItemSprite: {fileID: 21300000, guid: 0282f9b1912e34c42aaeaa5938e5d226, type: 3}
+    ItemPrefab: {fileID: 0}
+  - m_ID: 29
+    m_Name: Fish Head
+    m_Depth: 0
+    ItemQuote: It stinks
+    ItemDescription: Spawns a Blue Fly every time Isaac takes damage.
+    ItemSprite: {fileID: 21300000, guid: 8f8b9b002b0c39f409f1185f45eff0a2, type: 3}
+    ItemPrefab: {fileID: 0}
