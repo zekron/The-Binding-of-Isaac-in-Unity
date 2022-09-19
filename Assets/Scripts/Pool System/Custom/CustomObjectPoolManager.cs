@@ -13,8 +13,8 @@ public class CustomObjectPoolManager : MonoBehaviour
     {
         pickupPools = AssetBundleManager.Instance.LoadAsset<PickupPoolSO>("Pickup Pool SO.asset");
         obstaclePools = AssetBundleManager.Instance.LoadAsset<ObstaclePoolSO>("Obstacle Pool SO.asset");
-        roomPools = AssetBundleManager.Instance.LoadAsset<RoomPoolSO>("Room Pool SO.asset");
         doorPools = AssetBundleManager.Instance.LoadAsset<DoorObjectPoolSO>("Door Pool SO.asset");
+        roomPools = AssetBundleManager.Instance.LoadAsset<RoomPoolSO>("Room Pool SO.asset");
 
         pickupPools.Initialize();
         obstaclePools.Initialize();

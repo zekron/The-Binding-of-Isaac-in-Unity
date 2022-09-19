@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 4051884571
+CRC: 3695481728
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -51,6 +51,7 @@ AssetBundleManifest:
         Dependency_1: animators/fx.ab
         Dependency_2: prefabs/obstacles/poop.ab
         Dependency_3: sprites/items/active.ab
+        Dependency_4: sprites/items/passive.ab
     Info_8:
       Name: prefabs/players.ab
       Dependencies:
@@ -58,6 +59,7 @@ AssetBundleManifest:
         Dependency_1: prefabs/tears.ab
         Dependency_2: sprites/characters/isaac.ab
         Dependency_3: animators/character.ab
+        Dependency_4: scriptableobjects/head sprite group.ab
     Info_9:
       Name: prefabs/props.ab
       Dependencies:
@@ -318,3 +320,7 @@ AssetBundleManifest:
       Dependencies:
         Dependency_0: sprites/pickups/chests.ab
         Dependency_1: animators/sequences/pickup.ab
+    Info_70:
+      Name: scriptableobjects/head sprite group.ab
+      Dependencies:
+        Dependency_0: sprites/characters/isaac.ab

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2077230005
+CRC: 2983154678
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 21c4b7c4501e5a85dedc07c5f3fdd788
+    Hash: bbea594375cc6cd1c16d7f8b5d0a2b21
   TypeTreeHash:
     serializedVersion: 2
     Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
@@ -20,7 +20,7 @@ Assets:
 - Assets/ABRes/Sprites/Items/Active/Active_22.png
 - Assets/ABRes/Sprites/Items/Active/Active_09.png
 - Assets/ABRes/Sprites/Items/Active/Active_30.png
-- Assets/ABRes/Sprites/Items/Active/Active_18.png
+- Assets/ABRes/Sprites/Items/Active/Active_51_Yum Heart.png
 - Assets/ABRes/Sprites/Items/Active/Active_44.png
 - Assets/ABRes/Sprites/Items/Active/Active_05.png
 - Assets/ABRes/Sprites/Items/Active/Active_15.png
@@ -32,9 +32,9 @@ Assets:
 - Assets/ABRes/Sprites/Items/Active/Active_26.png
 - Assets/ABRes/Sprites/Items/Active/Active_52.png
 - Assets/ABRes/Sprites/Items/Active/Active_10.png
-- Assets/ABRes/Sprites/Items/Active/Active_034_The Book of Belial.png
+- Assets/ABRes/Sprites/Items/Active/Active_038_The Book of Belial.png
 - Assets/ABRes/Sprites/Items/Active/Active_34.png
-- Assets/ABRes/Sprites/Items/Active/Active_035_The Necronomicon.png
+- Assets/ABRes/Sprites/Items/Active/Active_039_The Necronomicon.png
 - Assets/ABRes/Sprites/Items/Active/Active_14.png
 - Assets/ABRes/Sprites/Items/Active/Active_01.png
 - Assets/ABRes/Sprites/Items/Active/Active_19.png
@@ -46,7 +46,7 @@ Assets:
 - Assets/ABRes/Sprites/Items/Active/Active_20.png
 - Assets/ABRes/Sprites/Items/Active/Active_28.png
 - Assets/ABRes/Sprites/Items/Active/Active_51.png
-- Assets/ABRes/Sprites/Items/Active/Active_036_The Poop.png
+- Assets/ABRes/Sprites/Items/Active/Active_041_The Poop.png
 - Assets/ABRes/Sprites/Items/Active/Active_Pedestal.png
 - Assets/ABRes/Sprites/Items/Active/Active_53.png
 - Assets/ABRes/Sprites/Items/Active/Active_46.png

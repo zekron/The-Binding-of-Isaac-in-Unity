@@ -1,0 +1,23 @@
+ManifestFileVersion: 0
+CRC: 2909139677
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: dd2fc6b37adee0990113fc20557d065f
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 2c149809ea63527ad358083d8c2be9ec
+HashAppended: 0
+ClassTypes:
+- Class: 114
+  Script: {fileID: 11500000, guid: 8eeeee01332beb54eaeb9abb35c349a4, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/ScriptableObjects/Head Sprite Group/Head Sprite Group_Normal.asset
+- Assets/ABRes/ScriptableObjects/Head Sprite Group/Head Sprite Group_Belial.asset
+Dependencies:
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/characters/isaac.ab

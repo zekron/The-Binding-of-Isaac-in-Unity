@@ -5,12 +5,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour, IObjectInRoom
+public class PlayerController : MonoBehaviour
 {
     private const int MOVE_SPEED_MULTIPLIER = 5;
     private float SHOT_SPEED_MULTIPLIER = 5;
 
     [SerializeField] private TwoVector3EventChannelSO onEnterRoomEvent;
+    [SerializeField] private FloatEventChannelSO onPlayerTearsChanged;
     [SerializeField] private bool useFixedUpdate = false;
 
     [Header("Move")]
@@ -26,33 +27,26 @@ public class PlayerController : MonoBehaviour, IObjectInRoom
 
     [Header("Shooting")]
     [SerializeField] private GameObject tearPrefab;
+    private WaitForFixedFrame waitForFixedFrame;
     private float tearInterval;
     private float shotSpeed;
     private Vector2 tearDirection = Vector2.zero;
     private bool canShoot;
     private float shootTimer;
 
-    [Header("Misc")]
-    [SerializeField] private SpriteRenderer bodyRenderer;
-    [SerializeField] private SpriteRenderer headRenderer;
-    [SerializeField] private Animator bodyAnimator;
-
     private CustomRigidbody2D customRigidbody;
     private Player player;
-    private GameCoordinate coordinate;
-
-    public GameCoordinate Coordinate { get => coordinate; set => coordinate = value; }
-
-    public SpriteRenderer ObjectRenderer => throw new NotImplementedException();
 
     private void OnEnable()
     {
         onEnterRoomEvent.OnEventRaised += Refresh;
+        onPlayerTearsChanged.OnEventRaised += ChangeTearInterval;
     }
 
     private void OnDisable()
     {
         onEnterRoomEvent.OnEventRaised -= Refresh;
+        onPlayerTearsChanged.OnEventRaised -= ChangeTearInterval;
     }
 
     void Awake()
@@ -64,8 +58,10 @@ public class PlayerController : MonoBehaviour, IObjectInRoom
     void Start()
     {
         moveSpeed *= player.MoveSpeed * MOVE_SPEED_MULTIPLIER;
-        tearInterval = 1f / player.Tears;
         shotSpeed = player.ShotSpeed * SHOT_SPEED_MULTIPLIER;
+
+        tearInterval = 1f / player.Tears;
+        waitForFixedFrame = new WaitForFixedFrame(Mathf.FloorToInt(player.TearDelay / 2));
     }
 
     private void Update()
@@ -77,7 +73,6 @@ public class PlayerController : MonoBehaviour, IObjectInRoom
             UpdateGameControl();
             UpdateMovement();
             UpdateAnimation();
-            ChangeRendererOrder();
         }
     }
 
@@ -88,7 +83,6 @@ public class PlayerController : MonoBehaviour, IObjectInRoom
             UpdateGameControl();
             UpdateMovement();
             UpdateAnimation();
-            ChangeRendererOrder();
         }
     }
 
@@ -132,10 +126,7 @@ public class PlayerController : MonoBehaviour, IObjectInRoom
 
     private void UpdateAnimation()
     {
-        if (moveInput.x < 0) { bodyRenderer.flipX = true; }
-        if (moveInput.x > 0) { bodyRenderer.flipX = false; }
-        bodyAnimator.SetFloat("UpDown", Mathf.Abs(moveInput.y));
-        bodyAnimator.SetFloat("LeftRight", Mathf.Abs(moveInput.x));
+        player.SetMoveAnimator(moveInput.x, moveInput.y);
     }
 
     private void UpdateSystemControl()
@@ -157,7 +148,7 @@ public class PlayerController : MonoBehaviour, IObjectInRoom
             CustomDebugger.Log("Place bomb.");
         }
 
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             player.UseActiveItem();
         }
@@ -165,6 +156,13 @@ public class PlayerController : MonoBehaviour, IObjectInRoom
         //canShoot = true;
         tearDirection = Input.GetAxis("Fire1") * Vector2.right;
         if (tearDirection.x == 0) tearDirection += Input.GetAxis("Fire2") * Vector2.up;
+
+        if (tearDirection == Vector2.zero)
+        {
+            canShoot = false;
+            player.SetHeadSprite(tearDirection.normalized, HeadSpriteGroup.OPEN_EYE_SPRITE_INDEX);
+        }
+        else canShoot = true;
         canShoot = tearDirection == Vector2.zero ? false : true;
         //StartCoroutine(nameof(FireCoroutine));
 
@@ -174,8 +172,10 @@ public class PlayerController : MonoBehaviour, IObjectInRoom
             {
                 shootTimer = tearInterval;
                 ObjectPoolManager.Release(tearPrefab,
-                                          headRenderer.transform.position,
+                                          player.GetTearSpawnPosition(tearDirection)/*.ToWorldPosition(transform)*/,
                                           Quaternion.identity).GetComponent<Tear>().MoveVelocity = tearDirection * shotSpeed;
+
+                StartCoroutine(nameof(Cor_SetHeadSprite));
             }
             else return;
         }
@@ -185,20 +185,58 @@ public class PlayerController : MonoBehaviour, IObjectInRoom
         }
     }
 
+    IEnumerator Cor_SetHeadSprite()
+    {
+        player.SetHeadSprite(tearDirection.normalized, HeadSpriteGroup.CLOSE_EYE_SPRITE_INDEX);
+
+        yield return waitForFixedFrame;
+        waitForFixedFrame.Reset();
+
+        player.SetHeadSprite(tearDirection.normalized, HeadSpriteGroup.OPEN_EYE_SPRITE_INDEX);
+    }
+
     private void Refresh(Vector3 cameraPosition, Vector3 playerPosition)
     {
         transform.position = playerPosition;
         tempPlayerVelocity = Vector2.zero;
     }
 
-    public void ChangeRendererOrder()
+    private void ChangeTearInterval(float tears)
     {
-        bodyRenderer.sortingOrder = (int)(transform.position.y * -5);
-        headRenderer.sortingOrder = bodyRenderer.sortingOrder + 1;
+        tearInterval = 1f / tears;
+
+        waitForFixedFrame.ChangeWaitForFrame(Mathf.FloorToInt(tears / 2));
+    }
+}
+
+public class WaitForFixedFrame : CustomYieldInstruction
+{
+    private int waitForFrame;
+    private float timer;
+    public WaitForFixedFrame(int waitForFrame)
+    {
+        this.waitForFrame = waitForFrame;
+        timer = Time.fixedDeltaTime * waitForFrame;
     }
 
-    public void ResetObject()
+    public override bool keepWaiting
     {
+        get
+        {
+            timer -= Time.deltaTime;
+            return timer > 0;
+        }
+    }
+    public override void Reset()
+    {
+        base.Reset();
 
+        timer = Time.fixedDeltaTime * waitForFrame;
+    }
+
+    public void ChangeWaitForFrame(int newFrameCount)
+    {
+        waitForFrame = newFrameCount;
+        Reset();
     }
 }

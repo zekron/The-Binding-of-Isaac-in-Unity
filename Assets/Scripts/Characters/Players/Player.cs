@@ -8,20 +8,21 @@ using UnityEngine.Events;
 public class Player : MonoBehaviour
 {
     [SerializeField] private PlayerCharacter playerCharacter;
-    [SerializeField] private SpriteRenderer headRenderer;
-    [SerializeField] private SpriteRenderer bodyRenderer;
+
     [SerializeField] private HealthDataEventChannelSO onPlayerHealthDataChanged;
     [SerializeField] private PickupDataEventChannelSO onPlayerPickupDataChanged;
+    [SerializeField] private FloatEventChannelSO onPlayerTearsChanged;
     [SerializeField] private BooleanEventChannelSO onPlayerGetGoldenKey;
 
     private PlayerProfileTreeElement playerProfile;
-    private PlayerController moveController;
+    private PlayerRenderer playerRenderer;
 
     #region Current player status
     private HealthData currentHealth;
     private PickupData currentPickup;
 
-    private float tearAddition = 0;
+    private float baseDamageUps, damageMultiplier, flatDamageUps = 0;
+    private float tearAdjustment, tearAddition, tearMultiplier = 0;
     private float shotSpeedAddition = 0;
     private float moveSpeedAddition = 0;
     private float luckAddition = 0;
@@ -30,8 +31,8 @@ public class Player : MonoBehaviour
     /// itemPackage[0]二进制最低位为缺省值
     /// </summary>
     private int[] itemPackage;
-    private Queue<int> trinketPackage;
-    private int trinketPackageCount = 1;
+    private Queue<ItemTreeElement> trinketItemPackage;
+    private int trinketPackageMaxCapacity = 1;
 
     private CollectibleItemTreeElement activeItem;
     private UnityEvent activeItemSkill;
@@ -42,30 +43,71 @@ public class Player : MonoBehaviour
     public int BombCount => currentPickup.bomb;
     public bool GetGoldenKey => currentPickup.getGoldenKey;
 
+    public float Damage => PlayerProfileTreeElement.GetEffectiveDamage(playerProfile.BaseDamage * DamageMultiplier, baseDamageUps, flatDamageUps);
+    public float BaseDamageUps
+    {
+        get => baseDamageUps;
+        set => baseDamageUps = value;
+    }
+
+    public float DamageMultiplier
+    {
+        get => playerProfile.DamageMultiplier * damageMultiplier;
+        set => damageMultiplier = value;
+    }
+    public float FlatDamageUps { get => flatDamageUps; set => flatDamageUps = value; }
+
+    /// <summary>
+    /// 每秒发射眼泪数（眼泪数/秒）
+    /// </summary>
     public float Tears
     {
-        get => playerProfile.GetTears(PlayerProfileTreeElement.GetTearDelay(tearAddition));
-        set => tearAddition += value;
+        get => playerProfile.GetTears(TearDelay);
+        set
+        {
+            tearAdjustment = value;
+            onPlayerTearsChanged.RaiseEvent(Tears);
+        }
     }
+    /// <summary>
+    /// 两发眼泪间隔（单位：帧数）
+    /// </summary>
+    public float TearDelay
+    {
+        get => PlayerProfileTreeElement.GetTearDelay(tearAdjustment, TearAddition, TearMultiplier);
+    }
+    public float TearAddition
+    {
+        get => playerProfile.PlayerTearsAddition + tearAddition;
+        set => tearAddition = value;
+    }
+    public float TearMultiplier
+    {
+        get => playerProfile.PlayerTearsMultiplier + tearMultiplier;
+        set => tearMultiplier = value;
+    }
+    /// <summary>
+    /// 眼泪的移动速度
+    /// </summary>
     public float ShotSpeed
     {
         get => playerProfile.ShotSpeed + shotSpeedAddition;
-        set => shotSpeedAddition += value;
+        set => shotSpeedAddition = value;
     }
     public float MoveSpeed
     {
         get => playerProfile.BaseMoveSpeed + moveSpeedAddition;
-        set => moveSpeedAddition += value;
+        set => moveSpeedAddition = value;
     }
     public float Luck
     {
         get => playerProfile.Luck + luckAddition;
-        set => luckAddition += value;
+        set => luckAddition = value;
     }
     public float Range
     {
         get => playerProfile.BaseRange + rangeAddition;
-        set => rangeAddition += value;
+        set => rangeAddition = value;
     }
 
     private void Awake()
@@ -73,7 +115,8 @@ public class Player : MonoBehaviour
         Initialize((int)playerCharacter);
         currentHealth = playerProfile.PlayerHealthData;
         currentPickup = playerProfile.PlayerPickupData;
-        moveController = GetComponent<PlayerController>();
+
+        playerRenderer = GetComponent<PlayerRenderer>();
 
         activeItemSkill = new UnityEvent();
     }
@@ -98,6 +141,30 @@ public class Player : MonoBehaviour
         itemPackage = new int[8];
     }
 
+    #region Renderer
+    public void SetMoveAnimator(float x, float y)
+    {
+        playerRenderer.SetMoveAnimator(x, y);
+    }
+    public void SetHeadSpriteGroup(HeadSpriteGroup spriteGroup)
+    {
+        playerRenderer.SetHeadSpriteGroup(spriteGroup);
+    }
+    public void RevertHeadSpriteGroup()
+    {
+        playerRenderer.RevertHeadSpriteGroup();
+    }
+    public void SetHeadSprite(Vector2 direction, int index)
+    {
+        playerRenderer.SetHeadSprite(direction, index);
+    }
+
+    internal Vector3 GetTearSpawnPosition(Vector2 tearDirection)
+    {
+        return playerRenderer.GetTearSpawnPosition(tearDirection);
+    }
+    #endregion
+
     #region Health
     public bool IsFullHealth()
     {
@@ -108,6 +175,7 @@ public class Player : MonoBehaviour
         currentHealth += data;
         onPlayerHealthDataChanged.RaiseEvent(currentHealth);
     }
+
     public void FullHealth()
     {
         currentHealth.RedHeart = currentHealth.RedHeartContainers * 2;
@@ -179,18 +247,67 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Items
-    public void GetTrinket(int itemID)
+    public void GetTrinket(ItemTreeElement item)
     {
-        trinketPackage.Enqueue(itemID);
-        if (trinketPackage.Count > trinketPackageCount)
+        trinketItemPackage.Enqueue(item);
+        if (trinketItemPackage.Count > trinketPackageMaxCapacity)
         {
-            trinketPackage.Dequeue();
-            //ObjectPoolManager.Release();
+            ObjectPoolManager.Release(trinketItemPackage.Dequeue().ItemPrefab, transform.position);
         }
     }
+
+    Dictionary<ModifierType, Modifier> modifierDic = new Dictionary<ModifierType, Modifier>();
+    /// <summary>
+    /// Register modifier to dictionary and execute modifier.ModifierToRegister()
+    /// </summary>
+    /// <param name="modifier"></param>
+    public void AddSpecificEffect(Modifier modifier)
+    {
+        if (!modifierDic.ContainsKey(modifier.Type))
+        {
+            modifierDic.Add(modifier.Type, modifier);
+            modifier.ModifierToRegister.Invoke();
+        }
+#if UNITY_EDITOR
+        else
+        {
+            CustomDebugger.LogWarming($"modifierDic has contained {modifier.Type}");
+        }
+#endif
+    }
+
+    /// <summary>
+    /// Execute effectDic[<paramref name="type"/>].ModifierToRemove before remove modifier from player's modifierDictionary
+    /// </summary>
+    /// <param name="type">registered in dictionary</param>
+    public void RemoveSpecificEffect(ModifierType type)
+    {
+        if (modifierDic.ContainsKey(type))
+        {
+            modifierDic[type].ModifierToRemove.Invoke();
+            modifierDic.Remove(type);
+        }
+    }
+
     public void GetPassiveItem(int itemID)
     {
-        itemPackage[itemID / 32] += itemID % 32 == 0 ? 0 : 1 << (itemID % 32);
+        itemPackage[itemID / 32] = itemID % 32 == 0 ? 0 : 1 << (itemID % 32);
+    }
+
+    /// <summary>
+    /// 是否有这个道具
+    /// </summary>
+    /// <param name="types"></param>
+    /// <returns></returns>
+    public bool CheckPassiveItem(params CollectibleItemName[] types)
+    {
+        int id;
+        for (int i = 0; i < types.Length; i++)
+        {
+            id = (int)types[i];
+            if ((itemPackage[id / 32] & (1 << (id % 32))) == 1) return true;
+        }
+        return false;
     }
     public CollectibleItemTreeElement GetActiveItem(CollectibleItemTreeElement collectibleItem, UnityAction skill)
     {
@@ -206,6 +323,7 @@ public class Player : MonoBehaviour
         activeItemSkill.Invoke();
     }
     #endregion
+
     public void GetDie()
     {
         CustomDebugger.Log("Die");

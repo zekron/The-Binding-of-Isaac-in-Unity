@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2293902069
+CRC: 429583525
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 28ef63982bd0530926a6666cb8fa7a81
+    Hash: b45f4fa105acd103070ba6e30656627c
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 1e4bee37ee7d84ff8c2a180985f37e41
+    Hash: cb473ef98ef7d7a4c5f66b895d72bb26
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -28,7 +28,13 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 091a8ca66a12ddb4b8d89fc71b3c8047, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 8eeeee01332beb54eaeb9abb35c349a4, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 51198fdd89c6af94fb2777c5bc8526c6, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 6ed7fe78cb52596409576b432b60ec93, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ff49a833e7b8c2e48bd7f8216a30c8a8, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: f712e0715f57c724d96816de37e8f8e1, type: 3}
 - Class: 114
@@ -51,4 +57,6 @@ Dependencies:
 - C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/tears.ab
 - C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/event
   channel.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/head
+  sprite group.ab
 - C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/characters/isaac.ab

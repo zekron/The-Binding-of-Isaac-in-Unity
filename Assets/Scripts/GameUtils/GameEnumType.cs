@@ -158,6 +158,20 @@ public enum GameState
 public enum CollectibleItemName
 {
     The_Sad_Onion = 1,
+    The_Inner_Eye,
+    Spoon_Bender,
+    Maxs_Head,
+    My_Reflection,
+    Number_One,
+    Blood_Of_The_Martyr,
+    Brother_Bobby,
+    Skatole,
+    Cube_Of_Meat,
+    Halo_Of_Flies,
+    OneUP,
+    Magic_Mushroom,
+
+    The_Book_Of_Belial = 38,
     The_Poop = 41,
     Yum_Heart = 51,
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6051179057829428333}
   - component: {fileID: 8229300740472969866}
   - component: {fileID: 529896454}
+  - component: {fileID: 73794325}
   - component: {fileID: 7066929607896272721}
   - component: {fileID: 7066929607896272722}
   m_Layer: 6
@@ -33,6 +34,7 @@ Transform:
   m_Children:
   - {fileID: 7066929607912870651}
   - {fileID: 7066929607256401030}
+  - {fileID: 4628247822195353814}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -49,10 +51,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCharacter: 1
-  headRenderer: {fileID: 7066929607912870652}
-  bodyRenderer: {fileID: 7066929607256401029}
   onPlayerHealthDataChanged: {fileID: 11400000, guid: d015d9cf188f7574b8173aa95812872b, type: 2}
   onPlayerPickupDataChanged: {fileID: 11400000, guid: be8f7d2b99855934abbb887812fd9455, type: 2}
+  onPlayerTearsChanged: {fileID: 11400000, guid: 1a26dd3e2d2b0f14692cb12ecbe86703, type: 2}
   onPlayerGetGoldenKey: {fileID: 11400000, guid: 6c4184779a291bf4fa9528729f5aeebc, type: 2}
 --- !u!114 &529896454
 MonoBehaviour:
@@ -67,12 +68,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onEnterRoomEvent: {fileID: 11400000, guid: 7a200d5f8ec2ee24fa11345449ebfbc9, type: 2}
-  useFixedUpdate: 0
+  onPlayerTearsChanged: {fileID: 11400000, guid: 1a26dd3e2d2b0f14692cb12ecbe86703, type: 2}
+  useFixedUpdate: 1
   shiftFactor: 1.5
   tearPrefab: {fileID: 5298458932158306964, guid: 7618b7511185cb54db4ba8229800f054, type: 3}
+--- !u!114 &73794325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097604429764637521}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51198fdd89c6af94fb2777c5bc8526c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   bodyRenderer: {fileID: 7066929607256401029}
   headRenderer: {fileID: 7066929607912870652}
+  curHeadSpriteGroup: {fileID: 11400000, guid: b20f769f422dd5641be45fc848ac574a, type: 2}
   bodyAnimator: {fileID: 7066929607256401028}
+  muzzles:
+  - {fileID: 4334249556937411465}
+  - {fileID: 1967097478325516422}
+  - {fileID: 4334249556937411465}
+  - {fileID: 1967097478325516422}
+  - {fileID: 8897722713972503789}
+  - {fileID: 8897722713972503789}
+  - {fileID: 2242396387455066590}
+  - {fileID: 2242396387455066590}
 --- !u!114 &7066929607896272721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,6 +129,96 @@ MonoBehaviour:
   isTrigger: 0
   offset: {x: 0, y: 0}
   size: {x: 0.5, y: 0.67}
+--- !u!1 &1242708187255704062
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2242396387455066590}
+  m_Layer: 6
+  m_Name: Muzzle (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2242396387455066590
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1242708187255704062}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.09, y: 0.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4628247822195353814}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1937606704797665884
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8897722713972503789}
+  m_Layer: 6
+  m_Name: Muzzle (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8897722713972503789
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1937606704797665884}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.09, y: 0.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4628247822195353814}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5620109696722902533
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4334249556937411465}
+  m_Layer: 6
+  m_Name: Muzzle (0)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4334249556937411465
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5620109696722902533}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.22, y: 0.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4628247822195353814}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7066929607256401031
 GameObject:
   m_ObjectHideFlags: 0
@@ -289,3 +403,67 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &8592783877258889230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1967097478325516422}
+  m_Layer: 6
+  m_Name: Muzzle (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1967097478325516422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8592783877258889230}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.22, y: 0.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4628247822195353814}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8925415116973630922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4628247822195353814}
+  m_Layer: 6
+  m_Name: Muzzles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4628247822195353814
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8925415116973630922}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4334249556937411465}
+  - {fileID: 1967097478325516422}
+  - {fileID: 8897722713972503789}
+  - {fileID: 2242396387455066590}
+  m_Father: {fileID: 6051179057829428333}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

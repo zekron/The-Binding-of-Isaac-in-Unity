@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3254200563
+CRC: 3434339380
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 629656fb58e1dbfc0dae93dbcad2c4bc
+    Hash: 3617f610815b1f3e633888e386b4ef92
   TypeTreeHash:
     serializedVersion: 2
     Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
@@ -82,7 +82,7 @@ Assets:
 - Assets/ABRes/Sprites/Items/Passive/Passive_125.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_31.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_113.png
-- Assets/ABRes/Sprites/Items/Passive/Passive_004_Cricket's Head.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_004_Max's Head.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_87.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_101.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_51.png

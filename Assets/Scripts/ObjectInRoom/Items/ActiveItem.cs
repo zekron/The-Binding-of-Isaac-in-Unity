@@ -28,6 +28,8 @@ public abstract class ActiveItem : CollectableItem
     protected virtual void OnDisable()
     {
         onClearRoomEvent.OnEventRaised -= ChargeItem;
+
+        RemoveSpecificPassiveModifier();
     }
 
     private void ChargeItem()
@@ -42,6 +44,8 @@ public abstract class ActiveItem : CollectableItem
         oldActiveItemData = gamePlayer.GetActiveItem(itemData as CollectibleItemTreeElement, ActiveSkill);
         onActiveItemChanged.RaiseEvent(itemData.ItemSprite,
                                        Mathf.RoundToInt((float)currentCharges / numberOfCharges * StaticData.MAX_NUMBER_OF_CHARGES));
+
+        RegisterSpecificPassiveModifier();
     }
 
     /// <summary>
@@ -54,8 +58,17 @@ public abstract class ActiveItem : CollectableItem
         currentCharges = 0;
         onActiveItemChanged.RaiseEvent(itemData.ItemSprite,
                                        Mathf.RoundToInt((float)currentCharges / numberOfCharges * StaticData.MAX_NUMBER_OF_CHARGES));
-        SpecificSkill();
 
+        SpecificActiveSkill();
     }
-    protected abstract void SpecificSkill();
+
+    /// <summary>
+    /// Execute when collect. No need.
+    /// </summary>
+    protected virtual void RegisterSpecificPassiveModifier() { }
+    /// <summary>
+    /// Execute when OnDisable(). Override if have passive modifier.
+    /// </summary>
+    protected virtual void RemoveSpecificPassiveModifier() { }
+    protected abstract void SpecificActiveSkill();
 }

@@ -27,7 +27,7 @@ MonoBehaviour:
     ItemQuote: Tears Up
     ItemDescription: Increases tears by 0.7.
     ItemSprite: {fileID: 21300000, guid: 98b7df34cee0f1c48b1158db977d99b4, type: 3}
-    ItemPrefab: {fileID: 0}
+    ItemPrefab: {fileID: 6013264295097067837, guid: 1a575301e98ca7f49927406661a9b2be, type: 3}
     CollectionSprite: {fileID: 21300000, guid: 390a8ee37ee63fc45b3a671a356c8e18, type: 3}
   - m_ID: 2
     m_Name: The Inner Eye
@@ -52,7 +52,7 @@ MonoBehaviour:
     ItemDescription: Increases Damage by 0.5, and increases damage multiplier by
       x1.5.
     ItemSprite: {fileID: 21300000, guid: d78e8e72c3a915b488722b4d05d6703f, type: 3}
-    ItemPrefab: {fileID: 0}
+    ItemPrefab: {fileID: 656725285919405232, guid: 8ff6a53ba1c983042af0929e5b63c6d5, type: 3}
     CollectionSprite: {fileID: 21300000, guid: f4482cf81766b364eb87ff313523a2b6, type: 3}
   - m_ID: 5
     m_Name: My Reflection
@@ -68,7 +68,7 @@ MonoBehaviour:
     ItemQuote: DMG up
     ItemDescription: Increases damage by 1, and turns Isaac's tears into blood tears.
     ItemSprite: {fileID: 21300000, guid: 3660cb4120f9bf14aa03bc80bd069de1, type: 3}
-    ItemPrefab: {fileID: 0}
+    ItemPrefab: {fileID: 2215660063847520840, guid: 864fb45a434cea847b59ba36c79b3f65, type: 3}
     CollectionSprite: {fileID: 21300000, guid: 0890fd51a20333d459f1de2453f219c3, type: 3}
   - m_ID: 8
     m_Name: Brother Bobby
@@ -132,7 +132,7 @@ MonoBehaviour:
     ItemDescription: +2 damage for the current room.Passively guarantees a Devil
       Room or Angel Room will appear while held.
     ItemSprite: {fileID: 21300000, guid: d9d7e7bb14cfd024e8e3797713466680, type: 3}
-    ItemPrefab: {fileID: 0}
+    ItemPrefab: {fileID: 5355096402517067198, guid: 084d734a63ef377429986bddd70dfb22, type: 3}
     CollectionSprite: {fileID: 21300000, guid: a292a6a441f3e6c4ab2f22b389af51c6, type: 3}
   - m_ID: 39
     m_Name: The Necronomicon
@@ -173,5 +173,5 @@ MonoBehaviour:
     ItemQuote: Tears up + range down
     ItemDescription: Grants +1.5 tears, but severely reduces range.
     ItemSprite: {fileID: 21300000, guid: c7dbc43bc66c8514cab1177ff5e70936, type: 3}
-    ItemPrefab: {fileID: 0}
+    ItemPrefab: {fileID: 5613517577812382051, guid: 495d6427c12a9024f99908f576fa7e4a, type: 3}
     CollectionSprite: {fileID: 21300000, guid: 56cccdaf72f3a1c48a8fd195d7c0fcfb, type: 3}

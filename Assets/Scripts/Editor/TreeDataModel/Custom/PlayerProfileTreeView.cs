@@ -274,9 +274,9 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
         return myTypes.Order(l => l.data.name, ascending);
     }
 
-    readonly Sprite redHeartSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/UI/Single/UI_RedHeart.png");
-    readonly Sprite soulHeartSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/UI/Single/UI_SoulHeart.png");
-    readonly Sprite emptySprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/UI/Single/UI_Empty.png");
+    readonly Sprite redHeartSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/ABRes/Sprites/UI/Single/UI_RedHeart.png");
+    readonly Sprite soulHeartSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/ABRes/Sprites/UI/Single/UI_SoulHeart.png");
+    readonly Sprite emptySprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/ABRes/Sprites/UI/Single/UI_Empty.png");
     private Texture2D GetHeartTexture(int redHeartCount, int soulHeartCount)
     {
         if (redHeartCount + soulHeartCount <= 0) return emptySprite.texture;
@@ -297,9 +297,9 @@ public class PlayerProfileTreeView : CharacterProfileTreeView<PlayerProfileTreeE
         result.Apply();
         return result;
     }
-    readonly Sprite coinSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/UI/Single/UI_Coin.png");
-    readonly Sprite keySprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/UI/Single/UI_Key.png");
-    readonly Sprite bombSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Sprites/UI/Single/UI_Bomb.png");
+    readonly Sprite coinSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/ABRes/Sprites/UI/Single/UI_Coin.png");
+    readonly Sprite keySprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/ABRes/Sprites/UI/Single/UI_Key.png");
+    readonly Sprite bombSprite = AssetDatabase.LoadAssetAtPath<Sprite>("Assets/ABRes/Sprites/UI/Single/UI_Bomb.png");
     private Texture2D GetPickupTexture(int coinCount, int keyCount, int bombCount)
     {
         if (coinCount + keyCount + bombCount <= 0) return emptySprite.texture;

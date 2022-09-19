@@ -1,11 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class TrinketItem : ItemObject
+public abstract class TrinketItem : ItemObject
 {
+    protected virtual void OnEnable()
+    {
+        if (itemData == null)
+            itemData = ItemManager.Instance.GetTrinketItemProfileByID(itemID);
+    }
+
     protected override void OnPlayerCollect()
     {
-        gamePlayer.GetTrinket(itemData.ElementID);
+        gamePlayer.GetTrinket(itemData);
+
+        SpecificEffect();
     }
+
+    protected abstract void SpecificEffect();
 }

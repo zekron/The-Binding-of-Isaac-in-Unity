@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 942338801
+CRC: 1106417917
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 52badc58a45ce850cab77cbaa2e14235
+    Hash: 4017e052726dbb8a18de11e594dc7291
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 14b9fd245e4c66d411cb0fdaa6d68f7b
+    Hash: 071a4f513f3c42c433cd620ab7661f52
 HashAppended: 0
 ClassTypes:
 - Class: 114
@@ -19,6 +19,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 13303d5127917ee4c9e00dba69fec7bb, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 6ed7fe78cb52596409576b432b60ec93, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: ff49a833e7b8c2e48bd7f8216a30c8a8, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: a43d3432379f9434ca78249ee42b973e, type: 3}
 - Class: 114
@@ -33,6 +35,7 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/ABRes/ScriptableObjects/Event Channel/OnPlayerTearsChanged Event SO.asset
 - Assets/ABRes/ScriptableObjects/Event Channel/OnClearRoom Event SO.asset
 - Assets/ABRes/ScriptableObjects/Event Channel/OnEnterRoom Event SO.asset
 - Assets/ABRes/ScriptableObjects/Event Channel/OnCreateRoom Event SO.asset

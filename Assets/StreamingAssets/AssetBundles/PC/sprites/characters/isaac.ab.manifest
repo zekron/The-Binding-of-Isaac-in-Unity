@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 3814531867
+CRC: 3093681489
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8ff5f884faba1cf033089731ffe0303b
+    Hash: e4ad2c0aa2518e7d6d204f7d21bbfadf
   TypeTreeHash:
     serializedVersion: 2
     Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
@@ -15,6 +15,7 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/ABRes/Sprites/Characters/Isaac/Character Head_Belial.png
 - Assets/ABRes/Sprites/Characters/Isaac/Character Head_Basic.png
 - Assets/ABRes/Sprites/Characters/Isaac/Character Body_Basic.png
 Dependencies: []

@@ -8,7 +8,7 @@ public class ActiveItem_Poop : ActiveItem
     [Header("Specific Item")]
     [SerializeField] private GameObject poopPrefab;
 
-    protected override void SpecificSkill()
+    protected override void SpecificActiveSkill()
     {
         ObjectPoolManager.Release(poopPrefab, gamePlayer.transform.position);
     }

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eeeee01332beb54eaeb9abb35c349a4, type: 3}
+  m_Name: Head Sprite Group_Belial
+  m_EditorClassIdentifier: 
+  upShootingSprites:
+  - {fileID: 2531893554398563526, guid: 030311dd6ea6b9b49bf181765b4c7031, type: 3}
+  - {fileID: -7662532642157258078, guid: 030311dd6ea6b9b49bf181765b4c7031, type: 3}
+  downShootingSprites:
+  - {fileID: -1120677950156136903, guid: 030311dd6ea6b9b49bf181765b4c7031, type: 3}
+  - {fileID: -2306178926571285820, guid: 030311dd6ea6b9b49bf181765b4c7031, type: 3}
+  leftShootingSprites:
+  - {fileID: 3654406597025520900, guid: 030311dd6ea6b9b49bf181765b4c7031, type: 3}
+  - {fileID: -2472426389027924186, guid: 030311dd6ea6b9b49bf181765b4c7031, type: 3}
+  rightShootingSprites:
+  - {fileID: -3155342886770582199, guid: 030311dd6ea6b9b49bf181765b4c7031, type: 3}
+  - {fileID: -6489853901616245019, guid: 030311dd6ea6b9b49bf181765b4c7031, type: 3}

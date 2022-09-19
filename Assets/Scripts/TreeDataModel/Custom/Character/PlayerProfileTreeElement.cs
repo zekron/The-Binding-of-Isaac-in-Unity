@@ -61,7 +61,24 @@ public class PlayerProfileTreeElement : CharacterProfileTreeElement
         KeyCount = keyCount;
     }
 
-    public static float GetTearDelay(float t)
+    /// <summary>
+    /// the approximate damage that can be expected per tear, or per 'tick'
+    /// </summary>
+    /// <param name="baseDamage">The character base damage is defined by a base number and a multiplier.</param>
+    /// <param name="totalDamageUps"> the total of all regular damage ups collected (not including special exceptions or damage multipliers)</param>
+    /// <param name="flatDamageUps"> the total of all damage ups that are excluded from the above</param>
+    /// <returns></returns>
+    public static float GetEffectiveDamage(float baseDamage, float totalDamageUps, float flatDamageUps)
+    {
+        return baseDamage * Mathf.Sqrt(totalDamageUps * 1.2f + 1) + flatDamageUps;
+    }
+
+    /// <summary>
+    /// The formula for tear delay
+    /// </summary>
+    /// <param name="t">the normal tears stat, with all adjustments added together.</param>
+    /// <returns></returns>
+    public static float GetTearDelay(float t, float addition, float multiplier)
     {
         float result;
 
@@ -70,15 +87,14 @@ public class PlayerProfileTreeElement : CharacterProfileTreeElement
         else if (t < 0 && t > -10f / 13) result = 16 - 6 * Mathf.Sqrt(1.3f * t + 1) - 6 * t;
         else result = 16 - 6 * t;
 
+        result *= (multiplier + 1);
+        result += addition;
+
         return Mathf.Round(result * 100) / 100;
     }
     public float GetTears(float tearDelay)
     {
-        float result;
-
-        result = 30f / (tearDelay + 1);
-        result += PlayerTearsAddition;
-        result *= PlayerTearsMultiplier + 1;
+        float result = 30f / (tearDelay + 1);
 
         return Mathf.Round(result * 100) / 100;
     }
