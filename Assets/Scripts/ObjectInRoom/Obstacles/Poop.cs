@@ -1,3 +1,4 @@
+using CustomPhysics2D;
 using UnityEngine;
 
 public class Poop : RoomObject, IHealth
@@ -14,6 +15,11 @@ public class Poop : RoomObject, IHealth
         base.Awake();
 
         currentHealth = maxHealth = objectClip.FramesCount - 1;
+    }
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
     }
 
     public virtual void DestroySelf()

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 277737545
+CRC: 940546781
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: a72e9ac61b6b887195f38f2795a70130
+    Hash: 636c146db6e7bebe4b6f5c4e83497629
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 820ffd3100df90c1be245813ee82880c
+    Hash: 75c03f19c26ca8e58cd3a9345bf015c0
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -25,6 +25,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 3244e16a4938b014e858c62096149173, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 6de2252d89b31dc4dab1ba1ccc2eca8b, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 8eeeee01332beb54eaeb9abb35c349a4, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: fc07c03a6e0e5124fac85acdceae8a98, type: 3}
 - Class: 114
@@ -61,5 +63,7 @@ Dependencies:
 - C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/obstacles/poop.ab
 - C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/event
   channel.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/head
+  sprite group.ab
 - C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/active.ab
 - C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/passive.ab

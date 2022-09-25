@@ -1,5 +1,5 @@
 ManifestFileVersion: 0
-CRC: 3695481728
+CRC: 1339849162
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
@@ -52,6 +52,7 @@ AssetBundleManifest:
         Dependency_2: prefabs/obstacles/poop.ab
         Dependency_3: sprites/items/active.ab
         Dependency_4: sprites/items/passive.ab
+        Dependency_5: scriptableobjects/head sprite group.ab
     Info_8:
       Name: prefabs/players.ab
       Dependencies:

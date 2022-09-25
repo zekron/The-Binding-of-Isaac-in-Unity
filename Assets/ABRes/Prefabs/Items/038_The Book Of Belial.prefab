@@ -51,6 +51,7 @@ MonoBehaviour:
   modifierBaseDamageUp: 2
   modifierDamageMultiplier: 1.5
   onEnterRoomEvent: {fileID: 11400000, guid: 7a200d5f8ec2ee24fa11345449ebfbc9, type: 2}
+  headSpriteGroup: {fileID: 11400000, guid: cc531757f499db6498d3fb5efb9aade6, type: 2}
 --- !u!1 &6092314731554932952
 GameObject:
   m_ObjectHideFlags: 0

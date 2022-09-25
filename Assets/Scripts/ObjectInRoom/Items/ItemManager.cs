@@ -1,5 +1,7 @@
 using AssetBundleFramework;
+using System;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class ItemManager
 {
@@ -7,11 +9,20 @@ public class ItemManager
 
     private static CollectibleItemTreeAsset collectibleItemAsset;
     private static TrinketItemTreeAsset trinketItemAsset;
-
+    public static ObjectPool[] collectibleItemPool;
+    public static ObjectPool[] trinketPool;
     private ItemManager()
     {
         collectibleItemAsset = AssetBundleManager.Instance.LoadAsset<CollectibleItemTreeAsset>(StaticData.FILE_COLLECTIBLEITEM_SO);
+        collectibleItemPool = InstantiatePools(collectibleItemAsset);
         trinketItemAsset = AssetBundleManager.Instance.LoadAsset<TrinketItemTreeAsset>(StaticData.FILE_TRINKETITEM_SO);
+        trinketPool = InstantiatePools(trinketItemAsset);
+    }
+
+    private static void ItemPoolInitialize()
+    {
+        ObjectPoolManager.Initialize(collectibleItemPool);
+        ObjectPoolManager.Initialize(trinketPool);
     }
 
     public static ItemManager Instance
@@ -21,9 +32,7 @@ public class ItemManager
             if (_Instance == null)
             {
                 _Instance = new ItemManager();
-
-                ObjectPoolManager.Initialize(InstantiatePools(collectibleItemAsset));
-                ObjectPoolManager.Initialize(InstantiatePools(trinketItemAsset));
+                ItemPoolInitialize();
             }
             return _Instance;
         }

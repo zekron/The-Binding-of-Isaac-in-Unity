@@ -1,4 +1,3 @@
-using AssetBundleFramework;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -66,7 +65,8 @@ public class ObjectPoolManager : MonoBehaviour
             {
                 Debug.LogError("Same prefab in multiple pools! Prefab: " + pool.Prefab.name);
 
-                continue;
+                //continue;
+                break;
             }
 #endif
             objectPoolDictionary.Add(pool.Prefab, pool);
