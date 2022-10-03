@@ -5011,7 +5011,7 @@ PrefabInstance:
     - target: {fileID: 6994571110450151082, guid: d60cb5eb5597ca64d93f04d487f3fae7, type: 3}
       propertyPath: roomLayout
       value: 
-      objectReference: {fileID: 11400000, guid: affed3328dde9e04a890ea0298a9e87f, type: 2}
+      objectReference: {fileID: 11400000, guid: b9f3d0ebcd313434d8da07390ec74669, type: 2}
     - target: {fileID: 7587213089305207522, guid: d60cb5eb5597ca64d93f04d487f3fae7, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -5087,6 +5087,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6994571110254529289}
     m_Modifications:
+    - target: {fileID: 787835437935072142, guid: 43da263e06a7e134bbbc290f5d0fc9f7, type: 3}
+      propertyPath: isTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2720725801296042948, guid: 43da263e06a7e134bbbc290f5d0fc9f7, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -5121,6 +5125,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5679624230019339257, guid: 43da263e06a7e134bbbc290f5d0fc9f7, type: 3}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5679624230019339258, guid: 43da263e06a7e134bbbc290f5d0fc9f7, type: 3}
+      propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7644212467973415800, guid: 43da263e06a7e134bbbc290f5d0fc9f7, type: 3}

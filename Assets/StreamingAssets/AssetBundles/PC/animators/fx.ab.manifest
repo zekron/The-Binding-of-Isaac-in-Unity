@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2874678667
+CRC: 1516398729
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c6b5507621b28b504b688a3e6e8445d5
+    Hash: db3bfeaa7a1734093664229ea418ff9d
   TypeTreeHash:
     serializedVersion: 2
     Hash: c33d3594fb840798e3bd468c6c9d34d3
@@ -15,6 +15,7 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/ABRes/Animators/FX/Pickup_OnPicked.anim
 - Assets/ABRes/Animators/FX/Pickup_Key_Idle.anim
+- Assets/ABRes/Animators/FX/Pickup_Heart_OnPicked.anim
 - Assets/ABRes/Animators/FX/Pickup_Idle.anim
 - Assets/ABRes/Animators/FX/Item_Idle.anim
 - Assets/ABRes/Animators/FX/Obstacle_FIreShadow.anim

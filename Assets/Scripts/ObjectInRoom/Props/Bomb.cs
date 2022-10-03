@@ -30,7 +30,7 @@ public class Bomb : PickupObject
         SetType(bombSO.GenerateType());
     }
 
-    public override void OnPlayerCollect()
+    protected override void OnPlayerCollect()
     {
         gamePlayer.GetBomb(bombWorth);
         //else refresh context

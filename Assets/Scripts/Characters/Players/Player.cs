@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 
     private PlayerProfileTreeElement playerProfile;
     private PlayerRenderer playerRenderer;
+    private PlayerController playerController;
 
     #region Current player status
     private HealthData currentHealth;
@@ -42,7 +43,7 @@ public class Player : MonoBehaviour
     public int KeyCount => currentPickup.key;
     public int BombCount => currentPickup.bomb;
     public bool GetGoldenKey => currentPickup.getGoldenKey;
-
+    public Vector2 MoveDirection => playerController.PlayerMoveDirection;
     public float Damage => PlayerProfileTreeElement.GetEffectiveDamage(playerProfile.BaseDamage * DamageMultiplier, baseDamageUps, flatDamageUps);
     public float BaseDamageUps
     {
@@ -117,6 +118,7 @@ public class Player : MonoBehaviour
         currentPickup = playerProfile.PlayerPickupData;
 
         playerRenderer = GetComponent<PlayerRenderer>();
+        playerController = GetComponent<PlayerController>();
 
         activeItemSkill = new UnityEvent();
     }

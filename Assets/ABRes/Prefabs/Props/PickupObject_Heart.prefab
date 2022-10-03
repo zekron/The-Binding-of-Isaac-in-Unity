@@ -10,8 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5679624230019339258}
   - component: {fileID: 5679624230019339260}
-  - component: {fileID: 787835437935072142}
-  - component: {fileID: 8396535889975247940}
   m_Layer: 9
   m_Name: Heart
   m_TagString: Untagged
@@ -84,36 +82,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &787835437935072142
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5679624230019339257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f712e0715f57c724d96816de37e8f8e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isTrigger: 1
-  offset: {x: 0, y: 0}
-  size: {x: 0.55, y: 0.4}
---- !u!114 &8396535889975247940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5679624230019339257}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ce7bdfc6efed64eba72570b1f1fef6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showDebugGizoms: 1
-  horizontalRayCount: 4
-  verticalRayCount: 4
 --- !u!1 &7644212467973415800
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,6 +93,8 @@ GameObject:
   - component: {fileID: 2720725801296042948}
   - component: {fileID: 4947993260661895814}
   - component: {fileID: 1791302997986880605}
+  - component: {fileID: 1765822800730207099}
+  - component: {fileID: 7551180412103161458}
   m_Layer: 9
   m_Name: PickupObject_Heart
   m_TagString: Untagged
@@ -159,7 +129,7 @@ Animation:
   m_Animation: {fileID: 7400000, guid: fd38f475a3bd25942880783a4fcf89c5, type: 2}
   m_Animations:
   - {fileID: 7400000, guid: fd38f475a3bd25942880783a4fcf89c5, type: 2}
-  - {fileID: 7400000, guid: 448c39b91e3d43345bc39a9b3cd79e97, type: 2}
+  - {fileID: 7400000, guid: 36374995b8f155349bae7e45b980672b, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 0
   m_AnimatePhysics: 0
@@ -177,3 +147,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   heartSO: {fileID: 11400000, guid: a392376b1e6f9dc48aa139d7b4ab11da, type: 2}
+--- !u!114 &1765822800730207099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644212467973415800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f712e0715f57c724d96816de37e8f8e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isTrigger: 1
+  offset: {x: 0, y: 0}
+  size: {x: 0.55, y: 0.4}
+--- !u!114 &7551180412103161458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7644212467973415800}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b3c366b8ee9744fbb85a58735fb0d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showDebugGizoms: 0
+  horizontalRayCount: 4
+  verticalRayCount: 4
+  gravityScale: 0
+  collisionDetectionMode: 1
+  needBounce: 1
+  showLog: 1

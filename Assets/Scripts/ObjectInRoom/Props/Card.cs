@@ -102,7 +102,7 @@ public class Card : PickupObject, ICollectInSlot
         spriteInSlot = cardSO.CardSpritesInSlot[(int)cardType];
         message = CardSO.CARD_MESSAGE[(int)cardType];
     }
-    public override void OnPlayerCollect()
+    protected override void OnPlayerCollect()
     {
         CollectInSlot();
 

@@ -10,6 +10,14 @@ public class Heart : PickupObject
     private HeartSO.HeartType heartType;
     private HealthData heartWorth;
 
+    protected override void Awake()
+    {
+        base.Awake();
+
+        collisionController = GetComponent<CustomCollisionController>();
+        clipNameOnPicked = "Pickup_Heart_OnPicked";
+    }
+
     public void SetType(HeartSO.HeartType type)
     {
         heartType = type;
@@ -30,12 +38,17 @@ public class Heart : PickupObject
         SetType(heartSO.GenerateType());
     }
 
-    public override bool CanPickUp()
+    protected override bool CanPickUp()
     {
-       return collisionController.SelfCollider.IsTrigger = !gamePlayer.IsFullHealth();
+        return collisionController.SelfCollider.IsTrigger = !gamePlayer.IsFullHealth();
     }
 
-    public override void OnPlayerCollect()
+    protected override void OnPlayerCannotCollect(CollisionInfo2D collisionInfo)
+    {
+        var direction = (transform.position - collisionInfo.hitCollider.transform.position).normalized;
+        (collisionController as CustomRigidbody2D).AddForce(direction * 1.5f);
+    }
+    protected override void OnPlayerCollect()
     {
         gamePlayer.GetHealing(heartWorth);
 

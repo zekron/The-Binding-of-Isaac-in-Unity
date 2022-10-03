@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
     private CustomRigidbody2D customRigidbody;
     private Player player;
 
+    public Vector2 PlayerMoveDirection => tempPlayerVelocity;
+
     private void OnEnable()
     {
         onEnterRoomEvent.OnEventRaised += Refresh;

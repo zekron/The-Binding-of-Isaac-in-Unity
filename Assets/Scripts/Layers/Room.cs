@@ -35,7 +35,7 @@ public class Room : MonoBehaviour
 
     private void OnEnable()
     {
-        roomLayout = AssetBundleManager.Instance.LoadAsset<RoomLayoutSO>("Basement RoomLayout (101).asset");
+        roomLayout = AssetBundleManager.Instance.LoadAsset<RoomLayoutSO>("Starting RoomLayout.asset");
         RoomLayoutInitialize();
         if (roomDoors == null)
         {

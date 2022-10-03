@@ -25,7 +25,7 @@ public class Key : PickupObject
         keyWorth = KeySO.KeyWorths[(int)keyType];
     }
 
-    public override void OnPlayerCollect()
+    protected override void OnPlayerCollect()
     {
         gamePlayer.GetKey(keyWorth);
 

@@ -102,7 +102,7 @@ public class Pill : PickupObject, ICollectInSlot
         objectRenderer.sprite = spriteInSlot;
     }
 
-    public override void OnPlayerCollect()
+    protected override void OnPlayerCollect()
     {
         CollectInSlot();
 

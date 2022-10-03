@@ -25,7 +25,7 @@ public class Coin : PickupObject
         coinWorth = CoinSO.CoinWorths[(int)coinType];
     }
 
-    public override void OnPlayerCollect()
+    protected override void OnPlayerCollect()
     {
         gamePlayer.GetCoin(coinWorth);
 

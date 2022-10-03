@@ -4,6 +4,7 @@ using UnityEngine;
 
 public abstract class PickupObject : RoomObject
 {
+    protected string clipNameOnPicked = "Pickup_OnPicked";
     protected Player gamePlayer;
     private Animation pickupAnimation;
 
@@ -42,19 +43,26 @@ public abstract class PickupObject : RoomObject
     {
         if (collisionInfo.hitCollider.TryGetComponent(out gamePlayer))
         {
-            if (!CanPickUp()) return;
+            if (!CanPickUp())
+            {
+                OnPlayerCannotCollect(collisionInfo);
+            }
+            else
+            {
+                pickupAnimation.Play(clipNameOnPicked);
 
-            pickupAnimation.Play("Pickup_OnPicked");
-
-            OnPlayerCollect();
+                OnPlayerCollect();
+            }
         }
     }
+
 
     public void OnPickupAnimationFinished()
     {
         gameObject.SetActive(false);
     }
 
-    public virtual bool CanPickUp() => true;
-    public abstract void OnPlayerCollect();
+    protected virtual void OnPlayerCannotCollect(CollisionInfo2D collisionInfo) { }
+    protected virtual bool CanPickUp() => true;
+    protected abstract void OnPlayerCollect();
 }
