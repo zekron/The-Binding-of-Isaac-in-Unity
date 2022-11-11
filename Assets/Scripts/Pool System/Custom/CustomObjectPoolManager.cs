@@ -41,28 +41,28 @@ public class CustomObjectPoolManager : MonoBehaviour
     public static GameObject Release(PickupObjectType type)
     {
 #if UNITY_EDITOR
-        if (TypeInDictionary(pickupPools.PickupObjectDic, type)) return null;
+        if (!TypeInDictionary(pickupPools.PickupObjectDic, type)) return null;
 #endif
         return ObjectPoolManager.Release(pickupPools.PickupObjectDic[type]);
     }
     public static GameObject Release(PickupObjectType type, Vector3 position)
     {
 #if UNITY_EDITOR
-        if (TypeInDictionary(pickupPools.PickupObjectDic, type)) return null;
+        if (!TypeInDictionary(pickupPools.PickupObjectDic, type)) return null;
 #endif
         return ObjectPoolManager.Release(pickupPools.PickupObjectDic[type], position);
     }
     public static GameObject Release(PickupObjectType type, Vector3 position, Vector3 localScale)
     {
 #if UNITY_EDITOR
-        if (TypeInDictionary(pickupPools.PickupObjectDic, type)) return null;
+        if (!TypeInDictionary(pickupPools.PickupObjectDic, type)) return null;
 #endif
         return ObjectPoolManager.Release(pickupPools.PickupObjectDic[type], position, Quaternion.identity, localScale);
     }
     public static GameObject Release(PickupObjectType type, Vector3 position, Quaternion rotation, Transform parent)
     {
 #if UNITY_EDITOR
-        if (TypeInDictionary(pickupPools.PickupObjectDic, type)) return null;
+        if (!TypeInDictionary(pickupPools.PickupObjectDic, type)) return null;
 #endif
         return ObjectPoolManager.Release(pickupPools.PickupObjectDic[type], position, rotation, parent);
     }
@@ -72,14 +72,14 @@ public class CustomObjectPoolManager : MonoBehaviour
     public static GameObject Release(ObstacleObjectType type)
     {
 #if UNITY_EDITOR
-        if (TypeInDictionary(obstaclePools.ObstacleObjectDic, type)) return null;
+        if (!TypeInDictionary(obstaclePools.ObstacleObjectDic, type)) return null;
 #endif
         return ObjectPoolManager.Release(obstaclePools.ObstacleObjectDic[type]);
     }
     public static GameObject Release(ObstacleObjectType type, Vector3 position)
     {
 #if UNITY_EDITOR
-        if (TypeInDictionary(obstaclePools.ObstacleObjectDic, type)) return null;
+        if (!TypeInDictionary(obstaclePools.ObstacleObjectDic, type)) return null;
 #endif
         return ObjectPoolManager.Release(obstaclePools.ObstacleObjectDic[type], position);
     }
@@ -89,14 +89,14 @@ public class CustomObjectPoolManager : MonoBehaviour
     public static GameObject Release(DoorObjectType type)
     {
 #if UNITY_EDITOR
-        if (TypeInDictionary(doorPools.DoorObjectDic, type)) return null;
+        if (!TypeInDictionary(doorPools.DoorObjectDic, type)) return null;
 #endif
         return ObjectPoolManager.Release(doorPools.DoorObjectDic[type]);
     }
     public static GameObject Release(DoorObjectType type, Vector3 position, Quaternion rotation, Transform parent)
     {
 #if UNITY_EDITOR
-        if (TypeInDictionary(doorPools.DoorObjectDic, type)) return null;
+        if (!TypeInDictionary(doorPools.DoorObjectDic, type)) return null;
 #endif
         return ObjectPoolManager.Release(doorPools.DoorObjectDic[type], position, rotation, parent);
     }

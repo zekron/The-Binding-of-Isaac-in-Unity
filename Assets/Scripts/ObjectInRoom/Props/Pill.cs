@@ -89,9 +89,9 @@ public class Pill : PickupObject, ICollectInSlot
         }
     }
 
-    public override void Collect(CollisionInfo2D collisionInfo)
+    public override void OnCustomCollisionEnter(CollisionInfo2D collisionInfo)
     {
-        base.Collect(collisionInfo);
+        base.OnCustomCollisionEnter(collisionInfo);
     }
 
     public override void ResetObject()

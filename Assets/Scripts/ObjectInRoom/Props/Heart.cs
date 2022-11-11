@@ -14,7 +14,6 @@ public class Heart : PickupObject
     {
         base.Awake();
 
-        collisionController = GetComponent<CustomCollisionController>();
         clipNameOnPicked = "Pickup_Heart_OnPicked";
     }
 
@@ -23,12 +22,6 @@ public class Heart : PickupObject
         heartType = type;
         objectRenderer.sprite = heartSO.HeartSprites[(int)heartType];
         heartWorth = HeartSO.HeartWorths[(int)heartType];
-    }
-
-    public override void Collect(CollisionInfo2D collisionInfo)
-    {
-        base.Collect(collisionInfo);
-
     }
 
     public override void ResetObject()
@@ -46,7 +39,7 @@ public class Heart : PickupObject
     protected override void OnPlayerCannotCollect(CollisionInfo2D collisionInfo)
     {
         var direction = (transform.position - collisionInfo.hitCollider.transform.position).normalized;
-        (collisionController as CustomRigidbody2D).AddForce(direction * 1.5f);
+        customRigidbody.AddForce(direction * 1.5f);
     }
     protected override void OnPlayerCollect()
     {

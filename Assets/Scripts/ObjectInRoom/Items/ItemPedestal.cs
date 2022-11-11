@@ -31,6 +31,12 @@ public class ItemPedestal : RoomObject
         //if (item == null) item = GetComponentInChildren<ItemObject>();
         if (item == null) return;
 
+        if (collisionInfo.hitCollider.CompareTag("Player"))
+        {
+            var direction = (transform.position - collisionInfo.hitCollider.transform.position).normalized;
+            (collisionController as CustomRigidbody2D).AddForce(direction);
+        }
+
         item.Collect(collisionInfo);
 
         if (item is ActiveItem)

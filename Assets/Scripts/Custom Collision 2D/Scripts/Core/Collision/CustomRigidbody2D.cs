@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Profiling;
 
 namespace CustomPhysics2D
@@ -18,7 +19,7 @@ namespace CustomPhysics2D
 
         [SerializeField] private CollisionDetectionMode collisionDetectionMode;
 
-        private Vector2 _velocity;
+        [DisplayOnly, SerializeField] private Vector2 _velocity;
         private CollisionInfo2D _collisionInfo;
         private CollisionInfo2D _triggerInfo;
         private bool _colliderIsTrigger = false;
@@ -51,12 +52,15 @@ namespace CustomPhysics2D
             UpdateRect();
 
             onCollisionEnter += DoBounce;
+            //onCollisionEnter += SplitCollision;
         }
+
         private void OnDisable()
         {
             _physicsManager.RemoveRigidbody(this);
 
             onCollisionEnter -= DoBounce;
+            //onCollisionEnter -= SplitCollision;
         }
         private void OnDestroy()
         {
@@ -405,7 +409,7 @@ namespace CustomPhysics2D
         private WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
         private Coroutine Cor_Deceleration;
 
-        public void AddForce(Vector2 force)
+        public CustomRigidbody2D AddForce(Vector2 force)
         {
             outerForce = force;
 
@@ -414,11 +418,13 @@ namespace CustomPhysics2D
                 StopCoroutine(Cor_Deceleration);
             }
             Cor_Deceleration = StartCoroutine(Deceleration());
+
+            return this;
         }
         private void DoBounce(CollisionInfo2D collisionInfo)
         {
             if (!needBounce) return;
-            if (showLog) Debug.Log($"frames: {Time.frameCount}");
+            if (showLog) Debug.Log($"Object name: {name}");
             if (innerForce == Vector2.zero || outerForce != Vector2.zero) return;
 
             var direction = collisionInfo.HitDirection;
@@ -444,15 +450,39 @@ namespace CustomPhysics2D
             if (showLog) Debug.Log($"force: {innerForce}");
         }
 
+        private void SplitCollision(CollisionInfo2D collisionInfo)
+        {
+            if (collisionInfo.hitCollider.SelfBounds.Contains(transform.position))
+            {
+                var direction = (collisionInfo.hitCollider.transform.position - transform.position).normalized;
+                AddForce(direction);
+                collisionInfo.hitCollider.GetComponent<CustomRigidbody2D>().AddForce(-direction);
+            }
+        }
+
+        private UnityEvent onDecelerationBegin = new UnityEvent();
+        public CustomRigidbody2D OnDecelerationBegin(UnityAction action)
+        {
+            onDecelerationBegin.AddListener(action);
+            return this;
+        }
+        private UnityEvent onDecelerationFinish = new UnityEvent();
+        public CustomRigidbody2D OnDecelerationFinish(UnityAction action)
+        {
+            onDecelerationFinish.AddListener(action);
+            return this;
+        }
         IEnumerator Deceleration()
         {
             var v = Vector2.zero;
             _velocity = innerForce = outerForce;
-            if (showLog) Debug.Log($"force: {innerForce}, frames: {Time.frameCount}");
+            if (showLog) Debug.Log($"outerForce: {outerForce}, innerForce: {innerForce}, frames: {Time.frameCount}");
             yield return waitForFixedUpdate;
             outerForce = Vector2.zero;
             if (showLog) Debug.Log($"frames: {Time.frameCount}");
 
+            onDecelerationBegin.Invoke();
+            onDecelerationBegin.RemoveAllListeners();
             do
             {
                 _velocity = innerForce;
@@ -460,8 +490,10 @@ namespace CustomPhysics2D
 
                 innerForce = Vector2.SmoothDamp(innerForce, Vector2.zero, ref v, 0.5f);
             }
-            while (Mathf.Abs(innerForce.x) > 0.01f || Mathf.Abs(innerForce.y) > 0.01f);
+            while (Mathf.Abs(innerForce.x) > 0.05f || Mathf.Abs(innerForce.y) > 0.05f);
 
+            onDecelerationFinish.Invoke();
+            onDecelerationFinish.RemoveAllListeners();
             outerForce = innerForce = _velocity = Vector2.zero;
         }
         #endregion

@@ -9,9 +9,9 @@ public class Coin : PickupObject
     private CoinSO.CoinType coinType;
     private int coinWorth;
 
-    public override void Collect(CollisionInfo2D collisionInfo)
+    public override void OnCustomCollisionEnter(CollisionInfo2D collisionInfo)
     {
-        base.Collect(collisionInfo);
+        base.OnCustomCollisionEnter(collisionInfo);
 
     }
 

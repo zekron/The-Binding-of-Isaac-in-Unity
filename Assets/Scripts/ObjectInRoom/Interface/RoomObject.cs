@@ -12,6 +12,8 @@ public abstract class RoomObject : MonoBehaviour, IObjectInRoom, IDisplayInEdito
 
     public Sprite SpriteInEditorWindow => GetComponent<SpriteRenderer>().sprite;
 
+    public CustomCollisionController CollisionController  => collisionController;
+
     protected virtual void Awake()
     {
         collisionController = GetComponent<CustomCollisionController>();

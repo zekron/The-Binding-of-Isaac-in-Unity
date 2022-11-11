@@ -10,6 +10,18 @@ public static class GameLogicUtility
         return localPosition + parent.position;
     }
 
+    public static Vector2 RandomDirection(this Vector2 vector2)
+    {
+        return vector2.RandomVector2(-1, 1, -1, 1).normalized;
+    }
+
+    public static Vector2 RandomVector2(this Vector2 vector2, float minX, float maxX, float minY, float maxY)
+    {
+        vector2.x = Random.Range(minX, maxX);
+        vector2.y = Random.Range(minY, maxY);
+        return vector2;
+    }
+
     /// <summary>
     /// 地图编辑器坐标转游戏内房间坐标
     /// </summary>

@@ -49,7 +49,7 @@ MonoBehaviour:
   - layer: 8
     layerMask:
       serializedVersion: 2
-      m_Bits: 512
+      m_Bits: 640
   - layer: 9
     layerMask:
       serializedVersion: 2

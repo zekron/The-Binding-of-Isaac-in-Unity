@@ -32,20 +32,23 @@ public class Chest : RoomObject
     {
         base.OnEnable();
 
-        collisionController.onCollisionEnter += Open;
+        collisionController.onCollisionEnter += OnCustomCollisionEnter;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
 
-        collisionController.onCollisionEnter -= Open;
+        collisionController.onCollisionEnter -= OnCustomCollisionEnter;
     }
 
-    private void Open(CollisionInfo2D collisionInfo)
+    private void OnCustomCollisionEnter(CollisionInfo2D collisionInfo)
     {
         if (collisionInfo.hitCollider.TryGetComponent(out gamePlayer))
         {
+            var direction = (transform.position - collisionInfo.hitCollider.transform.position).normalized;
+            (collisionController as CustomRigidbody2D).AddForce(direction);
+
             if (isOpen) return;
 
             if (chestType == ChestSO.ChestType.Locked)

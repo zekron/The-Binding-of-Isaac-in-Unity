@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f712e0715f57c724d96816de37e8f8e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTrigger: 1
+  isTrigger: 0
   offset: {x: 0, y: 0}
   size: {x: 0.55, y: 0.4}
 --- !u!114 &7551180412103161458
@@ -180,4 +180,4 @@ MonoBehaviour:
   gravityScale: 0
   collisionDetectionMode: 1
   needBounce: 1
-  showLog: 1
+  showLog: 0

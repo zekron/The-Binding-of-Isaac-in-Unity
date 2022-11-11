@@ -5,12 +5,16 @@ using UnityEngine;
 public abstract class PickupObject : RoomObject
 {
     protected string clipNameOnPicked = "Pickup_OnPicked";
+
+    protected CustomRigidbody2D customRigidbody;
     protected Player gamePlayer;
+
+    private PickupObject pickup;
     private Animation pickupAnimation;
 
     protected override void Awake()
     {
-        collisionController = GetComponentInChildren<CustomCollisionController>();
+        collisionController = customRigidbody = GetComponent<CustomRigidbody2D>();
         objectRenderer = GetComponentInChildren<SpriteRenderer>();
 
         pickupAnimation = GetComponent<Animation>();
@@ -19,16 +23,16 @@ public abstract class PickupObject : RoomObject
     {
         base.OnEnable();
 
-        collisionController.onCollisionEnter += Collect;
-        collisionController.onTriggerEnter += Collect;
+        collisionController.onCollisionEnter += OnCustomCollisionEnter;
+        //collisionController.onTriggerEnter += OnCustomCollisionEnter;
     }
 
     protected override void OnDisable()
     {
         base.OnDisable();
 
-        collisionController.onCollisionEnter -= Collect;
-        collisionController.onTriggerEnter -= Collect;
+        collisionController.onCollisionEnter -= OnCustomCollisionEnter;
+        //collisionController.onTriggerEnter -= OnCustomCollisionEnter;
     }
 
     public override void ResetObject()
@@ -39,7 +43,7 @@ public abstract class PickupObject : RoomObject
         pickupAnimation.Play();
     }
 
-    public virtual void Collect(CollisionInfo2D collisionInfo)
+    public virtual void OnCustomCollisionEnter(CollisionInfo2D collisionInfo)
     {
         if (collisionInfo.hitCollider.TryGetComponent(out gamePlayer))
         {
@@ -50,9 +54,17 @@ public abstract class PickupObject : RoomObject
             else
             {
                 pickupAnimation.Play(clipNameOnPicked);
+                //collisionController.SelfCollider.IsTrigger = true;
 
                 OnPlayerCollect();
             }
+        }
+
+        if (collisionInfo.hitCollider.TryGetComponent(out pickup))
+        {
+            var direction = (transform.position - pickup.transform.position).normalized;
+            var velocity = customRigidbody.velocity * 0.5f;
+            pickup.customRigidbody.AddForce(direction * velocity);
         }
     }
 
@@ -63,6 +75,6 @@ public abstract class PickupObject : RoomObject
     }
 
     protected virtual void OnPlayerCannotCollect(CollisionInfo2D collisionInfo) { }
-    protected virtual bool CanPickUp() => true;
+    protected virtual bool CanPickUp() => collisionController.SelfCollider.IsTrigger = true;
     protected abstract void OnPlayerCollect();
 }

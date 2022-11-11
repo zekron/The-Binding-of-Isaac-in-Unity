@@ -10,9 +10,9 @@ public class Key : PickupObject
     private KeySO.KeyType keyType;
     private int keyWorth;
 
-    public override void Collect(CollisionInfo2D collisionInfo)
+    public override void OnCustomCollisionEnter(CollisionInfo2D collisionInfo)
     {
-        base.Collect(collisionInfo);
+        base.OnCustomCollisionEnter(collisionInfo);
 
     }
 

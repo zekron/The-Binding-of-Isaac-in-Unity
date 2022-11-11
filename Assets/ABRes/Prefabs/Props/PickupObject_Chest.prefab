@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 39711888614424656}
   - component: {fileID: 8790153038917395715}
   - component: {fileID: 4950007729456250914}
-  - component: {fileID: 4240557972225464296}
   - component: {fileID: 762076451899394031}
+  - component: {fileID: 3075441611210258848}
   m_Layer: 9
   m_Name: Chest
   m_TagString: Untagged
@@ -112,23 +112,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTrigger: 0
-  offset: {x: 0, y: 0.41}
-  size: {x: 0.8, y: 0.63}
---- !u!114 &4240557972225464296
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 39711888614424661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40ce7bdfc6efed64eba72570b1f1fef6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showDebugGizoms: 1
-  horizontalRayCount: 4
-  verticalRayCount: 4
+  offset: {x: 0, y: 0.5}
+  size: {x: 0.8, y: 0.75}
 --- !u!114 &762076451899394031
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,6 +128,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentClip: {fileID: 11400000, guid: 24ce161c77a438b4a9244c9f123905bf, type: 2}
   playAutomatically: 0
+--- !u!114 &3075441611210258848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 39711888614424661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74b3c366b8ee9744fbb85a58735fb0d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showDebugGizoms: 0
+  horizontalRayCount: 4
+  verticalRayCount: 4
+  gravityScale: 0
+  collisionDetectionMode: 0
+  needBounce: 0
+  showLog: 0
 --- !u!1 &2615099726379544788
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,11 +1,20 @@
 using UnityEngine;
 using System;
+using CustomPhysics2D;
 
 [CreateAssetMenu(fileName = "ChestSO", menuName = "Scriptable Object/Pickups/Chest")]
 public class ChestSO : ScriptableObject
 {
+    private const int SPAWN_MEGA_TROLL_BOMB_COUNT = 2;
+    private const int SPAWN_TROLL_BOMB_COUNT = 2;
+    private const int SPAWN_PILL_AMOUNT = 2;
+    private const float POS_OFFSET = 0.3f;
+
+    private Vector2 spawnDirection = new Vector2();
+
     public Sprite[] ChestSprites;
     public CustomFrameAnimationClip[] OpenChestClips;
+
     public enum ChestType
     {
         Normal,
@@ -15,6 +24,7 @@ public class ChestSO : ScriptableObject
     public void SpawnReward(ChestType type, Vector3 position)
     {
         var rate = UnityEngine.Random.Range(0f, 1f);
+        rate = 0.4f;
         switch (type)
         {
             case ChestType.Normal:
@@ -49,7 +59,7 @@ public class ChestSO : ScriptableObject
                 }
                 break;
             case ChestType.Locked:
-                if (rate < 0.2f)
+                if (rate < POS_OFFSET)
                 {
                     //spawn golden chest item
                     CustomDebugger.Log("spawn golden chest item");
@@ -109,9 +119,18 @@ public class ChestSO : ScriptableObject
                 else if (rate < 0.41f)
                 {
                     //spawn 2 mega troll bombs
-                    var bomb = CustomObjectPoolManager.Release(PickupObjectType.Bomb, position).GetComponent<Bomb>();
-                    bomb.SetType(BombSO.BombType.MegaTroll);
-                    ObjectPoolManager.Release(bomb.gameObject, position);
+                    Bomb bomb;
+                    CustomCollider2D customCollider2D;
+                    for (int i = 0; i < SPAWN_MEGA_TROLL_BOMB_COUNT; i++)
+                    {
+                        bomb = CustomObjectPoolManager.Release(PickupObjectType.Bomb, position).GetComponent<Bomb>();
+                        customCollider2D = bomb.GetComponent<CustomCollider2D>();
+                        bomb.SetType(BombSO.BombType.MegaTroll);
+
+                        bomb.GetComponent<CustomRigidbody2D>().AddForce(spawnDirection.RandomDirection() * 5)
+                            .OnDecelerationBegin(() => customCollider2D.IsTrigger = true)
+                            .OnDecelerationFinish(() => customCollider2D.IsTrigger = false);
+                    }
                 }
                 else if (rate < 0.55f)
                 {
@@ -127,15 +146,34 @@ public class ChestSO : ScriptableObject
                 else if (rate < 0.7f)
                 {
                     //spawn 2 troll bombs
-                    var bomb = CustomObjectPoolManager.Release(PickupObjectType.Bomb, position).GetComponent<Bomb>();
-                    bomb.SetType(BombSO.BombType.Troll);
-                    ObjectPoolManager.Release(bomb.gameObject, position);
+                    Bomb bomb;
+                    CustomCollider2D customCollider2D;
+                    for (int i = 0; i < SPAWN_TROLL_BOMB_COUNT; i++)
+                    {
+                        spawnDirection.RandomDirection();
+                        bomb = CustomObjectPoolManager.Release(PickupObjectType.Bomb, position).GetComponent<Bomb>();
+                        customCollider2D = bomb.GetComponent<CustomCollider2D>();
+                        bomb.SetType(BombSO.BombType.Troll);
+
+                        bomb.GetComponent<CustomRigidbody2D>().AddForce(spawnDirection.RandomDirection() * 5)
+                            .OnDecelerationBegin(() => customCollider2D.IsTrigger = true)
+                            .OnDecelerationFinish(() => customCollider2D.IsTrigger = false);
+                    }
                 }
                 else
                 {
                     //spawn 2 pills
-                    CustomObjectPoolManager.Release(PickupObjectType.Pill, position);
-                    CustomObjectPoolManager.Release(PickupObjectType.Pill, position);
+                    Pill pill;
+                    CustomCollider2D customCollider2D;
+                    for (int i = 0; i < SPAWN_PILL_AMOUNT; i++)
+                    {
+                        pill = CustomObjectPoolManager.Release(PickupObjectType.Pill, position).GetComponent<Pill>();
+                        customCollider2D = pill.GetComponent<CustomCollider2D>();
+
+                        pill.GetComponent<CustomRigidbody2D>().AddForce(spawnDirection.RandomDirection() * 5)
+                            .OnDecelerationBegin(() => customCollider2D.IsTrigger = true)
+                            .OnDecelerationFinish(() => customCollider2D.IsTrigger = false);
+                    }
                 }
                 break;
             default:
@@ -177,6 +215,7 @@ public class ChestSO : ScriptableObject
     }
     public ChestType GenerateType()
     {
-        return (ChestType)UnityEngine.Random.Range(0, ChestSprites.Length);
+        //return (ChestType)UnityEngine.Random.Range(0, ChestSprites.Length);
+        return ChestType.Red;
     }
 }
