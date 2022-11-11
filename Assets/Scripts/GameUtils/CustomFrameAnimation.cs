@@ -31,7 +31,7 @@ public class CustomFrameAnimation : MonoBehaviour
         if (currentClip == null) return;
 
         if (currentClip.fps != 0) frameInterval = 1f / currentClip.fps;
-        ResetAnimation();
+        //ResetAnimation();
         isPlaying = playAutomatically;
     }
 

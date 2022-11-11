@@ -6,13 +6,17 @@ public class PlayerRenderer : MonoBehaviour, IObjectInRoom
     [Header("Misc")]
     [SerializeField] private SpriteRenderer bodyRenderer;
     [SerializeField] private SpriteRenderer headRenderer;
+    [SerializeField] private SpriteRenderer getHurtTearRenderer;
     [SerializeField] private HeadSpriteGroup curHeadSpriteGroup;
     [SerializeField] private Animator bodyAnimator;
     [SerializeField] private Animation invincibleAnim;
+    [SerializeField] private CustomFrameAnimation getHurtTearAnim;
+    [SerializeField] private CustomFrameAnimation customHeadAnim;
     [SerializeField] private Transform[] muzzles;
 
     private int animLeftRightID = Animator.StringToHash("LeftRight");
     private int animUpDownID = Animator.StringToHash("UpDown");
+    private int animGetHurtID = Animator.StringToHash("GetHurt");
     private Sprite preHeadSprite;
     private HeadSpriteGroup preHeadSpriteGroup;
     private GameCoordinate coordinate;
@@ -44,6 +48,14 @@ public class PlayerRenderer : MonoBehaviour, IObjectInRoom
     internal void SetInvincibleAnimation()
     {
         invincibleAnim.Play();
+        getHurtTearAnim.Play();
+
+        bodyAnimator.SetBool(animGetHurtID, true);
+        customHeadAnim.PlayOnce().OnAnimationFinished(() =>
+        {
+            SetHeadSprite(Vector2.down, HeadSpriteGroup.OPEN_EYE_SPRITE_INDEX);
+            bodyAnimator.SetBool(animGetHurtID, false);
+        });
     }
 
     internal void SetHeadSpriteGroup(HeadSpriteGroup spriteGroup)
@@ -91,6 +103,7 @@ public class PlayerRenderer : MonoBehaviour, IObjectInRoom
     {
         bodyRenderer.sortingOrder = (int)(transform.position.y * -5);
         headRenderer.sortingOrder = bodyRenderer.sortingOrder + 1;
+        getHurtTearRenderer.sortingOrder = bodyRenderer.sortingOrder - 1;
     }
 
     public void ResetObject()

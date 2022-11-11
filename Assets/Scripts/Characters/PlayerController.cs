@@ -176,11 +176,13 @@ public class PlayerController : MonoBehaviour
 
         if (tearDirection == Vector2.zero)
         {
-            canShoot = false;
-            player.SetHeadSprite(tearDirection.normalized, HeadSpriteGroup.OPEN_EYE_SPRITE_INDEX);
+            if (canShoot)
+            {
+                canShoot = false;
+                player.SetHeadSprite(tearDirection.normalized, HeadSpriteGroup.OPEN_EYE_SPRITE_INDEX);
+            }
         }
         else canShoot = true;
-        canShoot = tearDirection == Vector2.zero ? false : true;
         //StartCoroutine(nameof(FireCoroutine));
 
         if (shootTimer <= 0f)

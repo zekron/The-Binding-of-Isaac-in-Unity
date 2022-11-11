@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 3627869509
+CRC: 2196022644
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 88f9e14c5b4a6d4f2206eb3848a4efb4
+    Hash: b5604f366d29f3f750de3126920dc1a9
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 238180700bbbd0b9dc3a84e64e198aeb
+    Hash: efa7bb632349df9d2517f6737278fb8b
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -17,9 +17,13 @@ ClassTypes:
   Script: {instanceID: 0}
 - Class: 48
   Script: {instanceID: 0}
+- Class: 74
+  Script: {instanceID: 0}
 - Class: 91
   Script: {instanceID: 0}
 - Class: 95
+  Script: {instanceID: 0}
+- Class: 111
   Script: {instanceID: 0}
 - Class: 114
   Script: {fileID: 11500000, guid: 3244e16a4938b014e858c62096149173, type: 3}
@@ -32,9 +36,13 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 51198fdd89c6af94fb2777c5bc8526c6, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: 325a56bd18e380943928d2fc92054b5f, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 6ed7fe78cb52596409576b432b60ec93, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: ff49a833e7b8c2e48bd7f8216a30c8a8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: c946e33512c9fbc4bac0f3256a0dd6ec, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: f712e0715f57c724d96816de37e8f8e1, type: 3}
 - Class: 114
@@ -54,6 +62,7 @@ Assets:
 - Assets/ABRes/Prefabs/Players/Isaac.prefab
 Dependencies:
 - C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/animators/character.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/animators/sequences/miscs.ab
 - C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/tears.ab
 - C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/event
   channel.ab

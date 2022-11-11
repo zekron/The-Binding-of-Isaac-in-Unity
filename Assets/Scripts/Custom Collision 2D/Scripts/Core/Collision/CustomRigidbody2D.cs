@@ -19,7 +19,10 @@ namespace CustomPhysics2D
 
         [SerializeField] private CollisionDetectionMode collisionDetectionMode;
 
-        [DisplayOnly, SerializeField] private Vector2 _velocity;
+#if UNITY_EDITOR
+        [DisplayOnly]
+#endif
+        [SerializeField] private Vector2 _velocity;
         private CollisionInfo2D _collisionInfo;
         private CollisionInfo2D _triggerInfo;
         private bool _colliderIsTrigger = false;

@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 4273157321
+CRC: 2850621149
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: fe1e2e829e5e50c00b9e0602fb83bc5d
+    Hash: 79d722e235e35b3a6bba63f0a04555ba
   TypeTreeHash:
     serializedVersion: 2
     Hash: ef406d63fb068107fe048827844e7ae7
@@ -17,10 +17,12 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/ABRes/Animators/Sequences/Miscs/FX_GetHurtTear.asset
 - Assets/ABRes/Animators/Sequences/Miscs/Tear_Normal.asset
 - Assets/ABRes/Animators/Sequences/Miscs/FX_Smoke.asset
 - Assets/ABRes/Animators/Sequences/Miscs/FX_Arcade.asset
 Dependencies:
 - C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/fx/arcade.ab
+- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/fx/gethurttear.ab
 - C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/fx/smoke.ab
 - C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/tears/tear_normal.ab

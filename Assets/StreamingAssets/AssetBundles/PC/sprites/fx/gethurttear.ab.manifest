@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 3235388168
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: d6cf864c31d705088669075d9b42f4d2
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+- Class: 213
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Sprites/FX/GetHurtTear/3.png
+- Assets/ABRes/Sprites/FX/GetHurtTear/4.png
+- Assets/ABRes/Sprites/FX/GetHurtTear/2.png
+- Assets/ABRes/Sprites/FX/GetHurtTear/1.png
+Dependencies: []

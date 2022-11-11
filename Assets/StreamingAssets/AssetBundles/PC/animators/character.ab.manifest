@@ -1,25 +1,32 @@
 ManifestFileVersion: 0
-CRC: 476411800
+CRC: 183160585
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: dd3e85830fe4fda6ca75732aabd21839
+    Hash: 34767d4f644189441ecd7f1697c0194c
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 2010a0ef006464dba9f399a8326b36b5
+    Hash: 8776b15a872c562645a8c2561f0e2a86
 HashAppended: 0
 ClassTypes:
 - Class: 74
   Script: {instanceID: 0}
 - Class: 91
   Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: 325a56bd18e380943928d2fc92054b5f, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
 - Class: 213
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/ABRes/Animators/Character/Player_HeadGetHurt.asset
 - Assets/ABRes/Animators/Character/Basic_LeftRight.anim
 - Assets/ABRes/Animators/Character/Basic_Idle.anim
 - Assets/ABRes/Animators/Character/Character Body.controller
+- Assets/ABRes/Animators/Character/Base_GetHurt.anim
 - Assets/ABRes/Animators/Character/Basic_UpDown.anim
+- Assets/ABRes/Animators/Character/Player_Invincible.anim
 Dependencies:
 - C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/characters/isaac.ab
