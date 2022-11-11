@@ -409,7 +409,7 @@ namespace CustomPhysics2D
         private WaitForFixedUpdate waitForFixedUpdate = new WaitForFixedUpdate();
         private Coroutine Cor_Deceleration;
 
-        public CustomRigidbody2D AddForce(Vector2 force)
+        public CustomRigidbody2D AddForce(Vector2 force, bool highSpeed = false)
         {
             outerForce = force;
 
@@ -417,7 +417,7 @@ namespace CustomPhysics2D
             {
                 StopCoroutine(Cor_Deceleration);
             }
-            Cor_Deceleration = StartCoroutine(Deceleration());
+            Cor_Deceleration = StartCoroutine(Deceleration(highSpeed));
 
             return this;
         }
@@ -472,7 +472,7 @@ namespace CustomPhysics2D
             onDecelerationFinish.AddListener(action);
             return this;
         }
-        IEnumerator Deceleration()
+        IEnumerator Deceleration(bool highSpeed)
         {
             var v = Vector2.zero;
             _velocity = innerForce = outerForce;
@@ -488,7 +488,7 @@ namespace CustomPhysics2D
                 _velocity = innerForce;
                 yield return waitForFixedUpdate;
 
-                innerForce = Vector2.SmoothDamp(innerForce, Vector2.zero, ref v, 0.5f);
+                innerForce = Vector2.SmoothDamp(innerForce, Vector2.zero, ref v, highSpeed ? 0.1f : 0.5f);
             }
             while (Mathf.Abs(innerForce.x) > 0.05f || Mathf.Abs(innerForce.y) > 0.05f);
 

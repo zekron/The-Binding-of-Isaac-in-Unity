@@ -89,6 +89,9 @@ public class FirePlace : RoomObject, IHealth
         if (collisionInfo.hitCollider.TryGetComponent(out gameplayer))
         {
             gameplayer.GetDamage(attackValue);
+            gameplayer.PlayerRigidbody.AddForce((gameplayer.transform.position - transform.position).normalized, highSpeed: true)
+                .OnDecelerationBegin(() => gameplayer.ControllerEnabled = false)
+                .OnDecelerationFinish(() => gameplayer.ControllerEnabled = true);
         }
     }
 }

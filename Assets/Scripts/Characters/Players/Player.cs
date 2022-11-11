@@ -1,3 +1,4 @@
+using CustomPhysics2D;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ public class Player : MonoBehaviour
     private PlayerProfileTreeElement playerProfile;
     private PlayerRenderer playerRenderer;
     private PlayerController playerController;
+    private CustomRigidbody2D playerRigidbody;
 
     #region Current player status
     private HealthData currentHealth;
@@ -57,6 +59,18 @@ public class Player : MonoBehaviour
         set => damageMultiplier = value;
     }
     public float FlatDamageUps { get => flatDamageUps; set => flatDamageUps = value; }
+
+    public bool ControllerEnabled { get => playerController.ControllerEnabled; set => playerController.ControllerEnabled = value; }
+    public CustomRigidbody2D PlayerRigidbody
+    {
+        get
+        {
+            if (playerRigidbody == null)
+                playerRigidbody = playerController.CustomRigidbody != null ? playerController.CustomRigidbody : GetComponent<CustomRigidbody2D>();
+
+            return playerRigidbody;
+        }
+    }
 
     /// <summary>
     /// √ø√Î∑¢…‰—€¿· ˝£®—€¿· ˝/√Î£©
@@ -194,13 +208,25 @@ public class Player : MonoBehaviour
         else currentHealth.RedHeart -= 2;
         onPlayerHealthDataChanged.RaiseEvent(currentHealth);
     }
+    private bool invincible = false;
     public void GetDamage(int damage)
     {
+        if (invincible) return;
+
         currentHealth -= damage;
         onPlayerHealthDataChanged.RaiseEvent(currentHealth);
 
+        //invincible
+        invincible = true;
+        playerRenderer.SetInvincibleAnimation();
+
         if (currentHealth == HealthData.Zero) GetDie();
     }
+    internal void OnInvincibleAnimationFinished()
+    {
+        invincible = false;
+    }
+
     public void SacrificeHealth(HealthData data)
     {
         onPlayerHealthDataChanged.RaiseEvent(currentHealth);

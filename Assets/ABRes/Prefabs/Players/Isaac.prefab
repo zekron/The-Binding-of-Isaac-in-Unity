@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 73794325}
   - component: {fileID: 7066929607896272721}
   - component: {fileID: 7066929607896272722}
+  - component: {fileID: 1047972898}
   m_Layer: 6
   m_Name: Isaac
   m_TagString: Player
@@ -88,6 +89,7 @@ MonoBehaviour:
   headRenderer: {fileID: 7066929607912870652}
   curHeadSpriteGroup: {fileID: 11400000, guid: b20f769f422dd5641be45fc848ac574a, type: 2}
   bodyAnimator: {fileID: 7066929607256401028}
+  invincibleAnim: {fileID: 1047972898}
   muzzles:
   - {fileID: 4334249556937411465}
   - {fileID: 1967097478325516422}
@@ -114,6 +116,9 @@ MonoBehaviour:
   verticalRayCount: 4
   gravityScale: 0
   collisionDetectionMode: 1
+  _velocity: {x: 0, y: 0}
+  needBounce: 0
+  showLog: 1
 --- !u!114 &7066929607896272722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,6 +134,22 @@ MonoBehaviour:
   isTrigger: 0
   offset: {x: 0, y: 0}
   size: {x: 0.5, y: 0.67}
+--- !u!111 &1047972898
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1097604429764637521}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: f4830fb1ae3fc6a4993c027bdbb7781f, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: f4830fb1ae3fc6a4993c027bdbb7781f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1242708187255704062
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
+    private bool controllerEnabled = true;
     private const int MOVE_SPEED_MULTIPLIER = 5;
     private float SHOT_SPEED_MULTIPLIER = 5;
 
@@ -38,6 +39,18 @@ public class PlayerController : MonoBehaviour
     private Player player;
 
     public Vector2 PlayerMoveDirection => tempPlayerVelocity;
+
+    public bool ControllerEnabled
+    {
+        get => controllerEnabled;
+        set
+        {
+            controllerEnabled = value;
+            if (!value)
+                customRigidbody.velocity = tempPlayerVelocity = Vector2.zero;
+        }
+    }
+    public CustomRigidbody2D CustomRigidbody => customRigidbody;
 
     private void OnEnable()
     {
@@ -90,6 +103,8 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateMovement()
     {
+        if (!controllerEnabled) return;
+
         GenerateMoveDirection();
         if (!canMove && tempPlayerVelocity == Vector2.zero) return;
 

@@ -8,6 +8,7 @@ public class PlayerRenderer : MonoBehaviour, IObjectInRoom
     [SerializeField] private SpriteRenderer headRenderer;
     [SerializeField] private HeadSpriteGroup curHeadSpriteGroup;
     [SerializeField] private Animator bodyAnimator;
+    [SerializeField] private Animation invincibleAnim;
     [SerializeField] private Transform[] muzzles;
 
     private int animLeftRightID = Animator.StringToHash("LeftRight");
@@ -15,6 +16,7 @@ public class PlayerRenderer : MonoBehaviour, IObjectInRoom
     private Sprite preHeadSprite;
     private HeadSpriteGroup preHeadSpriteGroup;
     private GameCoordinate coordinate;
+
 
     public GameCoordinate Coordinate { get => coordinate; set => coordinate = value; }
 
@@ -37,6 +39,11 @@ public class PlayerRenderer : MonoBehaviour, IObjectInRoom
 
         if (x < 0) { bodyRenderer.flipX = true; }
         if (x > 0) { bodyRenderer.flipX = false; }
+    }
+
+    internal void SetInvincibleAnimation()
+    {
+        invincibleAnim.Play();
     }
 
     internal void SetHeadSpriteGroup(HeadSpriteGroup spriteGroup)
@@ -64,6 +71,7 @@ public class PlayerRenderer : MonoBehaviour, IObjectInRoom
     }
 
     int muzzleSwitch = 0;
+
     public Vector3 GetTearSpawnPosition(Vector2 vector2)
     {
         muzzleSwitch = 1 - muzzleSwitch;
