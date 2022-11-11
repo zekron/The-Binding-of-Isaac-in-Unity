@@ -8,10 +8,13 @@ using UnityEngine.Events;
 public class CustomFrameAnimation : MonoBehaviour
 {
     [SerializeField] private CustomFrameAnimationClip currentClip;
+    [SerializeField] private CustomFrameAnimationClip[] clips;
     [SerializeField] private bool playAutomatically = false;
 
     private UnityEvent onAnimationEnd = new UnityEvent();
     private SpriteRenderer animationRenderer;
+
+    private Dictionary<string, CustomFrameAnimationClip> clipDic = new Dictionary<string, CustomFrameAnimationClip>();
 
     private int currentFrameIndex;
     private float frameInterval;
@@ -24,13 +27,17 @@ public class CustomFrameAnimation : MonoBehaviour
         if (animationRenderer == null)
             animationRenderer = GetComponent<SpriteRenderer>();
 
+        for (int i = 0; i < clips.Length; i++)
+        {
+            clipDic.Add(clips[i].clipName, clips[i]);
+        }
     }
     // Start is called before the first frame update
     void Start()
     {
         if (currentClip == null) return;
 
-        if (currentClip.fps != 0) frameInterval = 1f / currentClip.fps;
+        if (currentClip.fps > 0) frameInterval = 1f / currentClip.fps;
         //ResetAnimation();
         isPlaying = playAutomatically;
     }
@@ -90,6 +97,15 @@ public class CustomFrameAnimation : MonoBehaviour
     public void ChangeClip(CustomFrameAnimationClip newClip)
     {
         currentClip = newClip;
+        if (currentClip.fps > 0) frameInterval = 1f / currentClip.fps;
+        isPlaying = playAutomatically;
+    }
+    public void ChangeClip(string name)
+    {
+        if (clipDic.ContainsKey(name))
+        {
+            ChangeClip(clipDic[name]);
+        }
     }
 
     public CustomFrameAnimation PlayOnce()

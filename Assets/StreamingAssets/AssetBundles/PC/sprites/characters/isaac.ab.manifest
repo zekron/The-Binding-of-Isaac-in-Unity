@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 613663573
+CRC: 567969711
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 46bd03d717da516c3ee1181e2e8d8ab8
+    Hash: 8c96f5c36b05a83d9608ef3f8063c872
   TypeTreeHash:
     serializedVersion: 2
     Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
@@ -20,4 +20,5 @@ Assets:
 - Assets/ABRes/Sprites/Characters/Isaac/Character Head_Basic.png
 - Assets/ABRes/Sprites/Characters/Isaac/Head_Get Hurt.png
 - Assets/ABRes/Sprites/Characters/Isaac/Character Body_Basic.png
+- Assets/ABRes/Sprites/Characters/Isaac/Head_GetItem.png
 Dependencies: []

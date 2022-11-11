@@ -7,6 +7,7 @@ public class PlayerRenderer : MonoBehaviour, IObjectInRoom
     [SerializeField] private SpriteRenderer bodyRenderer;
     [SerializeField] private SpriteRenderer headRenderer;
     [SerializeField] private SpriteRenderer getHurtTearRenderer;
+    [SerializeField] private SpriteRenderer itemRenderer;
     [SerializeField] private HeadSpriteGroup curHeadSpriteGroup;
     [SerializeField] private Animator bodyAnimator;
     [SerializeField] private Animation invincibleAnim;
@@ -17,6 +18,7 @@ public class PlayerRenderer : MonoBehaviour, IObjectInRoom
     private int animLeftRightID = Animator.StringToHash("LeftRight");
     private int animUpDownID = Animator.StringToHash("UpDown");
     private int animGetHurtID = Animator.StringToHash("GetHurt");
+    private int animGetItemID = Animator.StringToHash("GetItem");
     private Sprite preHeadSprite;
     private HeadSpriteGroup preHeadSpriteGroup;
     private GameCoordinate coordinate;
@@ -51,10 +53,26 @@ public class PlayerRenderer : MonoBehaviour, IObjectInRoom
         getHurtTearAnim.Play();
 
         bodyAnimator.SetBool(animGetHurtID, true);
+        customHeadAnim.ChangeClip("GetHurt");
         customHeadAnim.PlayOnce().OnAnimationFinished(() =>
         {
             SetHeadSprite(Vector2.down, HeadSpriteGroup.OPEN_EYE_SPRITE_INDEX);
             bodyAnimator.SetBool(animGetHurtID, false);
+        });
+    }
+
+    internal void SetGetItemAnimation(Sprite itemSprite)
+    {
+        bodyAnimator.SetBool(animGetItemID, true);
+        bodyRenderer.enabled = false;
+        itemRenderer.sprite = itemSprite;
+        customHeadAnim.ChangeClip("GetItem");
+        customHeadAnim.PlayOnce().OnAnimationFinished(() =>
+        {
+            SetHeadSprite(Vector2.down, HeadSpriteGroup.OPEN_EYE_SPRITE_INDEX);
+            bodyAnimator.SetBool(animGetItemID, false);
+            itemRenderer.sprite = null;
+            bodyRenderer.enabled = true;
         });
     }
 
@@ -102,7 +120,7 @@ public class PlayerRenderer : MonoBehaviour, IObjectInRoom
     public void ChangeRendererOrder()
     {
         bodyRenderer.sortingOrder = (int)(transform.position.y * -5);
-        headRenderer.sortingOrder = bodyRenderer.sortingOrder + 1;
+        itemRenderer.sortingOrder = headRenderer.sortingOrder = bodyRenderer.sortingOrder + 1;
         getHurtTearRenderer.sortingOrder = bodyRenderer.sortingOrder - 1;
     }
 

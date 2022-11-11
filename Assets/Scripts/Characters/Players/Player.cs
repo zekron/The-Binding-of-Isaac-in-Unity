@@ -282,6 +282,8 @@ public class Player : MonoBehaviour
         {
             ObjectPoolManager.Release(trinketItemPackage.Dequeue().ItemPrefab, transform.position);
         }
+
+        playerRenderer.SetGetItemAnimation(item.ItemSprite);
     }
 
     Dictionary<ModifierType, Modifier> modifierDic = new Dictionary<ModifierType, Modifier>();
@@ -317,9 +319,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void GetPassiveItem(int itemID)
+    public void GetPassiveItem(ItemTreeElement item)
     {
-        itemPackage[itemID / 32] = itemID % 32 == 0 ? 0 : 1 << (itemID % 32);
+        itemPackage[item.ElementID / 32] = item.ElementID % 32 == 0 ? 0 : 1 << (item.ElementID % 32);
+        playerRenderer.SetGetItemAnimation(item.ItemSprite);
     }
 
     /// <summary>
@@ -341,6 +344,8 @@ public class Player : MonoBehaviour
     {
         activeItemSkill.RemoveAllListeners();
         activeItemSkill.AddListener(skill);
+
+        playerRenderer.SetGetItemAnimation(collectibleItem.ItemSprite);
 
         var oldItem = activeItem;
         activeItem = collectibleItem;

@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 183160585
+CRC: 2596509734
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 34767d4f644189441ecd7f1697c0194c
+    Hash: 6dd6366f1ae55527d92ed829de8ee985
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 8776b15a872c562645a8c2561f0e2a86
+    Hash: 3c0bea730905e8f6546838ad63f6ee3f
 HashAppended: 0
 ClassTypes:
 - Class: 74
@@ -22,8 +22,10 @@ ClassTypes:
 SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/ABRes/Animators/Character/Player_HeadGetHurt.asset
+- Assets/ABRes/Animators/Character/Basic_GetItem.anim
 - Assets/ABRes/Animators/Character/Basic_LeftRight.anim
 - Assets/ABRes/Animators/Character/Basic_Idle.anim
+- Assets/ABRes/Animators/Character/Player_HeadGetItem.asset
 - Assets/ABRes/Animators/Character/Character Body.controller
 - Assets/ABRes/Animators/Character/Base_GetHurt.anim
 - Assets/ABRes/Animators/Character/Basic_UpDown.anim

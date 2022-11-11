@@ -1,11 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Custom Animation", menuName = "Scriptable Object/Custom/Custom Animation")]
 public class CustomFrameAnimationClip : ScriptableObject
 {
     [SerializeField] private Sprite[] frames;
+    public string clipName;
 
     public int FramesCount => frames.Length;
     public int fps;

@@ -29,13 +29,14 @@ public class ItemPedestal : RoomObject
     private void CollectItem(CollisionInfo2D collisionInfo)
     {
         //if (item == null) item = GetComponentInChildren<ItemObject>();
-        if (item == null) return;
 
         if (collisionInfo.hitCollider.CompareTag("Player"))
         {
             var direction = (transform.position - collisionInfo.hitCollider.transform.position).normalized;
             (collisionController as CustomRigidbody2D).AddForce(direction);
         }
+
+        if (item == null) return;
 
         item.Collect(collisionInfo);
 
@@ -46,13 +47,12 @@ public class ItemPedestal : RoomObject
             {
                 activeItem.OldActiveItemData.ItemPrefab.SetActive(false);
                 item = ObjectPoolManager.Release(activeItem.OldActiveItemData.ItemPrefab,
-                                                 transform.position).GetComponent<ItemObject>();
+                                                 transform.position, Quaternion.identity, transform).GetComponent<ItemObject>();
             }
-            else
-            {
-                item = null;
-            }
+            else item = null;
         }
+        else
+            item = null;
     }
 
     private void InstantiateRandomRoomObject()

@@ -8,7 +8,7 @@ public abstract class PassiveItem : CollectableItem
     {
         base.OnPlayerCollect();
 
-        gamePlayer.GetPassiveItem(itemData.ElementID);
+        gamePlayer.GetPassiveItem(itemData);
 
         PassiveSkill();
     }
