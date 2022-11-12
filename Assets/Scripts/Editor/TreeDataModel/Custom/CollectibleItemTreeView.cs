@@ -49,10 +49,11 @@ public class CollectibleItemTreeView : ItemTreeView<CollectibleItemTreeElement>
                     if (item.data.ItemSprite != null && item.data.name == "Name here")
                     {
                         var strs = item.data.ItemSprite.name.Split('_');
-                        if (strs.Length == 2)
+                        if (strs.Length == 2 || strs.Length == 3)
                         {
-                            item.data.ElementID = int.Parse(strs[0]);
-                            item.data.name = strs[1];
+                            if (int.TryParse(strs[strs.Length - 2], out int id))
+                                item.data.ElementID = id;
+                            item.data.name = strs[strs.Length - 1];
                         }
                     }
                     break;

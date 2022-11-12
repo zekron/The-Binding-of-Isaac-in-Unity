@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2394181380
+CRC: 1539282967
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: b6458b895dba8caa3ef70cbd7f77885b
+    Hash: 8fb35f6c84fa55e1cbda5d653aea2313
   TypeTreeHash:
     serializedVersion: 2
     Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
@@ -21,7 +21,7 @@ Assets:
 - Assets/ABRes/Sprites/Items/Passive/Passive_121.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_30.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_36.png
-- Assets/ABRes/Sprites/Items/Passive/Passive_134.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_182_MEAT!.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_18.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_91.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_102.png
@@ -40,7 +40,7 @@ Assets:
 - Assets/ABRes/Sprites/Items/Passive/Passive_42.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_127.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_132.png
-- Assets/ABRes/Sprites/Items/Passive/Passive_07.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_007_Blood Of The Martyr.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_002_The Inner Eye.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_58.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_45.png
@@ -58,7 +58,7 @@ Assets:
 - Assets/ABRes/Sprites/Items/Passive/Passive_21.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_105.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_111.png
-- Assets/ABRes/Sprites/Items/Passive/Passive_138.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_179_SMB Super Fan!.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_24.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_135.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_52.png
@@ -70,13 +70,13 @@ Assets:
 - Assets/ABRes/Sprites/Items/Passive/Passive_60.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_25.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_128.png
-- Assets/ABRes/Sprites/Items/Passive/Passive_13.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_015_Roid Rage.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_74.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_39.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_120.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_71.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_38.png
-- Assets/ABRes/Sprites/Items/Passive/Passive_139.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_180_Pyro.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_16.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_100.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_125.png
@@ -85,13 +85,13 @@ Assets:
 - Assets/ABRes/Sprites/Items/Passive/Passive_004_Max's Head.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_87.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_101.png
-- Assets/ABRes/Sprites/Items/Passive/Passive_51.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_078_Growth Hormones.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_37.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_41.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_09.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_94.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_77.png
-- Assets/ABRes/Sprites/Items/Passive/Passive_142.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_186_Squeezy.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_137.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_57.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_34.png
@@ -127,7 +127,7 @@ Assets:
 - Assets/ABRes/Sprites/Items/Passive/Passive_131.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_003_Spoon Bender.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_93.png
-- Assets/ABRes/Sprites/Items/Passive/Passive_12.png
+- Assets/ABRes/Sprites/Items/Passive/Passive_014_The Virus.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_68.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_49.png
 - Assets/ABRes/Sprites/Items/Passive/Passive_130.png

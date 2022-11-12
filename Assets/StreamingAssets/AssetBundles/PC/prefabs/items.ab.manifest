@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 940546781
+CRC: 208360043
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 2ec74cdfa4f8b0d567cfe3c839d93f6b
+    Hash: c464c57cdd845b60a55acc94e8855c20
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 75c03f19c26ca8e58cd3a9345bf015c0
+    Hash: 8f6ab5e3148d51c6a84ea22e8521bc43
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -30,6 +30,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: fc07c03a6e0e5124fac85acdceae8a98, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: d779a7100f255dc40aa22d3edc4d9010, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: bab452018160102418694ca6caf360ad, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 8cd9e842c1a491d44b0f87f8df6188a5, type: 3}
@@ -43,6 +45,10 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 19b056ea34eeaca4fa55ef1ea10cefd8, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 27a3064a6ee7487499cf45e85fb585f8, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1d8762f08bc6512408a5f398137b2662, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: a4d4d26d0faddfa4c9fd6b8c1c45defe, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 212
@@ -51,7 +57,10 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/ABRes/Prefabs/Items/014_The Virus.prefab
 - Assets/ABRes/Prefabs/Items/007_Blood_Of_The_Martyr.prefab
+- Assets/ABRes/Prefabs/Items/015_Roid Rage.prefab
+- Assets/ABRes/Prefabs/Items/002_Inner Eye.prefab
 - Assets/ABRes/Prefabs/Items/004_Max's Head.prefab
 - Assets/ABRes/Prefabs/Items/006_Number One.prefab
 - Assets/ABRes/Prefabs/Items/051_Yum Heart.prefab

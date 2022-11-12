@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eeeee01332beb54eaeb9abb35c349a4, type: 3}
+  m_Name: Head Sprite Group_TheVirus
+  m_EditorClassIdentifier: 
+  upShootingSprites:
+  - {fileID: -5613879187330026630, guid: 3ada4e9a743943d41a54f289303141e0, type: 3}
+  - {fileID: 6103644644988280256, guid: 3ada4e9a743943d41a54f289303141e0, type: 3}
+  downShootingSprites:
+  - {fileID: 3582274550722988815, guid: 3ada4e9a743943d41a54f289303141e0, type: 3}
+  - {fileID: 218433934416778161, guid: 3ada4e9a743943d41a54f289303141e0, type: 3}
+  leftShootingSprites:
+  - {fileID: -7081304757058999319, guid: 3ada4e9a743943d41a54f289303141e0, type: 3}
+  - {fileID: 8531664301244592833, guid: 3ada4e9a743943d41a54f289303141e0, type: 3}
+  rightShootingSprites:
+  - {fileID: -7044484222551418991, guid: 3ada4e9a743943d41a54f289303141e0, type: 3}
+  - {fileID: -3825693844536609421, guid: 3ada4e9a743943d41a54f289303141e0, type: 3}

@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eeeee01332beb54eaeb9abb35c349a4, type: 3}
+  m_Name: Head Sprite Group_RoidRage
+  m_EditorClassIdentifier: 
+  upShootingSprites:
+  - {fileID: 5197360354571908782, guid: 60d03986fb192324da480933d4104c80, type: 3}
+  - {fileID: -151620477188263284, guid: 60d03986fb192324da480933d4104c80, type: 3}
+  downShootingSprites:
+  - {fileID: 8197252194669051409, guid: 60d03986fb192324da480933d4104c80, type: 3}
+  - {fileID: 5520159644327825366, guid: 60d03986fb192324da480933d4104c80, type: 3}
+  leftShootingSprites:
+  - {fileID: -5124264448428612856, guid: 60d03986fb192324da480933d4104c80, type: 3}
+  - {fileID: -1299284919170722190, guid: 60d03986fb192324da480933d4104c80, type: 3}
+  rightShootingSprites:
+  - {fileID: -5188094759848042186, guid: 60d03986fb192324da480933d4104c80, type: 3}
+  - {fileID: 4214281012460408155, guid: 60d03986fb192324da480933d4104c80, type: 3}

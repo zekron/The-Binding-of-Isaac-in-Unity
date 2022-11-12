@@ -74,4 +74,100 @@ public class CustomEditorMenu : EditorWindow
         Selection.activeObject = settings;
         //EditorGUIUtility.PingObject( settings );
     }
+
+    [MenuItem("Assets/Custom Menu/Rename File(s)", validate = false)]
+    public static void RenameFiles()
+    {
+        string[] assetGUIDs = Selection.assetGUIDs;
+        for (int i = 0; i < assetGUIDs.Length; i++)
+        {
+            //单一文件夹GUID转路径：Assets/Sprites/...
+            var directory = AssetDatabase.GUIDToAssetPath(assetGUIDs[i]);
+            if (Directory.Exists(directory))
+            {
+                DirectoryInfo di = new DirectoryInfo(directory);
+                FileSystemInfo[] fsInfos = di.GetFileSystemInfos(); // Assets\\Sprites\\...
+                var suffix = directory.Substring(directory.LastIndexOf('/') + 1);
+                for (int j = 0; j < fsInfos.Length; j++)
+                {
+                    RenameFiles(fsInfos[j].FullName, suffix);
+                }
+            }
+        }
+        AssetDatabase.Refresh();
+    }
+    [MenuItem("Assets/Custom Menu/Rename File(s)", validate = true)]
+    static bool CanRenameFiles()
+    {
+        string[] assetGUIDs = Selection.assetGUIDs;
+        //if (assetGUIDs.Length > 1) return false;
+        for (int i = 0; i < assetGUIDs.Length; i++)
+        {
+            if (File.Exists(AssetDatabase.GUIDToAssetPath(assetGUIDs[i]))) return false;
+        }
+        return true;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="filePath">Full path: C:\\ ... \\Assets\\Sprites\\...</param>
+    /// <param name="suffix">current folder name</param>
+    static void RenameFiles(string filePath, string suffix)
+    {
+        if (File.Exists(filePath))
+        {
+            string directory = Path.GetDirectoryName(filePath);
+            string fileName = Path.GetFileName(filePath);
+            if (fileName.Contains(suffix)) return;
+            if (fileName.Contains(".meta") && !fileName.Remove(fileName.IndexOf(".meta")).Contains(".")) return;    //not folder
+            File.Move(filePath, $"{directory}\\{suffix}_{Path.GetFileName(filePath)}");
+        }
+        else if (Directory.Exists(filePath))
+        {
+            Debug.Log(filePath);
+            DirectoryInfo di = new DirectoryInfo(filePath);
+            FileSystemInfo[] fsInfos = di.GetFileSystemInfos(); // Assets\\Sprites\\...
+            suffix = filePath.Substring(filePath.LastIndexOf('\\') + 1);
+            for (int j = 0; j < fsInfos.Length; j++)
+            {
+                RenameFiles(fsInfos[j].FullName, suffix);
+            }
+        }
+    }
+
+    private static string headSpriteGroupBasePath = "Assets/ABRes/ScriptableObjects/Head Sprite Group";
+    [MenuItem("Assets/Custom Menu/Create Head Sprite Group")]
+    static void CreateHeadSpriteGroup()
+    {
+        string[] assetGUIDs = Selection.assetGUIDs;
+        string assetPath;
+        Object[] sprites;
+        HeadSpriteGroup spriteGroup;
+        string fileName;
+
+        for (int i = 0; i < assetGUIDs.Length; i++)
+        {
+            assetPath = AssetDatabase.GUIDToAssetPath(assetGUIDs[i]);
+            sprites = AssetDatabase.LoadAllAssetsAtPath(assetPath);
+
+            if (sprites.Length != 9)
+            {
+                Debug.LogWarning($"There's not enough sprites. Consider that Texture2D <color=yellow>{sprites[0].name}</color> has been not sliced.");
+                continue;
+            }
+
+            spriteGroup = CreateInstance<HeadSpriteGroup>();
+            fileName = sprites[0].name.Substring(sprites[0].name.LastIndexOf('_') + 1);
+
+            for (int j = 1; j < sprites.Length; j++)
+                spriteGroup.InitializeGroup(sprites[j] as Sprite, j);
+            AssetDatabase.CreateAsset(spriteGroup, $"{headSpriteGroupBasePath}/Head Sprite Group_{fileName}.asset");
+            AssetDatabase.SaveAssets();
+
+            Selection.activeObject = spriteGroup;
+        }
+
+        EditorUtility.FocusProjectWindow();
+    }
 }

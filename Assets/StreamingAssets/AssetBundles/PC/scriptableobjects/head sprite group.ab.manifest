@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2909139677
+CRC: 726923647
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4c4272af584039db4bcc9e09fd1ef546
+    Hash: 577a0110ba3a98bb3633501157b406b6
   TypeTreeHash:
     serializedVersion: 2
     Hash: 2c149809ea63527ad358083d8c2be9ec
@@ -17,7 +17,11 @@ ClassTypes:
   Script: {instanceID: 0}
 SerializeReferenceClassIdentifiers: []
 Assets:
+- Assets/ABRes/ScriptableObjects/Head Sprite Group/Head Sprite Group_TheVirus.asset
+- Assets/ABRes/ScriptableObjects/Head Sprite Group/Head Sprite Group_RoidRage.asset
+- Assets/ABRes/ScriptableObjects/Head Sprite Group/Head Sprite Group_Sad Onion.asset
 - Assets/ABRes/ScriptableObjects/Head Sprite Group/Head Sprite Group_Normal.asset
+- Assets/ABRes/ScriptableObjects/Head Sprite Group/Head Sprite Group_Inner Eye.asset
 - Assets/ABRes/ScriptableObjects/Head Sprite Group/Head Sprite Group_Belial.asset
 Dependencies:
 - C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/characters/isaac.ab

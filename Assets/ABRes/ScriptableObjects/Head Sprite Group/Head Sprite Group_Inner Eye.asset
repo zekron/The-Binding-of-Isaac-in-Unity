@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eeeee01332beb54eaeb9abb35c349a4, type: 3}
+  m_Name: Head Sprite Group_Inner Eye
+  m_EditorClassIdentifier: 
+  upShootingSprites:
+  - {fileID: -5023471933813436085, guid: da64dbb9c885bca4f95295c3387c9423, type: 3}
+  - {fileID: 4048844632581124803, guid: da64dbb9c885bca4f95295c3387c9423, type: 3}
+  downShootingSprites:
+  - {fileID: -2424935448600026155, guid: da64dbb9c885bca4f95295c3387c9423, type: 3}
+  - {fileID: -5436024179547858183, guid: da64dbb9c885bca4f95295c3387c9423, type: 3}
+  leftShootingSprites:
+  - {fileID: -9029153535997963564, guid: da64dbb9c885bca4f95295c3387c9423, type: 3}
+  - {fileID: -5122582517972114357, guid: da64dbb9c885bca4f95295c3387c9423, type: 3}
+  rightShootingSprites:
+  - {fileID: -8279478847802112642, guid: da64dbb9c885bca4f95295c3387c9423, type: 3}
+  - {fileID: 2816673010837136706, guid: da64dbb9c885bca4f95295c3387c9423, type: 3}

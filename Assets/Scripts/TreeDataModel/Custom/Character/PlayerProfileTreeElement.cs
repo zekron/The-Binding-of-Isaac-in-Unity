@@ -87,7 +87,7 @@ public class PlayerProfileTreeElement : CharacterProfileTreeElement
         else if (t < 0 && t > -10f / 13) result = 16 - 6 * Mathf.Sqrt(1.3f * t + 1) - 6 * t;
         else result = 16 - 6 * t;
 
-        result *= (multiplier + 1);
+        result *= multiplier == 0 ? 1 : multiplier; //default multiplier = 0
         result += addition;
 
         return Mathf.Round(result * 100) / 100;

@@ -55,67 +55,6 @@ namespace AssetBundleFramework
             Ini.Clear();
         }
 
-        [MenuItem("Assets/Custom Menu/Rename File(s)", validate = false)]
-        public static void RenameFiles()
-        {
-            string[] assetGUIDs = Selection.assetGUIDs;
-            for (int i = 0; i < assetGUIDs.Length; i++)
-            {
-                //单一文件夹GUID转路径：Assets/Sprites/...
-                var directory = AssetDatabase.GUIDToAssetPath(assetGUIDs[i]);
-                if (Directory.Exists(directory))
-                {
-                    DirectoryInfo di = new DirectoryInfo(directory);
-                    FileSystemInfo[] fsInfos = di.GetFileSystemInfos(); // Assets\\Sprites\\...
-                    var suffix = directory.Substring(directory.LastIndexOf('/') + 1);
-                    for (int j = 0; j < fsInfos.Length; j++)
-                    {
-                        RenameFiles(fsInfos[j].FullName, suffix);
-                    }
-                }
-            }
-            AssetDatabase.Refresh();
-        }
-        [MenuItem("Assets/Custom Menu/Rename File(s)", validate = true)]
-        static bool CanRenameFiles()
-        {
-            string[] assetGUIDs = Selection.assetGUIDs;
-            //if (assetGUIDs.Length > 1) return false;
-            for (int i = 0; i < assetGUIDs.Length; i++)
-            {
-                if (File.Exists(AssetDatabase.GUIDToAssetPath(assetGUIDs[i]))) return false;
-            }
-            return true;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="filePath">Full path: C:\\ ... \\Assets\\Sprites\\...</param>
-        /// <param name="suffix"></param>
-        static void RenameFiles(string filePath, string suffix)
-        {
-            if (File.Exists(filePath))
-            {
-                string directory = Path.GetDirectoryName(filePath);
-                string fileName = Path.GetFileName(filePath);
-                if (fileName.Contains(suffix)) return;
-                if (fileName.Contains(".meta") && !fileName.Remove(fileName.IndexOf(".meta")).Contains(".")) return;
-                File.Move(filePath, $"{directory}\\{suffix}_{Path.GetFileName(filePath)}");
-            }
-            else if (Directory.Exists(filePath))
-            {
-                Debug.Log(filePath);
-                DirectoryInfo di = new DirectoryInfo(filePath);
-                FileSystemInfo[] fsInfos = di.GetFileSystemInfos(); // Assets\\Sprites\\...
-                suffix = filePath.Substring(filePath.LastIndexOf('\\') + 1);
-                for (int j = 0; j < fsInfos.Length; j++)
-                {
-                    RenameFiles(fsInfos[j].FullName, suffix);
-                }
-            }
-        }
-
         [MenuItem("AssetBundle Framework/创建AB包")]
         static void BuildAB()
         {

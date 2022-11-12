@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 567969711
+CRC: 4210589044
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 8c96f5c36b05a83d9608ef3f8063c872
+    Hash: 708c2f8f6df64a50a1406c2ba8d3b176
   TypeTreeHash:
     serializedVersion: 2
     Hash: 12da798fbf3a6c0c342cc56cb1a6efdf
@@ -17,8 +17,12 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/ABRes/Sprites/Characters/Isaac/Body_Get Hurt.png
 - Assets/ABRes/Sprites/Characters/Isaac/Character Head_Belial.png
+- Assets/ABRes/Sprites/Characters/Isaac/Character Head_TheVirus.png
+- Assets/ABRes/Sprites/Characters/Isaac/Character Head_Sad Onion.png
 - Assets/ABRes/Sprites/Characters/Isaac/Character Head_Basic.png
 - Assets/ABRes/Sprites/Characters/Isaac/Head_Get Hurt.png
+- Assets/ABRes/Sprites/Characters/Isaac/Character Head_Inner Eye.png
 - Assets/ABRes/Sprites/Characters/Isaac/Character Body_Basic.png
 - Assets/ABRes/Sprites/Characters/Isaac/Head_GetItem.png
+- Assets/ABRes/Sprites/Characters/Isaac/Character Head_RoidRage.png
 Dependencies: []

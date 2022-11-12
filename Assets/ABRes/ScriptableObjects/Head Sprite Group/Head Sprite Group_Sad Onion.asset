@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8eeeee01332beb54eaeb9abb35c349a4, type: 3}
+  m_Name: Head Sprite Group_Sad Onion
+  m_EditorClassIdentifier: 
+  upShootingSprites:
+  - {fileID: -1632740715157891254, guid: c5b0f02d1bc922d48a4629f3b22e886b, type: 3}
+  - {fileID: 1052163833472347407, guid: c5b0f02d1bc922d48a4629f3b22e886b, type: 3}
+  downShootingSprites:
+  - {fileID: 4270728326329571812, guid: c5b0f02d1bc922d48a4629f3b22e886b, type: 3}
+  - {fileID: -145790491916449101, guid: c5b0f02d1bc922d48a4629f3b22e886b, type: 3}
+  leftShootingSprites:
+  - {fileID: -565791199781892293, guid: c5b0f02d1bc922d48a4629f3b22e886b, type: 3}
+  - {fileID: -528895841369514800, guid: c5b0f02d1bc922d48a4629f3b22e886b, type: 3}
+  rightShootingSprites:
+  - {fileID: -5053463773589509919, guid: c5b0f02d1bc922d48a4629f3b22e886b, type: 3}
+  - {fileID: 2915052377789253289, guid: c5b0f02d1bc922d48a4629f3b22e886b, type: 3}

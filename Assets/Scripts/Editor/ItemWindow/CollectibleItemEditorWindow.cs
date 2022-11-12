@@ -7,14 +7,23 @@ using UnityEngine;
 
 public class CollectibleItemEditorWindow : ItemEditorWindow<CollectibleItemTreeElement>
 {
+    List<int> selectedID = new List<int>(1);
     protected override void AddPlayerProfile()
     {
         if (CheckTreeAsset())
         {
-            m_TreeView.CustomTreeModel.AddElement(m_MyTreeAsset.CreateProfile(),
+            var element = m_MyTreeAsset.CreateProfile();
+            m_TreeView.CustomTreeModel.AddElement(element,
                                                   m_MyTreeAsset.TreeRoot,
                                                   Mathf.Max(0, m_MyTreeAsset.TreeRoot.Children.Count - 1));
             DoTreeView(MultiColumnTreeViewRect);
+
+            if (selectedID.Count == 1)
+                selectedID[0] = element.ElementID;
+            else
+                selectedID.Add(element.ElementID);
+            m_TreeView.SetFocus();
+            m_TreeView.SetSelection(selectedID, TreeViewSelectionOptions.RevealAndFrame);
         }
         else Debug.Log("AddPlayerProfile");
 

@@ -94,12 +94,20 @@ public class Player : MonoBehaviour
     public float TearAddition
     {
         get => playerProfile.PlayerTearsAddition + tearAddition;
-        set => tearAddition = value;
+        set
+        {
+            tearAddition = value;
+            onPlayerTearsChanged.RaiseEvent(Tears);
+        }
     }
     public float TearMultiplier
     {
         get => playerProfile.PlayerTearsMultiplier + tearMultiplier;
-        set => tearMultiplier = value;
+        set
+        {
+            tearMultiplier = value;
+            onPlayerTearsChanged.RaiseEvent(Tears);
+        }
     }
     /// <summary>
     /// 眼泪的移动速度
