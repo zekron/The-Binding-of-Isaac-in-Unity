@@ -82,10 +82,10 @@ public class PlayerController : MonoBehaviour
     private void Update()
     {
         UpdateSystemControl();
+        UpdateGameControl();
 
         if (!useFixedUpdate)
         {
-            UpdateGameControl();
             UpdateMovement();
             UpdateAnimation();
         }
@@ -93,9 +93,9 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        FixedUpdateGameControl();
         if (useFixedUpdate)
         {
-            UpdateGameControl();
             UpdateMovement();
             UpdateAnimation();
         }
@@ -169,7 +169,9 @@ public class PlayerController : MonoBehaviour
         {
             player.UseActiveItem();
         }
-
+    }
+    private void FixedUpdateGameControl()
+    {
         //canShoot = true;
         tearDirection = Input.GetAxis("Fire1") * Vector2.right;
         if (tearDirection.x == 0) tearDirection += Input.GetAxis("Fire2") * Vector2.up;
