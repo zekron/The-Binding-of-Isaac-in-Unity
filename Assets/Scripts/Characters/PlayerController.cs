@@ -192,9 +192,13 @@ public class PlayerController : MonoBehaviour
             if (canShoot)
             {
                 shootTimer = tearInterval;
-                ObjectPoolManager.Release(tearPrefab,
-                                          player.GetTearSpawnPosition(tearDirection)/*.ToWorldPosition(transform)*/,
-                                          Quaternion.identity).GetComponent<Tear>().MoveVelocity = tearDirection * shotSpeed;
+                var muzzles = player.GetTearSpawnPosition(tearDirection);
+                for (int i = 0; i < muzzles.Length; i++)
+                {
+                    ObjectPoolManager.Release(tearPrefab,
+                                              muzzles[i].ToWorldPosition(transform),
+                                              Quaternion.identity).GetComponent<Tear>().MoveVelocity = tearDirection * shotSpeed;
+                }
 
                 StartCoroutine(nameof(Cor_SetHeadSprite));
             }

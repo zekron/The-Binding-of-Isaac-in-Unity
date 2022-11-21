@@ -3,7 +3,7 @@ CRC: 4277551452
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: da579c7d540798898ca1b1012142f95f
+    Hash: ca724288c505c68b986bf8cd94db97c1
   TypeTreeHash:
     serializedVersion: 2
     Hash: e7b8dc5f09131ac420bac7adf0708b8b
@@ -30,8 +30,8 @@ Assets:
 - Assets/ABRes/ScriptableObjects/Tree Asset/TrinketItem TreeAsset.asset
 - Assets/ABRes/ScriptableObjects/Tree Asset/EnemyProfile TreeAsset.asset
 Dependencies:
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/items.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/active.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/incollection.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/passive.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/trinketui.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/items.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/active.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/incollection.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/passive.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/trinketui.ab

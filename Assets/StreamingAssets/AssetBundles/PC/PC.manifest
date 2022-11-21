@@ -1,332 +1,337 @@
 ManifestFileVersion: 0
-CRC: 2816944912
+CRC: 106629883
 AssetBundleManifest:
   AssetBundleInfos:
     Info_0:
-      Name: scriptableobjects/event channel.ab
+      Name: gameui.ab
       Dependencies: {}
     Info_1:
-      Name: materials.ab
+      Name: sprites/items/incollection.ab
       Dependencies: {}
     Info_2:
-      Name: scriptableobjects/objectpool.ab
-      Dependencies:
-        Dependency_0: prefabs/doors.ab
-        Dependency_1: prefabs/props.ab
-        Dependency_2: prefabs/rooms.ab
-        Dependency_3: prefabs/obstacles/fire place.ab
-        Dependency_4: prefabs/obstacles/poop.ab
-        Dependency_5: prefabs/obstacles/rock.ab
-        Dependency_6: prefabs/obstacles/pedestal.ab
+      Name: sprites/pickups/cards.ab
+      Dependencies: {}
     Info_3:
-      Name: scriptableobjects/tears.ab
-      Dependencies:
-        Dependency_0: prefabs/tears.ab
-        Dependency_1: sprites/ui/tearui.ab
+      Name: sprites/items/passive.ab
+      Dependencies: {}
     Info_4:
-      Name: scriptableobjects/tree asset.ab
-      Dependencies:
-        Dependency_0: prefabs/items.ab
-        Dependency_1: sprites/items/trinketui.ab
-        Dependency_2: sprites/items/active.ab
-        Dependency_3: sprites/items/incollection.ab
-        Dependency_4: sprites/items/passive.ab
+      Name: sprites/items/active.ab
+      Dependencies: {}
     Info_5:
-      Name: prefabs/doors.ab
-      Dependencies:
-        Dependency_0: scriptableobjects/event channel.ab
-        Dependency_1: prefabs/fx.ab
-        Dependency_2: animators/door.ab
-        Dependency_3: sprites/fx/arcade.ab
-        Dependency_4: sprites/maps/doors.ab
-        Dependency_5: animators/sequences/miscs.ab
+      Name: sprites/obstacles/spikes.ab
+      Dependencies: {}
     Info_6:
-      Name: prefabs/fx.ab
+      Name: scriptableobjects/pickups/base.ab
       Dependencies:
-        Dependency_0: animators/sequences/miscs.ab
-    Info_7:
-      Name: prefabs/items.ab
-      Dependencies:
-        Dependency_0: scriptableobjects/event channel.ab
-        Dependency_1: animators/fx.ab
-        Dependency_2: prefabs/obstacles/poop.ab
-        Dependency_3: sprites/items/active.ab
-        Dependency_4: sprites/items/passive.ab
-        Dependency_5: scriptableobjects/head sprite group.ab
-    Info_8:
-      Name: prefabs/players.ab
-      Dependencies:
-        Dependency_0: scriptableobjects/event channel.ab
-        Dependency_1: prefabs/tears.ab
-        Dependency_2: sprites/characters/isaac.ab
-        Dependency_3: animators/character.ab
-        Dependency_4: animators/sequences/miscs.ab
-        Dependency_5: scriptableobjects/head sprite group.ab
-    Info_9:
-      Name: prefabs/props.ab
-      Dependencies:
-        Dependency_0: animators/fx.ab
-        Dependency_1: sprites/fx/coin_highlight.ab
-        Dependency_2: sprites/pickups/bombs.ab
-        Dependency_3: sprites/pickups/cards.ab
-        Dependency_4: sprites/pickups/chests.ab
-        Dependency_5: sprites/pickups/coins.ab
-        Dependency_6: sprites/pickups/hearts.ab
-        Dependency_7: sprites/pickups/keys.ab
-        Dependency_8: sprites/pickups/pills.ab
-        Dependency_9: animators/sequences/pickup.ab
-        Dependency_10: scriptableobjects/pickups/base.ab
-    Info_10:
-      Name: prefabs/rooms.ab
-      Dependencies:
-        Dependency_0: scriptableobjects/event channel.ab
-        Dependency_1: prefabs/doors.ab
-        Dependency_2: scriptableobjects/roomlayout/startingroom.ab
-        Dependency_3: sprites/maps/basement.ab
-        Dependency_4: sprites/maps/miscs.ab
-    Info_11:
-      Name: prefabs/tears.ab
-      Dependencies:
-        Dependency_0: sprites/tears/tear_normal.ab
-        Dependency_1: animators/sequences/miscs.ab
-    Info_12:
-      Name: prefabs/test.ab
-      Dependencies:
-        Dependency_0: materials.ab
-    Info_13:
-      Name: animators/door.ab
-      Dependencies: {}
-    Info_14:
-      Name: animators/fx.ab
-      Dependencies: {}
-    Info_15:
-      Name: sprites/fx/arcade.ab
-      Dependencies: {}
-    Info_16:
-      Name: prefabs/obstacles/fire place.ab
-      Dependencies:
-        Dependency_0: animators/fx.ab
-        Dependency_1: sprites/obstacles/fire places.ab
-        Dependency_2: animators/sequences/obstacles.ab
-    Info_17:
-      Name: prefabs/obstacles/poop.ab
-      Dependencies:
-        Dependency_0: sprites/obstacles/poops.ab
-        Dependency_1: animators/sequences/obstacles.ab
-    Info_18:
-      Name: prefabs/obstacles/rock.ab
-      Dependencies:
-        Dependency_0: sprites/obstacles/rocks.ab
-    Info_19:
-      Name: scriptableobjects/random object/random item.ab
-      Dependencies:
-        Dependency_0: sprites/items/active.ab
-    Info_20:
-      Name: scriptableobjects/roomlayout/bossroom.ab
-      Dependencies:
-        Dependency_0: prefabs/obstacles/rock.ab
-        Dependency_1: sprites/maps/basement.ab
-    Info_21:
-      Name: scriptableobjects/roomlayout/normalroom.ab
-      Dependencies:
-        Dependency_0: prefabs/obstacles/fire place.ab
-        Dependency_1: prefabs/obstacles/poop.ab
-        Dependency_2: prefabs/obstacles/rock.ab
-        Dependency_3: scriptableobjects/random object/random pickup.ab
-        Dependency_4: sprites/maps/basement.ab
-    Info_22:
-      Name: scriptableobjects/roomlayout/shoproom.ab
-      Dependencies:
-        Dependency_0: prefabs/obstacles/fire place.ab
-        Dependency_1: prefabs/obstacles/rock.ab
-        Dependency_2: sprites/maps/basement.ab
-    Info_23:
-      Name: scriptableobjects/roomlayout/treasureroom.ab
-      Dependencies:
-        Dependency_0: prefabs/obstacles/fire place.ab
-        Dependency_1: prefabs/obstacles/rock.ab
-        Dependency_2: sprites/maps/basement.ab
-        Dependency_3: scriptableobjects/random object/random item base.ab
-    Info_24:
-      Name: sprites/fx/coin_highlight.ab
-      Dependencies: {}
-    Info_25:
-      Name: sprites/fx/smoke.ab
-      Dependencies: {}
-    Info_26:
-      Name: prefabs/obstacles/tnt.ab
-      Dependencies:
-        Dependency_0: sprites/obstacles/tnt.ab
-        Dependency_1: animators/sequences/obstacles.ab
-    Info_27:
-      Name: scriptableobjects/random object/random pickup.ab
-      Dependencies:
-        Dependency_0: prefabs/props.ab
-        Dependency_1: sprites/pickups/chests.ab
+        Dependency_0: sprites/pickups/cards.ab
+        Dependency_1: sprites/ui/miscs.ab
         Dependency_2: sprites/pickups/coins.ab
         Dependency_3: sprites/pickups/hearts.ab
-    Info_28:
-      Name: scriptableobjects/roomlayout/group.ab
-      Dependencies:
-        Dependency_0: scriptableobjects/roomlayout/bossroom.ab
-        Dependency_1: scriptableobjects/roomlayout/normalroom.ab
-        Dependency_2: scriptableobjects/roomlayout/shoproom.ab
-        Dependency_3: scriptableobjects/roomlayout/treasureroom.ab
-        Dependency_4: scriptableobjects/roomlayout/startingroom.ab
-        Dependency_5: scriptableobjects/roomlayout/secretroom.ab
-    Info_29:
+        Dependency_4: sprites/pickups/keys.ab
+        Dependency_5: sprites/pickups/bombs.ab
+        Dependency_6: sprites/pickups/pills.ab
+    Info_7:
+      Name: sprites/obstacles/poops.ab
+      Dependencies: {}
+    Info_8:
+      Name: scriptableobjects/event channel.ab
+      Dependencies: {}
+    Info_9:
+      Name: sprites/obstacles/fire places.ab
+      Dependencies: {}
+    Info_10:
+      Name: sprites/fx/smoke.ab
+      Dependencies: {}
+    Info_11:
+      Name: sprites/maps/secret.ab
+      Dependencies: {}
+    Info_12:
+      Name: sprites/characters/isaac.ab
+      Dependencies: {}
+    Info_13:
+      Name: sprites/maps/doors.ab
+      Dependencies: {}
+    Info_14:
+      Name: materials.ab
+      Dependencies: {}
+    Info_15:
       Name: scriptableobjects/roomlayout/startingroom.ab
       Dependencies:
         Dependency_0: sprites/maps/basement.ab
         Dependency_1: sprites/maps/miscs.ab
-    Info_30:
-      Name: sprites/items/trinketui.ab
-      Dependencies: {}
-    Info_31:
-      Name: sprites/characters/isaac.ab
-      Dependencies: {}
-    Info_32:
+    Info_16:
       Name: sprites/maps/basement.ab
       Dependencies: {}
-    Info_33:
-      Name: sprites/maps/cellar.ab
+    Info_17:
+      Name: sprites/ui/tearui.ab
       Dependencies: {}
-    Info_34:
-      Name: sprites/maps/doors.ab
+    Info_18:
+      Name: animators/fx.ab
       Dependencies: {}
-    Info_35:
-      Name: sprites/maps/miscs.ab
+    Info_19:
+      Name: sprites/items/trinketui.ab
       Dependencies: {}
-    Info_36:
-      Name: sprites/obstacles/blocks.ab
+    Info_20:
+      Name: sprites/ui/miscs.ab
       Dependencies: {}
-    Info_37:
-      Name: sprites/obstacles/cobwebs.ab
+    Info_21:
+      Name: animators/door.ab
       Dependencies: {}
-    Info_38:
-      Name: sprites/obstacles/fire places.ab
+    Info_22:
+      Name: sprites/pickups/coins.ab
       Dependencies: {}
-    Info_39:
-      Name: sprites/obstacles/pedestal.ab
+    Info_23:
+      Name: prefabs/obstacles/poop.ab
+      Dependencies:
+        Dependency_0: sprites/obstacles/poops.ab
+        Dependency_1: animators/sequences/obstacles.ab
+    Info_24:
+      Name: sprites/pickups/chests.ab
       Dependencies: {}
-    Info_40:
-      Name: sprites/obstacles/poops.ab
+    Info_25:
+      Name: sprites/obstacles/tnt.ab
       Dependencies: {}
-    Info_41:
+    Info_26:
       Name: sprites/obstacles/rocks.ab
       Dependencies: {}
-    Info_42:
-      Name: sprites/obstacles/spikes.ab
+    Info_27:
+      Name: prefabs/props.ab
+      Dependencies:
+        Dependency_0: sprites/pickups/cards.ab
+        Dependency_1: scriptableobjects/pickups/base.ab
+        Dependency_2: animators/fx.ab
+        Dependency_3: sprites/pickups/coins.ab
+        Dependency_4: sprites/pickups/chests.ab
+        Dependency_5: sprites/pickups/hearts.ab
+        Dependency_6: sprites/pickups/keys.ab
+        Dependency_7: sprites/pickups/bombs.ab
+        Dependency_8: sprites/fx/coin_highlight.ab
+        Dependency_9: sprites/pickups/pills.ab
+        Dependency_10: animators/sequences/pickup.ab
+    Info_28:
+      Name: sprites/fx/arcade.ab
       Dependencies: {}
+    Info_29:
+      Name: prefabs/doors.ab
+      Dependencies:
+        Dependency_0: scriptableobjects/event channel.ab
+        Dependency_1: sprites/maps/doors.ab
+        Dependency_2: animators/door.ab
+        Dependency_3: sprites/fx/arcade.ab
+        Dependency_4: prefabs/fx.ab
+        Dependency_5: animators/sequences/miscs.ab
+    Info_30:
+      Name: sprites/tears/tear_normal.ab
+      Dependencies: {}
+    Info_31:
+      Name: prefabs/fx.ab
+      Dependencies:
+        Dependency_0: animators/sequences/miscs.ab
+    Info_32:
+      Name: scriptableobjects/pickups/chest.ab
+      Dependencies:
+        Dependency_0: sprites/pickups/chests.ab
+        Dependency_1: animators/sequences/pickup.ab
+    Info_33:
+      Name: sprites/obstacles/cobwebs.ab
+      Dependencies: {}
+    Info_34:
+      Name: scriptableobjects/tree asset.ab
+      Dependencies:
+        Dependency_0: sprites/items/incollection.ab
+        Dependency_1: sprites/items/passive.ab
+        Dependency_2: sprites/items/active.ab
+        Dependency_3: sprites/items/trinketui.ab
+        Dependency_4: prefabs/items.ab
+    Info_35:
+      Name: sprites/maps/cellar.ab
+      Dependencies: {}
+    Info_36:
+      Name: animators/sequences/miscs.ab
+      Dependencies:
+        Dependency_0: sprites/fx/smoke.ab
+        Dependency_1: sprites/fx/arcade.ab
+        Dependency_2: sprites/tears/tear_normal.ab
+        Dependency_3: sprites/fx/gethurttear.ab
+    Info_37:
+      Name: animators/character.ab
+      Dependencies:
+        Dependency_0: sprites/characters/isaac.ab
+    Info_38:
+      Name: sprites/pickups/hearts.ab
+      Dependencies: {}
+    Info_39:
+      Name: prefabs/items.ab
+      Dependencies:
+        Dependency_0: sprites/items/passive.ab
+        Dependency_1: sprites/items/active.ab
+        Dependency_2: scriptableobjects/event channel.ab
+        Dependency_3: animators/fx.ab
+        Dependency_4: prefabs/obstacles/poop.ab
+        Dependency_5: scriptableobjects/head sprite group.ab
+        Dependency_6: prefabs/muzzles.ab
+    Info_40:
+      Name: scriptableobjects/head sprite group.ab
+      Dependencies:
+        Dependency_0: sprites/characters/isaac.ab
+    Info_41:
+      Name: prefabs/rooms.ab
+      Dependencies:
+        Dependency_0: scriptableobjects/event channel.ab
+        Dependency_1: scriptableobjects/roomlayout/startingroom.ab
+        Dependency_2: sprites/maps/basement.ab
+        Dependency_3: prefabs/doors.ab
+        Dependency_4: sprites/maps/miscs.ab
+    Info_42:
+      Name: scriptableobjects/roomlayout/group.ab
+      Dependencies:
+        Dependency_0: scriptableobjects/roomlayout/startingroom.ab
+        Dependency_1: scriptableobjects/roomlayout/normalroom.ab
+        Dependency_2: scriptableobjects/roomlayout/secretroom.ab
+        Dependency_3: scriptableobjects/roomlayout/treasureroom.ab
+        Dependency_4: scriptableobjects/roomlayout/shoproom.ab
+        Dependency_5: scriptableobjects/roomlayout/bossroom.ab
     Info_43:
-      Name: sprites/obstacles/tnt.ab
+      Name: sprites/pickups/keys.ab
       Dependencies: {}
     Info_44:
       Name: sprites/pickups/bombs.ab
       Dependencies: {}
     Info_45:
-      Name: sprites/pickups/cards.ab
-      Dependencies: {}
+      Name: prefabs/tears.ab
+      Dependencies:
+        Dependency_0: sprites/tears/tear_normal.ab
+        Dependency_1: animators/sequences/miscs.ab
     Info_46:
-      Name: sprites/pickups/chests.ab
+      Name: sprites/fx/coin_highlight.ab
       Dependencies: {}
     Info_47:
-      Name: sprites/pickups/coins.ab
+      Name: sprites/maps/miscs.ab
       Dependencies: {}
     Info_48:
-      Name: sprites/pickups/hearts.ab
-      Dependencies: {}
+      Name: animators/sequences/obstacles.ab
+      Dependencies:
+        Dependency_0: sprites/obstacles/poops.ab
+        Dependency_1: sprites/obstacles/fire places.ab
+        Dependency_2: sprites/obstacles/tnt.ab
     Info_49:
-      Name: sprites/pickups/keys.ab
-      Dependencies: {}
+      Name: scriptableobjects/roomlayout/normalroom.ab
+      Dependencies:
+        Dependency_0: sprites/maps/basement.ab
+        Dependency_1: prefabs/obstacles/poop.ab
+        Dependency_2: scriptableobjects/random object/random pickup.ab
+        Dependency_3: prefabs/obstacles/fire place.ab
+        Dependency_4: prefabs/obstacles/rock.ab
     Info_50:
-      Name: sprites/pickups/pills.ab
-      Dependencies: {}
+      Name: scriptableobjects/random object/random pickup.ab
+      Dependencies:
+        Dependency_0: sprites/pickups/coins.ab
+        Dependency_1: sprites/pickups/chests.ab
+        Dependency_2: prefabs/props.ab
+        Dependency_3: sprites/pickups/hearts.ab
     Info_51:
-      Name: sprites/tears/tear_normal.ab
-      Dependencies: {}
+      Name: scriptableobjects/objectpool.ab
+      Dependencies:
+        Dependency_0: prefabs/obstacles/poop.ab
+        Dependency_1: prefabs/props.ab
+        Dependency_2: prefabs/doors.ab
+        Dependency_3: prefabs/rooms.ab
+        Dependency_4: prefabs/obstacles/fire place.ab
+        Dependency_5: prefabs/obstacles/rock.ab
+        Dependency_6: prefabs/obstacles/pedestal.ab
     Info_52:
-      Name: sprites/ui/miscs.ab
-      Dependencies: {}
+      Name: prefabs/test.ab
+      Dependencies:
+        Dependency_0: materials.ab
     Info_53:
       Name: sprites/ui/single.ab
       Dependencies: {}
     Info_54:
-      Name: sprites/ui/tearui.ab
+      Name: sprites/pickups/pills.ab
       Dependencies: {}
     Info_55:
-      Name: gameui.ab
+      Name: sprites/fx/gethurttear.ab
       Dependencies: {}
     Info_56:
-      Name: sprites/items/active.ab
-      Dependencies: {}
-    Info_57:
-      Name: sprites/items/incollection.ab
-      Dependencies: {}
-    Info_58:
-      Name: sprites/items/passive.ab
-      Dependencies: {}
-    Info_59:
-      Name: sprites/pickups/batteries.ab
-      Dependencies: {}
-    Info_60:
-      Name: animators/character.ab
-      Dependencies:
-        Dependency_0: sprites/characters/isaac.ab
-    Info_61:
-      Name: animators/sequences/miscs.ab
-      Dependencies:
-        Dependency_0: sprites/fx/arcade.ab
-        Dependency_1: sprites/fx/smoke.ab
-        Dependency_2: sprites/tears/tear_normal.ab
-        Dependency_3: sprites/fx/gethurttear.ab
-    Info_62:
-      Name: animators/sequences/obstacles.ab
-      Dependencies:
-        Dependency_0: sprites/obstacles/fire places.ab
-        Dependency_1: sprites/obstacles/poops.ab
-        Dependency_2: sprites/obstacles/tnt.ab
-    Info_63:
       Name: animators/sequences/pickup.ab
       Dependencies:
-        Dependency_0: sprites/fx/coin_highlight.ab
-        Dependency_1: sprites/pickups/chests.ab
-    Info_64:
-      Name: prefabs/obstacles/pedestal.ab
+        Dependency_0: sprites/pickups/chests.ab
+        Dependency_1: sprites/fx/coin_highlight.ab
+    Info_57:
+      Name: scriptableobjects/roomlayout/secretroom.ab
       Dependencies:
-        Dependency_0: scriptableobjects/random object/random item.ab
-        Dependency_1: sprites/items/active.ab
+        Dependency_0: sprites/maps/secret.ab
+    Info_58:
+      Name: prefabs/players.ab
+      Dependencies:
+        Dependency_0: scriptableobjects/event channel.ab
+        Dependency_1: sprites/characters/isaac.ab
+        Dependency_2: animators/sequences/miscs.ab
+        Dependency_3: animators/character.ab
+        Dependency_4: scriptableobjects/head sprite group.ab
+        Dependency_5: prefabs/tears.ab
+        Dependency_6: prefabs/muzzles.ab
+    Info_59:
+      Name: sprites/obstacles/pedestal.ab
+      Dependencies: {}
+    Info_60:
+      Name: scriptableobjects/roomlayout/treasureroom.ab
+      Dependencies:
+        Dependency_0: sprites/maps/basement.ab
+        Dependency_1: prefabs/obstacles/fire place.ab
+        Dependency_2: prefabs/obstacles/rock.ab
+        Dependency_3: scriptableobjects/random object/random item base.ab
+    Info_61:
+      Name: sprites/pickups/batteries.ab
+      Dependencies: {}
+    Info_62:
+      Name: scriptableobjects/random object/random item.ab
+      Dependencies:
+        Dependency_0: sprites/items/active.ab
+    Info_63:
+      Name: prefabs/obstacles/fire place.ab
+      Dependencies:
+        Dependency_0: sprites/obstacles/fire places.ab
+        Dependency_1: animators/fx.ab
+        Dependency_2: animators/sequences/obstacles.ab
+    Info_64:
+      Name: scriptableobjects/roomlayout/shoproom.ab
+      Dependencies:
+        Dependency_0: sprites/maps/basement.ab
+        Dependency_1: prefabs/obstacles/fire place.ab
+        Dependency_2: prefabs/obstacles/rock.ab
     Info_65:
+      Name: sprites/obstacles/blocks.ab
+      Dependencies: {}
+    Info_66:
+      Name: scriptableobjects/tears.ab
+      Dependencies:
+        Dependency_0: sprites/ui/tearui.ab
+        Dependency_1: prefabs/tears.ab
+    Info_67:
+      Name: prefabs/obstacles/rock.ab
+      Dependencies:
+        Dependency_0: sprites/obstacles/rocks.ab
+    Info_68:
+      Name: scriptableobjects/roomlayout/bossroom.ab
+      Dependencies:
+        Dependency_0: sprites/maps/basement.ab
+        Dependency_1: prefabs/obstacles/rock.ab
+    Info_69:
+      Name: prefabs/obstacles/tnt.ab
+      Dependencies:
+        Dependency_0: sprites/obstacles/tnt.ab
+        Dependency_1: animators/sequences/obstacles.ab
+    Info_70:
       Name: scriptableobjects/random object/random item base.ab
       Dependencies:
         Dependency_0: sprites/items/active.ab
         Dependency_1: prefabs/obstacles/pedestal.ab
-    Info_66:
-      Name: sprites/maps/secret.ab
-      Dependencies: {}
-    Info_67:
-      Name: scriptableobjects/roomlayout/secretroom.ab
-      Dependencies:
-        Dependency_0: sprites/maps/secret.ab
-    Info_68:
-      Name: scriptableobjects/pickups/base.ab
-      Dependencies:
-        Dependency_0: sprites/pickups/bombs.ab
-        Dependency_1: sprites/pickups/cards.ab
-        Dependency_2: sprites/pickups/coins.ab
-        Dependency_3: sprites/pickups/hearts.ab
-        Dependency_4: sprites/pickups/keys.ab
-        Dependency_5: sprites/pickups/pills.ab
-        Dependency_6: sprites/ui/miscs.ab
-    Info_69:
-      Name: scriptableobjects/pickups/chest.ab
-      Dependencies:
-        Dependency_0: sprites/pickups/chests.ab
-        Dependency_1: animators/sequences/pickup.ab
-    Info_70:
-      Name: scriptableobjects/head sprite group.ab
-      Dependencies:
-        Dependency_0: sprites/characters/isaac.ab
     Info_71:
-      Name: sprites/fx/gethurttear.ab
+      Name: prefabs/obstacles/pedestal.ab
+      Dependencies:
+        Dependency_0: sprites/items/active.ab
+        Dependency_1: scriptableobjects/random object/random item.ab
+    Info_72:
+      Name: prefabs/muzzles.ab
       Dependencies: {}

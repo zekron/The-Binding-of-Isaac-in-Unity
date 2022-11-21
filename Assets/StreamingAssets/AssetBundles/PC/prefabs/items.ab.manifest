@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 208360043
+CRC: 2059929667
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: c464c57cdd845b60a55acc94e8855c20
+    Hash: 12fef88d77225d5aa6cb96d41348d9af
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 8f6ab5e3148d51c6a84ea22e8521bc43
+    Hash: f254fa35a275aed9540b47962ebb4d46
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -28,6 +28,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: 8eeeee01332beb54eaeb9abb35c349a4, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: a4d4d26d0faddfa4c9fd6b8c1c45defe, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: fc07c03a6e0e5124fac85acdceae8a98, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: d779a7100f255dc40aa22d3edc4d9010, type: 3}
@@ -35,6 +37,8 @@ ClassTypes:
   Script: {fileID: 11500000, guid: bab452018160102418694ca6caf360ad, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 8cd9e842c1a491d44b0f87f8df6188a5, type: 3}
+- Class: 114
+  Script: {fileID: 11500000, guid: 1d8762f08bc6512408a5f398137b2662, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 6673e9d0925210441bd6f65397cf5d8e, type: 3}
 - Class: 114
@@ -45,10 +49,6 @@ ClassTypes:
   Script: {fileID: 11500000, guid: 19b056ea34eeaca4fa55ef1ea10cefd8, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 27a3064a6ee7487499cf45e85fb585f8, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: 1d8762f08bc6512408a5f398137b2662, type: 3}
-- Class: 114
-  Script: {fileID: 11500000, guid: a4d4d26d0faddfa4c9fd6b8c1c45defe, type: 3}
 - Class: 115
   Script: {instanceID: 0}
 - Class: 212
@@ -68,11 +68,12 @@ Assets:
 - Assets/ABRes/Prefabs/Items/001_The Sad Onion.prefab
 - Assets/ABRes/Prefabs/Items/038_The Book Of Belial.prefab
 Dependencies:
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/animators/fx.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/obstacles/poop.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/event
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/animators/fx.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/muzzles.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/obstacles/poop.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/event
   channel.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/head
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/head
   sprite group.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/active.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/passive.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/active.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/passive.ab

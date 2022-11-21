@@ -10,6 +10,7 @@ public class ObjectPoolManager : MonoBehaviour
     [SerializeField] private ObjectPool[] itemPools;
     [SerializeField] private ObjectPool[] playerModelPools;
     [SerializeField] private ObjectPool[] tearPools;
+    [SerializeField] private ObjectPool[] muzzlePools;
 
     private static Dictionary<GameObject, ObjectPool> objectPoolDictionary;
     private static Transform selfTransform;
@@ -26,6 +27,7 @@ public class ObjectPoolManager : MonoBehaviour
         Initialize(itemPools);
         Initialize(playerModelPools);
         Initialize(tearPools);
+        Initialize(muzzlePools);
     }
 
 #if UNITY_EDITOR
@@ -37,6 +39,7 @@ public class ObjectPoolManager : MonoBehaviour
         CheckPoolSize(vFXPools);
         CheckPoolSize(itemPools);
         CheckPoolSize(tearPools);
+        CheckPoolSize(muzzlePools);
         //CheckPoolSize(activeItemPools.Pools);
     }
 #endif

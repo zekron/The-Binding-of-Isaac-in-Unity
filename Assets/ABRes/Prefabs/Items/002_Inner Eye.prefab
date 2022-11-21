@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 2
   innerEyeHeadGroup: {fileID: 11400000, guid: fc6811b4a3df8d248b2bc72f2cb1c947, type: 2}
+  innerEyeMuzzle: {fileID: 3795774870049657350, guid: 5e69b51395039ae4590828f4fc5820af, type: 3}
 --- !u!1 &7887810579978574041
 GameObject:
   m_ObjectHideFlags: 0

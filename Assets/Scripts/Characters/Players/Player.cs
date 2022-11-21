@@ -12,12 +12,14 @@ public class Player : MonoBehaviour
 
     [SerializeField] private HealthDataEventChannelSO onPlayerHealthDataChanged;
     [SerializeField] private PickupDataEventChannelSO onPlayerPickupDataChanged;
+
     [SerializeField] private FloatEventChannelSO onPlayerTearsChanged;
     [SerializeField] private BooleanEventChannelSO onPlayerGetGoldenKey;
 
     private PlayerProfileTreeElement playerProfile;
     private PlayerRenderer playerRenderer;
     private PlayerController playerController;
+    private MuzzleSO playerMuzzles;
     private CustomRigidbody2D playerRigidbody;
 
     #region Current player status
@@ -141,6 +143,7 @@ public class Player : MonoBehaviour
 
         playerRenderer = GetComponent<PlayerRenderer>();
         playerController = GetComponent<PlayerController>();
+        playerMuzzles = GetComponentInChildren<MuzzleSO>();
 
         activeItemSkill = new UnityEvent();
     }
@@ -183,9 +186,15 @@ public class Player : MonoBehaviour
         playerRenderer.SetHeadSprite(direction, index);
     }
 
-    internal Vector3 GetTearSpawnPosition(Vector2 tearDirection)
+    internal Vector3[] GetTearSpawnPosition(Vector2 tearDirection)
     {
-        return playerRenderer.GetTearSpawnPosition(tearDirection);
+        return playerMuzzles.GetNextMuzzles(tearDirection);
+    }
+
+    public void ChangeMuzzle(GameObject innerEyeMuzzle)
+    {
+
+        playerMuzzles = ObjectPoolManager.Release(innerEyeMuzzle, transform.position, Quaternion.identity, transform).GetComponent<MuzzleSO>();
     }
     #endregion
 

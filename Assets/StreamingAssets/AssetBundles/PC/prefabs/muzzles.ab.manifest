@@ -1,0 +1,24 @@
+ManifestFileVersion: 0
+CRC: 2611626934
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: 9b8e5ff1b13c2a63b52ddd991c9e24c4
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: d2eeb79a67e92e7f3cd9e7e2523e496b
+HashAppended: 0
+ClassTypes:
+- Class: 1
+  Script: {instanceID: 0}
+- Class: 4
+  Script: {instanceID: 0}
+- Class: 114
+  Script: {fileID: 11500000, guid: f31cbca1d8c59f0478cde886e34aedf5, type: 3}
+- Class: 115
+  Script: {instanceID: 0}
+SerializeReferenceClassIdentifiers: []
+Assets:
+- Assets/ABRes/Prefabs/Muzzles/Muzzles_InnerEye.prefab
+- Assets/ABRes/Prefabs/Muzzles/Muzzles_Normal.prefab
+Dependencies: []

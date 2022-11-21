@@ -3,7 +3,7 @@ CRC: 2222895260
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 1ca3de60cd04f11a9e37871ca4973a81
+    Hash: 7c3e613f81a67839498dd8fb045dfe3a
   TypeTreeHash:
     serializedVersion: 2
     Hash: d32512e6582a19c1e9553b087fcdb6c1
@@ -28,10 +28,10 @@ Assets:
 - Assets/ABRes/ScriptableObjects/RoomLayout/NormalRoom/Basement RoomLayout (66).asset
 - Assets/ABRes/ScriptableObjects/RoomLayout/NormalRoom/Basement RoomLayout (101).asset
 Dependencies:
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/obstacles/fire
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/obstacles/fire
   place.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/obstacles/poop.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/obstacles/rock.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/random
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/obstacles/poop.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/obstacles/rock.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/random
   object/random pickup.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/maps/basement.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/maps/basement.ab

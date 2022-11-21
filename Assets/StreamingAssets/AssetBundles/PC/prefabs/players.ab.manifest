@@ -1,12 +1,12 @@
 ManifestFileVersion: 0
-CRC: 2461057005
+CRC: 738899811
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 4b9e5d0cebfaca421b429917a9109b4d
+    Hash: ca3a7856f403eae00f406c5cd13452bb
   TypeTreeHash:
     serializedVersion: 2
-    Hash: 85a85b095376cee8694a2fa692b968a7
+    Hash: e5098020b7c6f00b236a50f2dc43c999
 HashAppended: 0
 ClassTypes:
 - Class: 1
@@ -46,6 +46,8 @@ ClassTypes:
 - Class: 114
   Script: {fileID: 11500000, guid: f712e0715f57c724d96816de37e8f8e1, type: 3}
 - Class: 114
+  Script: {fileID: 11500000, guid: f31cbca1d8c59f0478cde886e34aedf5, type: 3}
+- Class: 114
   Script: {fileID: 11500000, guid: 167f6da67c6402246b4c4c63326ef1d0, type: 3}
 - Class: 114
   Script: {fileID: 11500000, guid: 03cf1a6f9feeef444a373b9c2811c71f, type: 3}
@@ -61,11 +63,12 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/ABRes/Prefabs/Players/Isaac.prefab
 Dependencies:
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/animators/character.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/animators/sequences/miscs.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/tears.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/event
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/animators/character.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/animators/sequences/miscs.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/muzzles.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/prefabs/tears.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/event
   channel.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/head
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/scriptableobjects/head
   sprite group.ab
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/characters/isaac.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/characters/isaac.ab

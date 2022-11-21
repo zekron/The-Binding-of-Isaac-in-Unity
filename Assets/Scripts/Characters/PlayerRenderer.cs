@@ -100,23 +100,6 @@ public class PlayerRenderer : MonoBehaviour, IObjectInRoom
         headRenderer.sprite = newSprite;
     }
 
-    int muzzleSwitch = 0;
-
-    public Vector3 GetTearSpawnPosition(Vector2 vector2)
-    {
-        muzzleSwitch = 1 - muzzleSwitch;
-        if (vector2 == Vector2.up)
-            return muzzles[1 - muzzleSwitch].position;
-        else if (vector2 == Vector2.down)
-            return muzzles[3 - muzzleSwitch].position;
-        else if (vector2 == Vector2.left)
-            return muzzles[5 - muzzleSwitch].position;
-        else if (vector2 == Vector2.right)
-            return muzzles[7 - muzzleSwitch].position;
-        else
-        { Debug.LogError($"Fatal vector2 {vector2}"); return Vector3.zero; }
-    }
-
     public void ChangeRendererOrder()
     {
         bodyRenderer.sortingOrder = (int)(transform.position.y * -5);

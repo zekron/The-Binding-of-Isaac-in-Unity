@@ -547,6 +547,9 @@ MonoBehaviour:
   tearPools:
   - prefab: {fileID: 5298458932158306964, guid: 7618b7511185cb54db4ba8229800f054, type: 3}
     size: 1
+  muzzlePools:
+  - prefab: {fileID: 3795774870049657350, guid: 5e69b51395039ae4590828f4fc5820af, type: 3}
+    size: 1
 --- !u!1 &347605464
 GameObject:
   m_ObjectHideFlags: 0

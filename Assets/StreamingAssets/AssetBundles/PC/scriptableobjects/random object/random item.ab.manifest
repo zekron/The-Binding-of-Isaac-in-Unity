@@ -1,9 +1,9 @@
 ManifestFileVersion: 0
-CRC: 2642487015
+CRC: 4067956538
 Hashes:
   AssetFileHash:
     serializedVersion: 2
-    Hash: 47c366ef5cba1c44bafdf2c5c2eab3fc
+    Hash: 9c117ad919efecc7425dcae0b0b04f6b
   TypeTreeHash:
     serializedVersion: 2
     Hash: 22134e527991f300df5e4312d912d2b1
@@ -19,4 +19,4 @@ SerializeReferenceClassIdentifiers: []
 Assets:
 - Assets/ABRes/ScriptableObjects/Random Object/Random Item/Random Item.asset
 Dependencies:
-- C:/Projects/Unity Projects/The Binding of Isaac in Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/active.ab
+- D:/Projects/Unity Projects/The-Binding-of-Isaac-in-Unity/Assets/StreamingAssets/AssetBundles/PC/sprites/items/active.ab
